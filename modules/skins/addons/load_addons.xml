@@ -1,0 +1,14 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="ActionBarProfiles.lua"/>
+	<Script file="Baggins.lua"/>
+	<Script file="BigWigs.lua"/>
+	<Script file="BugSack.lua"/>
+	<Script file="DeadlyBossMods.lua"/>
+	<Script file="Hekili.lua"/>
+	<Script file="ls_Toasts.lua"/>
+	<Script file="Pawn.lua"/>
+	<Script file="stAddOnManager.lua"/>
+	<Script file="WeakAuras.lua"/>
+	<Script file="WeakAurasOptions.lua"/>
+	<Script file="XIV_Databar.lua"/>
+</Ui>

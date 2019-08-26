@@ -1,0 +1,11 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="auraIconSpacing.lua"/>
+	<Script file="healerMana.lua"/>
+	<Script file="health.lua"/>
+	<Script file="castbar.lua"/>
+	<Script file="powerbar.lua"/>
+	<Script file="power.lua"/>
+	<Script file="eliteIcon.lua"/>
+	<Script file="roleIcons.lua"/>
+	<!--Script file="focusKey.lua"/-->
+</Ui>

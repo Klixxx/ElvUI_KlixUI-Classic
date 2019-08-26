@@ -1,0 +1,5 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="talents.lua"/>
+	<Script file="profiles.lua"/>
+	<Script file="options.lua"/>
+</Ui>

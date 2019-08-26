@@ -1,0 +1,19 @@
+<Ui>
+	<Frame name='KuiWorldQuestPinTemplate' inherits='WorldMap_WorldQuestPinTemplate' mixin='KuiWorldQuestPinMixin' virtual='true'/>
+
+	<Script file='PinProvider.lua'/>
+
+	<Script file='Argus/ZoneInfo.lua'/>
+	<Script file='Argus/Map.lua'/>
+	<Script file='Argus/Bounty.lua'/>
+	<Script file='Argus/Highlight.lua'/>
+	<Script file='Argus/Navigate.lua'/>
+	<Script file='Argus/Players.lua'/>
+	<Script file='Argus/Rifts.lua'/>
+	<Script file='Argus/Title.lua'/>
+	<Script file='Argus/Vindicaar.lua'/>
+	<Script file='Argus/WorldFlightMap.lua'/>
+
+	<Script file='Helpers/Barrels.lua'/>
+	<Script file='Helpers/Loh.lua'/>
+</Ui>

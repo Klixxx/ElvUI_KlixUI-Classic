@@ -1,0 +1,8 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<script file="bags.lua"/>
+	<script file="itemselect.lua"/>
+	<script file="bagfilter.lua"/>
+	<script file="baginfo.lua"/>
+	<script file="autoopen.lua"/>
+	<script file="options.lua"/>
+</Ui>

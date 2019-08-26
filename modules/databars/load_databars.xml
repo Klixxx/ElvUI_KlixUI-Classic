@@ -1,0 +1,10 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/">	
+	<script file="databars.lua"/>
+	<script file="azerite.lua"/>
+	<script file="experience.lua"/>
+	<script file="honor.lua"/>
+	<script file="reputation.lua"/>
+	<script file="questXP.lua"/>
+	<script file="paragonRep.lua"/>
+	<script file="options.lua"/>
+</Ui>

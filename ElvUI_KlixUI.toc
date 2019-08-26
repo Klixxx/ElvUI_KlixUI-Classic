@@ -1,0 +1,18 @@
+## Interface: 11302
+## Author: Klix
+## Version: 0.01
+## Title: |cfffe7b2cElvUI|r |cff1784d1Classic|r |cfff960d9KlixUI Lite|r
+## Notes: A decorative edit for |cfffe7b2cElvUI|r with many awesome features!
+## RequiredDeps: ElvUI
+## DefaultState: Enabled
+## SavedVariables: KUIDataDB, AddonPanelProfilesDB, AddonPanelServerDB
+## SavedVariablesPerCharacter: KUIDataPerCharDB, nodes, fcontinent, Mail_Senders, Mail_Count
+## OptionalDeps: SharedMedia, AddOnSkins, BigWigs, ls_Toasts, XIV_Databar
+## X-ElvVersion: 0.1
+
+
+libs\load_libs.xml
+locales\load_locales.xml
+core\load_core.xml
+media\load_media.xml
+defaults\load_defaults.xml

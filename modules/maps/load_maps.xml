@@ -1,0 +1,10 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="minimap.lua"/>
+	<Script file="worldmap.lua"/>
+	<Script file="minimapbuttons.lua"/>
+	<Script file="minimaplocation.lua"/>
+	<Script file="mail.lua"/>
+	<Include file="worldquests\load_worldquests.xml"/>
+	<!--Script file="flightq.lua"/-->
+	<Script file="options.lua"/>
+</Ui>
