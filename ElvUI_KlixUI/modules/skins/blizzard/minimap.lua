@@ -8,7 +8,7 @@ local function styleMinimap()
 	local Minimap = _G.Minimap 
 	Minimap:Styling(true, true, false, 180, 180, .75)
 
-	if E.db.KlixUI.maps.minimap.styleLFG then
+	--[[if E.db.KlixUI.maps.minimap.styleLFG then
 		-- QueueStatus Button
 		_G.QueueStatusMinimapButtonBorder:Hide()
 		_G.QueueStatusMinimapButtonIconTexture:SetTexture(nil)
@@ -36,7 +36,7 @@ local function styleMinimap()
 	for _, v in T.pairs(flags) do
 		local flag = _G[v]
 		flag:SetScale(.75)
-	end
+	end]]
 end
 
 S:AddCallback("KuiSkinMinimap", styleMinimap)

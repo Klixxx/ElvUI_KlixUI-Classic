@@ -733,7 +733,7 @@ function KUIL:Initialize()
 	hooksecurefunc(DT, 'LoadDataTexts', updateButtonFont)
 	hooksecurefunc(E, 'UpdateMedia', updateButtonFont)
 	self:RegisterEvent('PLAYER_ENTERING_WORLD')
-	self:RegisterEvent('ACTIVE_TALENT_GROUP_CHANGED', 'regEvents')
+	--self:RegisterEvent('ACTIVE_TALENT_GROUP_CHANGED', 'regEvents')
 end
 
 local function InitializeCallback()

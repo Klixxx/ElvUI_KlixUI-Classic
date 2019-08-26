@@ -16,3 +16,6 @@ locales\load_locales.xml
 core\load_core.xml
 media\load_media.xml
 defaults\load_defaults.xml
+modules\load_modules.xml
+layout\layout.lua
+Bindings.xml

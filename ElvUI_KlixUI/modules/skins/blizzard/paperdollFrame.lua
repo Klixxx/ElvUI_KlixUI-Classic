@@ -23,7 +23,7 @@ local function styleCPaperDollFrame()
 		local slot = _G["Character"..slots[i].."Slot"]
 		local border = slot.IconBorder
 
-		_G["Character"..slots[i].."SlotFrame"]:Hide()
+		--_G["Character"..slots[i].."SlotFrame"]:Hide()
 		
 		slot:CreateIconShadow()
 		
@@ -56,7 +56,7 @@ local function styleCPaperDollFrame()
 		bg:SetVertexColor(r, g, b, 0.5)
 	end
 
-	if not T.IsAddOnLoaded("DejaCharacterStats") then
+	--[[if not T.IsAddOnLoaded("DejaCharacterStats") then
 		CharacterStatsPane.ItemLevelCategory.Title:SetTextColor(T.unpack(E.media.rgbvaluecolor))
 		CharacterStatsPane.AttributesCategory.Title:SetTextColor(T.unpack(E.media.rgbvaluecolor))
 		CharacterStatsPane.EnhancementsCategory.Title:SetTextColor(T.unpack(E.media.rgbvaluecolor))
@@ -190,7 +190,7 @@ local function styleCPaperDollFrame()
 			end
 		end)
 	end
-
+	
 	-- CharacterFrame Class Texture
 	if not ClassTexture and E.db.KlixUI.armory.classCrests then
 		ClassTexture = _G.CharacterFrameInsetRight:CreateTexture(nil, "BORDER")
@@ -205,7 +205,7 @@ local function styleCPaperDollFrame()
 	local function UpdateFlyoutButtons(button)
 		button:CreateIconShadow()
 	end
-	hooksecurefunc("EquipmentFlyout_DisplayButton", UpdateFlyoutButtons)
+	hooksecurefunc("EquipmentFlyout_DisplayButton", UpdateFlyoutButtons)]]
 end
 
 S:AddCallback("KuiPaperDoll", styleCPaperDollFrame)

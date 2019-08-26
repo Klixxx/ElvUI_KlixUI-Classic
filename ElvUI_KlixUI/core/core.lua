@@ -119,9 +119,9 @@ function KUI:Init()
 	self:SetupProfileCallbacks()
 	self:RegisterKuiMedia()
 	self:LoadCommands()
-	if E.db.KlixUI.general.splashScreen then
+	--[[if E.db.KlixUI.general.splashScreen then
 		self:SplashScreen()
-	end
+	end]]
 	if E.db.KlixUI.general.GameMenuButton then
 		self:BuildGameMenu()
 	end

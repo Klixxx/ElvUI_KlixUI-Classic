@@ -14,7 +14,7 @@ local function styleSpellBook()
 		SpellBookFrame.pagebackdrop:Hide()
 	end
 
-	for i = 1, _G.SPELLS_PER_PAGE do
+	--[[for i = 1, _G.SPELLS_PER_PAGE do
 		local bu = _G["SpellButton"..i]
 
 		_G["SpellButton"..i.."SlotFrame"]:SetAlpha(0)
@@ -25,7 +25,7 @@ local function styleSpellBook()
 		bu:SetCheckedTexture("")
 		bu:SetPushedTexture("")
 		bu:CreateIconShadow()
-	end
+	end]]
 
 	_G.SpellBookPageText:SetTextColor(unpack(E.media.rgbvaluecolor))
 
@@ -64,7 +64,7 @@ local function styleSpellBook()
 			ic.bg:SetShown(ic:IsShown())
 		end
 	end)
-
+	--[[
 	-- Professions
 	local professions = {"PrimaryProfession1", "PrimaryProfession2", "SecondaryProfession1", "SecondaryProfession2", "SecondaryProfession3"}
 
@@ -156,7 +156,7 @@ local function styleSpellBook()
 		end
 		self.spellString:SetTextColor(1, 1, 1);
 		self.subSpellString:SetTextColor(1, 1, 1)
-	end)
+	end)]]
 end
 
 S:AddCallback("KuiSpellbook", styleSpellBook)

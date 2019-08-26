@@ -9,7 +9,7 @@ local function styleWorldmap()
 	
 	_G.WorldMapFrame:Styling()
 
-	local frame = T.CreateFrame("Frame", nil, _G.QuestScrollFrame)
+	--[[local frame = T.CreateFrame("Frame", nil, _G.QuestScrollFrame)
 	_G.QuestScrollFrame.QuestCountFrame = frame
 
 	frame:RegisterEvent("QUEST_LOG_UPDATE")
@@ -32,7 +32,7 @@ local function styleWorldmap()
 
 	if _G.QuestScrollFrame.DetailFrame.backdrop then
 		_G.QuestScrollFrame.DetailFrame.backdrop:Hide()
-	end
+	end]]
 end
 
 S:AddCallback("KuiSkinWorldMap", styleWorldmap)

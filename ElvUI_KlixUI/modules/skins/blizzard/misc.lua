@@ -21,7 +21,7 @@ local function styleMisc()
 	-- Graveyard button (a bit ugly if you press it)
 	--_G.GhostFrame:StripTextures()
 	--_G.GhostFrameContentsFrame:StripTextures()
-	_G.GhostFrameContentsFrame:Styling()
+	--_G.GhostFrameContentsFrame:Styling()
 
 	-- Tooltips
 	local tooltips = {
@@ -43,8 +43,8 @@ local function styleMisc()
 		PetBattlePrimaryAbilityTooltip,
 		EventTraceTooltip,
 		FrameStackTooltip,
-		QuestScrollFrame.WarCampaignTooltip,
-		QuestScrollFrame.StoryTooltip,
+		--QuestScrollFrame.WarCampaignTooltip,
+		--QuestScrollFrame.StoryTooltip,
 		DatatextTooltip
 	}
 
@@ -53,7 +53,7 @@ local function styleMisc()
 			frame:Styling()
 		end
 	end
-
+	
 	local skins = {
 		"StaticPopup1",
 		"StaticPopup2",
@@ -65,8 +65,8 @@ local function styleMisc()
 		"AutoCompleteBox",
 		"ReadyCheckFrame",
 		"StackSplitFrame",
-		"QueueStatusFrame",
-		"LFDReadyCheckPopup",
+		--"QueueStatusFrame",
+		--"LFDReadyCheckPopup",
 	}
 
 	for i = 1, T.table_getn(skins) do
@@ -145,7 +145,7 @@ local function styleMisc()
 	
 	_G.ElvUIVendorGraysFrame.backdrop:Styling()
 	
-	_G.SplashFrame:Styling()
+	--_G.SplashFrame:Styling()
 
 	_G.ChatConfigFrame:Styling()
 	

@@ -857,61 +857,6 @@ end
 
 ------------------------------------------------------------
 
------------------- Garrison Base Utilities -----------------
-
-do --[[ FrameXML\GarrisonBaseUtils.lua ]]
-	function KS.GarrisonFollowerPortraitMixin_SetNoLevel(self)
-		if not self._auroraLvlBG then return end
-		self._KuiLvlBG:Hide()
-	end
-
-	function KS.GarrisonFollowerPortraitMixin_SetLevel(self)
-		if not self._auroraLvlBG then return end
-		self._KuiLvlBG:Show()
-	end
-
-	function KS.GarrisonFollowerPortraitMixin_SetILevel(self)
-		if not self._auroraLvlBG then return end
-		self._KuiLvlBG:Show()
-	end
-end
-
-do --[[ FrameXML\GarrisonBaseUtils.xml ]]
-	function KS:PositionGarrisonAbiltyBorder(border, icon)
-		border:ClearAllPoints()
-		border:SetPoint("TOPLEFT", icon, -8, 8)
-		border:SetPoint("BOTTOMRIGHT", icon, 8, -8)
-	end
-
-	function KS:GarrisonFollowerPortraitTemplate(Frame)
-		Frame.PortraitRing:Hide()
-		Frame.Portrait:SetPoint("CENTER", 0, 4)
-		Frame.PortraitRingQuality:SetTexture("")
-
-		local portraitBG = T.CreateFrame("Frame", nil, Frame)
-		portraitBG:SetFrameLevel(Frame:GetFrameLevel())
-		portraitBG:SetPoint("TOPLEFT", Frame.Portrait, -1, 1)
-		portraitBG:SetPoint("BOTTOMRIGHT", Frame.Portrait, 1, -1)
-		Frame._KuiPortraitBG = portraitBG
-
-		Frame.LevelBorder:SetAlpha(0)
-		local lvlBG = T.CreateFrame("Frame", nil, Frame)
-		lvlBG:SetPoint("TOPLEFT", portraitBG, "BOTTOMLEFT", 0, 6)
-		lvlBG:SetPoint("BOTTOMRIGHT", portraitBG, 0, -10)
-		Frame._KuiLvlBG = lvlBG
-
-		Frame.Level:SetParent(lvlBG)
-		Frame.Level:SetPoint("CENTER", lvlBG)
-
-		Frame.PortraitRingCover:SetTexture("")
-	end
-end
-hooksecurefunc(_G.GarrisonFollowerPortraitMixin, "SetNoLevel", KS.GarrisonFollowerPortraitMixin_SetNoLevel)
-hooksecurefunc(_G.GarrisonFollowerPortraitMixin, "SetLevel", KS.GarrisonFollowerPortraitMixin_SetLevel)
-hooksecurefunc(_G.GarrisonFollowerPortraitMixin, "SetILevel", KS.GarrisonFollowerPortraitMixin_SetILevel)
-
-------------------------------------------------------------
-
 -------------------- ItemButtonTemplate --------------------
 
 do --[[ FrameXML\ItemButtonTemplate.lua ]]
@@ -1123,14 +1068,14 @@ local function StyleAceTooltip(self)
 	end
 end
 
-local function StyleAltPowerBar()
+--[[local function StyleAltPowerBar()
 	if E.db.general.altPowerBar.enable ~= true then
 		return
 	end
 
 	local bar = _G["ElvUI_AltPowerBar"]
 	bar.backdrop:Styling()
-end
+end]]
 
 function KS:PLAYER_ENTERING_WORLD(...)
 	styleAddons()
@@ -1144,7 +1089,7 @@ function KS:Initialize()
 	ReskinVehicleExit()
 	updateMedia()
 	pluginInstaller()
-	StyleAltPowerBar()
+	--StyleAltPowerBar()
 	
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 	self:RegisterEvent("ADDON_LOADED", "LoD_AddOns")

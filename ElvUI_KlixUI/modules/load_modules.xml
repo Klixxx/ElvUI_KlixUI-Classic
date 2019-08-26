@@ -1,8 +1,8 @@
 ﻿<Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<Include file="skins\load_skins.xml"/>
-	<!--Include file="toasts\load_toasts.xml"/>
+	<!--Include file="toasts\load_toasts.xml"/-->
 	<Include file="chat\load_chat.xml"/>
-	<Include file="bags\load_bags.xml"/>
+	<!--Include file="bags\load_bags.xml"/>
 	<Include file="equipment\load_equipment.xml"/>
 	<Include file="armory\load_armory.xml"/>
 	<Include file="actionbars\load_actionbars.xml"/>

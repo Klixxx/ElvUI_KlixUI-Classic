@@ -62,10 +62,6 @@ local function styleCharacter()
 	hooksecurefunc("CollapseFactionHeader", UpdateReputationDetails)
 	hooksecurefunc("ReputationFrame_Update", UpdateReputationDetails)
 	
-	-- Token
-	hooksecurefunc("TokenFrame_Update", UpdateToken)
-	hooksecurefunc(_G.TokenFrameContainer, "update", UpdateToken)
-	
 	if E.db.KlixUI.armory.naked then
 		-- Undress Button
 		local function Button_OnEnter(self)
