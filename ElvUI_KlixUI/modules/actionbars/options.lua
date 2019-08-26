@@ -1,9 +1,9 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
-local KAB = KUI:GetModule('KUIActionbars');
-local MB = KUI:GetModule("MicroBar");
-local ABS = KUI:GetModule("AutoButtons");
-local SEB = KUI:GetModule("SpecEquipBar");
-local EVB = KUI:GetModule("EnhancedVehicleBar")
+local KAB = KUI:GetModule('KUIActionbars')
+local MB = KUI:GetModule("MicroBar")
+--local ABS = KUI:GetModule("AutoButtons")
+--local SEB = KUI:GetModule("SpecEquipBar")
+--local EVB = KUI:GetModule("EnhancedVehicleBar")
 
 local function abTable()
 	E.Options.args.KlixUI.args.modules.args.actionbars = {
@@ -31,7 +31,7 @@ local function abTable()
 						get = function(info) return E.db.KlixUI.actionbars[ info[#info] ] end,
 						set = function(info, value) E.db.KlixUI.actionbars[ info[#info] ] = value; KAB:TransparentBackdrops() end,	
 					},
-					questButton = {
+					--[[questButton = {
 						order = 2,
 						type = 'toggle',
 						name = L['Quest Button'],
@@ -48,13 +48,13 @@ local function abTable()
 						disabled = function() return not E.private.actionbar.enable end,
 						get = function(info) return E.db.KlixUI.actionbars[ info[#info] ] end,
 						set = function(info, value) E.db.KlixUI.actionbars[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL"); end,
-					},
+					},]]
 					space1 = {
 						order = 4,
 						type = "description",
 						name = "",
 					},
-					vehicle = {
+					--[[vehicle = {
 						type = "group",
 						name = L["Enhanced Vehicle Bar"],
 						order = 10,
@@ -150,10 +150,10 @@ local function abTable()
 								func = function() KAB:Macro_Refresh(); E:ToggleOptionsUI(); end,
 							},
 						},
-					},
+					},]]
 				},
 			},
-			glow = {
+			--[[glow = {
 				order = 3,
 				type = "group",
 				name = L["Glow"],
@@ -300,7 +300,7 @@ local function abTable()
 						disabled = function() return not E.db.KlixUI.actionbars.SEBar.enable end,
 					},
 				},
-			},
+			},]]
 			microBar = {
 				order = 5,
 				type = "group",
@@ -535,412 +535,8 @@ local function abTable()
 					},
 				},
 			},
-			autoButtons = {
-				order = 6,
-				type = "group",
-				name = L["Auto Buttons"],
-				hidden = function() return (KUI:IsDeveloper() and KUI:IsDeveloperRealm()) end,
-				get = function(info)return E.db.KlixUI.actionbars.autoButtons[ info[#info] ] end,
-				set = function(info, value) E.db.KlixUI.actionbars.autoButtons[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL") end,
-				args = {
-					enable = {
-						order = 1,
-						type = "toggle",
-						name = L["Enable"],
-					},
-					featureconfig = {
-						order = 2,
-						type = "group",
-						guiInline = true,
-						name = L["Feature Config"],
-						hidden = function()
-							return not E.db.KlixUI.actionbars.autoButtons.enable
-						end,
-						get = function(info)
-							return E.db.KlixUI.actionbars.autoButtons[info[#info]]
-						end,
-						set = function(info, value)
-							E.db.KlixUI.actionbars.autoButtons[info[#info]] = value
-							ABS:UpdateAutoButton()
-						end,
-						args = {
-							bindFont = {
-								order = 1,
-								type = "select",
-								dialogControl = "LSM30_Font",
-								name = L["Hot Key Font"],
-								values = AceGUIWidgetLSMlists.font,
-							},
-							countFont = {
-								order = 2,
-								type = "select",
-								dialogControl = "LSM30_Font",
-								name = L["Count Font"],
-								values = AceGUIWidgetLSMlists.font,
-							},
-							bindFontSize = {
-								order = 3,
-								type = "range",
-								min = 4, max = 40, step = 1,
-								name = L["Hot Key Font Size"],
-							},
-							countFontSize = {
-								order = 4,
-								type = "range",
-								min = 4, max = 40, step = 1,
-								name = L["Count Font Size"],
-							},
-							soltAutoButtons = {
-								order = 5,
-								type = "group",
-								guiInline = true,
-								name = L["Inventory Auto Buttons"],
-								get = function(info)
-									return E.db.KlixUI.actionbars.autoButtons.soltAutoButtons[info[#info]]
-								end,
-								set = function(info, value)
-									E.db.KlixUI.actionbars.autoButtons.soltAutoButtons[info[#info]] = value
-									ABS:UpdateAutoButton()
-								end,
-								args = {
-									enable = {
-										order = 1,
-										type = "toggle",
-										name = L["Enable"],
-									},
-									slotBBColorByItem = {
-										order = 2,
-										type = "toggle",
-										name = L["Color By Item"],
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.soltAutoButtons.enable
-										end,
-									},
-									slotBBColor = {
-										order = 3,
-										type = "color",
-										name = L["Custom Color"],
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.soltAutoButtons.enable
-										end,
-										disabled = function()
-											return E.db.KlixUI.actionbars.autoButtons.soltAutoButtons.slotBBColorByItem
-										end,
-										get = function(info)
-											local t = E.db.KlixUI.actionbars.autoButtons.soltAutoButtons[info[#info]]
-											local d = P.KlixUI.actionbars.autoButtons.soltAutoButtons[info[#info]]
-											return t.r, t.g, t.b, t.a, d.r, d.g, d.b, d.a
-										end,
-										set = function(info, r, g, b, a)
-											E.db.KlixUI.actionbars.autoButtons.soltAutoButtons[info[#info]] = {}
-											local t = E.db.KlixUI.actionbars.autoButtons.soltAutoButtons[info[#info]]
-											t.r, t.g, t.b, t.a = r, g, b, a
-											ABS:UpdateAutoButton()
-										end,
-									},
-									slotSpace = {
-										order = 4,
-										type = "range",
-										name = L["Spacing"],
-										min = -1, max = 10, step = 1,
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.soltAutoButtons.enable
-										end,
-									},
-									slotDirection = {
-										order = 5,
-										type = "select",
-										name = L["Direction"],
-										values = {
-											["RIGHT"] = L["Right"],
-											["LEFT"] = L["Left"],
-										},
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.soltAutoButtons.enable
-										end,
-									},
-									slotNum = {
-										order = 6,
-										type = "range",
-										name = L["Number of Buttons"],
-										min = 0, max = 12, step = 1,
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.soltAutoButtons.enable
-										end,
-									},
-									slotPerRow = {
-										order = 7,
-										type = "range",
-										name = L["Buttons Per Row"],
-										min = 1, max = 12, step = 1,
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.soltAutoButtons.enable
-										end,
-									},
-									slotSize = {
-										order = 8,
-										type = "range",
-										name = L["Button Size"],
-										min = 10, max = 100, step = 1,
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.soltAutoButtons.enable
-										end,
-									},
-								},
-							},
-							questAutoButtons = {
-								order = 4,
-								type = "group",
-								guiInline = true,
-								name = L["Quest Auto Buttons"],
-								get = function(info)
-									return E.db.KlixUI.actionbars.autoButtons.questAutoButtons[info[#info]]
-								end,
-								set = function(info, value)
-									E.db.KlixUI.actionbars.autoButtons.questAutoButtons[info[#info]] = value
-									ABS:UpdateAutoButton()
-								end,
-								args = {
-									enable = {
-										order = 1,
-										type = "toggle",
-										name = L["Enable"],
-									},
-									questBBColorByItem = {
-										order = 2,
-										type = "toggle",
-										name = L["Color By Item"],
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.questAutoButtons.enable
-										end,
-									},
-									questBBColor = {
-										order = 3,
-										type = "color",
-										name = L["Custom Color"],
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.questAutoButtons.enable
-										end,
-										disabled = function()
-											return E.db.KlixUI.actionbars.autoButtons.questAutoButtons.questBBColorByItem
-										end,
-										get = function(info)
-											local t = E.db.KlixUI.actionbars.autoButtons.questAutoButtons[info[#info]]
-											local d = P.KlixUI.actionbars.autoButtons.questAutoButtons[info[#info]]
-											return t.r, t.g, t.b, t.a, d.r, d.g, d.b, d.a
-										end,
-										set = function(info, r, g, b, a)
-											E.db.KlixUI.actionbars.autoButtons.questAutoButtons[info[#info]] = {}
-											local t = E.db.KlixUI.actionbars.autoButtons.questAutoButtons[info[#info]]
-											t.r, t.g, t.b, t.a = r, g, b, a
-											ABS:UpdateAutoButton()
-										end,
-									},
-									questSpace = {
-										order = 4,
-										type = "range",
-										name = L["Spacing"],
-										min = -1, max = 10, step = 1,
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.questAutoButtons.enable
-										end,
-									},
-									questDirection = {
-										order = 5,
-										type = "select",
-										name = L["Direction"],
-										values = {
-											["RIGHT"] = L["Right"],
-											["LEFT"] = L["Left"],
-										},
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.questAutoButtons.enable
-										end,
-									},
-									questNum = {
-										order = 6,
-										type = "range",
-										name = L["Number of Buttons"],
-										min = 0, max = 12, step = 1,
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.questAutoButtons.enable
-										end,
-									},
-									questPerRow = {
-										order = 7,
-										type = "range",
-										name = L["Buttons Per Row"],
-										min = 1, max = 12, step = 1,
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.questAutoButtons.enable
-										end,
-									},
-									questSize = {
-										order = 8,
-										type = "range",
-										name = L["Button Size"],
-										min = 10, max = 100, step = 1,
-										hidden = function()
-											return not E.db.KlixUI.actionbars.autoButtons.questAutoButtons.enable
-										end,
-									},
-								},
-							},
-							whiteItemID = {
-								order = 6,
-								type = "input",
-								name = L["Whitelist"],
-								get = function()
-									return whiteItemID or ""
-								end,
-								set = function(info, value)
-									whiteItemID = value
-								end,
-							},
-							AddItemID = {
-								order = 7,
-								type = "execute",
-								name = L["Add ItemID"],
-								func = function()
-									if not tonumber(whiteItemID) then
-										KUI:Print(L["Must be an itemID!"])
-										return
-									end
-									local id = tonumber(whiteItemID)
-									if not T.GetItemInfo(id) then
-										KUI:Print(whiteItemID .. L["is not an itemID"])
-										return
-									end
-									E.db.KlixUI.actionbars.autoButtons.whiteList[id] = true
-									E.Options.args.KlixUI.args.modules.args.actionbars.args.autoButtons.args.featureconfig.args.whiteList.values[id] = T.GetItemInfo(id)
-									ABS:UpdateAutoButton()
-								end,
-							},
-							DeleteItemID = {
-								order = 8,
-								type = "execute",
-								name = L["Delete ItemID"],
-								func = function()
-									if not T.tonumber(whiteItemID) then
-										KUI:Print(L["Must be an itemID!"])
-										return
-									end
-									local id = T.tonumber(whiteItemID)
-									if not T.GetItemInfo(id) then
-										KUI:Print(whiteItemID .. L["is not an itemID"])
-										return
-									end
-									if E.db.KlixUI.actionbars.autoButtons.whiteList[id] == true or E.db.KlixUI.actionbars.autoButtons.whiteList[id] == false then
-										E.db.KlixUI.actionbars.autoButtons.whiteList[id] = nil
-										E.Options.args.KlixUI.args.modules.args.actionbars.args.autoButtons.args.featureconfig.args.whiteList.values[id] = nil
-									end
-									ABS:UpdateAutoButton()
-								end,
-							},
-							whiteList = {
-								order = 9,
-								type = "multiselect",
-								name = L["Whitelist"],
-								get = function(info, k)
-									return E.db.KlixUI.actionbars.autoButtons.whiteList[k]
-								end,
-								set = function(info, k, v)
-									E.db.KlixUI.actionbars.autoButtons.whiteList[k] = v
-									ABS:UpdateAutoButton()
-								end,
-								values = {}
-							},
-							blackitemID = {
-								order = 10,
-								type = "input",
-								name = L["Blacklist"],
-								get = function()
-									return blackItemID or ""
-								end,
-								set = function(info, value)
-									blackItemID = value
-								end,
-							},
-							AddblackItemID = {
-								order = 11,
-								type = "execute",
-								name = L["Add Blacklist ItemID"],
-								func = function()
-									if not T.tonumber(blackItemID) then
-										KUI:Print(L["Must be an itemID!"])
-										return
-									end
-										local id = T.tonumber(blackItemID)
-										if not T.GetItemInfo(id) then
-											KUI:Print(blackItemID .. L["is not an itemID"])
-											return
-										end
-										E.db.KlixUI.actionbars.autoButtons.blackList[id] = true
-										E.Options.args.KlixUI.args.modules.args.actionbars.args.autoButtons.args.featureconfig.args.blackList.values[id] = T.GetItemInfo(id)
-										ABS:UpdateAutoButton()
-									end,
-							},
-							DeleteblackItemID = {
-								order = 12,
-								type = "execute",
-								name = L["Delete Blacklist ItemID"],
-								func = function()
-									if not T.tonumber(blackItemID) then
-										KUI:Print(L["Must be an itemID!"])
-										return
-									end
-									local id = T.tonumber(blackItemID)
-									if not T.GetItemInfo(id) then
-										KUI:Print(blackItemID .. L["is not an itemID"])
-										return
-									end
-									if E.db.KlixUI.actionbars.autoButtons.blackList[id] == true or E.db.KlixUI.actionbars.autoButtons.blackList[id] == false then
-										E.db.KlixUI.actionbars.autoButtons.blackList[id] = nil
-										E.Options.args.KlixUI.args.modules.args.actionbars.args.autoButtons.args.featureconfig.args.blackList.values[id] = nil
-									end
-									ABS:UpdateAutoButton()
-								end,
-							},
-							blackList = {
-								order = 13,
-								type = "multiselect",
-								name = L["Blacklist"],
-								get = function(info, k)
-									return E.db.KlixUI.actionbars.autoButtons.blackList[k]
-								end,
-								set = function(info, k, v)
-									E.db.KlixUI.actionbars.autoButtons.blackList[k] = v
-									ABS:UpdateAutoButton()
-								end,
-								values = {}
-							},
-						},
-					},
-				},
-			},
 		},
 	}
-	
-	for k, v in T.pairs(E.db.KlixUI.actionbars.autoButtons.whiteList) do
-		if T.type(k) == "string" then k = T.tonumber(k) end
-		if T.GetItemInfo(k) then
-		
-			local name = T.select(1, T.GetItemInfo(k))
-			local tex = T.select(10, T.GetItemInfo(k))
-			
-			E.Options.args.KlixUI.args.modules.args.actionbars.args.autoButtons.args.featureconfig.args.whiteList.values[k] = '|T'..tex..':18:18:0:0:64:64:4:60:4:60|t '..name
-		end
-	end
-	for k, v in T.pairs(E.db.KlixUI.actionbars.autoButtons.blackList) do
-		if T.type(k) == "string" then k = T.tonumber(k) end
-		if T.GetItemInfo(k) then
-		
-			local name = T.select(1, T.GetItemInfo(k))
-			local tex = T.select(10, T.GetItemInfo(k))
-			
-			E.Options.args.KlixUI.args.modules.args.actionbars.args.autoButtons.args.featureconfig.args.blackList.values[k] = '|T'..tex..':18:18:0:0:64:64:4:60:4:60|t '..name
-		end
-	end
 	
 	local available = available or 6
 
