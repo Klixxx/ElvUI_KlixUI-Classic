@@ -302,11 +302,6 @@ local function SkinsTable()
 				name = OBJECTIVES_TRACKER_LABEL,
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.objectiveTracker end,
 			},
-			Obliterum = {
-				type = "toggle",
-				name = OBLITERUM_FORGE_TITLE,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.Obliterum end,
-			},
 			addonManager = {
 				type = "toggle",
 				name = L["AddOn Manager"],
@@ -331,11 +326,6 @@ local function SkinsTable()
 				type = "toggle",
 				name = TIMEMANAGER_TITLE,
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.timemanager end,
-			},
-			blackmarket = {
-				type = "toggle",
-				name = BLACK_MARKET_AUCTION_HOUSE,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.bmah end,
 			},
 			guildcontrol = {
 				type = "toggle",
@@ -372,40 +362,10 @@ local function SkinsTable()
 				name = L["Loot Frames"],
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.loot end,
 			},
-			warboard = {
-				type = "toggle",
-				name = L["Warboard"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.Warboard end,
-			},
 			deathRecap = {
 				type = "toggle",
 				name = DEATH_RECAP_TITLE,
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.deathRecap end,
-			},
-			questPOI = {
-				type = "toggle",
-				name = "QuestPOI",
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.questPOI end,
-			},
-			voidstorage = {
-				type = "toggle",
-				name = VOID_STORAGE,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.voidstorage end,
-			},
-			communities = {
-				type = "toggle",
-				name = COMMUNITIES,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.Communities end,
-			},
-			azerite = {
-				type = "toggle",
-				name = L["Azerite"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.AzeriteUI end,
-			},
-			azeriteRespec = {
-				type = "toggle",
-				name = AZERITE_RESPEC_TITLE,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.AzeriteRespec end,
 			},
 			challenges = {
 				type = "toggle",
@@ -417,25 +377,10 @@ local function SkinsTable()
 				name = CHANNELS,
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.Channels end,
 			},
-			IslandQueue = {
-				type = "toggle",
-				name = ISLANDS_HEADER,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.IslandQueue end,
-			},
-			IslandsPartyPose = {
-				type = "toggle",
-				name = L["Island Party Pose"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.IslandsPartyPose end,
-			},
 			minimap = {
 				type = "toggle",
 				name = L["Minimap"],
 				disabled = function() return not E.private.skins.blizzard.enable end,
-			},
-			Scrapping = {
-				type = "toggle",
-				name = SCRAP_BUTTON,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.Scrapping end,
 			},
 			trainer = {
 				type = "toggle",
