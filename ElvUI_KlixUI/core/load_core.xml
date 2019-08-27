@@ -11,5 +11,5 @@
 	<!--script file="splashScreen.lua"-->
 	<script file="options.lua"/>
 	<Script file="compatibility.lua"/>
-	<!--Include file="addonProfiles\load_addonProfiles.xml"/-->
+	<Include file="addonProfiles\load_addonProfiles.xml"/>
 </Ui>
