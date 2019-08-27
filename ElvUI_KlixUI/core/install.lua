@@ -791,11 +791,7 @@ function KUI:SetupUnitframes(layout)
 	E.db["unitframe"]["units"]["player"]["health"]["yOffset"] = 0
 	E.db["unitframe"]["units"]["player"]["name"]["text_format"] = ""
 	E.db["unitframe"]["units"]["player"]["portrait"]["enable"] = false
-	if KUI.IsDeveloper() and T.IsAddOnLoaded("WeakAuras") then
-		E.db["unitframe"]["units"]["player"]["power"]["enable"] = false
-	else
-		E.db["unitframe"]["units"]["player"]["power"]["enable"] = true
-	end
+	E.db["unitframe"]["units"]["player"]["power"]["enable"] = true
 	E.db["unitframe"]["units"]["player"]["power"]["text_format"] = ""
 	E.db["unitframe"]["units"]["player"]["power"]["position"] = "CENTER"
 	E.db["unitframe"]["units"]["player"]["power"]["attachTextTo"] = "Power"
