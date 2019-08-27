@@ -28,11 +28,6 @@ P['KlixUI'] = {
 	['actionbars'] = {
 		['transparent'] = true,
 		['questButton'] = true,
-		['cleanButton'] = false,
-		["hearthstone"] = {
-			["enable"] = true,
-			["delete"] = false,
-		},
 		["SEBar"] = {
 			["enable"] = true,
 			["borderGlow"] = true,
@@ -51,126 +46,6 @@ P['KlixUI'] = {
 			["thickness"] = 2,
 			["xOffset"] = 0,
 			["yOffset"] = 0,
-		},
-		["autoButtons"] = {
-			["enable"] = true,
-			bindFont = "Expressway",
-			countFont = "Expressway",
-			bindFontSize = 18,
-			countFontSize = 18,
-			soltAutoButtons = {
-				enable = true,
-				slotBBColorByItem = true,
-				slotBBColor = {r = 1, g = 1, b = 1, a = 1},
-				slotSpace = 1,
-				slotDirection = "RIGHT",
-				slotNum = 5,
-				slotPerRow = 5,
-				slotSize = 35,
-			},
-			questAutoButtons = {
-				enable = true,
-				questBBColorByItem = true,
-				questBBColor = {r = 1, g = 1, b = 1, a = 1},
-				questSpace = 1,
-				questDirection = "RIGHT",
-				questNum = 5,
-				questPerRow = 5,
-				questSize = 35,
-			},
-			whiteList = {
-				[90006] = true, -- Wu Kao Smoke Bomb
-				[86534] = true,
-				[86536] = true,
-				[76097] = true, -- Master Healing Potion
-				[76098] = true, -- Master Mana Potion
-				[5512] = true, -- Healthstone
-				[36799] = true, -- Mana Gem
-				[81901] = true, -- Brilliant Mana Gem
-				[76089] = true, -- Virmen's Bite
-				[76090] = true, -- Potion of the Mountains
-				[76093] = true, -- Potion of the Jade Serpent
-				[76094] = true, -- Alchemist's Rejuvenation
-				[76095] = true, -- Potion of Mogu Power
-				[86125] = true, -- Kafa Press
-				[86569] = true, -- Crystal of Insanity
-				[118922] = true, -- Oralius' Whispering Crystal
-				[127843] = true,
-				[49040] = true, -- Jeeves
-				[132514] = true, -- Auto-Hammer
-							
-				--Guild and Honor
-				[63359] = true,
-				[64398] = true,
-				[64399] = true,
-				[18606] = true,
-				[64400] = true,
-				[64401] = true,
-				[64402] = true,
-				[18607] = true,
-							
-				--WOD
-				[116266] = true,
-				[116276] = true,
-				[116268] = true,
-				[116271] = true,
-				[118711] = true,
-				[118704] = true,
-				[109217] = true,
-				[109218] = true,
-				[109219] = true,
-				[109220] = true,
-				[109221] = true,
-				[109222] = true,
-				[109223] = true,
-				[118269] = true, -- Greenskin Apple
-				[122453] = true, -- Commander's Draenic Agility Potion
-				[122451] = true,
-				[122454] = true,
-				[122452] = true,
-				[122455] = true,
-				[122456] = true,
-				[116411] = true, -- Scroll of Protection
-							
-				--Legion
-				[118330] = true, -- Pile of Weapons
-				[122100] = true, -- Soul Gem
-				[127030] = true, -- Granny"s Flare Grenades
-				[127295] = true, -- Blazing Torch
-				[128651] = true, -- Critter Hand Cannon
-				[128772] = true, -- Branch of the Runewood
-				[129161] = true, -- Stormforged Horn
-				[129725] = true, -- Smoldering Torch
-				[131931] = true, -- Khadgar"s Wand
-				[133756] = true, -- Fresh Mound of Flesh
-				[133882] = true, -- Trap Rune
-				[133897] = true, -- Telemancy Beacon
-				[133925] = true, -- Fel Lash
-				[133999] = true, -- Inert Crystal
-				[136605] = true, -- Solendra"s Compassion
-				[137299] = true, -- Nightborne Spellblad
-				[138146] = true, -- Rediant Ley Crystal
-				[140916] = true, -- Satchel of Locklimb Powder
-				[109076] = true, -- Goblin Glider Kit
-				[147707] = true, -- Repurposed Fel Focuser
-				[142117] = true, -- Potion of Prolonged Power
-				[153023] = true, -- Lightforged Augment Rune
-							
-				--BFA
-				[152494] = true, -- Coastal Healing Potion
-				[152495] = true, -- Coastal Mana Potion
-				[163224] = true, -- Battle Potion of Strength
-				[163223] = true, -- Battle Potion of Agility
-				[163222] = true, -- Battle Potion of Intellect
-				[163225] = true, -- Battle Potion of Stamina
-				[168500] = true, -- Superior Battle Potion of Strength
-				[168489] = true, -- Superior Battle Potion of Agility
-				[168498] = true, -- Superior Battle Potion of Intellect
-				[168499] = true, -- Superior Battle Potion of Stamina
-			},
-			blackList = {},
-			blackitemID = "",
-			whiteItemID = "",
 		},
 	},
 	

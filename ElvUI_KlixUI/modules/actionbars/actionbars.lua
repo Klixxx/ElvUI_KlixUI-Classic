@@ -11,25 +11,6 @@ local availableActionbars = availableActionbars or 6
 local styleOtherBacks = {ElvUI_BarPet, ElvUI_StanceBar}
 
 local ActiveButtons = AB.activeButtons
-local OverlayedSpellID = {
-    ["ROGUE"] = {5171, 193316, 199804, 2098, 1943, 32645, 408, 196819, 195452, 206237, 26679},
-    ["DRUID"] = {52610, 1079, 22568, 22570},
-}
-
-local HearthStoneList = {
-	54452,		-- Ethereal Portal
-	64488,		-- The Innkeeper's Daughter
-	93672,		-- Dark Portal
-	142542,		-- Tome of Town Portal
-	162973,		-- Greatfather Winter's Hearthstone
-	163045,		-- Headless Horseman's Hearthstone
-	165669,		-- Lunar Elder's Hearthstone
-	165670,		-- Peddlefeet's Lovely Hearthstone
-	165802,		-- Noble Gardener"s Hearthstone
-	166746, 	-- Fire Eater"s Hearthstone
-	166747, 	-- Brewfest Reveler"s Hearthstone
-	168907, 	-- Holographic Digitalization Hearthstone
-}
 
 local function CheckExtraAB()
 	if T.IsAddOnLoaded('ElvUI_ExtraActionBars') then
@@ -133,7 +114,6 @@ function KAB:Initialize()
 	CheckExtraAB()
 	T.C_Timer_After(1, KAB.StyleBackdrops)
 	T.C_Timer_After(1, KAB.TransparentBackdrops)
-	if T.IsAddOnLoaded('ElvUI_TB') then T.DisableAddOn('ElvUI_TB') end
 end
 
 local function InitializeCallback()

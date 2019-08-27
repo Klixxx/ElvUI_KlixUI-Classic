@@ -39,55 +39,12 @@ local function abTable()
 						disabled = function() return not E.private.actionbar.enable or T.IsAddOnLoaded("ExtraQuestButton") end,
 						get = function(info) return E.db.KlixUI.actionbars[ info[#info] ] end,
 						set = function(info, value) E.db.KlixUI.actionbars[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL"); end,
-					},
-					cleanButton = {
-						order = 3,
-						type = 'toggle',
-						name = L['Clean Button'],
-						desc = L['Removes the textures around the Bossbutton and the Zoneability button.'],
-						disabled = function() return not E.private.actionbar.enable end,
-						get = function(info) return E.db.KlixUI.actionbars[ info[#info] ] end,
-						set = function(info, value) E.db.KlixUI.actionbars[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL"); end,
 					},]]
 					space1 = {
 						order = 4,
 						type = "description",
 						name = "",
 					},
-					RandomHearthstone = {
-						order = 15,
-						type = "group",
-						guiInline = true,
-						name = L["Random Hearthstone"],
-						get = function(info) return E.db.KlixUI.actionbars.hearthstone[ info[#info] ] end,
-						set = function(info, value) E.db.KlixUI.actionbars.hearthstone[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL"); end,
-						args = {
-							info = {
-								order = 1,
-								type = "description",
-								name = L["RHS_DESC"],
-							},
-							enable = {
-								order = 2,
-								type = "toggle",
-								name = L["Enable"],
-							},
-							delete = {
-								order = 3,
-								type = "toggle",
-								name = L["Delete Hearthstone"],
-								desc = L['Automatically delete the classic hearthstone, you receive, when you change hearth location.'],
-							},
-							CreateRHS = {
-								order = 4,
-								type = 'execute',
-								name = L["Create |cfff960d9KlixUI|r Hearthstone"],
-								buttonElvUI = true,
-								disabled = function(info) return not E.db.KlixUI.actionbars.hearthstone.enable end,
-								func = function() KAB:Macro_Refresh(); E:ToggleOptionsUI(); end,
-							},
-						},
-					},]]
 				},
 			},
 			--[[glow = {
