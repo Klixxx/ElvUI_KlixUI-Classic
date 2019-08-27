@@ -7,8 +7,8 @@
 	<script file="easyCurve.lua"/>
 	<script file="bloodlust.lua"/>
 	<script file="whistle.lua"/>
-	<script file="talkingheadframe.lua"/>
-	<script file="namehover.lua"/-->
+	<script file="talkingheadframe.lua"/-->
+	<script file="namehover.lua"/>
 	<script file="zoom.lua"/>
 	<!--script file="pvp.lua"/>
 	<script file="pvpsound.lua"/-->

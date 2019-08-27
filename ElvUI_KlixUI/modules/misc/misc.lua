@@ -218,6 +218,7 @@ end
 function MI:Initialize()
 
 	self:LoadMisc()
+	self:LoadnameHover()
 	self:LoadMoverTransparancy()
 	self:LoadGMOTD()
 	self:MaxStack()

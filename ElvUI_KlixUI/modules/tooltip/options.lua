@@ -1,7 +1,6 @@
 ﻿local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local KTT = KUI:GetModule("KuiTooltip")
-local PI = KUI:GetModule("ProgressInfo")
---local RI = KUI:GetModule("RealmInfo")
+--local PI = KUI:GetModule("ProgressInfo")
 
 local function Tooltip()
 	E.Options.args.KlixUI.args.modules.args.tooltip = {
@@ -39,76 +38,9 @@ local function Tooltip()
 						desc = L["Change the color of the title to something more cool!"],
 						disabled = function() return not E.private.tooltip.enable or not E.db.KlixUI.tooltip.tooltip end,
 					},
-					memberInfo = {
-						order = 3,
-						type = "toggle",
-						name = L["LFG Member Info"],
-						desc = L["Adds member info for the LFG group list tooltip."],
-					},
-					achievement = {
-						order = 4,
-						type = "toggle",
-						name = ACHIEVEMENT_BUTTON,
-						desc = L["Adds information to the tooltip, on which character you earned an achievement.\nCredit: |cffff7d0aMerathilisUI|r"],
-					},
-					keystone = {
-						order = 5,
-						type = "toggle",
-						name = L["Keystone"],
-						desc = L["Adds descriptions for mythic keystone properties to their tooltips."],
-					},
 				},
 			},
-			azerite = {
-				type = "group",
-				name = L["Azerite"],
-				order = 3,
-				disabled = function() return T.IsAddOnLoaded("AzeriteTooltip") end,
-				hidden = function() return T.IsAddOnLoaded("AzeriteTooltip") end,
-				get = function(info) return E.db.KlixUI.tooltip.azerite[ info[#info] ] end,
-				set = function(info, value) E.db.KlixUI.tooltip.azerite[ info[#info] ] = value end,
-				args = {
-					enable = {
-						order = 1,
-						type = "toggle",
-						name = L["Enable"],
-						desc = L["Enable/disable the azerite tooltip."],
-						set = function(info, value) E.db.KlixUI.tooltip.azerite[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL"); end,
-					},
-					space1 = {
-						order = 2,
-						type = "description",
-						name = "",
-					},
-					space2 = {
-						order = 3,
-						type = "description",
-						name = "",
-					},
-					RemoveBlizzard = {
-						order = 4,
-						type = "toggle",
-						name = L["Remove Blizzard"],
-						desc = L["Replaces the blizzard azerite tooltip text."],
-						disabled = function() return not E.db.KlixUI.tooltip.azerite.enable end,
-					},
-					OnlySpec = {
-						order = 5,
-						type = "toggle",
-						name = L["Specialization"],
-						desc = L["Only show the traits for your current specialization."],
-						disabled = function() return not E.db.KlixUI.tooltip.azerite.enable end,
-					},
-					Compact = {
-						order = 6,
-						type = "toggle",
-						name = L["Compact"],
-						desc = L["Only show icons in the azerite tooltip."],
-						disabled = function() return not E.db.KlixUI.tooltip.azerite.enable end,
-					},
-				},
-			},
-			progressInfo = {
+			--[[progressInfo = {
 				type = "group",
 				name = L["Raid Progression"],
 				order = 4,
@@ -182,7 +114,7 @@ local function Tooltip()
 						},
 					},
 				},
-			},
+			},]]
 			nameHover = {
 				order = 5,
 				type = "group",
@@ -275,123 +207,7 @@ local function Tooltip()
 						disabled = function() return not E.db.KlixUI.nameHover.enable end,
 					},
 				},
-			},
-			--[[realmInfo = {
-				type = "group",
-				name = L["Realm Info"],
-				order = 10,
-				get = function(info) return E.db.KlixUI.tooltip.realmInfo[ info[#info] ] end,
-				set = function(info, value) E.db.KlixUI.tooltip.realmInfo[ info[#info] ] = value end,
-				disabled = function() return not E.private.tooltip.enable end,
-				args = {
-					enable = {
-						order = 1,
-						type = 'toggle',
-						name = L["Enable"],
-						desc = L["Shows realm info in various tooltips."],
-					},
-					tooltips = {
-						order = 2,
-						type = "group",
-						name = L["Tooltips"],
-						disabled = function() return not  E.db.KlixUI.tooltip.realmInfo.enable end,
-						get = function(info) return E.db.KlixUI.tooltip.realmInfo[ info[#info] ] end,
-						set = function(info, value) E.db.KlixUI.tooltip.realmInfo[ info[#info] ] = value end,
-						guiInline = true,
-						args = {
-							ttGrpFinder = {
-								order = 1,
-								type = "toggle",
-								name = LFGLIST_NAME,
-								desc = L["Show the realm info in the group finder tooltip."],
-							},
-							ttPlayer = {
-								order = 2,
-								type = "toggle",
-								name = L["Player Tooltips"],
-								desc = L["Show the realm info in the player tooltip."],
-							},
-							ttFriends = {
-								order = 3,
-								type = "toggle",
-								name = L["Friend List"],
-								desc = L["Show the realm info in the friend list tooltip."],
-							},
-						},
-					},
-					tooltipLines = {
-						order = 3,
-						type = "group",
-						name = L["Tooltip Lines"],
-						disabled = function() return not E.db.KlixUI.tooltip.realmInfo.enable end,
-						get = function(info) return E.db.KlixUI.tooltip.realmInfo[ info[#info] ] end,
-						set = function(info, value) E.db.KlixUI.tooltip.realmInfo[ info[#info] ] = value end,
-						guiInline = true,
-						args = {
-							timezone = {
-								order = 2,
-								type = "toggle",
-								name = L["Realm Timezone"],
-								desc = L["Add realm timezone to the tooltip."],
-							},
-							type = {
-								order = 3,
-								type = "toggle",
-								name = L["Realm Type"],
-								desc = L["Add realm type to the tooltip."],
-							},
-							language = {
-								order = 4,
-								type = "toggle",
-								name = L["Realm Language"],
-								desc = L["Add realm language to the tooltip."],
-							},
-							connectedrealms = {
-								order = 5,
-								type = "toggle",
-								name = L["Connected Realms"],
-								desc = L["Add the connected realms to the tooltip."],
-							},
-							countryflag = {
-								order = 6,
-								type = "select",
-								width = "full",
-								name = L["Country Flag"],
-								desc = L["Display the country flag without text on the left side in tooltip."],
-								values = {
-									languageline = L["Behind language in 'Realm language' line"],
-									charactername = L["Behind the character name"],
-									ownline = L["In own tooltip line on the left site"],
-									none = ADDON_DISABLED
-								},
-							},
-						},
-					},
-					country_flags = {
-						order = 4,
-						type = "group",
-						name = L["Country Flag"],
-						guiInline = true,
-						disabled = function() return not E.db.KlixUI.tooltip.realmInfo.enable end,
-						get = function(info) return E.db.KlixUI.tooltip.realmInfo[ info[#info] ] end,
-						set = function(info, value) E.db.KlixUI.tooltip.realmInfo[ info[#info] ] = value end,
-						args = {
-							finder_counryflag = {
-								order = 1,
-								type = "toggle",
-								name = LFGLIST_NAME,
-								desc = L["Prepend country flag on character name in group finder."],
-							},
-							communities_countryflag = {
-								order = 2,
-								type = "toggle",
-								name = COMMUNITIES,
-								desc = L["Prepend country flag on character name in community member lists."],
-							},
-						},
-					},
-				},
-			},]]		
+			},		
 		},
 	}
 end
