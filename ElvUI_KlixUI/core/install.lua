@@ -13,7 +13,6 @@ local ADDONS, LOOT, TRADE, TANK, HEALER = ADDONS, LOOT, TRADE, TANK, HEALER
 local function SetupCVars()
 	T.SetCVar("alwaysCompareItems", 1)
 	T.SetCVar("autoQuestProgress", 1)
-	T.SetCVar("autoDismountFlying", 1)
 	T.SetCVar("guildMemberNotify", 1)
 	T.SetCVar("statusTextDisplay", "BOTH")
 	T.SetCVar("ShowClassColorInNameplate", 1)
@@ -23,7 +22,6 @@ local function SetupCVars()
 	T.SetCVar("WholeChatWindowClickable", 0)
 	T.SetCVar("showTutorials", 0)
 	T.SetCVar("UberTooltips", 1)
-	T.SetCVar("threatWarning", 3)
 	T.SetCVar('alwaysShowActionBars', 1)
 	T.SetCVar('lockActionBars', 1)
 	T.SetCVar('SpamFilter', 0)
@@ -33,13 +31,9 @@ local function SetupCVars()
 	T.SetCVar("removeChatDelay", 1)
 	T.SetCVar("TargetNearestUseNew", 1)
 	T.SetCVar("cameraSmoothStyle", 0)
-	T.SetCVar("cameraDistanceMaxZoomFactor", 2.6)
-	T.SetCVar("floatingCombatTextCombatDamage", 1)
-	T.SetCVar("floatingCombatTextCombatLogPeriodicSpells", 0)
-	T.SetCVar("floatingCombatTextCombatHealing", 0)
+	T.SetCVar("cameraDistanceMaxZoomFactor", 4)
 	T.SetCVar("screenEdgeFlash", 0)
 	T.SetCVar("WorldTextScale", 0.75)
-	T.SetCVar("fstack_preferParentKeys", 0)
 
 	
 	if not KUI:IsDeveloper() or not (T.IsAddOnLoaded("!BugGrabber") and T.IsAddOnLoaded("BugSack")) then
@@ -1090,7 +1084,7 @@ function KUI:SetupUnitframes(layout)
 	if not E.db["unitframe"]["units"]["targettarget"]["customTexts"] then E.db["unitframe"]["units"]["targettarget"]["customTexts"] = {} end
 	-- Delete old customTexts/ Create empty table
 	E.db["unitframe"]["units"]["targettarget"]["customTexts"] = {}
-	
+	--[[
 	-- Focus
 	E.db["unitframe"]["units"]["focus"]["enable"] = true
 	E.db["unitframe"]["units"]["focus"]["width"] = 250
@@ -1135,7 +1129,7 @@ function KUI:SetupUnitframes(layout)
 	E.db["unitframe"]["units"]["focustarget"]["debuffs"]["enable"] = false
 	E.db["unitframe"]["units"]["focustarget"]["name"]["position"] = "CENTER"
 	E.db["unitframe"]["units"]["focustarget"]["name"]["text_format"] = "[name:long]"
-	
+	]]
 	-- Pet
 	E.db["unitframe"]["units"]["pet"]["width"] = 90
 	E.db["unitframe"]["units"]["pet"]["height"] = 33
@@ -1255,7 +1249,6 @@ function KUI:SetupUnitframes(layout)
 	E.db["unitframe"]["units"]["boss"]["name"]["attachTextTo"] = "Health"
 	E.db["unitframe"]["units"]["boss"]["name"]["xOffset"] = 4
 	E.db["unitframe"]["units"]["boss"]["name"]["yOffset"] = 0
-	E.db["unitframe"]["units"]["boss"]["portrait"]["enable"] = false
 	E.db["unitframe"]["units"]["boss"]["buffs"]["enable"] = false
 	E.db["unitframe"]["units"]["boss"]["buffs"]["perrow"] = 3
 	E.db["unitframe"]["units"]["boss"]["buffs"]["numrows"] = 1
@@ -1285,7 +1278,6 @@ function KUI:SetupUnitframes(layout)
 	E.db["unitframe"]["units"]["boss"]["castbar"]["height"] = 10
 	E.db["unitframe"]["units"]["boss"]["castbar"]["icon"] = false
 	E.db["unitframe"]["units"]["boss"]["castbar"]["format"] = ""
-	E.db["unitframe"]["units"]["boss"]["infoPanel"]["enable"] = false
 	if not E.db["unitframe"]["units"]["boss"]["customTexts"] then E.db["unitframe"]["units"]["boss"]["customTexts"] = {} end
 	-- Delete old customTexts/ Create empty table
 	E.db["unitframe"]["units"]["boss"]["customTexts"] = {}
