@@ -11,32 +11,6 @@ local GameMenuFrame = _G.GameMenuFrame
 
 local logo = "Interface\\AddOns\\ElvUI_KlixUI\\media\\textures\\KlixUILogo.tga"
 
-KUI.PEPE = {
-	[1] = "1246563", -- Pepe (Halloween)
-	[2] = "1131783", -- Knight Pepe
-	[3] = "1131795", -- Pirate Pepe
-	[4] = "1131797", -- Ninja Pepe
-	[5] = "1131798", -- Viking Pepe
-	[6] = "1534076", -- Illidan Pepe
-	[7] = "1386540", -- Traveller Pepe
-	[8] = "1859375", -- Underwater Pepe
-	[9] = "1861550", -- Troll Pepe
-}
-
-local function Pepe_Model(self)
-	local npc = KUI.PEPE
-	local mod = T.math_random(1, #npc)
-	local id = npc[mod]
-
-	self:ClearModel()
-	self:SetModel(id)
-	self:SetSize(200, 200)
-	self:SetCamDistanceScale(1)
-	self:SetFacing(6)
-	self:SetAlpha(1)
-	T.UIFrameFadeIn(self, 1, self:GetAlpha(), 1)
-end
-
 function KGM:GameMenu()
 	-- GameMenu Frame
 	if not GameMenuFrame.KuibottomPanel then
@@ -102,18 +76,6 @@ function KGM:GameMenu()
 		topPanel.factionLogo:SetPoint("CENTER", topPanel, "CENTER", 0, 0)
 		topPanel.factionLogo:SetSize(156, 150)
 		topPanel.factionLogo:SetTexture("Interface\\AddOns\\ElvUI_KlixUI\\media\\textures\\classIcons\\CLASS-"..E.myclass)
-	end
-	
-	if not pepeHolder then
-		local pepeHolder = T.CreateFrame("Frame", nil, GameMenuFrame)
-		pepeHolder:SetSize(175, 175)
-		pepeHolder:SetPoint("BOTTOM", GameMenuFrame, "TOP", 0, -50)
-
-		pepeModel = T.CreateFrame("PlayerModel", nil, pepeHolder)
-		pepeModel:SetPoint("CENTER", pepeHolder, "CENTER")
-		pepeModel:SetScript("OnShow", Pepe_Model)
-		pepeModel.isIdle = nil
-		pepeModel:Show()
 	end
 end
 
