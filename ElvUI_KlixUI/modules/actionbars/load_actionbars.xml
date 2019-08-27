@@ -1,7 +1,5 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">	
 	<Script file="actionbars.lua"/>
 	<Script file="microBar.lua"/>
-	<!--Script file="specandequipBar.lua"/>
-	<Script file="EQB.lua"/-->
 	<Script file="options.lua"/>
 </Ui>

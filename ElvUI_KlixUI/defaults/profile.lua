@@ -27,26 +27,6 @@ P['KlixUI'] = {
 	-- ActionBars
 	['actionbars'] = {
 		['transparent'] = true,
-		['questButton'] = true,
-		["SEBar"] = {
-			["enable"] = true,
-			["borderGlow"] = true,
-			["mouseover"] = false,
-			["malpha"] = 1,
-			["hideInCombat"] = false,
-			["hideInOrderHall"] = false,
-		},
-		["glow"] = {
-			["enable"] = true,
-			["finishMove"] = true,
-			["color"] = {r = 0.95, g = 0.95, b = 0.32, a = 1},
-			["number"] = 8,
-			["frequency"] = 0.45,
-			["length"] = 8,
-			["thickness"] = 2,
-			["xOffset"] = 0,
-			["yOffset"] = 0,
-		},
 	},
 	
 	-- AddonPanel
@@ -973,7 +953,7 @@ P['KlixUI'] = {
 	
 	-- MicroBar
 	["microBar"] = {
-		["enable"] = false,
+		["enable"] = true,
 		['scale'] = 1.0,
 		["hideInCombat"] = false,
 		["highlight"] = {
