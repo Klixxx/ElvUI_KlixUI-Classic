@@ -213,13 +213,6 @@ local function Core()
 								desc = L["Enable/Disable sounds when a cut scene pops.\n|cffff8000Note: This will only enable if you have your sound disabled.|r"],
 								disabled = function() return E.global.KlixUI.cinematic.kill end,
 							},
-							talkingheadSound = {
-								order = 3,
-								type = "toggle",
-								name = L["Talkinghead Sound"],
-								desc = L["Enable/Disable sounds when the talkingheadframe pops.\n|cffff8000Note: This will only enable if you have your sound disabled."],
-								disabled = function() return E.global.KlixUI.cinematic.kill or E.db.KlixUI.misc.talkingHead end,
-							},
 						},
 					},
 				},

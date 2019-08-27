@@ -31,10 +31,6 @@ if E.global.KlixUI.cinematic.kill then return end
 			T.SetCVar("Sound_EnableAllSound", 0)
 		elseif(event == "QUEST_COMPLETE") and E.global.KlixUI.cinematic.enableSound or E.global.KlixUI.cinematic.talkingheadSound then
 			T.SetCVar("Sound_EnableAllSound", 0)
-		elseif(event == "TALKINGHEAD_CLOSE") and E.global.KlixUI.cinematic.talkingheadSound and not E.db.KlixUI.misc.talkingHead then
-			T.SetCVar("Sound_EnableAllSound", 0)
-		elseif (event == "TALKINGHEAD_REQUESTED") and E.global.KlixUI.cinematic.talkingheadSound and not E.db.KlixUI.misc.talkingHead then
-			T.SetCVar("Sound_EnableAllSound", 1)
 		end
 		
 		hooksecurefunc(_G, "GameMovieFinished", function() if moviePlayed then T.SetCVar("Sound_EnableAllSound", 0) end moviePlayed = false end)
@@ -45,6 +41,4 @@ f:RegisterEvent("CINEMATIC_START")
 f:RegisterEvent("CINEMATIC_STOP")
 f:RegisterEvent("PLAY_MOVIE")
 f:RegisterEvent("QUEST_COMPLETE")
-f:RegisterEvent("TALKINGHEAD_REQUESTED")
-f:RegisterEvent("TALKINGHEAD_CLOSE")
 f:SetScript("OnEvent", eventhandler)
