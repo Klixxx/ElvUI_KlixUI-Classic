@@ -225,8 +225,7 @@ function KUF:Initialize()
 	self:InitPlayer()
 	self:InitTarget()
 	self:InitPet()
-	
-	self:ChangePowerBarTexture()
+
 	self:ChangeHealthBarTexture()
 
 	self:UnitShadows()

@@ -479,7 +479,7 @@ local function SkinsTable()
 end
 T.table_insert(KUI.Config, SkinsTable)
 
-local function injectElvUISkinsOptions()
+--[[local function injectElvUISkinsOptions()
 	E.Options.args.skins.args.blizzard.args.gotoklixui = {
 		order = 1,
 		type = "execute",
@@ -499,4 +499,4 @@ local function injectElvUISkinsOptions()
 		name = '',
 	}
 end
-T.table_insert(KUI.Config, injectElvUISkinsOptions)
+T.table_insert(KUI.Config, injectElvUISkinsOptions)]]

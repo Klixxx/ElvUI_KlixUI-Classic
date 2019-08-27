@@ -1,7 +1,7 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local KUF = KUI:GetModule("KuiUnits")
 local KEI = KUI:GetModule('KuiEliteIcon')
-local KUIC = KUI:GetModule('KuiCastbar')
+--local KUIC = KUI:GetModule('KuiCastbar')
 local UF = E:GetModule("UnitFrames")
 
 local isEnabled = E.private["unitframe"].enable and true or false
