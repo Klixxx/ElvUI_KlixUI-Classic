@@ -3,7 +3,6 @@
 	<Script file="microBar.lua"/>
 	<!--Script file="autoButtons.lua"/>
 	<Script file="specandequipBar.lua"/>
-	<Script file="vehicleBar.lua"/>
 	<Script file="EQB.lua"/-->
 	<Script file="options.lua"/>
 </Ui>

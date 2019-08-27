@@ -29,13 +29,6 @@ P['KlixUI'] = {
 		['transparent'] = true,
 		['questButton'] = true,
 		['cleanButton'] = false,
-		["vehicle"] = {
-			["enable"] = false,
-			["numButtons"] = 7,
-			["buttonsize"] = 40,
-			["buttonspacing"] = 2,
-			["template"] = "NoBackdrop",
-		},
 		["hearthstone"] = {
 			["enable"] = true,
 			["delete"] = false,
