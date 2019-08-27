@@ -20,9 +20,9 @@
 	<script file="gmotd.lua"/>
 	<!--script file="threat.lua"/>
 	<script file="afk.lua"/>
-	<script file="gamemenu.lua"/>
+	<script file="gamemenu.lua"/-->
 	<script file="cursor.lua"/>
-	<script file="invite.lua"/>
+	<!--script file="invite.lua"/>
 	<script file="skipAA.lua"/>
 	<script file="corruptedAsh.lua"/-->
 	<script file="options.lua"/>

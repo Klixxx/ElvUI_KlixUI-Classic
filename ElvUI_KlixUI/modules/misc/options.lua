@@ -53,12 +53,12 @@ local function Misc()
 				type = "header",
 				name = KUI:cOption(L["Miscellaneous"]),
 			},
-			--[[general = {
+			general = {
 				order = 2,
 				type = "group",
 				name = L["General"],
 				args = {
-					combatState = {
+					--[[combatState = {
 						order = 1,
 						type = "toggle",
 						name = L["Announce Combat Status"],
@@ -69,7 +69,7 @@ local function Misc()
 						type = "toggle",
 						name = L["Announce Skill Gains"],
 						desc = L["Announce skill gains in a textfield in the middle of the screen.\nCredit: |cffff7d0aMerathilisUI|r"],
-					},
+					},]]
 					gmotd = {
 						order = 3,
 						type = "toggle",
@@ -92,7 +92,7 @@ local function Misc()
 						name = L["Buy Max Stack"],
 						desc = L["Alt-Click on an item, sold buy a merchant, to buy a full stack."],
 					},
-					talkingHead = {
+					--[[talkingHead = {
 						order = 7,
 						type = "toggle",
 						name = L["Hide TalkingHeadFrame"],
@@ -153,7 +153,7 @@ local function Misc()
 						desc = L["Add a seat indicator, to passenger mounts without an indicator, e.g. The Hivemind, Sandstone Drake, Heart of the Nightwing and Travel Form."],
 						get = function(info) return E.db.KlixUI.misc.vehicleSeat.missing end,
 						set = function(info, value) E.db.KlixUI.misc.vehicleSeat.missing = value; E:StaticPopup_Show("PRIVATE_RL") end,
-					},
+					},]]
 					space = {
 						order = 25,
 						type = "description",
@@ -221,7 +221,7 @@ local function Misc()
 							},
 						},
 					},
-					alreadyknown = {
+					--[[alreadyknown = {
 						order = 27,
 						type = "group",
 						name = L["Already Known"],
@@ -302,10 +302,10 @@ local function Misc()
 								end,
 							},
 						},
-					},
+					},]]
 				},
 			},
-			merchant = {
+			--[[merchant = {
 				order = 3,
 				type = "group",
 				name = L["Merchant"],
