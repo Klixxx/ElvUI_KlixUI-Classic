@@ -9,25 +9,24 @@ local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 -- GLOBALS:
 
 KUI.ReminderList = {
-	--[[DEATHKNIGHT = {
-		["Raise"] = {
+	DRUID = {
+		["MarkOfTheWild"] = {
 			["spellGroup"] = {
-				[46584] = true,
-				["defaultIcon"] = 46584, -- Raise Dead
+				[9884] = true,
+				["defaultIcon"] = 9884, -- Mark of the Wild
 			},
 			["enable"] = true,
 			["instance"] = true,
 			["pvp"] = true,
 			["strictFilter"] = true,
-			["tree"] = 3,
 		},
-	},]]
+	},
 	
 	MAGE = {
 		["Intellect"] = {
 			["spellGroup"] = {
-				[1459] = true,
-				["defaultIcon"] = 1459, -- Arcane Intellect
+				[23028] = true,
+				["defaultIcon"] = 23028, -- Arcane Brilliance
 			},
 			["enable"] = true,
 			["instance"] = true,
@@ -54,8 +53,8 @@ KUI.ReminderList = {
 	PRIEST = {
 		["Stamina"] = {
 			["spellGroup"] = {
-				[21562] = true,
-				["defaultIcon"] = 21562, -- Power Word: Fortitude
+				[21564] = true,
+				["defaultIcon"] = 21564, -- Prayer of Fortitude
 			},
 			["enable"] = true,
 			["instance"] = true,
@@ -63,38 +62,20 @@ KUI.ReminderList = {
 			["strictFilter"] = true,
 		},
 	},
-
-	ROGUE = {
-		["Poisons"] = {
+	
+	WARLOCK = {
+		["Stamina"] = {
 			["spellGroup"] = {
-				[8679] = true,	 -- Wound Poison
-				[2823] = true,	 -- Deadly Poison
-				[3408] = true,	 -- Crippling Poison
-				[108211] = true, -- Leeching Poison
-				["defaultIcon"] = 2823,
+				[11767] = true, -- Blood Pact
+				["defaultIcon"] = 11767,
 			},
 			["enable"] = true,
 			["instance"] = true,
 			["pvp"] = true,
 			["strictFilter"] = true,
-			["tree"] = 1,
 		},
 	},
-
-	SHAMAN = {
-		["Shield"] = {
-			["spellGroup"] = {
-				[192106] = true, -- Lightning Shield
-				["defaultIcon"] = 192106,
-			},
-			["enable"] = true,
-			["instance"] = true,
-			["pvp"] = true,
-			["strictFilter"] = true,
-			["tree"] = 2,
-		},
-	},
-
+	
 	WARRIOR = {
 		["AttackPower"] = {
 			["spellGroup"] = {

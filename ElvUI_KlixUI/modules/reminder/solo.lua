@@ -287,7 +287,7 @@ function KSR:ReminderIcon_OnEvent(event, unit)
 		return
 	end
 
-	if not self.icon:GetTexture() or T.UnitInVehicle("player") then return end
+	if not self.icon:GetTexture() then return end
 
 	local filterCheck = KSR:FilterCheck(self)
 	local reverseCheck = KSR:FilterCheck(self, true)
@@ -299,13 +299,12 @@ function KSR:ReminderIcon_OnEvent(event, unit)
 		return
 	end
 
-	local activeTree = T.GetSpecialization()
 	if db.spellGroup and not db.weaponCheck then
 		if filterCheck and ((not hasBuff) and (not hasDebuff)) and not db.reverseCheck then
 			self:SetAlpha(1)
-		elseif reverseCheck and db.reverseCheck and (hasBuff or hasDebuff) and not (db.talentTreeException == activeTree) then
+		elseif reverseCheck and db.reverseCheck and (hasBuff or hasDebuff) then
 			self:SetAlpha(1)
-		elseif reverseCheck and db.reverseCheck and ((not hasBuff) and (not hasDebuff)) and (db.talentTreeException == activeTree) then
+		elseif reverseCheck and db.reverseCheck and ((not hasBuff) and (not hasDebuff)) then
 			self:SetAlpha(1)
 		end
 	elseif db.weaponCheck then
@@ -384,7 +383,7 @@ function KSR:CheckForNewReminders()
 end
 
 function KSR:Initialize()
-	if not E.private.unitframe.enable or not E.db.KlixUI.reminder.solo.enable or T.UnitInVehicle("player") then return end
+	if not E.private.unitframe.enable or not E.db.KlixUI.reminder.solo.enable then return end
 	
 	KSR.db = E.db.KlixUI.reminder.solo
 

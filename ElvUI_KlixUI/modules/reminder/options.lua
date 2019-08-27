@@ -1,5 +1,5 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
-local KRR = KUI:GetModule("KuiRaidReminder")
+--local KRR = KUI:GetModule("KuiRaidReminder")
 local KSR = KUI:GetModule("KuiSoloReminder")
 
 local DEFAULT, CUSTOM, AGGRO_WARNING_IN_PARTY = DEFAULT, CUSTOM, AGGRO_WARNING_IN_PARTY

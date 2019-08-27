@@ -35,6 +35,7 @@ T.BreakUpLargeNumbers = BreakUpLargeNumbers
 T.BuyMerchantItem = BuyMerchantItem
 T.BuyTrainerService = BuyTrainerService
 T.C_FriendList_GetNumFriends = C_FriendList.GetNumFriends
+T.C_PaperDollInfo_OffhandHasWeapon = C_PaperDollInfo.OffhandHasWeapon
 T.C_Timer_After = C_Timer.After
 T.C_Timer_NewTicker = C_Timer.NewTicker
 T.CanAffordMerchantItem = CanAffordMerchantItem
