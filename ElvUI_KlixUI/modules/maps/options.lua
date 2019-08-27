@@ -1,8 +1,6 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local MM = KUI:GetModule("KuiMinimap")
-local SMB = KUI:GetModule("KuiSquareMinimapButtons")
-local KWM = KUI:GetModule('KuiWorldMap')
---local FQ = KUI:GetModule("FlightQueue")
+--local SMB = KUI:GetModule("KuiSquareMinimapButtons")
 local COMP = KUI:GetModule("KuiCompatibility")
 
 local function Maps()
@@ -116,7 +114,7 @@ local function Maps()
 							},
 						},
 					},
-					buttons = {
+					--[[buttons = {
 						order = 2,
 						type = "group",
 						name = L["Minimap Buttons"],
@@ -226,7 +224,7 @@ local function Maps()
 								},
 							},
 						},
-					},
+					},]]
 					ping = {
 						order = 3,
 						type = "group",
