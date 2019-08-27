@@ -250,17 +250,6 @@ function KUI:SetupLayout(layout)
 	E.db["general"]["totems"]["growthDirection"] = "VERTICAL"
 	E.db["general"]["totems"]["size"] = 40
 	E.db["general"]["totems"]["spacing"] = 3
-	E.db["general"]["minimap"]["icons"]["calendar"]["hide"] = true
-	E.db["general"]["minimap"]["icons"]["classHall"]["hide"] = false
-	E.db["general"]["minimap"]["icons"]["classHall"]["position"] = "BOTTOMRIGHT"
-	E.db["general"]["minimap"]["icons"]["classHall"]["scale"] = 0.7
-	if E.db.KlixUI.maps.minimap.rectangle then
-		E.db["general"]["minimap"]["icons"]["classHall"]["xOffset"] = -2
-		E.db["general"]["minimap"]["icons"]["classHall"]["yOffset"] = 45
-	else
-		E.db["general"]["minimap"]["icons"]["classHall"]["xOffset"] = 0
-		E.db["general"]["minimap"]["icons"]["classHall"]["yOffset"] = -4
-	end
 	E.db["general"]["minimap"]["icons"]["lfgEye"]["position"] = "BOTTOMLEFT"
 	E.db["general"]["minimap"]["icons"]["lfgEye"]["scale"] = 0.75
 	E.db["general"]["minimap"]["icons"]["lfgEye"]["xOffset"] = 4
@@ -433,8 +422,8 @@ function KUI:SetupLayout(layout)
 	-- ExperienceBar
 	E.db["databars"]["experience"]["enable"] = true
 	E.db["databars"]["experience"]["mouseover"] = false
-	E.db["databars"]["experience"]["width"] = 540
-	E.db["databars"]["experience"]["height"] = 7
+	E.db["databars"]["experience"]["width"] = 371
+	E.db["databars"]["experience"]["height"] = 10
 	E.db["databars"]["experience"]["font"] = "Expressway"
 	E.db["databars"]["experience"]["fontOutline"] = "OUTLINE"
 	E.db["databars"]["experience"]["textFormat"] = "NONE"
@@ -447,7 +436,7 @@ function KUI:SetupLayout(layout)
 	-- ReputationBar 
 	E.db["databars"]["reputation"]["enable"] = true
 	E.db["databars"]["reputation"]["mouseover"] = false
-	E.db["databars"]["reputation"]["width"] = 152
+	E.db["databars"]["reputation"]["width"] = 371
 	E.db["databars"]["reputation"]["height"] = 10
 	E.db["databars"]["reputation"]["font"] = "Expressway"
 	E.db["databars"]["reputation"]["fontOutline"] = "OUTLINE"
@@ -457,47 +446,9 @@ function KUI:SetupLayout(layout)
 	E.db["databars"]["reputation"]["hideInVehicle"] = false
 	E.db["databars"]["reputation"]["hideInCombat"] = false
 	E.db["databars"]["reputation"]["reverseFill"] = false
-	-- AzeriteBar
-	E.db["databars"]["azerite"]["enable"] = true
-	E.db["databars"]["azerite"]["mouseover"] = false
-	E.db["databars"]["azerite"]["width"] = 152
-	E.db["databars"]["azerite"]["height"] = 10
-	E.db["databars"]["azerite"]["font"] = "Expressway"
-	E.db["databars"]["azerite"]["fontOutline"] = "OUTLINE"
-	E.db["databars"]["azerite"]["textFormat"] = "NONE"
-	E.db["databars"]["azerite"]["textSize"] = 12
-	E.db["databars"]["azerite"]["orientation"] = "HORIZONTAL"
-	E.db["databars"]["azerite"]["hideInVehicle"] = false
-	E.db["databars"]["azerite"]["hideInCombat"] = false
-	E.db["databars"]["azerite"]["reverseFill"] = false
-	-- HonorBar
-	E.db["databars"]["honor"]["enable"] = true
-	E.db["databars"]["honor"]["mouseover"] = false
-	E.db["databars"]["honor"]["width"] = 152
-	E.db["databars"]["honor"]["height"] = 10
-	E.db["databars"]["honor"]["font"] = "Expressway"
-	E.db["databars"]["honor"]["fontOutline"] = "OUTLINE"
-	E.db["databars"]["honor"]["textFormat"] = "NONE"
-	E.db["databars"]["honor"]["textSize"] = 12
-	E.db["databars"]["honor"]["orientation"] = "HORIZONTAL"
-	E.db["databars"]["honor"]["hideInVehicle"] = false
-	E.db["databars"]["honor"]["hideInCombat"] = false
-	E.db["databars"]["honor"]["hideOutsidePvP"] = false
-	E.db["databars"]["honor"]["reverseFill"] = false
 	
-	if T.IsAddOnLoaded('XIV_Databar') then
-		KUI:SetMoverPosition("ArtifactBarMover", "TOPRIGHT", E.UIParent, "TOPRIGHT", -10, -200)
-		KUI:SetMoverPosition("AzeriteBarMover", "TOPRIGHT", E.UIParent, "TOPRIGHT", -10, -200)
-		KUI:SetMoverPosition("HonorBarMover", "TOPRIGHT", E.UIParent, "TOPRIGHT", -10, -189)
-		KUI:SetMoverPosition("ReputationBarMover", "TOPRIGHT", E.UIParent, "TOPRIGHT", -10, -178)
-		KUI:SetMoverPosition("ExperienceBarMover", "TOP", E.UIParent, "TOP", 0, -25)
-	else
-		KUI:SetMoverPosition("ArtifactBarMover", "TOPRIGHT", E.UIParent, "TOPRIGHT", -10, -185)
-		KUI:SetMoverPosition("AzeriteBarMover", "TOPRIGHT", E.UIParent, "TOPRIGHT", -10, -185)
-		KUI:SetMoverPosition("HonorBarMover", "TOPRIGHT", E.UIParent, "TOPRIGHT", -10, -174)
-		KUI:SetMoverPosition("ReputationBarMover", "TOPRIGHT", E.UIParent, "TOPRIGHT", -10, -163)
-		KUI:SetMoverPosition("ExperienceBarMover", "TOP", E.UIParent, "TOP", 0, -2)
-	end
+	KUI:SetMoverPosition("ExperienceBarMover", "BOTTOM", E.UIParent, "BOTTOM", 0, 62)
+	KUI:SetMoverPosition("ReputationBarMover", "BOTTOM", E.UIParent, "BOTTOM", 0, 72)
 	
 	--[[----------------------------------
 	--	ProfileDB - NamePlate
