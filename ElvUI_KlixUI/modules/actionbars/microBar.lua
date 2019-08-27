@@ -55,18 +55,13 @@ end
 
 function MB:OnClick(btn)
 	if T.InCombatLockdown() then return end
-	if btn == "LeftButton" then
-		if(not CalendarFrame) then T.LoadAddOn("Blizzard_Calendar") end
-		Calendar_Toggle()
-		T.PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_OFF)
-	end
 end
 
 function MB:CreateMicroBar()
 	microBar = T.CreateFrame("Frame", KUI.Title.."MicroBar", E.UIParent)
 	microBar:SetFrameStrata("HIGH")
 	microBar:EnableMouse(true)
-	microBar:SetSize(540, 26)
+	microBar:SetSize(290, 26)
 	microBar:SetScale(MB.db.scale or 1)
 	microBar:Point("TOP", E.UIParent, "TOP", 0, -10)
 	microBar:SetTemplate("Transparent")
@@ -178,7 +173,7 @@ function MB:CreateMicroBar()
 
 	local function UpdateFriends()
 		MB.db = E.db.KlixUI.microBar
-		local friendsTotal, friendsOnline = T.GetNumFriends()
+		local friendsOnline = T.C_FriendList_GetNumFriends()
 		local bnTotal, bnOnline = T.BNGetNumFriends()
 		local totalOnline = friendsOnline + bnOnline
 
@@ -296,43 +291,10 @@ function MB:CreateMicroBar()
 			UpdateGuild()
 		end
 	end)
-
-	--QuestLog
-	local questButton = T.CreateFrame("Button", nil, microBar)
-	questButton:SetPoint("LEFT", guildButton, "RIGHT", 2, 0)
-	questButton:SetSize(32, 32)
-	questButton:SetFrameLevel(6)
-
-	questButton.tex = questButton:CreateTexture(nil, "OVERLAY")
-	questButton.tex:SetPoint("BOTTOMLEFT")
-	questButton.tex:SetPoint("BOTTOMRIGHT")
-	questButton.tex:SetSize(32, 32)
-	questButton.tex:SetTexture(IconPath.."Quest")
-	questButton.tex:SetVertexColor(.6, .6, .6)
-	questButton.tex:SetBlendMode("ADD")
-
-	questButton.text = KUI:CreateText(questButton, "HIGHLIGHT", 11, "OUTLINE", "CENTER")
-	if MB.db.text.buttons.position == "BOTTOM" then
-	questButton.text:SetPoint("BOTTOM", questButton, 2, -15)
-	elseif MB.db.text.buttons.position == "TOP" then
-	questButton.text:SetPoint("TOP", questButton, 2, 15)
-	end
-	questButton.text:SetText(L["Map & Quest Log"])
-	if MB.db.text.colors.customColor == 1 then
-	questButton.text:SetTextColor(KUI.r, KUI.g, KUI.b)
-	elseif MB.db.text.colors.customColor == 2 then
-	questButton.text:SetTextColor(KUI:unpackColor(MB.db.text.colors.userColor))
-	else
-	questButton.text:SetTextColor(KUI:unpackColor(E.db.general.valuecolor))
-	end
-
-	questButton:SetScript("OnEnter", function(self) OnHover(self) end)
-	questButton:SetScript("OnLeave", function(self) OnLeave(self) end)
-	questButton:SetScript("OnClick", function(self) if T.InCombatLockdown() then return end _G["ToggleQuestLog"]() end)
 	
 	-- Time
 	local timeButton = T.CreateFrame("Button", nil, microBar)
-	timeButton:SetPoint("LEFT", questButton, "RIGHT", 18, 0)
+	timeButton:SetPoint("LEFT", guildButton, "RIGHT", 18, 0)
 	timeButton:SetSize(32, 32)
 	timeButton:SetFrameLevel(6)
 
@@ -378,9 +340,42 @@ function MB:CreateMicroBar()
 	timeButton:SetScript("OnLeave", function(self) OnLeave(self) end)
 	timeButton:SetScript("OnMouseUp", MB.OnClick)
 	
+	--QuestLog
+	local questButton = T.CreateFrame("Button", nil, microBar)
+	questButton:SetPoint("LEFT", timeButton, "RIGHT", 2, 0)
+	questButton:SetSize(32, 32)
+	questButton:SetFrameLevel(6)
+
+	questButton.tex = questButton:CreateTexture(nil, "OVERLAY")
+	questButton.tex:SetPoint("BOTTOMLEFT")
+	questButton.tex:SetPoint("BOTTOMRIGHT")
+	questButton.tex:SetSize(32, 32)
+	questButton.tex:SetTexture(IconPath.."Quest")
+	questButton.tex:SetVertexColor(.6, .6, .6)
+	questButton.tex:SetBlendMode("ADD")
+
+	questButton.text = KUI:CreateText(questButton, "HIGHLIGHT", 11, "OUTLINE", "CENTER")
+	if MB.db.text.buttons.position == "BOTTOM" then
+	questButton.text:SetPoint("BOTTOM", questButton, 2, -15)
+	elseif MB.db.text.buttons.position == "TOP" then
+	questButton.text:SetPoint("TOP", questButton, 2, 15)
+	end
+	questButton.text:SetText(L["Map & Quest Log"])
+	if MB.db.text.colors.customColor == 1 then
+	questButton.text:SetTextColor(KUI.r, KUI.g, KUI.b)
+	elseif MB.db.text.colors.customColor == 2 then
+	questButton.text:SetTextColor(KUI:unpackColor(MB.db.text.colors.userColor))
+	else
+	questButton.text:SetTextColor(KUI:unpackColor(E.db.general.valuecolor))
+	end
+
+	questButton:SetScript("OnEnter", function(self) OnHover(self) end)
+	questButton:SetScript("OnLeave", function(self) OnLeave(self) end)
+	questButton:SetScript("OnClick", function(self) if T.InCombatLockdown() then return end _G["ToggleQuestLog"]() end)
+	
 	--Spellbook
 	local spellBookButton = T.CreateFrame("Button", nil, microBar)
-	spellBookButton:SetPoint("LEFT", timeButton, "RIGHT", 2, 0)
+	spellBookButton:SetPoint("LEFT", questButton, "RIGHT", 2, 0)
 	spellBookButton:SetSize(32, 32)
 	spellBookButton:SetFrameLevel(6)
 
