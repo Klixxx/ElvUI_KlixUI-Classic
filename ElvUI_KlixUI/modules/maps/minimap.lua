@@ -277,10 +277,7 @@ function MM:SkinMiniMap()
 		'MinimapZoomIn',
 		'MiniMapWorldMapButton',
 		'MiniMapMailBorder',
-		'MiniMapTracking',
-		'MiniMapInstanceDifficulty',
-		'GuildInstanceDifficulty',
-		'MiniMapChallengeMode',
+
     }
     for i in T.pairs(frames) do
         _G[frames[i]]:Kill()
