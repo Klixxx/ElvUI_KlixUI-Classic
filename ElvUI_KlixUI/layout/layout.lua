@@ -469,9 +469,7 @@ function KUIL:ChangeLayout()
 					self:SetScript('OnClick', ChatButton_OnClick)
 				else
 				self:SetScript('OnClick', function(self, btn)
-					if T.IsControlKeyDown() and E.db.KlixUI.actionbars.SEBar.enable then
-						KUIL:SpecandEquipBar_OnClick(self)
-					elseif btn == "LeftButton" then
+					if btn == "LeftButton" then
 						if (E.db.KlixUI.addonpanel.Enable and not (COMP.PA and _G.ProjectAzilroka.db["stAddonManager"]['Enable'])) then
 							if APFrame:IsShown() then
 								APFrame:Hide()
@@ -491,9 +489,6 @@ function KUIL:ChangeLayout()
 				GameTooltip:AddLine(L['Left Click: Toggle Addon List'], selectioncolor)
 				GameTooltip:AddLine(L['Right Click: Toggle Emoticons'], selectioncolor)
 				GameTooltip:AddLine(L['Shift + Click: Toggle Chat'], 0.7, 0.7, 1)
-				if E.db.KlixUI.actionbars.SEBar.enable then
-					GameTooltip:AddLine(L['Control + Click: Toggle Spec & Equip Bar'], 0.7, 0.7, 1)
-				end
 				GameTooltip:Show()
 				if T.InCombatLockdown() then GameTooltip:Hide() end
 			end)

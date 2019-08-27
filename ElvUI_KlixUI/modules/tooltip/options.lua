@@ -157,20 +157,6 @@ local function Tooltip()
 						type = "description",
 						name = "",
 					},
-					realm = {
-						order = 7,
-						type = 'toggle',
-						name = L["Realm Name"],
-						desc = L["Shows the current mouseover units realm name when holding down the shift-key."],
-						disabled = function() return not E.db.KlixUI.nameHover.enable end,
-					},
-					realmAlways = {
-						order = 8,
-						type = 'toggle',
-						name = L["Always Show Realm Name"],
-						desc = L["Always show the current mouseover units realm name."],
-						disabled = function() return not E.db.KlixUI.nameHover.enable or not E.db.KlixUI.nameHover.realm end,
-					},
 					titles = {
 						order = 9,
 						type = 'toggle',
