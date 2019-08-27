@@ -61,7 +61,7 @@ function MB:CreateMicroBar()
 	microBar = T.CreateFrame("Frame", KUI.Title.."MicroBar", E.UIParent)
 	microBar:SetFrameStrata("HIGH")
 	microBar:EnableMouse(true)
-	microBar:SetSize(290, 26)
+	microBar:SetSize(360, 26)
 	microBar:SetScale(MB.db.scale or 1)
 	microBar:Point("TOP", E.UIParent, "TOP", 0, -10)
 	microBar:SetTemplate("Transparent")
@@ -441,7 +441,7 @@ function MB:CreateMicroBar()
 
 	--Bug
 	local bugButton = T.CreateFrame("Button", nil, microBar)
-	bugButton:SetPoint("LEFT", shopButton, "RIGHT", 2, 0)
+	bugButton:SetPoint("LEFT", speccButton, "RIGHT", 2, 0)
 	bugButton:SetSize(32, 32)
 	bugButton:SetFrameLevel(6)
 
