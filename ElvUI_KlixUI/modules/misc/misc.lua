@@ -210,6 +210,8 @@ function MI:ADDON_LOADED(event, addon)
 end
 
 function MI:PLAYER_ENTERING_WORLD()
+	if not E.db.KlixUI.misc.zoom.maxZoom then return end
+	
 	T.SetCVar("cameraDistanceMaxZoomFactor", 4)
 end
 
