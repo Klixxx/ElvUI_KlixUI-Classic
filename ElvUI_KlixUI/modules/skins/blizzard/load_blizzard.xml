@@ -30,7 +30,7 @@
 	<!--Script file="garrison.lua"/>
 	<Script file="garrisonTemplate.lua"/-->
 	<Script file="gbank.lua"/>
-	<Script file="gossip.lua"/>
+	<!--Script file="gossip.lua"/-->
 	<Script file="guild.lua"/>
 	<Script file="guildcontrol.lua"/>
 	<Script file="help.lua"/>
@@ -64,7 +64,7 @@
 	<Script file="raidframe.lua"/>
 	<!--Script file="scrappingmachine.lua"/-->
 	<Script file="spellbook.lua"/>
-	<Script file="stacksplit.lua"/>
+	<!--Script file="stacksplit.lua"/-->
 	<Script file="talent.lua"/>
 	<Script file="talkinghead.lua"/>
 	<Script file="taxi.lua"/>

@@ -139,9 +139,9 @@ local function styleMisc()
 	_G.LeftMiniPanel:Styling()
 	_G.RightMiniPanel:Styling()
 	
-	_G.MirrorTimer1StatusBar.backdrop:Styling()
-	_G.MirrorTimer2StatusBar.backdrop:Styling()
-	_G.MirrorTimer3StatusBar.backdrop:Styling()
+	_G.MirrorTimer1StatusBar:Styling()
+	_G.MirrorTimer2StatusBar:Styling()
+	_G.MirrorTimer3StatusBar:Styling()
 	
 	_G.ElvUIVendorGraysFrame.backdrop:Styling()
 	
