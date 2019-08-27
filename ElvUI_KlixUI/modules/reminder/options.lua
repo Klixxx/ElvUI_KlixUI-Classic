@@ -69,7 +69,7 @@ local function Reminder()
 					},
 				},
 			},
-			raid = {
+			--[[raid = {
 				order = 3,
 				type = "group",
 				name = L["Raid"],
@@ -154,7 +154,7 @@ local function Reminder()
 						set = function(info, value) E.db.KlixUI.reminder.raid.customVisibility = value; KRR:Visibility() end,
 					},
 				},
-			},
+			},]]
 		},
 	}
 end
