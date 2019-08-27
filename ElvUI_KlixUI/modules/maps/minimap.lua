@@ -11,13 +11,8 @@ local cluster = _G.MinimapCluster
 local r, g, b = unpack(E.media.rgbvaluecolor)
 
 function MM:CheckMail()
-	local inv = T.C_Calendar_GetNumPendingInvites()
 	local mail = MiniMapMailFrame:IsShown() and true or false
-	if inv > 0 and mail then -- New invites and mail
-		LCG.PixelGlow_Start(Minimap.backdrop, {255/255, 0/255, 0/255, 1}, nil, -0.25, nil, 1)
-	elseif inv > 0 and not mail then -- New invites and no mail
-		LCG.PixelGlow_Start(Minimap.backdrop, {255/255, 255/255, 0/255, 1}, nil, -0.25, nil, 1)
-	elseif inv == 0 and mail then -- No invites and new mail
+	if mail then
 		if E.db.KlixUI.maps.minimap.glowAlways then
 			LCG.PixelGlow_Start(Minimap.backdrop, {0/255, 255/255, 0/255, 1}, nil, -0.25, nil, 1)
 		else
@@ -29,47 +24,6 @@ function MM:CheckMail()
 		else
 			LCG.PixelGlow_Stop(Minimap.backdrop) -- None of the above
 		end
-	end
-end
-
-function MM:ChangeMiniMapButtons()
-	if E.db.KlixUI.maps.minimap.styleButton ~= true or E.db.KlixUI.maps.minimap.buttons.moveGarrison then return end
-
-	local GarrisonLandingPageMinimapButton = _G.GarrisonLandingPageMinimapButton
-	
-	if GarrisonLandingPageMinimapButton then
-		local scale = E.db.general.minimap.icons.classHall.scale or 1
-
-		GarrisonLandingPageMinimapButton:SetScale(scale) -- needs to be set.
-		GarrisonLandingPageMinimapButton.LoopingGlow:Size(GarrisonLandingPageMinimapButton:GetSize()*1)
-		GarrisonLandingPageMinimapButton:HookScript("OnEvent", function(self)
-			self:GetNormalTexture():SetAtlas(nil)
-			self:SetNormalTexture("Interface\\AddOns\\ElvUI_KlixUI\\media\\textures\\Home")
-			self:GetNormalTexture():SetBlendMode("ADD")
-			self:GetNormalTexture():ClearAllPoints()
-			self:GetNormalTexture():SetPoint("CENTER", 0, 1)
-			self:GetNormalTexture():SetVertexColor(r, g, b)
-
-			self:SetHighlightTexture("")
-			
-			self:SetPushedTexture("Interface\\AddOns\\ElvUI_KlixUI\\media\\textures\\Home")
-			self:GetPushedTexture():SetBlendMode("ADD")
-			self:GetPushedTexture():ClearAllPoints()
-			self:GetPushedTexture():SetPoint("CENTER", 1, 0)
-			self:GetPushedTexture():SetVertexColor(r, g, b)
-		end)
-	end
-end
-
-function MM:GarrisonButtonPosition()
-	if E.db.KlixUI.maps.minimap.styleButton then
-		E.db["general"]["minimap"]["icons"]["classHall"]["scale"] = 0.7
-		E.db["general"]["minimap"]["icons"]["classHall"]["xOffset"] = 0
-		E.db["general"]["minimap"]["icons"]["classHall"]["yOffset"] = -4
-	else
-		E.db["general"]["minimap"]["icons"]["classHall"]["scale"] = 0.6
-		E.db["general"]["minimap"]["icons"]["classHall"]["xOffset"] = -4
-		E.db["general"]["minimap"]["icons"]["classHall"]["yOffset"] = 0
 	end
 end
 
@@ -393,8 +347,6 @@ function MM:Initialize()
 	end
 	
 	MM:UpdateSettings()
-	MM:ChangeMiniMapButtons()
-	MM:GarrisonButtonPosition()
 	MM:MiniMapPing()
 	MM:HideMinimapRegister()
 	if not T.IsAddOnLoaded("ElvUI_CompassPoints") then
@@ -405,7 +357,6 @@ function MM:Initialize()
 	end
 	
 	if E.db.KlixUI.maps.minimap.glow then
-		self:RegisterEvent("CALENDAR_UPDATE_PENDING_INVITES", "CheckMail")
 		self:RegisterEvent("UPDATE_PENDING_MAIL", "CheckMail")
 		self:RegisterEvent("PLAYER_ENTERING_WORLD", "CheckMail")
 		self:HookScript(MiniMapMailFrame, "OnHide", "CheckMail")

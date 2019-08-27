@@ -13,7 +13,6 @@ local ignoreButtons = {
 	'ButtonCollectFrame',
 	'GameTimeFrame',
 	'QueueStatusMinimapButton',
-	'GarrisonLandingPageMinimapButton',
 	'MiniMapMailFrame',
 	'MiniMapTracking',
 	'TukuiMinimapZone',
@@ -56,35 +55,6 @@ end
 
 function SMB:HandleBlizzardButtons()
 	if not SMB.db.enable then return end
-
-	if SMB.db.hideGarrison then
-		_G.GarrisonLandingPageMinimapButton:UnregisterAllEvents()
-		_G.GarrisonLandingPageMinimapButton:SetParent(self.Hider)
-		_G.GarrisonLandingPageMinimapButton:Hide()
-	elseif SMB.db.moveGarrison and not _G.GarrisonLandingPageMinimapButton.SMB then
-		_G.GarrisonLandingPageMinimapButton:SetParent(_G.Minimap)
-		_G.GarrisonLandingPageMinimapButton:Show()
-		_G.GarrisonLandingPageMinimapButton:SetScale(1)
-		_G.GarrisonLandingPageMinimapButton:SetHitRectInsets(0, 0, 0, 0)
-		_G.GarrisonLandingPageMinimapButton:SetScript('OnEnter', nil)
-		_G.GarrisonLandingPageMinimapButton:SetScript('OnLeave', nil)
-
-		_G.GarrisonLandingPageMinimapButton:HookScript('OnEnter', function(self)
-			self:SetBackdropBorderColor(T.unpack(E["media"].rgbvaluecolor))
-			if SMB.Bar:IsShown() then
-				T.UIFrameFadeIn(SMB.Bar, 0.2, SMB.Bar:GetAlpha(), 1)
-			end
-		end)
-		_G.GarrisonLandingPageMinimapButton:HookScript('OnLeave', function(self)
-			self:SetTemplate()
-			if SMB.Bar:IsShown() and SMB.db.BarMouseOver then
-				T.UIFrameFadeOut(SMB.Bar, 0.2, SMB.Bar:GetAlpha(), 0)
-			end
-		end)
-
-		_G.GarrisonLandingPageMinimapButton.SMB = true
-		T.table_insert(self.Buttons, _G.GarrisonLandingPageMinimapButton)
-	end
 
 	if SMB.db.moveMail and not _G.MiniMapMailFrame.SMB then
 		local Frame = T.CreateFrame('Frame', 'SMB_MailFrame', self.Bar)
@@ -286,7 +256,7 @@ function SMB:SkinMinimapButton(Button)
 end
 
 function SMB:GrabMinimapButtons()
-	if (T.InCombatLockdown() or T.C_PetBattles_IsInBattle()) then return end
+	if T.InCombatLockdown() then return end
 
 	for _, Frame in T.pairs({ _G.Minimap, _G.MinimapBackdrop }) do
 		local NumChildren = Frame:GetNumChildren()

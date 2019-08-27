@@ -533,37 +533,6 @@ local function Maps()
 				get = function(info) return E.db.KlixUI.maps.worldmap[ info[#info] ] end,
 				set = function(info, value) E.db.KlixUI.maps.worldmap[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL") end,
 				args = {
-					general = {
-						order = 1,
-						type = "group",
-						name = L["General"],
-						guiInline = true,
-						args = {
-							scale = {
-								order = 1,
-								type = "range",
-								name = L["World Map Frame Size"],
-								min = 0.5, max = 2, step = 0.1,
-								set = function(info, value) E.db.KlixUI.maps.worldmap.scale = value; KWM:SetMapScale() end
-							},
-							worldquests = {
-								order = 2,
-								type = "toggle",
-								name = L["Enhanced World Quests"]..E.NewSign,
-								desc = L["Enhances the regular world quests pins on the world map."],
-								disabled = function() return T.IsAddOnLoaded("BetterWorldQuests")
-									or T.IsAddOnLoaded("WorldQuestTracker") 
-									or T.IsAddOnLoaded("WorldQuestsList") 
-									or T.IsAddOnLoaded("WorldQuestTab")
-								end,
-							},
-							--[[flightQ = {
-								order = 3,
-								type = "toggle",
-								name = L["Flight Queue"],
-							},]]
-						},
-					},
 					reveal = {
 						order = 2,
 						type = "group",

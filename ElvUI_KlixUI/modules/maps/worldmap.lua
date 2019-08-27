@@ -4,11 +4,6 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local KWM = KUI:NewModule('KuiWorldMap', 'AceHook-3.0');
 
-function KWM:SetMapScale()
-	_G.WorldMapFrame:SetScale(KWM.db.scale or 1.1)
-	RunScript("WorldMapFrame.ScrollContainer.GetCursorPosition=function(f) local x,y=MapCanvasScrollControllerMixin.GetCursorPosition(f);local s=WorldMapFrame:GetScale();return x/s,y/s;end")
-end
-
 -- Map data
 local LeaMapsData = {
 
@@ -410,8 +405,6 @@ end
 
 function KWM:Initialize()
 	KWM.db = E.db.KlixUI.maps.worldmap
-
-	self:SetMapScale()
 	
 	if KWM.db.reveal.enable and not T.IsAddOnLoaded("ElvUI_FogRemover") or T.IsAddOnLoaded("ElvUI_FogofWar") then
 		for pin in _G.WorldMapFrame:EnumeratePinsByTemplate("MapExplorationPinTemplate") do
