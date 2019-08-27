@@ -1098,7 +1098,7 @@ P['KlixUI'] = {
 		["zoom"] = {
 			["increment"] = 5,
 			["speed"] = 50,
-			["distance"] = 39,
+			["distance"] = 60,
 		},
 		["autolog"] = {
 			["enable"] = true,

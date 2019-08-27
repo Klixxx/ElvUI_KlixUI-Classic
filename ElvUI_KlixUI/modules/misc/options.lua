@@ -1,22 +1,22 @@
 ﻿local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local MI = KUI:GetModule("KuiMisc")
-local COMP = KUI:GetModule("KuiCompatibility")
+--local COMP = KUI:GetModule("KuiCompatibility")
 local KZ = KUI:GetModule("KuiZoom")
-local KAN = KUI:GetModule("KuiAnnounce")
+--[[local KAN = KUI:GetModule("KuiAnnounce")
 local KBL = KUI:GetModule("KuiBloodLust")
 local KEC = KUI:GetModule("KuiEasyCurve")
 local PvP = KUI:GetModule("KuiPVP")
 local THF = KUI:GetModule("TalkingHeadFrame")
 local AL = KUI:GetModule("AutoLog")
 local CSP = KUI:GetModule("ConfirmStaticPopups")
-local SCRAP = KUI:GetModule("Scrapper")
+local SCRAP = KUI:GetModule("Scrapper")]]
 
 local match = string.match
 local CUSTOM, PVP, DUEL, PET_BATTLE_PVP_DUEL, KILLING_BLOWS = CUSTOM, PVP, DUEL, PET_BATTLE_PVP_DUEL, KILLING_BLOWS
 
 local base = 15
-local maxfactor = 2.6
-
+local maxfactor = 4
+--[[
 local raid_lfr = {"43DGS", "52MGS", "53TES", "51HOF", "54TOT", "55SOO", "61BRF", "62HGM", "63HFC", "71TEN", "72TNH", "73TOV", "74TOS", "75ABT", "81UDI", "82BDZ", "83COS", "84ETP"}
 local raid_normal = {"41BAH", "42BWD", "45BTW", "46TFW", "44FIR", "43DGS", "52MGS", "53TES", "51HOF", "54TOT", "55SOO", "61BRF", "62HGM", "63HFC", "71TEN", "72TNH", "73TOV", "74TOS", "75ABT", "81UDI", "82BDZ", "83COS", "84ETP"}
 local raid_heroic = {"42BWD", "45BTW", "46TFW", "44FIR", "43DGS", "52MGS", "53TES", "51HOF", "54TOT", "55SOO", "61BRF", "62HGM", "63HFC", "71TEN", "72TNH", "73TOV", "74TOS", "75ABT", "81UDI", "82BDZ", "83COS", "84ETP"}
@@ -38,7 +38,7 @@ local function PopupOptions()
 	end
 	return args
 end
-
+]]
 local function Misc()
 	E.Options.args.KlixUI.args.modules.args.misc = {
 		order = 19,
@@ -53,7 +53,7 @@ local function Misc()
 				type = "header",
 				name = KUI:cOption(L["Miscellaneous"]),
 			},
-			general = {
+			--[[general = {
 				order = 2,
 				type = "group",
 				name = L["General"],
@@ -838,12 +838,12 @@ local function Misc()
 							},
 						},
 					},
-					--[[gotogeneral = {
+					gotogeneral = {
 						order = 3,
 						type = "execute",
 						name = L["ElvUI Panels"],
 						func = function() LibStub("AceConfigDialog-3.0-ElvUI"):SelectGroup("ElvUI", "general") end,
-					},]]
+					},
 				},
 			},
 			scrapper = {
@@ -964,7 +964,7 @@ local function Misc()
 						},
 					},
 				},
-			},
+			},]]
 			zoom = {
 				order = 9,
 				type = "group",
@@ -1001,7 +1001,7 @@ local function Misc()
 					},
 				},
 			},
-			autolog = {
+			--[[autolog = {
 				order = 10,
 				type = "group",
 				name = L["AutoLog"],
@@ -1280,7 +1280,7 @@ local function Misc()
 						disabled = function() return not E.db.KlixUI.misc.CA.enable or not E.db.KlixUI.misc.CA.passiveMode end,
 					},
 				},
-			},
+			},]]
 		},
 	}
 end
