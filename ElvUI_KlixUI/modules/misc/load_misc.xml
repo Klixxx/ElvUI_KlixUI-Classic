@@ -13,9 +13,9 @@
 	<!--script file="pvp.lua"/>
 	<script file="pvpsound.lua"/-->
 	<script file="movers.lua"/>
-	<!--script file="autolog.lua"/>
+	<!--script file="autolog.lua"/-->
 	<script file="confirmSP.lua"/>
-	<script file="scrapper.lua"/>
+	<!--script file="scrapper.lua"/>
 	<script file="teleportation.lua"/-->
 	<script file="gmotd.lua"/>
 	<!--script file="threat.lua"/>

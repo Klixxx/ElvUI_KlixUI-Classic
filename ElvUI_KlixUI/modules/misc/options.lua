@@ -7,16 +7,16 @@ local KBL = KUI:GetModule("KuiBloodLust")
 local KEC = KUI:GetModule("KuiEasyCurve")
 local PvP = KUI:GetModule("KuiPVP")
 local THF = KUI:GetModule("TalkingHeadFrame")
-local AL = KUI:GetModule("AutoLog")
+local AL = KUI:GetModule("AutoLog")]]
 local CSP = KUI:GetModule("ConfirmStaticPopups")
-local SCRAP = KUI:GetModule("Scrapper")]]
+--local SCRAP = KUI:GetModule("Scrapper")
 
 local match = string.match
 local CUSTOM, PVP, DUEL, PET_BATTLE_PVP_DUEL, KILLING_BLOWS = CUSTOM, PVP, DUEL, PET_BATTLE_PVP_DUEL, KILLING_BLOWS
 
 local base = 15
 local maxfactor = 4
---[[
+
 local raid_lfr = {"43DGS", "52MGS", "53TES", "51HOF", "54TOT", "55SOO", "61BRF", "62HGM", "63HFC", "71TEN", "72TNH", "73TOV", "74TOS", "75ABT", "81UDI", "82BDZ", "83COS", "84ETP"}
 local raid_normal = {"41BAH", "42BWD", "45BTW", "46TFW", "44FIR", "43DGS", "52MGS", "53TES", "51HOF", "54TOT", "55SOO", "61BRF", "62HGM", "63HFC", "71TEN", "72TNH", "73TOV", "74TOS", "75ABT", "81UDI", "82BDZ", "83COS", "84ETP"}
 local raid_heroic = {"42BWD", "45BTW", "46TFW", "44FIR", "43DGS", "52MGS", "53TES", "51HOF", "54TOT", "55SOO", "61BRF", "62HGM", "63HFC", "71TEN", "72TNH", "73TOV", "74TOS", "75ABT", "81UDI", "82BDZ", "83COS", "84ETP"}
@@ -38,7 +38,7 @@ local function PopupOptions()
 	end
 	return args
 end
-]]
+
 local function Misc()
 	E.Options.args.KlixUI.args.modules.args.misc = {
 		order = 19,
@@ -742,7 +742,7 @@ local function Misc()
 						},
 					},
 				},
-			},
+			},]]
 			panels = {
 				order = 7,
 				type = "group",
@@ -846,7 +846,7 @@ local function Misc()
 					},
 				},
 			},
-			scrapper = {
+			--[[scrapper = {
 				order = 8,
 				type = "group",
 				name = L["Scrap Machine"],
@@ -1111,7 +1111,7 @@ local function Misc()
 						set = function(info, raid, value) AL:SetSetting("mythic", raid, value) end,
 					},
 				},
-			},
+			},]]
 			popups = {
 				order = 11,
 				type = "group",
@@ -1142,7 +1142,7 @@ local function Misc()
 					},
 				},
 			},
-			pvp = {
+			--[[pvp = {
 				type = "group",
 				name = L["PvP"],
 				order = 40,
