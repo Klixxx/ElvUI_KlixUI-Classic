@@ -250,11 +250,6 @@ function KUI:SetupLayout(layout)
 	E.db["general"]["totems"]["growthDirection"] = "VERTICAL"
 	E.db["general"]["totems"]["size"] = 40
 	E.db["general"]["totems"]["spacing"] = 3
-	E.db["general"]["minimap"]["icons"]["lfgEye"]["position"] = "BOTTOMLEFT"
-	E.db["general"]["minimap"]["icons"]["lfgEye"]["scale"] = 0.75
-	E.db["general"]["minimap"]["icons"]["lfgEye"]["xOffset"] = 4
-	E.db["general"]["minimap"]["icons"]["lfgEye"]["yOffset"] = 4
-	E.db["general"]["minimap"]["icons"]["mail"]["position"] = "TOPRIGHT"
 	E.db["general"]["minimap"]["icons"]["mail"]["scale"] = 1
 	E.db["general"]["minimap"]["icons"]["mail"]["xOffset"] = -8
 	E.db["general"]["minimap"]["icons"]["mail"]["yOffset"] = -4
@@ -1141,7 +1136,7 @@ function KUI:SetupUnitframes(layout)
 	
 	-- PetTarget
 	E.db["unitframe"]["units"]["pettarget"]["enable"] = false
-	
+	--[[
 	-- Arena
 	E.db["unitframe"]["units"]["arena"]["enable"] = true
 	E.db["unitframe"]["units"]["arena"]["width"] = 225
@@ -1234,7 +1229,7 @@ function KUI:SetupUnitframes(layout)
 	E.db["unitframe"]["units"]["boss"]["customTexts"] = {}
 
 	KUI:SetMoverPosition("BossHeaderMover", "TOPRIGHT", E.UIParent, "TOPRIGHT", -370, -285)
-	
+	]]
 	-- Party
 	E.db["unitframe"]["units"]["party"]["width"] = 160
 	E.db["unitframe"]["units"]["party"]["height"] = 22
