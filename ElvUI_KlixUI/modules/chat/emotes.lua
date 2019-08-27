@@ -139,16 +139,8 @@ function ChatEmote.ToggleEmoteTable()
 	if (not EmoteTableFrame) then CreateEmoteTableFrame() end
 	if (EmoteTableFrame:IsShown()) then
 		EmoteTableFrame:Hide()
-		if E.db.KlixUI.actionbars.SEBar.enable then
-			SpecializationBar:Show() -- This will show the frame when hiding emote frame!
-			EquipmentSets:Show() -- This will show the frame when hiding emote frame!
-		end
 	else
 		EmoteTableFrame:Show()
-		if E.db.KlixUI.actionbars.SEBar.enable then
-			SpecializationBar:Hide() -- This will hide the frame when showing emote frame!
-			EquipmentSets:Hide() -- This will hide the frame when showing emote frame!
-		end
 	end
 end
 
