@@ -113,6 +113,7 @@ function MB:CreateMicroBar()
 	elseif MB.db.text.buttons.position == "TOP" then
 	configButton.text:SetPoint("TOP", configButton, 2, 15)
 	end
+	
 	--Character
 	local charButton = T.CreateFrame("Button", nil, microBar)
 	charButton:SetPoint("LEFT", configButton, "RIGHT", 2, 0)
@@ -296,75 +297,9 @@ function MB:CreateMicroBar()
 		end
 	end)
 
-	--Achievements
-	local achieveButton = T.CreateFrame("Button", nil, microBar)
-	achieveButton:SetPoint("LEFT", guildButton, "RIGHT", 2, 0)
-	achieveButton:SetSize(32, 32)
-	achieveButton:SetFrameLevel(6)
-
-	achieveButton.tex = achieveButton:CreateTexture(nil, "OVERLAY")
-	achieveButton.tex:SetPoint("BOTTOMLEFT")
-	achieveButton.tex:SetPoint("BOTTOMRIGHT")
-	achieveButton.tex:SetSize(32, 32)
-	achieveButton.tex:SetTexture(IconPath.."Achievement")
-	achieveButton.tex:SetVertexColor(.6, .6, .6)
-	achieveButton.tex:SetBlendMode("ADD")
-
-	achieveButton.text = KUI:CreateText(achieveButton, "HIGHLIGHT", 11, "OUTLINE", "CENTER")
-	if MB.db.text.buttons.position == "BOTTOM" then
-	achieveButton.text:SetPoint("BOTTOM", achieveButton, 2, -15)
-	elseif MB.db.text.buttons.position == "TOP" then
-	achieveButton.text:SetPoint("TOP", achieveButton, 2, 15)
-	end
-	achieveButton.text:SetText(ACHIEVEMENT_BUTTON)
-	if MB.db.text.colors.customColor == 1 then
-	achieveButton.text:SetTextColor(KUI.r, KUI.g, KUI.b)
-	elseif MB.db.text.colors.customColor == 2 then
-	achieveButton.text:SetTextColor(KUI:unpackColor(MB.db.text.colors.userColor))
-	else
-	achieveButton.text:SetTextColor(KUI:unpackColor(E.db.general.valuecolor))
-	end
-
-	achieveButton:SetScript("OnEnter", function(self) OnHover(self) end)
-	achieveButton:SetScript("OnLeave", function(self) OnLeave(self) end)
-	achieveButton:SetScript("OnClick", function(self) if T.InCombatLockdown() then return end _G["ToggleAchievementFrame"]() end)
-
-	--EncounterJournal
-	local encounterButton = T.CreateFrame("Button", nil, microBar)
-	encounterButton:SetPoint("LEFT", achieveButton, "RIGHT", 2, 0)
-	encounterButton:SetSize(32, 32)
-	encounterButton:SetFrameLevel(6)
-
-	encounterButton.tex = encounterButton:CreateTexture(nil, "OVERLAY")
-	encounterButton.tex:SetPoint("BOTTOMLEFT")
-	encounterButton.tex:SetPoint("BOTTOMRIGHT")
-	encounterButton.tex:SetSize(32, 32)
-	encounterButton.tex:SetTexture(IconPath.."EJ")
-	encounterButton.tex:SetVertexColor(.6, .6, .6)
-	encounterButton.tex:SetBlendMode("ADD")
-
-	encounterButton.text = KUI:CreateText(encounterButton, "HIGHLIGHT", 11, "OUTLINE", "CENTER")
-	if MB.db.text.buttons.position == "BOTTOM" then
-	encounterButton.text:SetPoint("BOTTOM", encounterButton, 2, -15)
-	elseif MB.db.text.buttons.position == "TOP" then
-	encounterButton.text:SetPoint("TOP", encounterButton, 2, 15)
-	end
-	encounterButton.text:SetText(ENCOUNTER_JOURNAL)
-	if MB.db.text.colors.customColor == 1 then
-	encounterButton.text:SetTextColor(KUI.r, KUI.g, KUI.b)
-	elseif MB.db.text.colors.customColor == 2 then
-	encounterButton.text:SetTextColor(KUI:unpackColor(MB.db.text.colors.userColor))
-	else
-	encounterButton.text:SetTextColor(KUI:unpackColor(E.db.general.valuecolor))
-	end
-
-	encounterButton:SetScript("OnEnter", function(self) OnHover(self) end)
-	encounterButton:SetScript("OnLeave", function(self) OnLeave(self) end)
-	encounterButton:SetScript("OnClick", function(self) if T.InCombatLockdown() then return end _G["ToggleEncounterJournal"]() end)
-
 	--QuestLog
 	local questButton = T.CreateFrame("Button", nil, microBar)
-	questButton:SetPoint("LEFT", encounterButton, "RIGHT", 2, 0)
+	questButton:SetPoint("LEFT", guildButton, "RIGHT", 2, 0)
 	questButton:SetSize(32, 32)
 	questButton:SetFrameLevel(6)
 
@@ -442,76 +377,10 @@ function MB:CreateMicroBar()
 	timeButton:SetScript("OnEnter", function(self) OnHover(self) end)
 	timeButton:SetScript("OnLeave", function(self) OnLeave(self) end)
 	timeButton:SetScript("OnMouseUp", MB.OnClick)
-
-	--Pet/Mounts
-	local petButton = T.CreateFrame("Button", nil, microBar)
-	petButton:SetPoint("LEFT", timeButton, "RIGHT", 12, 0)
-	petButton:SetSize(32, 32)
-	petButton:SetFrameLevel(6)
-
-	petButton.tex = petButton:CreateTexture(nil, "OVERLAY")
-	petButton.tex:SetPoint("BOTTOMLEFT")
-	petButton.tex:SetPoint("BOTTOMRIGHT")
-	petButton.tex:SetSize(32, 32)
-	petButton.tex:SetTexture(IconPath.."Pet")
-	petButton.tex:SetVertexColor(.6, .6, .6)
-	petButton.tex:SetBlendMode("ADD")
-
-	petButton.text = KUI:CreateText(petButton, "HIGHLIGHT", 11, "OUTLINE", "CENTER")
-	if MB.db.text.buttons.position == "BOTTOM" then
-	petButton.text:SetPoint("BOTTOM", petButton, 2, -15)
-	elseif MB.db.text.buttons.position == "TOP" then
-	petButton.text:SetPoint("TOP", petButton, 2, 15)
-	end
-	petButton.text:SetText(MOUNTS_AND_PETS)
-	if MB.db.text.colors.customColor == 1 then
-	petButton.text:SetTextColor(KUI.r, KUI.g, KUI.b)
-	elseif MB.db.text.colors.customColor == 2 then
-	petButton.text:SetTextColor(KUI:unpackColor(MB.db.text.colors.userColor))
-	else
-	petButton.text:SetTextColor(KUI:unpackColor(E.db.general.valuecolor))
-	end
-
-	petButton:SetScript("OnEnter", function(self) OnHover(self) end)
-	petButton:SetScript("OnLeave", function(self) OnLeave(self) end)
-	petButton:SetScript("OnClick", function(self) if T.InCombatLockdown() then return end _G["ToggleCollectionsJournal"](1)	end)
-
-	--LFR
-	local lfrButton = T.CreateFrame("Button", nil, microBar)
-	lfrButton:SetPoint("LEFT", petButton, "RIGHT", 2, 0)
-	lfrButton:SetSize(32, 32)
-	lfrButton:SetFrameLevel(6)
-
-	lfrButton.tex = lfrButton:CreateTexture(nil, "OVERLAY")
-	lfrButton.tex:SetPoint("BOTTOMLEFT")
-	lfrButton.tex:SetPoint("BOTTOMRIGHT")
-	lfrButton.tex:SetSize(32, 32)
-	lfrButton.tex:SetTexture(IconPath.."LFR")
-	lfrButton.tex:SetVertexColor(.6, .6, .6)
-	lfrButton.tex:SetBlendMode("ADD")
-
-	lfrButton.text = KUI:CreateText(lfrButton, "HIGHLIGHT", 11, "OUTLINE", "CENTER")
-	if MB.db.text.buttons.position == "BOTTOM" then
-	lfrButton.text:SetPoint("BOTTOM", lfrButton, 2, -15)
-	elseif MB.db.text.buttons.position == "TOP" then
-	lfrButton.text:SetPoint("TOP", lfrButton, 2, 15)
-	end
-	lfrButton.text:SetText(LFG_TITLE)
-	if MB.db.text.colors.customColor == 1 then
-	lfrButton.text:SetTextColor(KUI.r, KUI.g, KUI.b)
-	elseif MB.db.text.colors.customColor == 2 then
-	lfrButton.text:SetTextColor(KUI:unpackColor(MB.db.text.colors.userColor))
-	else
-	lfrButton.text:SetTextColor(KUI:unpackColor(E.db.general.valuecolor))
-	end
-
-	lfrButton:SetScript("OnEnter", function(self) OnHover(self) end)
-	lfrButton:SetScript("OnLeave", function(self) OnLeave(self) end)
-	lfrButton:SetScript("OnClick", function(self) if T.InCombatLockdown() then return end _G["PVEFrame_ToggleFrame"]() end)
-
+	
 	--Spellbook
 	local spellBookButton = T.CreateFrame("Button", nil, microBar)
-	spellBookButton:SetPoint("LEFT", lfrButton, "RIGHT", 2, 0)
+	spellBookButton:SetPoint("LEFT", timeButton, "RIGHT", 2, 0)
 	spellBookButton:SetSize(32, 32)
 	spellBookButton:SetFrameLevel(6)
 
@@ -574,39 +443,6 @@ function MB:CreateMicroBar()
 	speccButton:SetScript("OnEnter", function(self) OnHover(self) end)
 	speccButton:SetScript("OnLeave", function(self) OnLeave(self) end)
 	speccButton:SetScript("OnClick", function(self) if T.InCombatLockdown() then return end _G["ToggleTalentFrame"]() end)
-
-	--Shop
-	local shopButton = T.CreateFrame("Button", nil, microBar)
-	shopButton:SetPoint("LEFT", speccButton, "RIGHT", 2, 0)
-	shopButton:SetSize(32, 32)
-	shopButton:SetFrameLevel(6)
-
-	shopButton.tex = shopButton:CreateTexture(nil, "OVERLAY")
-	shopButton.tex:SetPoint("BOTTOMLEFT")
-	shopButton.tex:SetPoint("BOTTOMRIGHT")
-	shopButton.tex:SetSize(32, 32)
-	shopButton.tex:SetTexture(IconPath.."Store")
-	shopButton.tex:SetVertexColor(.6, .6, .6)
-	shopButton.tex:SetBlendMode("ADD")
-
-	shopButton.text = KUI:CreateText(shopButton, "HIGHLIGHT", 11, "OUTLINE", "CENTER")
-	if MB.db.text.buttons.position == "BOTTOM" then
-	shopButton.text:SetPoint("BOTTOM", shopButton, 2, -15)
-	elseif MB.db.text.buttons.position == "TOP" then
-	shopButton.text:SetPoint("TOP", shopButton, 2, 15)
-	end
-	shopButton.text:SetText(BLIZZARD_STORE)
-	if MB.db.text.colors.customColor == 1 then
-	shopButton.text:SetTextColor(KUI.r, KUI.g, KUI.b)
-	elseif MB.db.text.colors.customColor == 2 then
-	shopButton.text:SetTextColor(KUI:unpackColor(MB.db.text.colors.userColor))
-	else
-	shopButton.text:SetTextColor(KUI:unpackColor(E.db.general.valuecolor))
-	end
-
-	shopButton:SetScript("OnEnter", function(self) OnHover(self) end)
-	shopButton:SetScript("OnLeave", function(self) OnLeave(self) end)
-	shopButton:SetScript("OnClick", function(self) if T.InCombatLockdown() then return end StoreMicroButton:Click() end)
 
 	--Bug
 	local bugButton = T.CreateFrame("Button", nil, microBar)
@@ -685,7 +521,6 @@ function MB:Toggle()
 		microBar:Hide()
 		E:DisableMover(microBar.mover:GetName())
 	end
-	MB:UNIT_AURA(nil, "player")
 end
 
 function MB:PLAYER_REGEN_DISABLED()
@@ -694,14 +529,6 @@ end
 
 function MB:PLAYER_REGEN_ENABLED()
 	if MB.db.enable then microBar:Show() end
-end
-
-function MB:UNIT_AURA(event, unit)
-	if unit ~= "player" then return end
-	if MB.db.enable and MB.db.hideInOrderHall then
-		local inOrderHall = T.C_Garrison_IsPlayerInGarrison(LE_GARRISON_TYPE_7_0)
-		microBar:SetShown(not inOrderHall)
-	end
 end
 
 function MB:Initialize()
@@ -723,7 +550,6 @@ function MB:Initialize()
 
 	self:RegisterEvent("PLAYER_REGEN_DISABLED")
 	self:RegisterEvent("PLAYER_REGEN_ENABLED")
-	self:RegisterEvent("UNIT_AURA")
 end
 
 local function InitializeCallback()

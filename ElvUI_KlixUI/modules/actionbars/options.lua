@@ -341,16 +341,8 @@ local function abTable()
 						disabled = function() return not E.db.KlixUI.microBar.enable end,
 						hidden = function() return not E.db.KlixUI.microBar.enable end,
 					},
-					hideInOrderHall = {
-						order = 6,
-						type = "toggle",
-						name = L["Hide In Orderhall"],
-						desc = L['Show/Hide the |cfff960d9KlixUI|r MicroBar in the class hall.'],
-						disabled = function() return not E.db.KlixUI.microBar.enable end,
-						hidden = function() return not E.db.KlixUI.microBar.enable end,
-					},
 					highlight = {
-						order = 7,
+						order = 6,
 						type = "group",
 						name = L["Highlight"],
 						disabled = function() return not E.db.KlixUI.microBar.enable end,
@@ -374,12 +366,12 @@ local function abTable()
 						},
 					},
 					space3 = {
-						order = 8,
+						order = 7,
 						type = "description",
 						name = "",
 					},
 					text = {
-						order = 9,
+						order = 8,
 						type = "group",
 						name = L["Text"],
 						disabled = function() return not E.db.KlixUI.microBar.enable end,

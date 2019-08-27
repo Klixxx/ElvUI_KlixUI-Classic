@@ -1108,7 +1108,6 @@ P['KlixUI'] = {
 		["enable"] = false,
 		['scale'] = 1.0,
 		["hideInCombat"] = false,
-		["hideInOrderHall"] = false,
 		["highlight"] = {
 			["enable"] = true,
 			["buttons"] = false,
