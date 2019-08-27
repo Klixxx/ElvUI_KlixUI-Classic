@@ -822,8 +822,6 @@ P['KlixUI'] = {
 	["maps"] = {
 		["minimap"] = {
 			["rectangle"] = false,
-			["styleButton"] = true,
-			["styleLFG"] = false,
 			["glow"] = true,
 			["glowAlways"] = false,
 			["hideincombat"] = false,
@@ -882,16 +880,6 @@ P['KlixUI'] = {
 				["FontOutline"] = "OUTLINE",
 				["color"] = 2,
 				["customColor"] = { r = 255/255, g = 227/255, b = 35/255 },
-			},
-		},
-		["worldmap"] = {
-			["scale"] = 1,
-			["worldquests"] = true,
-			--["flightQ"] = true,
-			["reveal"] = {
-				["enable"] = true,
-				["overlay"] = true,
-				["overlayColor"] = { r = 249/255, g = 96/255, b = 217/255, a = 1 },
 			},
 		},
 	},

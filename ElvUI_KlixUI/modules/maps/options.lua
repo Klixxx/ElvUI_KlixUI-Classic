@@ -37,19 +37,6 @@ local function Maps()
 								desc = L["Reshape the minimap to a rectangle."],
 								hidden = function() return T.IsAddOnLoaded("ElvUI_RectangleMinimap") end,
 							},
-							styleButton = {
-								order = 2,
-								type = "toggle",
-								name = L["Garrison Button Style"],
-								desc = L["Change the look of the Garrison/OrderHall/BfA Mission Button"],
-								set = function(info, value) E.db.KlixUI.maps.minimap[ info[#info] ] = value; MM:GarrisonButtonPosition(); E:StaticPopup_Show("PRIVATE_RL"); end,
-							},
-							styleLFG = {
-								order = 3,
-								type = "toggle",
-								name = L["LFG Button Style"],
-								desc = L["Change the look of the looking for group Button"],
-							},
 							glow = {
 								order = 4,
 								type = "toggle",
@@ -521,57 +508,6 @@ local function Maps()
 								end,
 							},
 						},	
-					},
-				},
-			},
-			worldmap = {
-				type = "group",
-				name = L["Worldmap"],
-				order = 3,
-				get = function(info) return E.db.KlixUI.maps.worldmap[ info[#info] ] end,
-				set = function(info, value) E.db.KlixUI.maps.worldmap[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL") end,
-				args = {
-					reveal = {
-						order = 2,
-						type = "group",
-						name = L["Reveal"]..E.NewSign,
-						guiInline = true,
-						disabled = function() return T.IsAddOnLoaded("ElvUI_FogRemover") or T.IsAddOnLoaded("ElvUI_FogofWar") end,
-						args = {
-							enable = {
-								order = 1,
-								type = "toggle",
-								name = L["Enable"],
-								desc = L["Reveal all undiscovered areas on the world map."],
-								get = function(info) return E.db.KlixUI.maps.worldmap.reveal[ info[#info] ] end,
-								set = function(info, value) E.db.KlixUI.maps.worldmap.reveal[ info[#info] ] = value; KWM:Update() end,
-							},
-							overlay = {
-								order = 2,
-								type = "toggle",
-								name = L["Overlay"],
-								desc = L["Set an overlay tint on unexplored ares on the world map."],
-								disabled = function() return not E.db.KlixUI.maps.worldmap.reveal.enable end,
-								get = function(info) return E.db.KlixUI.maps.worldmap.reveal[ info[#info] ] end,
-								set = function(info, value) E.db.KlixUI.maps.worldmap.reveal[ info[#info] ] = value; KWM:Refresh() end,
-							},
-							overlayColor = {
-								type = "color",
-								order = 3,
-								name = L["Color"],
-								hasAlpha = true,
-								disabled = function() return not E.db.KlixUI.maps.worldmap.reveal.enable or not E.db.KlixUI.maps.worldmap.reveal.overlay end,
-								get = function(info)
-									local t = E.db.KlixUI.maps.worldmap.reveal[ info[#info] ]
-									return t.r, t.g, t.b, t.a
-								end,
-								set = function(info, r, g, b, a)
-									local t = E.db.KlixUI.maps.worldmap.reveal[ info[#info] ]
-									t.r, t.g, t.b, t.a = r, g, b, a
-									KWM:Refresh()
-								end,
-							},
-						},
 					},
 				},
 			},
