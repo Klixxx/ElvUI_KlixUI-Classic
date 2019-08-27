@@ -37,6 +37,7 @@ T.BuyTrainerService = BuyTrainerService
 T.C_FriendList_GetNumFriends = C_FriendList.GetNumFriends
 T.C_Map_GetBestMapForUnit = C_Map.GetBestMapForUnit
 T.C_Map_GetPlayerMapPosition = C_Map.GetPlayerMapPosition
+T.C_NamePlate_GetNamePlateForUnit = C_NamePlate.GetNamePlateForUnit
 T.C_PaperDollInfo_OffhandHasWeapon = C_PaperDollInfo.OffhandHasWeapon
 T.C_Timer_After = C_Timer.After
 T.C_Timer_NewTicker = C_Timer.NewTicker
