@@ -406,33 +406,6 @@ P['KlixUI'] = {
 		},
 	},
 	
-	-- Button Styling
-	["buttonStyle"] = {
-		["ab"] = true,
-		["ah"] = true,
-		["armory"] = {
-			["char"] = true,
-			["tar"] = true,
-		},
-		["auras"] = true,
-		["bags"] = true,
-		["dr"] = true,
-		["ecd"] = true,
-		["eqb"] = true,
-		["merch"] = true,
-		["rmb"] = true,
-		["rr"] = true,
-		["rs"] = true,
-		["scrap"] = true,
-		["seb"] = true,
-		["smb"] = true,
-		["wa"] = true,
-		["shadow"] = {
-			["enable"] = true,
-			["alpha"] = 1,
-		},
-	},
-	
 	-- Chat
 	["chat"] = {
 		["panelHeight"] = E.db.chat.panelHeight, -- Expand function
@@ -522,15 +495,6 @@ P['KlixUI'] = {
 	
 	-- Cooldowns
 	["cooldowns"] = {
-		["dimishing"] = {
-			["enable"] = true,
-			["text"] = {
-				["enable"] = false,
-				["font"] = "Expressway",
-				["fontSize"] = 12,
-				["fontOutline"] = "OUTLINE",
-			},
-		},
 		["pulse"] = {
 			["enable"] = false,
 			["fadeInTime"] = 0.3,
@@ -552,23 +516,6 @@ P['KlixUI'] = {
 			["show_inpvp"] = false,
 			["show_inarena"] = true,
 		},
-		--[[["raid"] = {
-			["enable"] = true,
-			["width"] = 220,
-			["height"] = 20,
-			["upwards"] = true,
-			["expiration"] = false,
-			["show_self"] = true,
-			["show_icon"] = false,
-			["show_inparty"] = true,
-			["show_inraid"] = true,
-			["show_inarena"] = true,
-			["text"] = {
-				["font"] = "Expressway",
-				["fontSize"] = 12,
-				["fontOutline"] = "OUTLINE",
-			},
-		},]]
 	},
 	
 	-- DataBars

@@ -3,47 +3,21 @@ local EC = KUI:NewModule('EnemyCooldown', "AceEvent-3.0", "AceConsole-3.0")
 
 local enemy_spells = {
 	-- Interrupts and Silences
-	[57994] = 12,	-- Wind Shear
-	[47528] = 15,	-- Mind Freeze
-	[106839] = 15,	-- Skull Bash
-	[116705] = 15,	-- Spear Hand Strike
-	[96231] = 15,	-- Rebuke
 	[1766] = 15,	-- Kick
 	[6552] = 15,	-- Pummel
-	[147362] = 24,	-- Counter Shot
 	[2139] = 24,	-- Counterspell
 	[19647] = 24,	-- Spell Lock
-	[115781] = 24,	-- Optical Blast
 	[15487] = 45,	-- Silence
-	[47476] = 60,	-- Strangulate
-	[78675] = 60,	-- Solar Beam
 	-- Crowd Controls
-	[115078] = 15,	-- Paralysis
 	[20066] = 15,	-- Repentance
-	[187650] = 30,	-- Freezing Trap
 	[8122] = 30,	-- Psychic Scream
-	[30283] = 30,	-- Shadowfury
-	[107570] = 30,	-- Storm Bolt
-	[51514] = 30,	-- Hex
 	[5484] = 40,	-- Howl of Terror
-	[108194] = 45,	-- Asphyxiate
 	[19386] = 45,	-- Wyvern Sting
-	[113724] = 45,	-- Ring of Frost
-	[119381] = 45,	-- Leg Sweep
-	[64044] = 45,	-- Psychic Horror
 	[6789] = 45,	-- Mortal Coil
 	[853] = 60,		-- Hammer of Justice
 	-- Defense abilities
-	[48707] = 60,	-- Anti-Magic Shell
-	[31224] = 90,	-- Cloak of Shadows
-	[46924] = 90,	-- Bladestorm
-	[287081] = 60,	-- Lichborne
-	[213664] = 120,	-- Nimble Brew
-	[47585] = 120,	-- Dispersion
 	[1856] = 120,	-- Vanish
 	[7744] = 120,	-- Will of the Forsaken (Racial)
-	[186265] = 180,	-- Aspect of the Turtle
-	[33206] = 180,	-- Pain Suppression
 }
 
 local _, type = T.IsInInstance();
