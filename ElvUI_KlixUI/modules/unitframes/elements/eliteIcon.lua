@@ -7,10 +7,10 @@ function KEI:SetEliteIcon()
 	local c = T.UnitClassification("target")
 	if c == 'elite' or c == "worldboss" then
 		self.frame.Texture:Show()
-		self.frame.Texture:SetTexCoord(0, 0.15, 0.25, 0.53)
+		self.frame.Texture:SetAtlas("nameplates-icon-elite-gold")
 	elseif c == 'rareelite' or c == 'rare' then
 		self.frame.Texture:Show()
-		self.frame.Texture:SetTexCoord(0, 0.15, 0.52, 0.84)
+		self.frame.Texture:SetAtlas("nameplates-icon-elite-silver")
 	else
 		self.frame.Texture:Hide()
 	end
