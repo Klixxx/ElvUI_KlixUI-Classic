@@ -7,8 +7,8 @@ local function AddonPanelTable()
 		type = "group",
 		order = 2,
 		name = L["Addon Control Panel"],
-		disabled = function() return (COMP.PA and _G.ProjectAzilroka.db["stAddonManager"]['Enable']) end,
-		hidden = function() return (COMP.PA and _G.ProjectAzilroka.db["stAddonManager"]['Enable']) end,
+		disabled = function() return COMP.PA end,
+		hidden = function() return COMP.PA end,
 		get = function(info) return E.db.KlixUI.addonpanel[ info[#info] ] end,
 		set = function(info, value) E.db.KlixUI.addonpanel[ info[#info] ] = value; AP:Update() end,
 		args = {

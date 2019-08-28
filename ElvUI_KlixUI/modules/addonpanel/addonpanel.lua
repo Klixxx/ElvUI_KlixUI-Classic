@@ -569,7 +569,7 @@ function AP:Update()
 end
 
 function AP:Initialize()
-	if not E.db.KlixUI.addonpanel.Enable or (COMP.PA and _G.ProjectAzilroka.db["stAddonManager"]['Enable']) then return end
+	if not E.db.KlixUI.addonpanel.Enable or COMP.PA then return end
 	
 	AP.db = E.db.KlixUI.addonpanel
 
