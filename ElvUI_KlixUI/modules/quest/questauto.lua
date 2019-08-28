@@ -27,7 +27,7 @@ end
 
 function QA:CheckQuestData()
     if QA.db.dailiesonly then return end
-    if T.QuestFlagsPVP() and ( not QA.db.pvp ) then return end
+    if ( not QA.db.pvp ) then return end
 
     return true
 end
