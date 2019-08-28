@@ -217,7 +217,6 @@ function KSR:ReminderIcon_OnEvent(event, unit)
 			self:UnregisterAllEvents()
 			self:RegisterEvent("UNIT_AURA")
 			self:RegisterEvent("ACTIONBAR_UPDATE_COOLDOWN")
-			self:RegisterEvent("PLAYER_TALENT_UPDATE")
 			if db.combat then
 				self:RegisterEvent("PLAYER_REGEN_ENABLED")
 				self:RegisterEvent("PLAYER_REGEN_DISABLED")
