@@ -829,6 +829,15 @@ P['KlixUI'] = {
 				["customColor"] = { r = 255/255, g = 227/255, b = 35/255 },
 			},
 		},
+		["worldmap"] = {
+			["scale"] = .7,
+			["fade"] = true,
+			["reveal"] = {
+				["enable"] = true,
+				["overlay"] = true,
+				["overlayColor"] = { r = 249/255, g = 96/255, b = 217/255, a = 1 },
+			},
+		},
 	},
 	
 	-- Media
