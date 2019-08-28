@@ -6,7 +6,7 @@ local CLOSE = CLOSE
 
 local ChangeLogData = {
 	"Changes:",
-		"• initial beta release for WoW Classic!",
+		"• More features enabled and fixed!",
 		" ", -- Section space!
 		-- "• ",
 		
