@@ -520,7 +520,7 @@ function KUIL:ChangeLayout()
 				if T.IsControlKeyDown() and E.db.KlixUI.datatexts.middle.enable == true then
 					KUIL:MiddleDT_OnClick(self)
 						elseif btn == "LeftButton" then 
-							T.PVEFrame_ToggleFrame()
+							T.ToggleTalentFrame()
 							T.PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_OFF);
 						elseif btn == "RightButton" then
 							T.ToggleCommunitiesFrame()
@@ -529,7 +529,7 @@ function KUIL:ChangeLayout()
 				end
 				GameTooltip:SetOwner(self, 'ANCHOR_TOPLEFT', 0, 2)
 				GameTooltip:ClearLines()
-				GameTooltip:AddLine(L['Left Click: Toggle Looking for Group'], selectioncolor)
+				GameTooltip:AddLine(L['Left Click: Toggle Talents'], selectioncolor)
 				GameTooltip:AddLine(L['Right Click: Toggle Guild & Communities'], selectioncolor)
 				GameTooltip:AddLine(L['Shift + Click: Toggle ActionBar4'], 0.7, 0.7, 1)
 				if E.db.KlixUI.datatexts.middle.enable == true then

@@ -9,46 +9,22 @@ local hoverVisible = false
 KUI.MenuList = {
 	{text = CHARACTER_BUTTON, func = function() ToggleCharacter("PaperDollFrame") end},
 	{text = SPELLBOOK_ABILITIES_BUTTON, func = function() if not SpellBookFrame:IsShown() then T.ShowUIPanel(SpellBookFrame) else T.HideUIPanel(SpellBookFrame) end end},
-	{text = SPECIALIZATION,
-	func = function()
-		if not PlayerTalentFrame then
-			TalentFrame_LoadUI()
-		end
-
-		if not PlayerTalentFrame:IsShown() then
-			T.ShowUIPanel(PlayerTalentFrame)
-			_G["PlayerTalentFrameTab"..SPECIALIZATION_TAB]:Click()
-		else
-			T.HideUIPanel(PlayerTalentFrame)
-		end
-	end},
 	{text = TALENTS,
 	func = function()
 		if not PlayerTalentFrame then
-			TalentFrame_LoadUI()
-		end
-
-		if not PlayerTalentFrame:IsShown() then
-			T.ShowUIPanel(PlayerTalentFrame)
-			_G["PlayerTalentFrameTab"..TALENTS_TAB]:Click()
-		else
-			T.HideUIPanel(PlayerTalentFrame)
+			T.ToggleTalentFrame()
 		end
 	end},
-	{text = LFG_TITLE, func = function() ToggleLFDParentFrame(); end},
-	{text = ACHIEVEMENT_BUTTON, func = function() ToggleAchievementFrame() end},
+	{text = L["Skills"],
+	func = function()
+		if not PlayerTalentFrame then
+			 ToggleCharacter("SkillFrame")
+		end
+	end},
 	{text = REPUTATION, func = function() ToggleCharacter('ReputationFrame') end},
-	{text = GARRISON_TYPE_8_0_LANDING_PAGE_TITLE, func = function() GarrisonLandingPageMinimapButton_OnClick() end},
-	{text = COMMUNITIES_FRAME_TITLE, func = function() ToggleGuildFrame() end},
-	{text = L["Calendar"], func = function() GameTimeFrame:Click() end},
-	{text = MOUNTS, func = function() ToggleCollectionsJournal(1) end},
-	{text = PET_JOURNAL, func = function() ToggleCollectionsJournal(2) end},
-	{text = TOY_BOX, func = function() ToggleCollectionsJournal(3) end},
-	{text = HEIRLOOMS, func = function() ToggleCollectionsJournal(4) end},
-	{text = WARDROBE, func = function() ToggleCollectionsJournal(5) end},
+	{text = L["Communities"], func = function() ToggleGuildFrame() end},
 	{text = MACROS, func = function() GameMenuButtonMacros:Click() end},
 	{text = TIMEMANAGER_TITLE, func = function() T.ToggleFrame(TimeManagerFrame) end},
-	{text = ENCOUNTER_JOURNAL, func = function() if not T.IsAddOnLoaded('Blizzard_EncounterJournal') then EncounterJournal_LoadUI(); end ToggleFrame(EncounterJournal) end},
 	{text = SOCIAL_BUTTON, func = function() ToggleFriendsFrame() end},
 	{text = MAINMENU_BUTTON,
 	func = function()
@@ -69,7 +45,6 @@ KUI.MenuList = {
 		end
 	end},
 	{text = HELP_BUTTON, func = function() ToggleHelpFrame() end},
-	{text = BLIZZARD_STORE, func = function() StoreMicroButton:Click() end}
 }
 
 local function sortFunction(a, b)

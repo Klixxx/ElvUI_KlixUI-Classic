@@ -3,7 +3,7 @@
 	<Script file='toolkit.lua'/>
 	<script file="install.lua"/>
 	<script file="dropdown.lua"/>
-	<!--script file="dropmenu.lua"/-->
+	<script file="dropmenu.lua"/>
 	<script file="changelog.lua"/>
 	<script file="staticpopup.lua"/>
 	<script file='gameMenu.lua'/>
