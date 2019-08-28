@@ -2,8 +2,8 @@
 local MI = KUI:GetModule("KuiMisc")
 --local COMP = KUI:GetModule("KuiCompatibility")
 local KZ = KUI:GetModule("KuiZoom")
---[[local KAN = KUI:GetModule("KuiAnnounce")
-local KBL = KUI:GetModule("KuiBloodLust")
+local KAN = KUI:GetModule("KuiAnnounce")
+--[[local KBL = KUI:GetModule("KuiBloodLust")
 local KEC = KUI:GetModule("KuiEasyCurve")
 local PvP = KUI:GetModule("KuiPVP")
 local THF = KUI:GetModule("TalkingHeadFrame")
@@ -58,7 +58,7 @@ local function Misc()
 				type = "group",
 				name = L["General"],
 				args = {
-					--[[combatState = {
+					combatState = {
 						order = 1,
 						type = "toggle",
 						name = L["Announce Combat Status"],
@@ -69,7 +69,7 @@ local function Misc()
 						type = "toggle",
 						name = L["Announce Skill Gains"],
 						desc = L["Announce skill gains in a textfield in the middle of the screen.\nCredit: |cffff7d0aMerathilisUI|r"],
-					},]]
+					},
 					gmotd = {
 						order = 3,
 						type = "toggle",
