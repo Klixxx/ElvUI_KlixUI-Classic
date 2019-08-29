@@ -155,8 +155,8 @@ local function Tooltip()
 					race = {
 						order = 6,
 						type = 'toggle',
-						name = L["Race"],
-						desc = L["Shows the current mouseover units race."],
+						name = L["Level, Race & Class"],
+						desc = L["Shows the current mouseover units level, race and class.\n|cffff8000Note: Holding down the shift key will display the gender aswell!|r"],
 						disabled = function() return not E.db.KlixUI.nameHover.enable end,
 					},
 					space3 = {
