@@ -1471,15 +1471,15 @@ P.datatexts.panels.KuiRightChatDTPanel = {
 }
 
 P.datatexts.panels.KuiMiddleDTPanel = {
-	left = 'Haste',
-	middle = 'Crit Chance',
-	right = 'Mastery',
+	left = 'Friends',
+	middle = 'Time',
+	right = 'Guild',
 }
 
 P.datatexts.panels.Left_ChatTab_Panel = {
 	left = '',
 	middle = '',
-	right = 'Titles (KUI)',
+	right = '',
 }
 
 P.datatexts.panels.Right_ChatTab_Panel = {

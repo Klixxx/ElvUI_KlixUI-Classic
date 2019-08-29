@@ -2045,7 +2045,7 @@ function KUI:SetupDts(layout)
 	E.db["datatexts"]["panels"]["RightChatDataPanel"]["right"] = ""
 	E.db["datatexts"]["panels"]["LeftMiniPanel"] = ""
 	E.db["datatexts"]["panels"]["RightMiniPanel"] = ""
-	E.db["datatexts"]["panels"]["BottomMiniPanel"] = "Time (KUI)"
+	E.db["datatexts"]["panels"]["BottomMiniPanel"] = "Time"
 	E.db["datatexts"]["panels"]["TopMiniPanel"] = ""
 	E.db["datatexts"]["panels"]["BottomLeftMiniPanel"] = ""
 	E.db["datatexts"]["panels"]["BottomRightMiniPanel"] = ""
@@ -2053,214 +2053,31 @@ function KUI:SetupDts(layout)
 	E.db["datatexts"]["panels"]["TopLeftMiniPanel"] = ""
 	
 	-- Define the KlixUI datatexts panels
-	E.db["datatexts"]["panels"]["KuiLeftChatDTPanel"]["left"] = "Spec Switch (KUI)"
-	E.db["datatexts"]["panels"]["KuiLeftChatDTPanel"]["middle"] = "Item Level (KUI)"
-	E.db["datatexts"]["panels"]["KuiLeftChatDTPanel"]["right"] = "BfA Missions (KUI)"
+	E.db["datatexts"]["panels"]["KuiLeftChatDTPanel"]["left"] = "Combat Time"
+	E.db["datatexts"]["panels"]["KuiLeftChatDTPanel"]["middle"] = "Durability"
+	E.db["datatexts"]["panels"]["KuiLeftChatDTPanel"]["right"] = "Coords"
 	E.db["datatexts"]["panels"]["KuiRightChatDTPanel"]["left"] = "System (KUI)"
 	E.db["datatexts"]["panels"]["KuiRightChatDTPanel"]["middle"] = "Bags"
 	if T.IsAddOnLoaded("ElvUI_EnhancedCurrency") then
 		E.db["datatexts"]["panels"]["KuiRightChatDTPanel"]["right"] = "Enhanced Currency"
 	else
-		E.db["datatexts"]["panels"]["KuiRightChatDTPanel"]["right"] = "Currency (KUI)"
+		E.db["datatexts"]["panels"]["KuiRightChatDTPanel"]["right"] = "Gold"
 	end
 	
 	if layout == "dps" then
-	-- Define the KlixUI middle datatexts panel
-	if T.IsAddOnLoaded("Masque") and T.IsAddOnLoaded("Masque_KlixUI") then
-		E.db["KlixUI"]["datatexts"]["middle"]["width"] = 370
-	else
-		E.db["KlixUI"]["datatexts"]["middle"]["width"] = 373
-	end
-	
-	-- Currently best secondary stats as of 12th august 2018, Source: www.Icy-Veins.com
-		if E.myclass == "DEATHKNIGHT" then
-			if E.myspec == 1 then -- Blood
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Versatility"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			elseif E.myspec == 2 then -- Frost
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			elseif E.myspec == 3 then -- Unholy
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Versatility"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			end
-		elseif E.myclass == "DEMONHUNTER" then
-			if E.myspec == 1 then -- Havoc
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Versatility"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Crit Chance"
-			elseif E.myspec == 2 then -- Vengeance
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Versatility"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			end
-		elseif E.myclass == "DRUID" then
-			if E.myspec == 1 then -- Balance
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			elseif E.myspec == 2 then -- Feral
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			elseif E.myspec == 3 then -- Guardian
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Armor"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Versatility"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			end
-		elseif E.myclass == "HUNTER" then
-			if E.myspec == 1 then -- Beast Mastery
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			elseif E.myspec == 2 then -- Marksmanship
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Mastery"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Versatility"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Haste"
-			elseif E.myspec == 3 then -- Survival
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Versatility"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Crit Chance"
-			end
-		elseif E.myclass == "MAGE" then
-			if E.myspec == 1 then -- Arcane
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Mastery"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			elseif E.myspec == 2 then -- Fire
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Mastery"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Haste"
-			elseif E.myspec == 3 then -- Frost
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			end
-		elseif E.myclass == "MONK" then
-			if E.myspec == 1 then -- Brewmaster
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Mastery"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			elseif E.myspec == 3 then -- Windwalker
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Versatility"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Mastery"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Crit Chance"
-			end
-		elseif E.myclass == "PALADIN" then
-			if E.myspec == 2 then -- Protection
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Mastery"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			elseif E.myspec == 3 then -- Retribution
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			end
-		elseif E.myclass == "PRIEST" then
-			if E.myspec == 3 then -- Shadow
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			end
-		elseif E.myclass == "ROGUE" then
-			if E.myspec == 1 then -- Assasination
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			elseif E.myspec == 2 then -- Outlaw
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Versatility"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			elseif E.myspec == 3 then -- Subtlety
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Mastery"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			end
-		elseif E.myclass == "SHAMAN" then
-			if E.myspec == 1 then -- Elemental
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			elseif E.myspec == 2 then -- Enhancement
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			end
-		elseif E.myclass == "WARLOCK" then
-			if E.myspec == 1 then -- Affliction
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Mastery"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Crit Chance"
-			elseif E.myspec == 2 then -- Demonology
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Mastery"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Crit Chance"
-			elseif E.myspec == 3 then -- Destruction
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			end
-		elseif E.myclass == "WARRIOR" then
-			if E.myspec == 1 then -- Arms
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			elseif E.myspec == 2 then -- Fury
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			elseif E.myspec == 3 then -- Protection
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Versatility"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			end
+		-- Define the KlixUI middle datatexts panel
+		if T.IsAddOnLoaded("Masque") and T.IsAddOnLoaded("Masque_KlixUI") then
+			E.db["KlixUI"]["datatexts"]["middle"]["width"] = 370
+		else
+			E.db["KlixUI"]["datatexts"]["middle"]["width"] = 373
 		end
 	
 	elseif layout == "healer" then
-	-- define the KlixUI middle datatexts panel
-	if T.IsAddOnLoaded("Masque") and T.IsAddOnLoaded("Masque_KlixUI") then
-		E.db["KlixUI"]["datatexts"]["middle"]["width"] = 494
-	else
-		E.db["KlixUI"]["datatexts"]["middle"]["width"] = 495
-	end
-	
-		if E.myclass == "DRUID" then
-			if E.myspec == 4 then -- Restoration
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Mastery"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			end
-		elseif E.myclass == "MONK" then 
-			if E.myspec == 2 then -- Mistweaver
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Versatility"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Haste"
-			end
-		elseif E.myclass == "PALADIN" then
-			if E.myspec == 1 then -- Holy
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Versatility"
-			end
-		elseif E.myclass == "PRIEST" then
-			if E.myspec == 1 then -- Discipline
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Haste"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Crit Chance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			elseif E.myspec == 2 then -- Holy
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Leech"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Avoidance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Mastery"
-			end
-		elseif E.myclass == "SHAMAN" then
-			if E.myspec == 3 then -- Restoration
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["left"] = "Leech"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["middle"] = "Avoidance"
-				E.db["datatexts"]["panels"]["KuiMiddleDTPanel"]["right"] = "Crit Chance"
-			end
+		-- define the KlixUI middle datatexts panel
+		if T.IsAddOnLoaded("Masque") and T.IsAddOnLoaded("Masque_KlixUI") then
+			E.db["KlixUI"]["datatexts"]["middle"]["width"] = 494
+		else
+			E.db["KlixUI"]["datatexts"]["middle"]["width"] = 495
 		end
 	end
 		
