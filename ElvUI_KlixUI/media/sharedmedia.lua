@@ -5,6 +5,7 @@ if LSM == nil then return end
 LSM:Register('font',"Century Gothic Bold", [[Interface\AddOns\ElvUI_KlixUI\media\fonts\CenturyGothicB.ttf]])
 LSM:Register('font',"Days", [[Interface\AddOns\ElvUI_KlixUI\media\fonts\Days.ttf]])
 LSM:Register('font',"Expressway", [[Interface\AddOns\ElvUI_KlixUI\media\fonts\Expressway.ttf]])
+LSM:Register('font',"Teko Bold", [[Interface\AddOns\ElvUI_KlixUI\media\fonts\Teko.ttf]])
 LSM:Register('statusbar',"Klix", [[Interface\AddOns\ElvUI_KlixUI\media\textures\Klix.tga]])
 LSM:Register('statusbar',"Klix1", [[Interface\AddOns\ElvUI_KlixUI\media\textures\Klix1.tga]])
 LSM:Register('statusbar',"Klix2", [[Interface\AddOns\ElvUI_KlixUI\media\textures\Klix2.tga]])
