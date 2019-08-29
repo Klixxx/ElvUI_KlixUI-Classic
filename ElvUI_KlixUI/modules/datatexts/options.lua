@@ -288,66 +288,16 @@ local function Datatexts()
 					},
 				},
 			},
-			--[[DataTexts = {
+			DataTexts = {
 				order = 10,
 				type = "group",
 				name = L["Other DataTexts"],
 				args = {
-					KUISystemDT = {
-						order = 2,
-						type = "group",
-						name = L["System Datatext"],
-						get = function(info) return E.db.KlixUI.systemDT[ info[#info] ] end,
-						set = function(info, value) E.db.KlixUI.systemDT[ info[#info] ] = value; end,
-						args = {
-							maxAddons = {
-								type = "range",
-								order = 1,
-								name = L["Max Addons"],
-								desc = L["Maximum number of addons to show in the tooltip."],
-								min = 1, max = 50, step = 1,
-							},
-							announceFreed = {
-								type = "toggle",
-								order = 2,
-								name = L["Announce Freed"],
-								desc = L["Announce how much memory was freed by the garbage collection."],
-							},
-							showFPS = {
-								type = "toggle",
-								order = 3,
-								name = L["Show FPS"],
-								desc = L["Show FPS on the datatext."],
-							},
-							showMemory = {
-								type = "toggle",
-								order = 4,
-								name = L["Show Memory"],
-								desc = L["Show total addon memory on the datatext."]
-							},
-							showMS = {
-								type = "toggle",
-								order = 5,
-								name = L["Show Latency"],
-								desc = L["Show latency on the datatext."],
-							},
-							latency = {
-								type = "select",
-								order = 6,
-								name = L["Latency Type"],
-								desc = L["Display world or home latency on the datatext. Home latency refers to your realm server. World latency refers to the current world server."],
-								disabled = function() return not E.db.KlixUI.systemDT.showMS end,
-								values = {
-									["home"] = L["Home"],
-									["world"] = L["World"],
-								},
-							},
-						},
-					},
 					KUITimeDT = {
-						order = 3,
+						order = 1,
 						type = "group",
 						name = L["Time Datatext"],
+						guiInline = true,
 						get = function(info) return E.db.KlixUI.timeDT[ info[#info] ] end,
 						set = function(info, value) E.db.KlixUI.timeDT[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL") end,
 						args = {
@@ -358,20 +308,8 @@ local function Datatexts()
 								desc = L["Change the size of the time datatext individually from other datatexts."],
 								min = 0.1, max = 3, step = 0.1,
 							},
-							date = {
-								order = 2,
-								type = "toggle",
-								name = L["Date Condensed"],
-								desc = L["Display a condensed version of the current date."],
-							},
-							invasions = {
-								order = 3,
-								type = "toggle",
-								name = L["Invasions"],
-								desc = L["Display upcomming and current Legion and BfA invasions in the time datatext tooltip."],
-							},
 							played = {
-								order = 4,
+								order = 2,
 								type = "toggle",
 								name = L["Time Played"],
 								desc = L["Display session, level and total time played in the time datatext tooltip."],
@@ -379,7 +317,7 @@ local function Datatexts()
 						},
 					},
 				},
-			},]]
+			},
 			--panels = {
 				--order = 10,
 				--type = "group",

@@ -1,10 +1,8 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<script file="datatexts.lua"/>
 	<script file="dtcolors.lua"/>
-	<!--script file="currency.lua"/-->
 	<script file="mail.lua"/>
 	<script file='system.lua'/>
-	<!--script file='titles.lua'/>
-	<script file='time.lua'/-->
+	<script file='time.lua'/>
 	<script file="options.lua"/>
 </Ui>

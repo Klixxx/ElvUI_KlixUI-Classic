@@ -1472,7 +1472,7 @@ P.datatexts.panels.KuiRightChatDTPanel = {
 
 P.datatexts.panels.KuiMiddleDTPanel = {
 	left = 'Friends',
-	middle = 'Time',
+	middle = 'Coords',
 	right = 'Guild',
 }
 

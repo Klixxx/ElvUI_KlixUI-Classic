@@ -2045,7 +2045,7 @@ function KUI:SetupDts(layout)
 	E.db["datatexts"]["panels"]["RightChatDataPanel"]["right"] = ""
 	E.db["datatexts"]["panels"]["LeftMiniPanel"] = ""
 	E.db["datatexts"]["panels"]["RightMiniPanel"] = ""
-	E.db["datatexts"]["panels"]["BottomMiniPanel"] = "Time"
+	E.db["datatexts"]["panels"]["BottomMiniPanel"] = "Time (KUI)"
 	E.db["datatexts"]["panels"]["TopMiniPanel"] = ""
 	E.db["datatexts"]["panels"]["BottomLeftMiniPanel"] = ""
 	E.db["datatexts"]["panels"]["BottomRightMiniPanel"] = ""
@@ -2055,7 +2055,7 @@ function KUI:SetupDts(layout)
 	-- Define the KlixUI datatexts panels
 	E.db["datatexts"]["panels"]["KuiLeftChatDTPanel"]["left"] = "Combat Time"
 	E.db["datatexts"]["panels"]["KuiLeftChatDTPanel"]["middle"] = "Durability"
-	E.db["datatexts"]["panels"]["KuiLeftChatDTPanel"]["right"] = "Coords"
+	E.db["datatexts"]["panels"]["KuiLeftChatDTPanel"]["right"] = "DPS"
 	E.db["datatexts"]["panels"]["KuiRightChatDTPanel"]["left"] = "System (KUI)"
 	E.db["datatexts"]["panels"]["KuiRightChatDTPanel"]["middle"] = "Bags"
 	if T.IsAddOnLoaded("ElvUI_EnhancedCurrency") then
