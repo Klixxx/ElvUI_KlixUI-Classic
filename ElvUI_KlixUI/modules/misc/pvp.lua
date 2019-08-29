@@ -36,10 +36,6 @@ function PvP:Duels(event, name)
 		T.CancelDuel()
 		T.StaticPopup_Hide("DUEL_REQUESTED")
 		cancelled = "REGULAR"
-	elseif event == "PET_BATTLE_PVP_DUEL_REQUESTED" and PvP.db.duels.pet then
-		T.C_PetBattles_CancelPVPDuel()
-		T.StaticPopup_Hide("PET_BATTLE_PVP_DUEL_REQUESTED")
-		cancelled = "PET"
 	end
 	if cancelled then
 		KUI:Print(T.string_format(L["KUI_DuelCancel_"..cancelled], name))
@@ -79,7 +75,6 @@ function PvP:Initialize()
 	if E.db.movers["PvPMover"] then E.db.movers["TopCenterContainerMover"] = E.db.movers["PvPMover"]; E.db.movers["PvPMover"] = nil end
 	
 	self:RegisterEvent("DUEL_REQUESTED", "Duels")
-	self:RegisterEvent("PET_BATTLE_PVP_DUEL_REQUESTED", "Duels")
 
 	function PvP:ForUpdateAll()
 		PvP.db = E.db.KlixUI.pvp
