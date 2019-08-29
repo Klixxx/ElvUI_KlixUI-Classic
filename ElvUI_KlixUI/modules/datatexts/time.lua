@@ -188,7 +188,7 @@ local function OnEnter(self)
 	end
 	
 	if E.db.KlixUI.timeDT.invasions then
-		DT.tooltip:AddDoubleLine(L["Left Click:"], L["Toggle World  Map"], 0.7, 0.7, 1.0)
+		DT.tooltip:AddDoubleLine(L["Left Click:"], L["Toggle World Map"], 0.7, 0.7, 1.0)
 	end 
 	if E.db.KlixUI.timeDT.played then
 		DT.tooltip:AddDoubleLine(L["Shift + Left Click:"], L["Reset account time played data"], 0.7, 0.7, 1.0)
