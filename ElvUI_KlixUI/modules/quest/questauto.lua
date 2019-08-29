@@ -140,7 +140,7 @@ function QA:QUEST_COMPLETE()
 end
 
 function QA:Initialize()
-	if not E.db.KlixUI.quest.auto.enable or T.IsAddOnLoaded("AAP-Core") then return end
+	if not E.db.KlixUI.quest.auto.enable or T.IsAddOnLoaded("AAP-Classic") or T.IsAddOnLoaded("Guidelime") then return end
 
 	QA.db = E.db.KlixUI.quest.auto
 	

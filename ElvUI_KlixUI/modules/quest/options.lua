@@ -29,7 +29,7 @@ local function QuestTable()
 				order = 3,
 				type = "group",
 				name = L["Auto Pilot"],
-				disabled = function() return T.IsAddOnLoaded("AAP-Core") end,
+				disabled = function() return T.IsAddOnLoaded("AAP-Classic") or T.IsAddOnLoaded("Guidelime") end,
 				get = function(info) return E.db.KlixUI.quest.auto[ info[#info] ] end,
 				set = function(info, value) E.db.KlixUI.quest.auto[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL"); end,
 				args = {
