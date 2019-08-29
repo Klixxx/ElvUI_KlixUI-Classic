@@ -288,43 +288,11 @@ local function Datatexts()
 					},
 				},
 			},
-			DataTexts = {
+			--[[DataTexts = {
 				order = 10,
 				type = "group",
 				name = L["Other DataTexts"],
 				args = {
-					KUIProfDT = {
-						order = 1,
-						type = "group",
-						name = L["Professions Datatext"],
-						get = function(info) return E.db.KlixUI.profDT[info[#info]] end,
-						set = function(info, value) E.db.KlixUI.profDT[info[#info]] = value; DT:LoadDataTexts() end,
-						args = {
-							prof = {
-								type = "select",
-								order = 1,
-								name = L["Professions"],
-								desc = L["Select which profession to display."],
-								values = function()
-									local prof1, prof2, archy, fishing, cooking = T.GetProfessions()
-									local profValues = {}
-									if prof1 ~= nil then profValues['prof1'] = DT:GetProfessionName(prof1) end
-									if prof2 ~= nil then profValues['prof2'] = DT:GetProfessionName(prof2) end
-									if archy ~= nil then profValues['archy'] = DT:GetProfessionName(archy) end
-									if fishing ~= nil then profValues['fishing'] = DT:GetProfessionName(fishing) end
-									if cooking ~= nil then profValues['cooking'] = DT:GetProfessionName(cooking) end
-									T.table_sort(profValues)
-									return profValues
-								end,
-							},
-							hint = {
-								type = "toggle",
-								order = 2,
-								name = L["Show Hint"],
-								desc = L["Show the hint in the tooltip."],
-							},
-						},
-					},
 					KUISystemDT = {
 						order = 2,
 						type = "group",
@@ -410,23 +378,8 @@ local function Datatexts()
 							},
 						},
 					},
-					KUITitleDT = {
-						order = 4,
-						type = "group",
-						name = L["Titles Datatext"],
-						get = function(info) return E.db.KlixUI.titlesDT[info[#info]] end,
-						set = function(info, value) E.db.KlixUI.titlesDT[info[#info]] = value; DT:LoadDataTexts() end,
-						args = {
-							useName = {
-								order = 1,
-								type = "toggle",
-								name = L["Use Character Name"],
-								desc = L["Use your character's class color and name in the tooltip."],
-							},
-						},
-					},
 				},
-			},
+			},]]
 			--panels = {
 				--order = 10,
 				--type = "group",
