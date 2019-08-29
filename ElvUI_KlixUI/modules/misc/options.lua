@@ -300,7 +300,7 @@ local function Misc()
 						set = function(_, value) E.db.KlixUI.misc.bloodlust.customSound = (value and (not value:match("^%s-$")) and value) or nil end,
 					},
 				},
-			},
+			},]]
 			auto = {
 				order = 6,
 				type = "group",
@@ -308,14 +308,8 @@ local function Misc()
 				get = function(info) return E.db.KlixUI.misc.auto[ info[#info] ] end,
 				set = function(info, value) E.db.KlixUI.misc.auto[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL"); end,
 				args = {
-					gossip = {
-						order = 2,
-						type = "toggle",
-						name = L["Auto Gossip"],
-						desc = L["This setting will auto gossip some NPC's.\n|cffff8000Note: Holding down any modifier key before visiting/talking to the respective NPC's will briefly disable the automatization.|r"],
-					},
 					auction = {
-						order = 3,
+						order = 1,
 						type = "toggle",
 						name = L["Auto Auction"],
 						desc = L["Shift + Right-Click to auto buy auctions at the auctionhouse."],
@@ -329,6 +323,7 @@ local function Misc()
 						order = 11,
 						type = "group",
 						name = L["Invite"],
+						guiInline = true,
 						get = function(info) return E.db.KlixUI.misc.auto.invite[ info[#info] ] end,
 						set = function(info, value) E.db.KlixUI.misc.auto.invite[ info[#info] ] = value end,
 						args = {
@@ -385,7 +380,7 @@ local function Misc()
 						},
 					},
 				},
-			},]]
+			},
 			panels = {
 				order = 7,
 				type = "group",
