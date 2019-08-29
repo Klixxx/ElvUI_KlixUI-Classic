@@ -209,12 +209,6 @@ function MI:ADDON_LOADED(event, addon)
 	end
 end
 
-function MI:PLAYER_ENTERING_WORLD()
-	if not E.db.KlixUI.misc.zoom.maxZoom then return end
-	
-	T.SetCVar("cameraDistanceMaxZoomFactor", 4)
-end
-
 function MI:Initialize()
 
 	self:LoadMisc()
@@ -223,7 +217,6 @@ function MI:Initialize()
 	self:LoadGMOTD()
 	self:MaxStack()
 	
-	MI:RegisterEvent("PLAYER_ENTERING_WORLD")
 	MI:RegisterEvent("ADDON_LOADED")
 end
 

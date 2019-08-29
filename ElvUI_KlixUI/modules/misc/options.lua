@@ -945,6 +945,7 @@ local function Misc()
 						type = "range",
 						desc = OPTION_TOOLTIP_MAX_FOLLOW_DIST,
 						name = MAX_FOLLOW_DIST,
+						disabled = function() return E.db.KlixUI.misc.zoom.maxZoom end,
 						get = function(info) return T.GetCVar("cameraDistanceMaxZoomFactor") * base end,
 						set = function(info, value) E.db.KlixUI.misc.zoom.distance = value / base; T.SetCVar("cameraDistanceMaxZoomFactor", value / base) end,
 						min = base, max = base * maxfactor, step = 1.5, -- cvar gets rounded to 1 decimal
@@ -952,7 +953,7 @@ local function Misc()
 					maxZoom = {
 						order = 4,
 						type = "toggle",
-						name = L["Max Zoom"]..E.NewSign,
+						name = L["Force Max Zoom"]..E.NewSign,
 						desc = L["This will force max zoom every time you enter the world"],
 						set = function(info, value) E.db.KlixUI.misc.zoom[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL") end,
 					},
