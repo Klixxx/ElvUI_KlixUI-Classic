@@ -2,8 +2,8 @@
 	<script file="misc.lua"/>
 	<script file="auras.lua"/>
 	<script file="announce.lua"/>
-	<!--script file="alreadyknown.lua"/>
-	<script file="merchant.lua"/>
+	<script file="alreadyknown.lua"/>
+	<!--script file="merchant.lua"/>
 	<script file="easyCurve.lua"/>
 	<script file="bloodlust.lua"/>
 	<script file="whistle.lua"/>

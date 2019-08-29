@@ -58,7 +58,7 @@ local daysAbr = {
 
 -- Create Date
 local function createDate()
-	local date = T.C_Calendar_GetDate()
+	local date = C_Calendar_GetDate()
 	local presentWeekday = date.weekday
 	local presentMonth = date.month
 	local presentDay = date.monthDay
@@ -90,7 +90,7 @@ local function UpdateTimer()
 	AFK.AFKMode.top.time:SetFormattedText(createdTime)
 
 	-- Set Date
-	createDate()
+	--createDate()
 
 	-- Don't need the default timer
 	AFK.AFKMode.bottom.time:SetText(nil)
@@ -118,31 +118,12 @@ function AFK:SetAFK(status)
 		local level = T.UnitLevel('player')
 		local race = T.UnitRace('player')
 		local localizedClass = T.UnitClass('player')
-		local spec = getSpec()
-		local ilvl = getItemLevel()
-		local petName = E.db.KlixUI.misc.AFKPetModel.pet
-		local scale = E.db.KlixUI.misc.AFKPetModel.modelScale
-		local facingRad = E.db.KlixUI.misc.AFKPetModel.facing * (T.math_pi/180)
-		local animation = E.db.KlixUI.misc.AFKPetModel.animation
-		local speciesID	= T.C_PetJournal_FindPetIDByName(petName)
-		local displayID = T.select(12, T.C_PetJournal_GetPetInfoBySpeciesID(speciesID));
 		self.AFKMode.top:SetHeight(0)
 		self.AFKMode.top.anim.height:Play()
 		self.AFKMode.bottom:SetHeight(0)
 		self.AFKMode.bottom.anim.height:Play()
 		self.startTime = T.GetTime()
-		self.statsTimer = self:ScheduleRepeatingTimer("UpdateStatMessage", 5)
 		self.logoffTimer = self:ScheduleRepeatingTimer("UpdateLogOff", 1)
-		if petName ~= "" then
-			self.AFKMode.pet.model:SetModelScale(scale)
-			self.AFKMode.pet.model:SetFacing(facingRad)
-			self.AFKMode.pet.model:ClearModel()
-			self.AFKMode.pet.model:SetDisplayInfo(displayID)
-			--Animation types are undocumented. Some are listed here: http://us.battle.net/wow/en/forum/topic/8569600188
-			self.AFKMode.pet.model:SetAnimation(animation)
-			self.AFKMode.pet.model:SetCustomCamera(1)
-			self.AFKMode.pet.model:SetCameraDistance(20) --Zoom out, otherwise we get a huge model
-		end
 		if xptxt then
 			self.AFKMode.xp:Show()
 			self.AFKMode.xp.text:SetText(xptxt)
@@ -150,7 +131,7 @@ function AFK:SetAFK(status)
 			self.AFKMode.xp:Hide()
 			self.AFKMode.xp.text:SetText("")
 		end
-		self.AFKMode.bottom.name:SetFormattedText("%s - %s\n%s %s %s %s %s%s", E.myname, E.myrealm, LEVEL, level, race, spec, localizedClass, ilvl)
+		self.AFKMode.bottom.name:SetFormattedText("%s - %s\n%s %s %s %s", E.myname, E.myrealm, LEVEL, level, race, localizedClass)
 		
 		self.isAFK = true
 	else
@@ -158,25 +139,9 @@ function AFK:SetAFK(status)
 		self:CancelTimer(self.logoffTimer)
 
 		self.AFKMode.countd.text:SetFormattedText("%s: |cfff0ff00-30:00|r", L["Logout Timer"])
-		self.AFKMode.statMsg.info:SetFormattedText("|cffb3b3b3%s|r", L["Random Stats"])
 		self.isAFK = false
 	end
 end
-
-local function createPetModel(self)
-	self.AFKMode.pet = T.CreateFrame("Frame", nil, self.AFKMode)
-	self.AFKMode.pet:SetSize(150, 150)
-	self.AFKMode.pet:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 400, 60)
-	E:CreateMover(self.AFKMode.pet, "AFKPetModelMover", "AFK Pet Model", nil, nil, nil, "AFK")
-	
-	self.AFKMode.pet.model = T.CreateFrame("PlayerModel", "ElvUIAFKPetModel", self.AFKMode.pet)
-	self.AFKMode.pet.model:SetPoint("CENTER", self.AFKMode.pet, "CENTER")
-	--Use a large frame so borders don't become visible when pets do one of their special animations
-	self.AFKMode.pet.model:SetSize(T.GetScreenWidth()*2, T.GetScreenHeight()*2)
-end
-hooksecurefunc(AFK, "Initialize", createPetModel)
-
-local find = string.find
 
 local function IsFoolsDay()
 	if T.string_find(T.date(), '04/01/') then

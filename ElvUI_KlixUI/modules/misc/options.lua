@@ -221,7 +221,7 @@ local function Misc()
 							},
 						},
 					},
-					--[[alreadyknown = {
+					alreadyknown = {
 						order = 27,
 						type = "group",
 						name = L["Already Known"],
@@ -253,56 +253,6 @@ local function Misc()
 							},
 						},
 					},
-					AFKPetModel = {
-						order = 30,
-						type = "group",
-						name = L["AFK Pet Model"],
-						guiInline = true,
-						get = function(info) return E.db.KlixUI.misc.AFKPetModel[ info[#info] ] end,
-						set = function(info, value) E.db.KlixUI.misc.AFKPetModel[ info[#info] ] = value end,
-						args = {
-							pet = {
-								order = 1,
-								type = "input",
-								name = L["Companion Pet Name"],
-								width = "full",
-								set = function(info, value)
-									local speciesID = T.C_PetJournal_FindPetIDByName(value)
-									if speciesID then
-										E.db.KlixUI.misc.AFKPetModel[ info[#info] ] = value
-									else
-										E.db.KlixUI.misc.AFKPetModel[ info[#info] ] = T.select(8, T.C_PetJournal_GetPetInfoByIndex(1))
-									end
-									E.db.KlixUI.misc.AFKPetModel.modelScale = 1 --Reset scale when new pet is set
-								end,
-							},
-							modelScale = {
-								order = 2,
-								type = "range",
-								name = L["Model Scale"],
-								desc = L["Some pets will appear huge. Lower the scale when that happens."],
-								min = 0.05, max = 2, step = 0.05,
-							},
-							facing = {
-								order = 3,
-								type = "range",
-								name = L["Model Facing Direction"],
-								desc = L["Less than 0 faces the model to the left, more than 0 faces the model to the right"],
-								min = -180, max = 180, step = 5,
-							},
-							animation = {
-								order = 4,
-								type = "range",
-								name = L["Animation"],
-								desc = L["NPC animations are not documented anywhere, and as such you will just have to try out various settings until you find the animation you want. Default animation is 0 (idle)"],
-								min = 0, max = 822, step = 1,
-								set = function(info, value)
-									if value > 822 then value = 822 elseif value < 0 then value = 0 end
-									E.db.KlixUI.misc.AFKPetModel[ info[#info] ] = value
-								end,
-							},
-						},
-					},]]
 				},
 			},
 			--[[merchant = {
