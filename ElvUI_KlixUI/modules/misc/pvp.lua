@@ -23,11 +23,6 @@ function PvP:Dead()
 		PvP:Release()
 		return -- To prevent the rest of the function from execution when not needed
 	end
-	-- Euto resurrection for world PvP area...when active
-	for index = 1, T.GetNumWorldPVPAreas() do
-		local _, localizedName, isActive, canQueue = T.GetWorldPVPAreaInfo(index)
-		if (T.GetRealZoneText() == localizedName and isActive) or (T.GetRealZoneText() == localizedName and canQueue) then PvP:Release() end
-	end
 end
 
 function PvP:Duels(event, name)
