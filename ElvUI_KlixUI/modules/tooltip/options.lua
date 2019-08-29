@@ -152,8 +152,15 @@ local function Tooltip()
 						desc = L["Shows the current mouseover units guild rank."],
 						disabled = function() return not E.db.KlixUI.nameHover.enable or not E.db.KlixUI.nameHover.guild end,
 					},
-					space3 = {
+					race = {
 						order = 6,
+						type = 'toggle',
+						name = L["Race"],
+						desc = L["Shows the current mouseover units race."],
+						disabled = function() return not E.db.KlixUI.nameHover.enable end,
+					},
+					space3 = {
+						order = 7,
 						type = "description",
 						name = "",
 					},
