@@ -23,18 +23,6 @@ function CameraZoomOut(v)
 	CameraZoom(oldZoomOut, v)
 end
 
--- multi-passenger mounts / quest vehicles
-local oldVehicleZoomIn = VehicleCameraZoomIn
-local oldVehicleZoomOut = VehicleCameraZoomOut
-
-function VehicleCameraZoomIn(v)
-	CameraZoom(oldVehicleZoomIn, v)
-end
-
-function VehicleCameraZoomOut(v)
-	CameraZoom(oldVehicleZoomOut, v)
-end
-
 function KZ:PLAYER_ENTERING_WORLD()
 	if E.db.KlixUI.misc.zoom.maxZoom then
 		T.SetCVar("cameraDistanceMaxZoomFactor", 4)
