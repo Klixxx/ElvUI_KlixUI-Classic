@@ -184,28 +184,13 @@ local function Misc()
 					},
 				},
 			},
-			--[[merchant = {
+			merchant = {
 				order = 3,
 				type = "group",
 				name = L["Merchant"],
 				get = function(info) return E.db.KlixUI.misc.merchant[ info[#info] ] end,
 				set = function(info, value) E.db.KlixUI.misc.merchant[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL"); end,
 				args = {
-					style = {
-						order = 1,
-						type = "toggle",
-						name = L["Style"],
-						desc = L["Display the MerchantFrame in one window instead of a small one with variouse amount of pages."],
-						disabled = function() return not E.private.KlixUI.skins.blizzard.merchant end,
-					},
-					subpages = {
-						order = 2,
-						type = 'range',
-						name = L["Subpages"],
-						desc = L["Subpages are blocks of 10 items. This option set how many of subpages will be shown on a single page."],
-						min = 2, max = 5, step = 1,
-						disabled = function() return not E.private.KlixUI.skins.blizzard.merchant or E.db.KlixUI.misc.merchant.style ~= true end,
-					},
 					itemlevel = {
 						order = 3,
 						type = "toggle",
@@ -220,7 +205,7 @@ local function Misc()
 					},
 				},
 			},
-			bloodlust = {
+			--[[bloodlust = {
 				order = 4,
 				type = "group",
 				name = L["Bloodlust"],
