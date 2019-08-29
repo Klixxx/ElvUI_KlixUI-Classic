@@ -6,92 +6,6 @@ local TIMEMANAGER_TOOLTIP_LOCALTIME, TIMEMANAGER_TOOLTIP_REALMTIME, MAX_PLAYER_L
 local LEVEL, NONE = LEVEL, NONE
 local ITEM_UPGRADE_STAT_AVERAGE_ITEM_LEVEL, MIN_PLAYER_LEVEL_FOR_ITEM_LEVEL_DISPLAY = ITEM_UPGRADE_STAT_AVERAGE_ITEM_LEVEL, MIN_PLAYER_LEVEL_FOR_ITEM_LEVEL_DISPLAY
 
--- Source wowhead.com
-local stats = {
-	60,		-- Total deaths
-	94,		-- Quests abandoned
-	97,		-- Daily quests completed
-	98,		-- Quests completed
-	107,	-- Creatures killed
-	108, 	-- Critters Killed
-	112,	-- Deaths from drowning
-	113, 	-- Deaths from fatique
-	114,	-- Deaths from falling
-	115, 	-- Deaths from fire and lava
-	319,	-- Duels won
-	320,	-- Duels lost
-	321,	-- Total raid and dungeon deaths
-	326,	-- Gold from quest rewards
-	328,	-- Total gold acquired
-	329,	-- Auction Posted
-	330, 	-- Auction Purchases
-	331, 	-- Most Expensive bid on Auction
-	333,	-- Gold looted
-	334,	-- Most gold ever owned
-	338,	-- Vanity pets owned
-	339,	-- Mounts owned
-	342,	-- Epic items acquired
-	346, 	-- Beverages Consumed
-	347, 	-- Food Eaten
-	349,	-- Flight paths taken
-	353,	-- Number of times hearthed
-	370, 	-- Highest 2 man personal Rating
-	374,	-- Highest 2 man Team Rating
-	377,	-- Most factions at Exalted
-	588,	-- Total Honorable Kills
-	589, 	-- Highest 5 man Team Rating
-	590, 	-- Highest 3 man Team Rating
-	595, 	-- Highest 3 man Personal rating
-	596,	-- Highest 5 man Personal rating
-	837,	-- Arenas won
-	838,	-- Arenas played
-	839,	-- Battlegrounds played
-	840,	-- Battlegrounds won
-	919,	-- Gold earned from auctions
-	921, 	-- Gold from vendors
-	931,	-- Total factions encountered
-	932,	-- Total 5-player dungeons entered
-	933,	-- Total 10-player raids entered
-	934,	-- Total 25-player raids entered
-	1042,	-- Number of hugs
-	1044, 	-- Need rolls made on loot
-	1045,	-- Total cheers
-	1047,	-- Total facepalms
-	1057, 	-- Deaths in 2v2
-	1065,	-- Total waves
-	1066,	-- Total times LOL'd
-	1107, 	-- Deaths in 3v3
-	1108, 	-- Deaths in 5v5
-	1043, 	-- Greed rolls made on loot
-	1146, 	-- Gold spent on travel
-	1147, 	-- Gold spent at barber shops
-	1148, 	-- Gold spent on postage
-	1149,	-- Talent tree respecs
-	1150,	-- Gold spent on talent tree respecs
-	1197,	-- Total kills
-	1198,	-- Total kills that grant experience or honor
-	1339,	-- Mage portal taken most
-	1456, 	-- Fish and other things caught
-	1487,	-- Killing Blows
-	1491,	-- Battleground Killing Blows
-	1518,	-- Fish caught
-	1716,	-- Battleground with the most Killing Blows
-	1745,	-- Cooking Recipes known
-	2397, 	-- Battleground won the most
-	2277,	-- Summons accepted
-	5692,	-- Rated battlegrounds played
-	5694,	-- Rated battlegrounds won
-	7399,	-- Challenge mode dungeons completed
-	8278,	-- Pet Battles won at max level
-	10060,	-- Garrison Followers recruited
-	10181,	-- Garrision Missions completed
-	10184,	-- Garrision Rare Missions completed
-	11234,	-- Class Hall Champions recruited
-	11235,	-- Class Hall Troops recruited
-	11236,	-- Class Hall Missions completed
-	11237,	-- Class Hall Rare Missions completed
-}
-
 -- Create Time
 local function createTime()
 	local hour, hour24, minute, ampm = T.tonumber(T.date("%I")), T.tonumber(T.date("%H")), T.tonumber(T.date("%M")), T.date("%p"):lower()
@@ -144,57 +58,12 @@ local daysAbr = {
 
 -- Create Date
 local function createDate()
-	local date = T.C_Calendar_GetDate();
-	local presentWeekday = date.weekday;
-	local presentMonth = date.month;
-	local presentDay = date.monthDay;
-	local presentYear = date.year;
+	local date = T.C_Calendar_GetDate()
+	local presentWeekday = date.weekday
+	local presentMonth = date.month
+	local presentDay = date.monthDay
+	local presentYear = date.year
 	AFK.AFKMode.top.date:SetFormattedText("%s, %s %d, %d", daysAbr[presentWeekday], monthAbr[presentMonth], presentDay, presentYear)
-end
-
--- Create random stats
-local function createStats()
-	local id = stats[T.math_random( #stats )]
-	local _, name = T.GetAchievementInfo(id)
-	local result = T.GetStatistic(id)
-	if result == "--" then result = NONE end
-	return T.string_format("%s: |cfff0ff00%s|r", name, result)
-end
-
-local active
-local function getSpec()
-	local specIndex = T.GetSpecialization()
-	if not specIndex then return end
-
-	active = T.GetActiveSpecGroup()
-
-	local talent = ''
-	local i = T.GetSpecialization(false, false, active)
-	if i then
-		i = T.select(2, T.GetSpecializationInfo(i))
-		if(i) then
-			talent = T.string_format('%s', i)
-		end
-	end
-
-	return T.string_format('%s', talent)
-end
-
-local function getItemLevel()
-	local level = T.UnitLevel("player");
-	local _, equipped = T.GetAverageItemLevel()
-	local ilvl = ''
-	if (level >= MIN_PLAYER_LEVEL_FOR_ITEM_LEVEL_DISPLAY) then
-		ilvl = T.string_format('\n%s: %d', ITEM_UPGRADE_STAT_AVERAGE_ITEM_LEVEL, equipped)
-	end
-	return ilvl
-end
-
-function AFK:UpdateStatMessage()
-	E:UIFrameFadeIn(self.AFKMode.statMsg.info, 1, 1, 0)
-	local createdStat = createStats()
-	self.AFKMode.statMsg.info:SetText(createdStat)
-	E:UIFrameFadeIn(self.AFKMode.statMsg.info, 1, 0, 1)
 end
 
 function AFK:UpdateLogOff()
@@ -229,10 +98,10 @@ end
 hooksecurefunc(AFK, "UpdateTimer", UpdateTimer)
 
 -- XP string
-local M = E:GetModule('DataBars');
+local M = E:GetModule('DataBars')
 local function GetXPinfo()
-	local maxLevel = MAX_PLAYER_LEVEL_TABLE[T.GetExpansionLevel()];
-	if(T.UnitLevel('player') == maxLevel) or T.IsXPUserDisabled() then return end
+	local maxLevel = MAX_PLAYER_LEVEL_TABLE[T.GetExpansionLevel()]
+	if(T.UnitLevel('player') == maxLevel) then return end
 
 	local cur, max = M:GetXP('player')
 	local curlvl = T.UnitLevel('player')
@@ -336,8 +205,6 @@ local function Initialize()
 	local race = T.UnitRace('player')
 	local localizedClass = T.UnitClass('player')
 	local className = E.myclass
-	local spec = getSpec()
-	local ilvl = getItemLevel()
 
 	-- Create Top frame
 	AFK.AFKMode.top = T.CreateFrame('Frame', nil, AFK.AFKMode)
@@ -433,7 +300,7 @@ local function Initialize()
 	-- Add more info in the name and position it to the center
 	AFK.AFKMode.bottom.name:ClearAllPoints()
 	AFK.AFKMode.bottom.name:SetPoint("TOP", AFK.AFKMode.bottom.factionb, "BOTTOM", 0, 5)
-	AFK.AFKMode.bottom.name:SetFormattedText("%s - %s\n%s %s %s %s %s%s", E.myname, E.myrealm, LEVEL, level, race, spec, localizedClass, ilvl)
+	AFK.AFKMode.bottom.name:SetFormattedText("%s - %s\n%s %s %s %s", E.myname, E.myrealm, LEVEL, level, race, localizedClass)
 	AFK.AFKMode.bottom.name:SetJustifyH("CENTER")
 	AFK.AFKMode.bottom.name:FontTemplate(nil, 18)
 
@@ -474,20 +341,6 @@ local function Initialize()
 	AFK.AFKMode.statMsg = CreateFrame("Frame", nil, AFK.AFKMode)
 	AFK.AFKMode.statMsg:Size(418, 72)
 	AFK.AFKMode.statMsg:Point("CENTER", 0, 200)
-
-	AFK.AFKMode.statMsg.bg = AFK.AFKMode.statMsg:CreateTexture(nil, 'BACKGROUND')
-	AFK.AFKMode.statMsg.bg:SetTexture([[Interface\LevelUp\LevelUpTex]])
-	AFK.AFKMode.statMsg.bg:SetPoint('BOTTOM')
-	AFK.AFKMode.statMsg.bg:Size(326, 103)
-	AFK.AFKMode.statMsg.bg:SetTexCoord(0.00195313, 0.63867188, 0.03710938, 0.23828125)
-	AFK.AFKMode.statMsg.bg:SetVertexColor(1, 1, 1, 0.7)
-
-	AFK.AFKMode.statMsg.lineTop = AFK.AFKMode.statMsg:CreateTexture(nil, 'BACKGROUND')
-	AFK.AFKMode.statMsg.lineTop:SetDrawLayer('BACKGROUND', 2)
-	AFK.AFKMode.statMsg.lineTop:SetTexture([[Interface\LevelUp\LevelUpTex]])
-	AFK.AFKMode.statMsg.lineTop:SetPoint("TOP")
-	AFK.AFKMode.statMsg.lineTop:Size(418, 7)
-	AFK.AFKMode.statMsg.lineTop:SetTexCoord(0.00195313, 0.81835938, 0.01953125, 0.03320313)
 
 	AFK.AFKMode.statMsg.lineBottom = AFK.AFKMode.statMsg:CreateTexture(nil, 'BACKGROUND')
 	AFK.AFKMode.statMsg.lineBottom:SetDrawLayer('BACKGROUND', 2)
@@ -548,13 +401,5 @@ local function Initialize()
 	AFK.AFKMode.xp.text:SetJustifyH("CENTER")
 	AFK.AFKMode.xp.text:SetText(xptxt)
 	AFK.AFKMode.xp.text:SetTextColor(0.7, 0.7, 0.7)
-
-	-- Random stats frame
-	AFK.AFKMode.statMsg.info = AFK.AFKMode.statMsg:CreateFontString(nil, 'OVERLAY')
-	AFK.AFKMode.statMsg.info:FontTemplate(nil, 18)
-	AFK.AFKMode.statMsg.info:Point("CENTER", AFK.AFKMode.statMsg, "CENTER", 0, -2)
-	AFK.AFKMode.statMsg.info:SetText(T.string_format("|cffb3b3b3%s|r", L["Random Stats"]))
-	AFK.AFKMode.statMsg.info:SetJustifyH("CENTER")
-	AFK.AFKMode.statMsg.info:SetTextColor(0.7, 0.7, 0.7)
 end
 hooksecurefunc(AFK, "Initialize", Initialize)
