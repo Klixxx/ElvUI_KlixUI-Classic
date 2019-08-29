@@ -410,7 +410,7 @@ function AP:InitProfiles()
 		Pullout.Delete:SetScript('OnClick', function(self)
 			local dialog = StaticPopupDialogs['ADDONPANEL_DELETECONFIRMATION']
 
-			dialog.text = T..string_format(L['Are you sure you want to delete %s?'], Pullout.Name)
+			dialog.text = T.string_format(L['Are you sure you want to delete %s?'], Pullout.Name)
 			dialog.OnAccept = function(self)
 				AddonPanelProfilesDB[Pullout.Name] = nil
 				AP:UpdateProfiles()
