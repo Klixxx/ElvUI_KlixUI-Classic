@@ -6,7 +6,9 @@ local CLOSE = CLOSE
 
 local ChangeLogData = {
 	"Changes:",
-		"• More features enabled and fixed!",
+		"• AFK screen back.",
+		"• Datatext module is back once again.",
+		"• Some cleanup.",
 		" ", -- Section space!
 		-- "• ",
 		
