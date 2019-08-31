@@ -1,5 +1,4 @@
 ﻿<Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<Script file="questauto.lua"/>
-	<Script file="questannounce.lua"/>
 	<Script file="options.lua"/>
 </Ui>
