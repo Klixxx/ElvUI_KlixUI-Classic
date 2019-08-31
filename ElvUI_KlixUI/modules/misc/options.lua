@@ -3,7 +3,6 @@ local MI = KUI:GetModule("KuiMisc")
 local COMP = KUI:GetModule("KuiCompatibility")
 local KZ = KUI:GetModule("KuiZoom")
 local KAN = KUI:GetModule("KuiAnnounce")
---local KBL = KUI:GetModule("KuiBloodLust")
 local PvP = KUI:GetModule("KuiPVP")
 local CSP = KUI:GetModule("ConfirmStaticPopups")
 

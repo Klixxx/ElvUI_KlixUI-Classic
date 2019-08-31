@@ -4,7 +4,6 @@
 	<script file="announce.lua"/>
 	<script file="alreadyknown.lua"/>
 	<script file="merchant.lua"/>
-	<!--script file="bloodlust.lua"/-->
 	<script file="namehover.lua"/>
 	<script file="zoom.lua"/>
 	<script file="pvp.lua"/>
