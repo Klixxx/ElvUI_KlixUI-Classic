@@ -3,20 +3,21 @@ local EC = KUI:NewModule('EnemyCooldown', "AceEvent-3.0", "AceConsole-3.0")
 
 local enemy_spells = {
 	-- Interrupts and Silences
-	[1766] = 15,	-- Kick
-	[6552] = 15,	-- Pummel
-	[2139] = 24,	-- Counterspell
-	[19647] = 24,	-- Spell Lock
+	[1766] = 10,	-- Kick
+	[6552] = 10,	-- Pummel
+	[2139] = 30,	-- Counterspell
+	[19647] = 30,	-- Spell Lock
 	[15487] = 45,	-- Silence
 	-- Crowd Controls
-	[20066] = 15,	-- Repentance
+	[20066] = 60,	-- Repentance
 	[8122] = 30,	-- Psychic Scream
 	[5484] = 40,	-- Howl of Terror
-	[19386] = 45,	-- Wyvern Sting
-	[6789] = 45,	-- Mortal Coil
+	[19386] = 120,	-- Wyvern Sting
+	[6789] = 120,	-- Death Coil
 	[853] = 60,		-- Hammer of Justice
 	-- Defense abilities
-	[1856] = 120,	-- Vanish
+	[1856] = 300,	-- Vanish
+	[18499] = 30,	-- Berserker Rage
 	[7744] = 120,	-- Will of the Forsaken (Racial)
 }
 
@@ -165,10 +166,10 @@ function EC:Initialize()
 	_G.SLASH_EnemyCD1 = "/testecd"
 	_G.SLASH_EnemyCD2 = "/tecd"
 	T.SlashCmdList.EnemyCD = function()
-		StartTimer(T.UnitName("player"), 47528)
+		StartTimer(T.UnitName("player"), 1766)
 		StartTimer(T.UnitName("player"), 19647)
-		StartTimer(T.UnitName("player"), 47476)
-		StartTimer(T.UnitName("player"), 51514)
+		StartTimer(T.UnitName("player"), 6552)
+		StartTimer(T.UnitName("player"), 853)
 	end
 end
 
