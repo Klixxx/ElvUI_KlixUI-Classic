@@ -1,5 +1,0 @@
-﻿<Ui xmlns="http://www.blizzard.com/wow/ui/">
-	<Script file="toasts.lua"/>
-	<Script file="skintoasts.lua"/>
-	<Script file="options.lua"/>
-</Ui>

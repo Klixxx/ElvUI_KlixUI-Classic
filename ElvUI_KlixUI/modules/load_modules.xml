@@ -1,6 +1,5 @@
 ﻿<Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<Include file="skins\load_skins.xml"/>
-	<!--Include file="toasts\load_toasts.xml"/-->
 	<Include file="chat\load_chat.xml"/>
 	<!--Include file="bags\load_bags.xml"/>
 	<Include file="equipment\load_equipment.xml"/>
@@ -15,7 +14,6 @@
 	<Include file="unitframes\load_unitframes.xml"/>
 	<!--Include file="databars\load_databars.xml"/-->
 	<Include file="datatexts\load_datatexts.xml"/>
-	<!--Include file="talents\load_talents.xml"/-->
 	<Include file="quest\load_quest.xml"/>
 	<Include file="efl\load_efl.xml"/>
 	<Include file="addonpanel\load_addonpanel.xml"/>

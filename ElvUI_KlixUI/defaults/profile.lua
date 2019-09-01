@@ -1095,55 +1095,6 @@ P['KlixUI'] = {
 		},
 	},
 	
-	-- Talents 
-	["talents"] = {
-		["enable"] = true,
-		["borderGlow"] = true,
-		["DefaultToTalentsTab"] = true,
-		["AutoHidePvPTalents"] = false,
-	},
-	
-	-- Toasts
-	["toasts"] = {
-		["enable"] = true,
-		["growth_direction"] = "DOWN",
-		["max_active_toasts"] = 6,
-		["sfx_enable"] = true,
-		["fadeout_delay"] = 2.8,
-		["scale"] = 1.1,
-		["colored_names_enabled"] = true,
-		["achievement_enabled"] = true,
-		["archaeology_enabled"] = true,
-		["garrison_6_0_enabled"] = false,
-		["garrison_7_0_enabled"] = true,
-		["garrison_8_0_enabled"] = true,
-		["instance_enabled"] = true,
-		["loot_special_enabled"] = true,
-		["loot_common_enabled"] = true,
-		["loot_common_quality_threshold"] = 1,
-		["loot_currency_enabled"] = true,
-		--["loot_gold_enabled"] = true,
-		--["loot_gold_threshold"] = 1,
-		["recipe_enabled"] = true,
-		["world_enabled"] = true,
-		["transmog_enabled"] = true,
-		["dnd"] = {
-			["achievement"] = false,
-			["archaeology"] = false,
-			["garrison_6_0"] = false,
-			["garrison_7_0"] = true,
-			["garrison_8_0"] = true,
-			["instance"] = false,
-			["loot_special"] = false,
-			["loot_common"] = false,
-			["loot_currency"] = false,
-			--["loot_gold"] = false,
-			["recipe"] = false,
-			["world"] = false,
-			["transmog"] = false,
-		},
-	},
-	
 	-- ToolTip
 	["tooltip"] = {
 		["tooltip"] = true,
