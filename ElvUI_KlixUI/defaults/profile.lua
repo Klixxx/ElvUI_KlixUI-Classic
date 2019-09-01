@@ -1306,6 +1306,3 @@ P.datatexts.panels.Right_ChatTab_Panel = {
 	middle = '',
 	right = '',
 }
-
-P.datatexts.panels.RightCoordDtPanel = 'Time'
-P.datatexts.panels.LeftCoordDtPanel = 'Durability'
