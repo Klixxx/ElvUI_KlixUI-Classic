@@ -21,8 +21,7 @@
 	<Include file="addonpanel\load_addonpanel.xml"/>
 	<!--Include file="notification\load_notification.xml"/>
 	<Include file="announcement\load_announcement.xml"/>
-	<Include file="professions\load_professions.xml"/>
-	<Include file="loot\load_loot.xml"/-->
+	<Include file="professions\load_professions.xml"/-->
 	<Include file="cooldowns\load_cooldowns.xml"/>
 	<Include file="raidmarkers\load_raidmarkers.xml"/>
 	<Include file="reminder\load_reminder.xml"/>
