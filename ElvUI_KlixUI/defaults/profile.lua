@@ -712,28 +712,6 @@ P['KlixUI'] = {
 		},
 	},
 	
-	-- Loot
-	["loot"] = {
-		["bonusFilter"] = {
-			[14] = {
-				["*"] = false,
-			},
-			[15] = {
-				["*"] = false,
-			},
-			[16] = {
-				["*"] = false,
-			},
-			[17] = {
-				["*"] = false,
-			},
-			[23] = false,
-			[8] = false,
-			["disableKeystoneLevelToggle"] = false,
-			["disableKeystoneLevel"] = 0,
-		},
-	},
-	
 	-- Maps
 	["maps"] = {
 		["minimap"] = {
