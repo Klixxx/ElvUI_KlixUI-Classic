@@ -146,7 +146,8 @@ L["ELVUI_KUI_DONORS"] = [[Akiao
 Enii
 He Min
 Bradx
-Rey]]
+Rey
+Vauxine]]
 L["Testing & Inspiration:"] = true
 L["ELVUI_KUI_TESTING"] = [[Kringel
 Akiao

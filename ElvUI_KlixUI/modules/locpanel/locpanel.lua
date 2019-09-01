@@ -21,7 +21,7 @@ LP.ReactionColors = {
 	["combat"] = {r = 1, g = 0.1, b = 0.1},
 }
 
-local function UpdateStatus(color)
+local function UpdateTooltipStatus(color)
 	local status = ""
 	local statusText
 	local r, g, b = 1, 1, 0
@@ -94,8 +94,8 @@ local function Bar_OnEnter(self)
 		GameTooltip:ClearLines()
 		GameTooltip:AddDoubleLine(HOME.." :", T.GetBindLocation(), 1, 1, 1, 0.41, 0.8, 0.94)
 		
-		if LP.db.tooltip.ttst then
-			GameTooltip:AddDoubleLine(STATUS.." :", TooltipStatus(false), 1, 1, 1)
+		if LP.db.tooltip.status then
+			GameTooltip:AddDoubleLine(STATUS.." :", UpdateTooltipStatus(false), 1, 1, 1)
 		end
 		
 		if LP.db.tooltip.enable then
