@@ -1,7 +1,6 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local MI = KUI:NewModule("KuiMisc", "AceHook-3.0", "AceEvent-3.0", "AceTimer-3.0")
 local S = E:GetModule("Skins")
-local COMP = KUI:GetModule("KuiCompatibility")
 
 function MI:LoadMisc()
 	-- Force readycheck warning

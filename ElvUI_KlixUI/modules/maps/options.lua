@@ -2,7 +2,6 @@ local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local MM = KUI:GetModule("KuiMinimap")
 local KWM = KUI:GetModule('KuiWorldMap')
 --local SMB = KUI:GetModule("KuiSquareMinimapButtons")
-local COMP = KUI:GetModule("KuiCompatibility")
 
 local function Maps()
 	E.Options.args.KlixUI.args.modules.args.maps = {

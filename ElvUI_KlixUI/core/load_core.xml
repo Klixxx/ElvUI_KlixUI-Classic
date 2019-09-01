@@ -2,7 +2,6 @@
 	<script file="core.lua"/>
 	<Script file='toolkit.lua'/>
 	<script file="install.lua"/>
-	<script file="dropdown.lua"/>
 	<script file="dropmenu.lua"/>
 	<script file="changelog.lua"/>
 	<script file="staticpopup.lua"/>
@@ -10,6 +9,5 @@
 	<Script file="minimapbutton.lua"/>
 	<!--script file="splashScreen.lua"-->
 	<script file="options.lua"/>
-	<Script file="compatibility.lua"/>
 	<Include file="addonProfiles\load_addonProfiles.xml"/>
 </Ui>

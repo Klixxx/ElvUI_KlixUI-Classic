@@ -1,6 +1,5 @@
 ﻿local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local MI = KUI:GetModule("KuiMisc")
-local COMP = KUI:GetModule("KuiCompatibility")
 local KZ = KUI:GetModule("KuiZoom")
 local KAN = KUI:GetModule("KuiAnnounce")
 local PvP = KUI:GetModule("KuiPVP")

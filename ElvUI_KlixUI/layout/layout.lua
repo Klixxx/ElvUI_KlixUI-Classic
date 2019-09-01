@@ -2,7 +2,6 @@ local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local KUIL = KUI:NewModule('KuiLayout', 'AceHook-3.0', 'AceEvent-3.0');
 local KS = KUI:GetModule("KuiSkins")
 local KC = KUI:GetModule("KuiChat")
-local COMP = KUI:GetModule("KuiCompatibility")
 local AB = E:GetModule("ActionBars")
 local CH = E:GetModule("Chat")
 local LO = E:GetModule('Layout')
@@ -470,7 +469,7 @@ function KUIL:ChangeLayout()
 				else
 				self:SetScript('OnClick', function(self, btn)
 					if btn == "LeftButton" then
-						if (E.db.KlixUI.addonpanel.Enable and not (COMP.PA and _G.ProjectAzilroka.db["stAddonManager"]['Enable'])) then
+						if (E.db.KlixUI.addonpanel.Enable and not T.IsAddOnLoaded("ProjectAzilroka")) then
 							if APFrame:IsShown() then
 								APFrame:Hide()
 							else

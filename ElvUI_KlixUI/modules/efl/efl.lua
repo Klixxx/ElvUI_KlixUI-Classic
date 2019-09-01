@@ -1,6 +1,5 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local EFL = KUI:NewModule("EnhancedFriendsList")
-local COMP = KUI:GetModule("KuiCompatibility")
 local LSM = E.LSM or E.Libs.LSM
 
 local MediaPath = "Interface\\AddOns\\ElvUI_KlixUI\\media\\textures\\"
@@ -225,7 +224,7 @@ function EFL:BasicUpdateFriends(button)
 end
 
 function EFL:Initialize()
-	if not E.db.KlixUI.efl.enable or (COMP.PA and _G.ProjectAzilroka.db["EnhancedFriendsList"]['Enable']) then return end
+	if not E.db.KlixUI.efl.enable or T.IsAddOnLoaded("ProjectAzilroka") then return end
 
 	EFL.db = E.db.KlixUI.efl
 	

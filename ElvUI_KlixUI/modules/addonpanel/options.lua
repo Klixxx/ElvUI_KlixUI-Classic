@@ -1,14 +1,13 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local AP = KUI:GetModule("AddonControlPanel")
-local COMP = KUI:GetModule("KuiCompatibility")
 
 local function AddonPanelTable()
 	E.Options.args.KlixUI.args.modules.args.addonpanel = {
 		type = "group",
 		order = 2,
 		name = L["Addon Control Panel"],
-		disabled = function() return COMP.PA end,
-		hidden = function() return COMP.PA end,
+		disabled = function() return T.IsAddOnLoaded("ProjectAzilroka") end,
+		hidden = function() return T.IsAddOnLoaded("ProjectAzilroka") end,
 		get = function(info) return E.db.KlixUI.addonpanel[ info[#info] ] end,
 		set = function(info, value) E.db.KlixUI.addonpanel[ info[#info] ] = value; AP:Update() end,
 		args = {

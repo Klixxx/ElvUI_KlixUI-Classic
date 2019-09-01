@@ -1,7 +1,6 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local AP = KUI:NewModule('AddonControlPanel', 'AceEvent-3.0')
 local S = E:GetModule('Skins')
-local COMP = KUI:GetModule("KuiCompatibility")
 local LSM = E.LSM or E.Libs.LSM
 
 AddonPanelProfilesDB = {}
@@ -569,7 +568,7 @@ function AP:Update()
 end
 
 function AP:Initialize()
-	if not E.db.KlixUI.addonpanel.Enable or COMP.PA then return end
+	if not E.db.KlixUI.addonpanel.Enable or T.IsAddOnLoaded("ProjectAzilroka") then return end
 	
 	AP.db = E.db.KlixUI.addonpanel
 
