@@ -1,8 +1,6 @@
 ﻿local KUI, T, E, L, V, P, G = unpack(select(2, ...))
-local M = E:GetModule("Minimap")
-local DD = KUI:GetModule("Dropdown")
-local DT = E:GetModule('DataTexts')
 local LP = KUI:NewModule("LocPanel", "AceTimer-3.0", "AceEvent-3.0", 'AceHook-3.0')
+local M = E:GetModule("Minimap")
 local LSM = E.LSM or E.Libs.LSM
 
 local UNKNOWN, GARRISON_LOCATION_TOOLTIP, ITEMS, SPELLS, CLOSE, BACK = UNKNOWN, GARRISON_LOCATION_TOOLTIP, ITEMS, SPELLS, CLOSE, BACK
@@ -22,6 +20,47 @@ LP.ReactionColors = {
 	["contested"] = {r = 1, g = 0.7, b = 0.10},
 	["combat"] = {r = 1, g = 0.1, b = 0.1},
 }
+
+local function UpdateStatus(color)
+	local status = ""
+	local statusText
+	local r, g, b = 1, 1, 0
+	local pvpType = T.GetZonePVPInfo()
+	local inInstance, _ = T.IsInInstance()
+
+	if (pvpType == "sanctuary") then
+		status = SANCTUARY_TERRITORY
+		r, g, b = 0.41, 0.8, 0.94
+	elseif(pvpType == "arena") then
+		status = ARENA
+		r, g, b = 1, 0.1, 0.1
+	elseif(pvpType == "friendly") then
+		status = FRIENDLY
+		r, g, b = 0.1, 1, 0.1
+	elseif(pvpType == "hostile") then
+		status = HOSTILE
+		r, g, b = 1, 0.1, 0.1
+	elseif(pvpType == "contested") then
+		status = CONTESTED_TERRITORY
+		r, g, b = 1, 0.7, 0.10
+	elseif(pvpType == "combat" ) then
+		status = COMBAT
+		r, g, b = 1, 0.1, 0.1
+	elseif inInstance then
+		status = AGGRO_WARNING_IN_INSTANCE
+		r, g, b = 1, 0.1, 0.1
+	else
+		status = CONTESTED_TERRITORY
+	end
+
+	statusText = T.string_format("|cff%02x%02x%02x%s|r", r*255, g*255, b*255, status)
+
+	if color then
+		return r, g, b
+	else
+		return statusText
+	end
+end
 
 local function GetDirection()
 	local y = _G["KUI_LocPanel"]:GetCenter()
@@ -49,13 +88,30 @@ local function Bar_OnEnter(self)
 	GameTooltip:ClearAllPoints()
 	GameTooltip:SetPoint("BOTTOM", self, "BOTTOM", 0, 0)
 	
-	if T.InCombatLockdown() and LP.db.ttcombathide then
+	if T.InCombatLockdown() and LP.db.tooltip.combathide then
 		GameTooltip:Hide()
 	else
-		LP:UpdateTooltip()
+		GameTooltip:ClearLines()
+		GameTooltip:AddDoubleLine(HOME.." :", T.GetBindLocation(), 1, 1, 1, 0.41, 0.8, 0.94)
+		
+		if LP.db.tooltip.ttst then
+			GameTooltip:AddDoubleLine(STATUS.." :", TooltipStatus(false), 1, 1, 1)
+		end
+		
+		if LP.db.tooltip.enable then
+			if LP.db.tooltip.hint then
+				GameTooltip:AddLine(" ")
+				GameTooltip:AddDoubleLine(L["Left Click: "], L["Toggle WorldMap"], 0.7, 0.7, 1, 0.7, 0.7, 1)
+				GameTooltip:AddDoubleLine(L["Right Click: "], L["Send position to chat"],0.7, 0.7, 1, 0.7, 0.7, 1)
+			end
+			GameTooltip:Show()
+		else
+			GameTooltip:Hide()
+		end
 	end
+	
 	if LP.db.mouseover then
-	T.UIFrameFadeIn(self, 0.2, self:GetAlpha(), 1)
+		T.UIFrameFadeIn(self, 0.2, self:GetAlpha(), 1)
 	end
 end
 
@@ -95,23 +151,8 @@ function LP:CreateLocationPanel()
 	loc_panel.Ycoord.Text = loc_panel.Ycoord:CreateFontString(nil, "LOW")
 	loc_panel.Ycoord.Text:Point("CENTER", 0, 0)
 	
-	-- Left coords Datatext panel
-	left_dtp = T.CreateFrame('Frame', 'LeftCoordDtPanel', E.UIParent)
-	left_dtp:SetPoint("RIGHT", loc_panel.Xcoord, "LEFT", 1 - 2*E.Spacing, 0)
-	left_dtp:SetParent(KUI_LocPanel)
-
-	-- Right coords Datatext panel
-	right_dtp = T.CreateFrame('Frame', 'RightCoordDtPanel', E.UIParent)
-	right_dtp:SetPoint("LEFT", loc_panel.Ycoord, "RIGHT", -1 + 2*E.Spacing, 0)
-	right_dtp:SetParent(KUI_LocPanel)
-	
-	DT:RegisterPanel(LeftCoordDtPanel, 1, 'ANCHOR_BOTTOM', 0, -4)
-	DT:RegisterPanel(RightCoordDtPanel, 1, 'ANCHOR_BOTTOM', 0, -4)
-
-	L['RightCoordDtPanel'] = KUI:cOption(L["LocationPanel Right Panel"]);
-	L['LeftCoordDtPanel'] = KUI:cOption(L["LocationPanel Left Panel"]);
-	
 	LP:Resize()
+	
 	-- Mover
 	E:CreateMover(loc_panel, "KUI_LocPanel_Mover", L["Location Panel"], nil, nil, nil, "ALL,SOLO,KLIXUI", nil, "KlixUI,modules,locPanel")
 end
@@ -119,7 +160,7 @@ end
 function LP:OnClick(btn)
 	local zoneText = T.GetRealZoneText() or UNKNOWN;
 	if btn == "LeftButton" then
-		if T.IsShiftKeyDown() and LP.db.linkcoords then
+		if LP.db.linkcoords then
 			local edit_box = T.ChatEdit_ChooseBoxForSend()
 			local x, y = CreateCoords()
 			local message
@@ -131,16 +172,9 @@ function LP:OnClick(btn)
 				end
 			T.ChatEdit_ActivateChat(edit_box)
 			edit_box:Insert(message) 
-		else
-			if T.IsControlKeyDown() then
-				left_dtp:SetScript("OnShow", function(self) LP.db.dtshow = true; end)
-				left_dtp:SetScript("OnHide", function(self) LP.db.dtshow = false; end)
-				T.ToggleFrame(left_dtp)
-				T.ToggleFrame(right_dtp)
-			else 
-			T.ToggleFrame(_G["WorldMapFrame"])
-			end
 		end
+	else
+		T.ToggleFrame(_G["WorldMapFrame"])
 	end
 end
 
@@ -232,19 +266,12 @@ function LP:HideCoords()
 	KUI_LocPanel_X:Point('RIGHT', loc_panel, 'LEFT', -LP.db.spacing, 0)
 	KUI_LocPanel_Y:Point('LEFT', loc_panel, 'RIGHT', LP.db.spacing, 0)
 	
-	left_dtp:ClearAllPoints()
-	right_dtp:ClearAllPoints()
-	
 	if (LP.db.hidecoords) or (LP.db.hidecoordsInInstance and T.IsInInstance()) then
 		KUI_LocPanel_X:Hide()
-		KUI_LocPanel_Y:Hide()
-		left_dtp:Point('RIGHT', loc_panel, 'LEFT', -LP.db.spacing, 0)
-		right_dtp:Point('LEFT', loc_panel, 'RIGHT', LP.db.spacing, 0)		
+		KUI_LocPanel_Y:Hide()		
 	else
 		KUI_LocPanel_X:Show()
-		KUI_LocPanel_Y:Show()
-		left_dtp:Point('RIGHT', KUI_LocPanel_X, 'LEFT', -LP.db.spacing, 0)
-		right_dtp:Point('LEFT', KUI_LocPanel_Y, 'RIGHT', LP.db.spacing, 0)			
+		KUI_LocPanel_Y:Show()		
 	end
 end
 
@@ -257,16 +284,6 @@ function LP:MouseOver()
 	end
 end
 
-local function HideDT()
-	if LP.db.dtshow then
-		right_dtp:Show()
-		left_dtp:Show()
-	else
-		left_dtp:Hide()
-		right_dtp:Hide()
-	end
-end
-
 function LP:Resize()
 	if LP.db.autowidth then
 		loc_panel:Size(loc_panel.Text:GetStringWidth() + 10, LP.db.height)
@@ -276,31 +293,18 @@ function LP:Resize()
 	loc_panel.Text:Width(LP.db.width - 18)
 	loc_panel.Xcoord:Size(LP.db.fontSize * 3, LP.db.height)
 	loc_panel.Ycoord:Size(LP.db.fontSize * 3, LP.db.height)
-	left_dtp:Size(LP.db.fontSize * 10, LP.db.height)
-	right_dtp:Size(LP.db.fontSize * 10, LP.db.height)
 end
 
 function LP:Fonts()
 	loc_panel.Text:SetFont(LSM:Fetch('font', LP.db.font), LP.db.fontSize, LP.db.fontOutline)
 	loc_panel.Xcoord.Text:SetFont(LSM:Fetch('font', LP.db.font), LP.db.fontSize, LP.db.fontOutline)
 	loc_panel.Ycoord.Text:SetFont(LSM:Fetch('font', LP.db.font), LP.db.fontSize, LP.db.fontOutline)
-	
-	local dtToFont = {left_dtp, right_dtp}
-	for _, panel in T.pairs(dtToFont) do
-		for i=1, panel.numPoints do
-			local pointIndex = DT.PointLocation[i]
-			panel.dataPanels[pointIndex].text:FontTemplate(E["media"].font, LP.db.fontSize, LP.db.fontOutline)
-			panel.dataPanels[pointIndex].text:SetPoint("CENTER", 0, 1)
-		end
-	end
 end
 
 function LP:Template()
 	loc_panel:SetTemplate(LP.db.template)
 	loc_panel.Xcoord:SetTemplate(LP.db.template)
 	loc_panel.Ycoord:SetTemplate(LP.db.template)
-	left_dtp:SetTemplate(LP.db.template)
-	right_dtp:SetTemplate(LP.db.template)
 end
 
 function LP:Style()
@@ -311,8 +315,6 @@ function LP:Style()
 			loc_panel:Styling()
 			loc_panel.Xcoord:Styling()
 			loc_panel.Ycoord:Styling()
-			left_dtp:Styling()
-			right_dtp:Styling()
 		end
 	end
 end
@@ -350,6 +352,8 @@ function LP:PLAYER_REGEN_ENABLED()
 end
 
 function LP:Initialize()
+	if T.IsAddOnLoaded("ElvUI_LocationPlus") then return end
+	
 	LP.db = E.db.KlixUI.locPanel
 	
 	KUI:RegisterDB(self, "locPanel")
@@ -362,7 +366,6 @@ function LP:Initialize()
 	LP:Style()
 	LP:Fonts()
 	LP:Toggle()
-	HideDT()
 	LP:HideCoords()
 	LP:ToggleBlizZoneText()
 	
@@ -373,7 +376,6 @@ function LP:Initialize()
 		LP:Style()
 		LP:Fonts()
 		LP:Toggle()
-		HideDT()
 		LP:HideCoords()
 		LP:ToggleBlizZoneText()
 	end

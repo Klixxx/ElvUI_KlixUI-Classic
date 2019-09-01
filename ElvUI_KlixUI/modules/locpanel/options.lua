@@ -3,16 +3,14 @@ local LP = KUI:GetModule("LocPanel")
 
 local CLASS, CUSTOM, DEFAULT = CLASS, CUSTOM, DEFAULT
 
-local FISH_ICON = "|TInterface\\AddOns\\ElvUI_KlixUI\\media\\textures\\locationpanel\\fish.tga:14:14|t"
-local PET_ICON = "|TInterface\\AddOns\\ElvUI_KlixUI\\media\\textures\\locationpanel\\pet.tga:14:14|t"
-local LEVEL_ICON = "|TInterface\\AddOns\\ElvUI_KlixUI\\media\\textures\\locationpanel\\levelup.tga:14:14|t"
-
 local function LocPanelTable()
 	E.Options.args.KlixUI.args.modules.args.locPanel = {
 		type = "group",
 		name = L["Location Panel"],
 		order = 15,
 		childGroups = "tab",
+		disabled = function() return T.IsAddOnLoaded("ElvUI_LocationPlus") end,
+		hidden = function() return T.IsAddOnLoaded("ElvUI_LocationPlus") end,
 		get = function(info) return E.db.KlixUI.locPanel[ info[#info] ] end,
 		args = {
 			name = {
@@ -299,7 +297,7 @@ local function LocPanelTable()
 					},
 				},
 			},
-			gen_tt = {
+			tooltip = {
 				order = 24,
 				type = "group",
 				name =  L["Tooltip"],
@@ -307,49 +305,33 @@ local function LocPanelTable()
 				hidden = function() return not E.db.KlixUI.locPanel.enable end,
 				get = function(info) return E.db.KlixUI.locPanel.tooltip[ info[#info] ] end,
 				set = function(info, value) E.db.KlixUI.locPanel.tooltip[ info[#info] ] = value; end,						
-				args = {
-					tt_grp = {
-					order = 1,
-					type = "group",
-					name = L["Tooltip"],
-					guiInline = true,
-						args = {				
-							tt = {
-								order = 1,
-								name = L["Show/Hide tooltip"],
-								type = 'toggle',
-							},
-							ttcombathide = {
-								order = 2,
-								name = L["Combat Hide"],
-								desc = L["Hide tooltip while in combat."],
-								type = 'toggle',
-								disabled = function() return not E.db.KlixUI.locPanel.tooltip.tt end,			
-							},
-							tthint = {
-								order = 3,
-								name = L["Show Hints"],
-								desc = L["Enable/Disable hints on Tooltip."],
-								type = 'toggle',
-								disabled = function() return not E.db.KlixUI.locPanel.tooltip.tt end,			
-							},
-						},
+				args = {			
+					enable = {
+						order = 1,
+						name = L["Show/Hide tooltip"],
+						type = 'toggle',
 					},
-					tt_options = {
+					combathide = {
 						order = 2,
-						type = "group",
-						name = SHOW,
-						guiInline = true,
-						args = {
-							ttst = {
-								order = 1,
-								name = STATUS,
-								desc = L["Enable/Disable status on Tooltip."],
-								type = 'toggle',
-								width = "full",
-								disabled = function() return not E.db.KlixUI.locPanel.tooltip.tt end,			
-							},
-						},
+						name = L["Combat Hide"],
+						desc = L["Hide tooltip while in combat."],
+						type = 'toggle',
+						disabled = function() return not E.db.KlixUI.locPanel.tooltip.enable end,			
+					},
+					hint = {
+						order = 3,
+						name = L["Show Hints"],
+						desc = L["Enable/Disable hints on Tooltip."],
+						type = 'toggle',
+						disabled = function() return not E.db.KlixUI.locPanel.tooltip.enable end,			
+					},
+					status = {
+						order = 1,
+						name = STATUS,
+						desc = L["Enable/Disable status on Tooltip."],
+						type = 'toggle',
+						width = "full",
+						disabled = function() return not E.db.KlixUI.locPanel.tooltip.enable end,			
 					},
 				},
 			},

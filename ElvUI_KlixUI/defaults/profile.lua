@@ -704,12 +704,11 @@ P['KlixUI'] = {
 		["hidecoordsInInstance"] = true,
 		["mouseover"] = false,
 		["malpha"] = 1,
-		["dtshow"] = true,
 		["tooltip"] = {
-			['tt'] = true,
-			['ttcombathide'] = true,
-			['tthint'] = true,
-			['ttst'] = true,
+			["enable"] = true,
+			["combathide"] = true,
+			["hint"] = true,
+			["status"] = true,
 		},
 	},
 	
