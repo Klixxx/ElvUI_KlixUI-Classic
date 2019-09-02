@@ -12,7 +12,7 @@ local function styleHelp()
 
 	-- skin main frames
 	for i = 1, #frames do
-		_G[frames[i]]:Styling()
+		_G[frames[i]].backdrop:Styling()
 	end
 
 	if _G.HelpFrameHeader.backdrop then

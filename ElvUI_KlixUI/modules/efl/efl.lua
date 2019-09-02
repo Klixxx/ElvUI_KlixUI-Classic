@@ -128,7 +128,7 @@ function EFL:BasicUpdateFriends(button)
 		broadcastText = nil
 		if connected then
 			button.status:SetTexture(EFL.StatusIcons[EFL.db["StatusIconPack"]][(status == CHAT_FLAG_DND and 'DND' or status == CHAT_FLAG_AFK and "AFK" or "Online")])
-			nameText = KUI:GetClassColorString(class) .. name.."|r, "..format(FRIENDS_LEVEL_TEMPLATE, getDiffColorString(level) .. level .. "|r", class)
+			nameText = KUI:ClassColorCode(class) .. name.."|r, "..format(FRIENDS_LEVEL_TEMPLATE, getDiffColorString(level) .. level .. "|r", class)
 			nameColor = _G.FRIENDS_WOW_NAME_COLOR
 			Cooperate = true
 		else
@@ -155,9 +155,9 @@ function EFL:BasicUpdateFriends(button)
 			_, _, _, realmName, realmID, faction, race, class, _, zoneName, level, gameText = T.BNGetGameAccountInfo(toonID)
 			if client == BNET_CLIENT_WOW then
 				if (level == nil or T.tonumber(level) == nil) then level = 0 end
-				local classcolor = KUI:GetClassColorString(class)
-				local diff = level ~= 0 and T.string_format("|cFF%02x%02x%02x", T.GetQuestDifficultyColor(level).r * 255, T.GetQuestDifficultyColor(level).g * 255, T.GetQuestDifficultyColor(level).b * 255) or "|cFFFFFFFF"
-				nameText = T.string_format("%s |cFFFFFFFF(|r%s%s|r - %s %s%s|r|cFFFFFFFF)|r", nameText, classcolor, characterName, LEVEL, diff, level)
+				local classcolor = KUI:ClassColorCode(class)
+				local diff = level ~= 0 and T.string_format('FF%02x%02x%02x', GetQuestDifficultyColor(level).r * 255, GetQuestDifficultyColor(level).g * 255, GetQuestDifficultyColor(level).b * 255) or 'FFFFFFFF'
+				nameText = T.string_format('%s |cFFFFFFFF(|r%s - %s %s|cFFFFFFFF)|r', nameText, WrapTextInColorCode(characterName, classcolor), LEVEL, WrapTextInColorCode(level, diff))
 				Cooperate = T.CanCooperateWithGameAccount(toonID)
 			else
 				if not ClientColor[client] then

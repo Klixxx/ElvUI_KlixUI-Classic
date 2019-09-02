@@ -568,6 +568,22 @@ function KS:ReskinGarrisonPortrait(self)
 	end
 end
 
+-- Copied from ElvUI to change the icon shadow
+function KS:ReskinIconSelectionFrame(frame, numIcons, buttonNameTemplate, frameNameOverride)
+	assert(frame, "ReskinIconSelectionFrame: frame argument missing")
+	assert(numIcons and type(numIcons) == "number", "ReskinIconSelectionFrame: numIcons argument missing or not a number")
+	assert(buttonNameTemplate and type(buttonNameTemplate) == "string", "ReskinIconSelectionFrame: buttonNameTemplate argument missing or not a string")
+
+	frame:Styling()
+
+	for i = 1, numIcons do
+		local button = _G[buttonNameTemplate..i]
+		if button then
+			button:CreateIconShadow()
+		end
+	end
+end
+
 local buttons = {
 	"ElvUIMoverNudgeWindowUpButton",
 	"ElvUIMoverNudgeWindowDownButton",
@@ -710,8 +726,6 @@ local function updateMedia()
 	bordercolorr, bordercolorg, bordercolorb = T.unpack(E.media.bordercolor)
 end
 hooksecurefunc(E, "UpdateMedia", updateMedia)
-
-
 
 ------------------ SharedXML -----------------
 --[[ SharedXML\HybridScrollFrame.xml ]]
@@ -1068,15 +1082,6 @@ local function StyleAceTooltip(self)
 	end
 end
 
---[[local function StyleAltPowerBar()
-	if E.db.general.altPowerBar.enable ~= true then
-		return
-	end
-
-	local bar = _G["ElvUI_AltPowerBar"]
-	bar.backdrop:Styling()
-end]]
-
 function KS:PLAYER_ENTERING_WORLD(...)
 	styleAddons()
 
@@ -1089,7 +1094,6 @@ function KS:Initialize()
 	ReskinVehicleExit()
 	updateMedia()
 	pluginInstaller()
-	--StyleAltPowerBar()
 	
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 	self:RegisterEvent("ADDON_LOADED", "LoD_AddOns")

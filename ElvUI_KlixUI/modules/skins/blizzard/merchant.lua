@@ -6,7 +6,7 @@ local function styleMerchant()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.merchant ~= true or E.private.KlixUI.skins.blizzard.merchant ~= true then return end
 
 	local MerchantFrame = _G.MerchantFrame
-	MerchantFrame:Styling()
+	MerchantFrame.backdrop:Styling()
 
 	for i = 1, _G.BUYBACK_ITEMS_PER_PAGE do
 		local button = _G["MerchantItem"..i]
@@ -31,10 +31,10 @@ local function styleMerchant()
 		_G["MerchantItem"..i.."Name"]:SetHeight(20)
 
 		local a1, p, a2= bu:GetPoint()
-		bu:SetPoint(a1, p, a2, -1, -1)
+		bu:SetPoint(a1, p, a2, 0, 0)
 		bu:SetNormalTexture("")
 		bu:SetPushedTexture("")
-		bu:SetSize(42, 42)
+		bu:SetSize(44, 44)
 
 		local a3, p2, a4, x, y = mo:GetPoint()
 		mo:SetPoint(a3, p2, a4, x, y+2)

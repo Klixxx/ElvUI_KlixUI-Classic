@@ -162,260 +162,185 @@ local function SkinsTable()
 				type = "description",
 				name = "",
 			},
-			encounterjournal = {
+			addonManager = {
 				type = "toggle",
-				name = ENCOUNTER_JOURNAL,
-				disabled = function () return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.encounterjournal end
-			},
-			spellbook = {
-				type = "toggle",
-				name = SPELLBOOK,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.spellbook end,
-			},
-			character = {
-				type = "toggle",
-				name = L["Character Frame"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.character end,
-			},
-			gossip = {
-				type = "toggle",
-				name = L["Gossip Frame"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.gossip end,
-			},
-			quest = {
-				type = "toggle",
-				name = L["Quest Frames"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.quest end,
-			},
-			questChoice = {
-				type = "toggle",
-				name = L["Quest Choice"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.questChoice end,
-			},
-			orderhall = {
-				type = "toggle",
-				name = L["Orderhall"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.orderhall end,
-			},
-			garrison = {
-				type = "toggle",
-				name = GARRISON_LOCATION_TOOLTIP,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.garrison end,
-			},
-			talent = {
-				type = "toggle",
-				name = TALENTS,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.talent end,
-			},
-			archaeology = {
-				type = "toggle",
-				name = L["Archaeology Frame"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.archaeology end,
+				name = L["AddOn Manager"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.addonManager end,
 			},
 			auctionhouse = {
 				type = "toggle",
 				name = AUCTIONS,
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.auctionhouse end,
 			},
-			barber = {
+			bags = {
 				type = "toggle",
-				name = L["Barber Shop"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.barber end,
+				name = L["Bags"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.bags end,
 			},
-			friends = {
+			battlefield = {
 				type = "toggle",
-				name = FRIENDS,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.friends end,
+				name = L["Battlefield"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.battlefield end,
 			},
-			contribution = {
+			bgmap = {
 				type = "toggle",
-				name = L["Contribution"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.Contribution end,
+				name = L["Battlefield Map"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.bgmap end,
 			},
-			artifact = {
+			bgscore = {
 				type = "toggle",
-				name = ITEM_QUALITY6_DESC,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.artifact end,
-			},
-			collections = {
-				type = "toggle",
-				name = COLLECTIONS,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.collections end,
-			},
-			calendar = {
-				type = "toggle",
-				name = L["Calendar Frame"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.calendar end,
-			},
-			merchant = {
-				type = "toggle",
-				name = L["Merchant Frame"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.merchant end,
-			},
-			worldmap = {
-				type = "toggle",
-				name = WORLD_MAP,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.worldmap end,
-			},
-			pvp = {
-				type = "toggle",
-				name = L["PvP Frames"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.pvp end,
-			},
-			achievement = {
-				type = "toggle",
-				name = ACHIEVEMENTS,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.achievement end,
-			},
-			tradeskill = {
-				type = "toggle",
-				name = TRADESKILLS,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.tradeskill end,
-			},
-			itemUpgrade = {
-				type = "toggle",
-				name = L["Item Upgrade"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.itemUpgrade end,
-			},
-			lfg = {
-				type = "toggle",
-				name = LFG_TITLE,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.lfg end,
-			},
-			lfguild = {
-				type = "toggle",
-				name = L["LF Guild Frame"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.lfguild end,
-			},
-			talkinghead = {
-				type = "toggle",
-				name = L["TalkingHead"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.talkinghead end,
-			},
-			guild = {
-				type = "toggle",
-				name = GUILD,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.guild end,
-			},
-			objectiveTracker = {
-				type = "toggle",
-				name = OBJECTIVES_TRACKER_LABEL,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.objectiveTracker end,
-			},
-			addonManager = {
-				type = "toggle",
-				name = L["AddOn Manager"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.addonManager end,
-			},
-			mail = {
-				type = "toggle",
-				name =  L["Mail Frame"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.mail end,
-			},
-			raid = {
-				type = "toggle",
-				name = L["Raid Frame"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.raid end,
-			},
-			dressingroom = {
-				type = "toggle",
-				name = DRESSUP_FRAME,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.dressingroom end,
-			},
-			timemanager = {
-				type = "toggle",
-				name = TIMEMANAGER_TITLE,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.timemanager end,
-			},
-			guildcontrol = {
-				type = "toggle",
-				name = L["Guild Control Frame"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.guildcontrol end,
-			},
-			macro = {
-				type = "toggle",
-				name = MACROS,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.macro end,
+				name = L["Battlefield Score"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.bgscore end,
 			},
 			binding = {
 				type = "toggle",
 				name = KEY_BINDING,
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.binding end,
 			},
-			gbank = {
-				type = "toggle",
-				name = GUILD_BANK,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.gbank end,
-			},
-			taxi = {
-				type = "toggle",
-				name = FLIGHT_MAP,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.taxi end,
-			},
-			help = {
-				type = "toggle",
-				name = L["Help Frame"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.help end,
-			},
-			loot = {
-				type = "toggle",
-				name = L["Loot Frames"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.loot end,
-			},
-			deathRecap = {
-				type = "toggle",
-				name = DEATH_RECAP_TITLE,
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.deathRecap end,
-			},
-			challenges = {
-				type = "toggle",
-				name = CHALLENGES,
-				disabled = function() return not E.private.skins.blizzard.enable end, -- No ElvUI skin yet
-			},
 			channels = {
 				type = "toggle",
 				name = CHANNELS,
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.Channels end,
 			},
-			minimap = {
+			character = {
 				type = "toggle",
-				name = L["Minimap"],
-				disabled = function() return not E.private.skins.blizzard.enable end,
+				name = L["Character Frame"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.character end,
 			},
-			trainer = {
+			communities = {
 				type = "toggle",
-				name = L["Trainer Frame"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.trainer end,
+				name = L["Communities"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.communities end,
+			},
+			craft = {
+				type = "toggle",
+				name = L["Craft Frame"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.craft end,
 			},
 			debug = {
 				type = "toggle",
 				name = L["Debug Tools"],
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.debug end,
 			},
+			dressingroom = {
+				type = "toggle",
+				name = DRESSUP_FRAME,
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.dressingroom end,
+			},
+			friends = {
+				type = "toggle",
+				name = FRIENDS,
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.friends end,
+			},
+			gmchat = {
+				type = "toggle",
+				name = L["GM Chat"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.GMChat end,
+			},
+			gossip = {
+				type = "toggle",
+				name = L["Gossip Frame"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.gossip end,
+			},
+			guildregistrar = {
+				type = "toggle",
+				name = L["Guild Registrar"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.guildregistrar end,
+			},
+			help = {
+				type = "toggle",
+				name = L["Help Frame"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.help end,
+			},
 			inspect = {
 				type = "toggle",
 				name = L["Inspect Frame"],
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.inspect end,
 			},
-			socket = {
+			loot = {
 				type = "toggle",
-				name = L["Socket Frame"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.socket end,
+				name = L["Loot Frames"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.loot end,
 			},
-			itemUpgrade = {
+			macro = {
 				type = "toggle",
-				name = L["Item Upgrade"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.itemUpgrade end,
+				name = MACROS,
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.macro end,
+			},
+			mail = {
+				type = "toggle",
+				name =  L["Mail Frame"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.mail end,
+			},
+			merchant = {
+				type = "toggle",
+				name = L["Merchant Frame"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.merchant end,
+			},
+			minimap = {
+				type = "toggle",
+				name = L["Minimap"],
+				disabled = function() return not E.private.skins.blizzard.enable end,
+			},
+			petition = {
+				type = "toggle",
+				name = L["Petition Frame"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.petition end,
+			},
+			quest = {
+				type = "toggle",
+				name = L["Quest Frame"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.quest end,
+			},
+			raid = {
+				type = "toggle",
+				name = L["Raid Frame"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.raid end,
+			},
+			spellbook = {
+				type = "toggle",
+				name = SPELLBOOK,
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.spellbook end,
+			},
+			stable = {
+				type = "toggle",
+				name = L["Stable Frame"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.petition end,
+			},
+			tabard = {
+				type = "toggle",
+				name = L["Tabard Frame"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.petition end,
+			},
+			talent = {
+				type = "toggle",
+				name = TALENTS,
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.talent end,
+			},
+			taxi = {
+				type = "toggle",
+				name = FLIGHT_MAP,
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.taxi end,
 			},
 			trade = {
 				type = "toggle",
 				name = TRADESKILLS,
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.trade end,
 			},
-			AlliedRaces = {
+			tradeskill = {
 				type = "toggle",
-				name = L["Allied Races"],
-				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.AlliedRaces end,
+				name = TRADESKILLS,
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.tradeskill end,
+			},
+			trainer = {
+				type = "toggle",
+				name = L["Trainer Frame"],
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.trainer end,
+			},
+			worldmap = {
+				type = "toggle",
+				name = WORLD_MAP,
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.worldmap end,
 			},
 		},
 	}

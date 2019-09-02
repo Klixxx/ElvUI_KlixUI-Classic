@@ -796,14 +796,11 @@ end
 
 KUI.ClassColor = E.myclass == "PRIEST" and E.PriestColors or (CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[E.myclass] or RAID_CLASS_COLORS[E.myclass])
 KUI.ClassColors = {}
-local BC = {}
-for k, v in T.pairs(LOCALIZED_CLASS_NAMES_MALE) do
-	BC[v] = k
-end
 
-for k, v in T.pairs(LOCALIZED_CLASS_NAMES_FEMALE) do
-	BC[v] = k
-end
+KUI.Classes = {}
+
+for k, v in pairs(LOCALIZED_CLASS_NAMES_MALE) do KUI.Classes[v] = k end
+for k, v in pairs(LOCALIZED_CLASS_NAMES_FEMALE) do KUI.Classes[v] = k end
 
 local colors = CUSTOM_CLASS_COLORS or RAID_CLASS_COLORS
 for class in T.pairs(colors) do
@@ -821,33 +818,15 @@ function KUI:ClassColor(class)
 	return color.r, color.g, color.b
 end
 
-function KUI:GetClassColorString(class)
-	local color = KUI.colors.class[BC[class] or class]
-	return E:RGBToHex(color.r, color.g, color.b)
+function KUI:ClassColorCode(class)
+	local color = class and (CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[KUI.Classes[class]] or RAID_CLASS_COLORS[KUI.Classes[class]]) or { r = 1, g = 1, b = 1 }
+
+	return format('FF%02x%02x%02x', color.r * 255, color.g * 255, color.b * 255)
 end
 
 KUI.colors = {
 	class = {},
 }
-
-KUI.colors.class = {
-	["DEATHKNIGHT"]	= { 0.77,	0.12,	0.23 },
-	["DEMONHUNTER"]	= { 0.64,	0.19,	0.79 },
-	["DRUID"]		= { 1,		0.49,	0.04 },
-	["HUNTER"]		= { 0.58,	0.86,	0.49 },
-	["MAGE"]		= { 0.2,	0.76,	1 },
-	["MONK"]		= { 0,		1,		0.59 },
-	["PALADIN"]		= { 0.96,	0.55,	0.73 },
-	["PRIEST"]		= { 0.99,	0.99,	0.99 },
-	["ROGUE"]		= { 1,		0.96,	0.41 },
-	["SHAMAN"]		= { 0,		0.44,	0.87 },
-	["WARLOCK"]		= { 0.6,	0.47,	0.85 },
-	["WARRIOR"]		= { 0.9,	0.65,	0.45 },
-}
-
-for class, color in T.pairs(KUI.colors.class) do
-	KUI.colors.class[class] = { r = color[1], g = color[2], b = color[3] }
-end
 
 -- Convert RGB values to Hexdecimal
 -- Here is r, g, b valuesbetween 0~1

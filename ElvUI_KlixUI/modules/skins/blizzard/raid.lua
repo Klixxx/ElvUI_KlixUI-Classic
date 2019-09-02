@@ -26,4 +26,4 @@ local function styleRaid()
 	end
 end
 
-S:AddCallbackForAddon("Blizzard_RaidUI", "KuiRaidUI", styleRaid)
+S:AddCallbackForAddon("Blizzard_RaidUI", "KuiRaid", styleRaid)

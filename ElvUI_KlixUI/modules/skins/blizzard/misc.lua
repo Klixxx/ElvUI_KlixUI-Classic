@@ -17,11 +17,6 @@ local function styleMisc()
 			Region:SetTextColor(1, 1, 1)
 		end
 	end
-	
-	-- Graveyard button (a bit ugly if you press it)
-	--_G.GhostFrame:StripTextures()
-	--_G.GhostFrameContentsFrame:StripTextures()
-	--_G.GhostFrameContentsFrame:Styling()
 
 	-- Tooltips
 	local tooltips = {
@@ -43,8 +38,6 @@ local function styleMisc()
 		PetBattlePrimaryAbilityTooltip,
 		EventTraceTooltip,
 		FrameStackTooltip,
-		--QuestScrollFrame.WarCampaignTooltip,
-		--QuestScrollFrame.StoryTooltip,
 		DatatextTooltip
 	}
 
@@ -64,9 +57,6 @@ local function styleMisc()
 		"AudioOptionsFrame",
 		"AutoCompleteBox",
 		"ReadyCheckFrame",
-		"StackSplitFrame",
-		--"QueueStatusFrame",
-		--"LFDReadyCheckPopup",
 	}
 
 	for i = 1, T.table_getn(skins) do
@@ -77,21 +67,6 @@ local function styleMisc()
 	for i = 1, MAX_STATIC_POPUPS do
 		local frame = _G["ElvUI_StaticPopup"..i]
 		frame:Styling()
-	end
-	
-	-- Default Bags
-	local defaultBags = {
-		ContainerFrame1.backdrop,
-		ContainerFrame2.backdrop,
-		ContainerFrame3.backdrop,
-		ContainerFrame4.backdrop,
-		ContainerFrame5.backdrop,
-	}
-
-	for _, frame in T.pairs(defaultBags) do
-		if frame and not frame.style then
-			frame:Styling()
-		end
 	end
 	
 	-- DropDownMenu
@@ -125,10 +100,6 @@ local function styleMisc()
 
 	if _G.TalentMicroButtonAlert then
 		_G.TalentMicroButtonAlert:Styling()
-	end
-	
-	if _G.ScriptErrorsFrame then
-		_G.ScriptErrorsFrame:Styling()
 	end
 	
 	if _G.GearManagerDialogPopup then
@@ -170,10 +141,6 @@ local function styleMisc()
 		_G.VoiceMacroMenu:Styling()
 	end
 	
-	if _G.ElvUI_AltPowerBar then
-		_G.ElvUI_AltPowerBar.backdrop:Styling()
-	end
-	
 	if E:SpawnTutorialFrame() then
 		_G.ElvUITutorialWindow:Styling()
 	end
@@ -184,4 +151,4 @@ local function styleMisc()
 	
 end
 
-S:AddCallback("KuiBlizzMisc", styleMisc)
+S:AddCallback("KuiMisc", styleMisc)

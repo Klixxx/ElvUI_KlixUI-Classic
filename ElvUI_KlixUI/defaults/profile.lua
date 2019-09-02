@@ -890,6 +890,10 @@ P['KlixUI'] = {
 			["enable"] = true,
 			["color"] = { r = 0, g = 1, b = 0 },
 		},
+		["merchant"] = {
+			["itemlevel"] = true,
+			["equipslot"] = true,
+		},
 		["auto"] = {
 			["auction"] = true,
 			["invite"] = {

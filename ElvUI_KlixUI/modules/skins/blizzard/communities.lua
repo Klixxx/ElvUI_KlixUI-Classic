@@ -26,13 +26,6 @@ local function styleCommunities()
 		end
 	end)
 
-	for _, name in T.next, {"ChatTab", "RosterTab", "GuildBenefitsTab", "GuildInfoTab"} do
-		local tab = CommunitiesFrame[name]
-		tab:GetRegions():Hide()
-		KS:ReskinIcon(tab.Icon)
-		tab:GetHighlightTexture():SetColorTexture(r, g, b, .25)
-	end
-
 	-- Chat Tab
 	local Dialog = CommunitiesFrame.NotificationSettingsDialog
 	Dialog:StripTextures()
@@ -64,62 +57,6 @@ local function styleCommunities()
 
 	-- Roster
 	KS:CreateBDFrame(CommunitiesFrame.MemberList.ListScrollFrame, .25)
-
-	local DetailFrame = CommunitiesFrame.GuildMemberDetailFrame
-	DetailFrame:ClearAllPoints()
-	DetailFrame:SetPoint("TOPLEFT", CommunitiesFrame, "TOPRIGHT", 34, 0)
-	DetailFrame:Styling()
-
-	-- Guild Perks
-	hooksecurefunc("CommunitiesGuildPerks_Update", function(self)
-		local buttons = self.Container.buttons
-		for i = 1, #buttons do
-			local button = buttons[i]
-			if button and button.backdrop then
-				button.backdrop:SetTemplate("Transparent")
-				button.backdrop:SetPoint("TOPLEFT", button.Icon, -1, 1)
-				button.backdrop:SetPoint("BOTTOMRIGHT", button.Right, 1, -1)
-				KS:CreateGradient(button.backdrop)
-			end
-		end
-	end)
-
-	-- Guild Rewards
-	hooksecurefunc("CommunitiesGuildRewards_Update", function(self)
-		local buttons = self.RewardsContainer.buttons
-		for i = 1, #buttons do
-			local button = buttons[i]
-			if button and button.backdrop then
-				button.backdrop:SetTemplate("Transparent")
-				button.backdrop:SetPoint("TOPLEFT", button.Icon, 0, 1)
-				button.backdrop:SetPoint("BOTTOMRIGHT", 0, 3)
-				KS:CreateGradient(button.backdrop)
-
-				if button.hover then
-					button.hover:SetInside(button.backdrop)
-					button.hover:SetColorTexture(r, g, b, 0.3)
-				end
-
-				button.DisabledBG:Hide()
-			end
-		end
-	end)
-
-	-- Guild Recruitment
-	local GuildRecruitmentFrame = _G.CommunitiesGuildRecruitmentFrame
-	GuildRecruitmentFrame.backdrop:Styling()
-
-	-- Guild Log
-	local GuildLog = _G.CommunitiesGuildLogFrame
-	GuildLog:Styling()
-
-	--Guild MOTD Edit
-	local GuildText = _G.CommunitiesGuildTextEditFrame
-	GuildText:Styling()
-
-	-- Guild News Filter
-	local GuildNewsFilter = _G.CommunitiesGuildNewsFiltersFrame
-	GuildNewsFilter.backdrop:Styling()
 end
 
 S:AddCallbackForAddon("Blizzard_Communities", "KuiCommunities", styleCommunities)

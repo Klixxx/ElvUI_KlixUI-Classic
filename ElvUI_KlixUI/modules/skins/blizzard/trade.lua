@@ -8,15 +8,13 @@ local function styleTradeFrame()
 	local TradeFrame = _G.TradeFrame
 	TradeFrame.backdrop:Styling()
 
-	_G.TradePlayerInputMoneyFrameSilver:SetPoint("LEFT", _G.TradePlayerInputMoneyFrameGold, "RIGHT", 1, 0)
-	_G.TradePlayerInputMoneyFrameCopper:SetPoint("LEFT", _G.TradePlayerInputMoneyFrameSilver, "RIGHT", 1, 0)
-
 	local function reskinButton(bu)
 		bu:SetNormalTexture("")
 		bu:SetPushedTexture("")
 		bu.icon:SetTexCoord(T.unpack(E.TexCoords))
 		bu.IconBorder:SetAlpha(0)
 		bu:GetHighlightTexture():SetColorTexture(1, 1, 1, .25)
+		bu:CreateIconShadow()
 	end
 
 	for i = 1, MAX_TRADE_ITEMS do

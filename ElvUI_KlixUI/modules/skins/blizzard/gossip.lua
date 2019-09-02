@@ -6,15 +6,16 @@ local r, g, b = T.unpack(E.media.rgbvaluecolor)
 
 local function styleGossip()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.gossip ~= true or E.private.KlixUI.skins.blizzard.gossip ~= true then return end
-
+	
+	-- ItemTextFrame
+	local ItemTextFrame = _G.ItemTextFrame
+	ItemTextFrame.backdrop:Styling()
+	
+	-- GossipFrame
 	local GossipFrame = _G.GossipFrame
-	GossipFrame:Styling()
+	GossipFrame.backdrop:Styling()
 
 	_G.GossipGreetingScrollFrame:StripTextures()
-	
-	if not E.private.skins.parchmentRemover.enable then
-		_G.GossipGreetingScrollFrame.spellTex:SetTexture('') -- Remove Parchement
-	end
 
 	GossipGreetingText:SetTextColor(1, 1, 1)
 	NPCFriendshipStatusBar:GetRegions():Hide()

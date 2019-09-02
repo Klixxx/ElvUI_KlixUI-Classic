@@ -35,10 +35,10 @@ local function styleBinding()
 		styleBindingButton(button2)
 	end
 
-	local line = KeyBindingFrame:CreateTexture(nil, "ARTWORK")
+	--[[local line = KeyBindingFrame:CreateTexture(nil, "ARTWORK")
 	line:SetSize(1, 546)
 	line:SetPoint("LEFT", 205, 10)
-	line:SetColorTexture(1, 1, 1, .2)
+	line:SetColorTexture(1, 1, 1, .2)]]
 end
 
 S:AddCallbackForAddon("Blizzard_BindingUI", "KuiBinding", styleBinding)
