@@ -250,8 +250,6 @@ function B:Initialize()
 		if E.private.KlixUI.module.blizzmove.points[Name] then E.private.KlixUI.module.blizzmove.points[Name] = nil end
 	end
 
-	PVPReadyDialog:Hide()
-
 	if E.private.KlixUI.module.blizzmove.enable then
 		for Name, _ in T.pairs(B.TempOnly) do --Remove these from saved variables so the script will not attempt to mess with them, cause they are not ment to be moved permanently
 			if E.private.KlixUI.module.blizzmove.points[Name] then E.private.KlixUI.module.blizzmove.points[Name] = nil end
@@ -285,6 +283,11 @@ function B:Initialize()
 		B.db = E.db.KlixUI.blizzard
 		B:ErrorFrameSize()
 	end
+	
+	--- Mover Creation ---
+	_G.UIErrorsFrame:ClearAllPoints()
+	_G.UIErrorsFrame:SetPoint("TOP", 0, -130)
+	E:CreateMover(_G.UIErrorsFrame, "UIErrorsFrameMover", L["Error Frame"], nil, nil, nil, "ALL,GENERAL,KLIXUI")
 end
 
 KUI:RegisterModule(B:GetName())

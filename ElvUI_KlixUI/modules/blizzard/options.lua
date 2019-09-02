@@ -15,14 +15,6 @@ local function BlizzardTable()
 				type = "header",
 				name = KUI:cOption(L["Blizzard"]),
 			},
-			rumouseover = {
-				order = 2,
-				type = "toggle",
-				name = L["Raid Utility Mouse Over"],
-				desc = L["Enabling mouse over will make ElvUI's raid utility show on mouse over instead of always showing."],
-				get = function(info) return E.db.KlixUI.blizzard.rumouseover end,
-				set = function(info, value) E.db.KlixUI.blizzard.rumouseover = value; MI:RUReset() end,
-			},
 			errorframe = {
 				order = 5,
 				type = "group",
