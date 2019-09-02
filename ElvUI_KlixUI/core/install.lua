@@ -34,7 +34,7 @@ local function SetupCVars()
 	T.SetCVar("cameraDistanceMaxZoomFactor", 4)
 	T.SetCVar("screenEdgeFlash", 0)
 	T.SetCVar("WorldTextScale", 0.75)
-	T.SetCVar("nameplateMaxDistance", "1e4")
+	T.SetCVar("nameplateMaxDistance", "1e4") -- Thanks Ketho!
 
 	
 	if not KUI:IsDeveloper() or not (T.IsAddOnLoaded("!BugGrabber") and T.IsAddOnLoaded("BugSack")) then
