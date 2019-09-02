@@ -196,18 +196,6 @@ local function Maps()
 										type = "toggle",
 										name = L["Move Mail Icon"],
 									},
-									hideGarrison  = {
-										order = 4,
-										type = "toggle",
-										name = L["Hide Garrison Icon"],
-										disabled = function() return not E.db.KlixUI.maps.minimap.buttons.enable or E.db.KlixUI.maps.minimap.buttons.moveGarrison end,
-									},
-									moveGarrison  = {
-										order = 5,
-										type = "toggle",
-										name = L["Move Garrison Icon"],
-										disabled = function() return not E.db.KlixUI.maps.minimap.buttons.enable or E.db.KlixUI.maps.minimap.buttons.hideGarrison end,
-									},
 								},
 							},
 						},
