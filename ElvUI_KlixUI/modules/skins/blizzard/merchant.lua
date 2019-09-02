@@ -58,7 +58,10 @@ local function styleMerchant()
 			_G["MerchantItem"..i.."AltCurrencyFrameItem"..j.."Texture"]:SetTexCoord(T.unpack(E.TexCoords))
 		end
 	end
-
+	
+	-- buy back item icon
+	_G.MerchantBuyBackItemItemButton:CreateIconShadow()
+	
 	hooksecurefunc("MerchantFrame_UpdateMerchantInfo", function()
 		local numMerchantItems = T.GetMerchantNumItems()
 		for i = 1, _G.MERCHANT_ITEMS_PER_PAGE do
