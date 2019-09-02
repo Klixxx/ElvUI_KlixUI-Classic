@@ -1,6 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<script file="misc.lua"/>
-	<script file="armory.lua"/>
+	<!--script file="armory.lua"/-->
 	<script file="auras.lua"/>
 	<script file="announce.lua"/>
 	<script file="alreadyknown.lua"/>
