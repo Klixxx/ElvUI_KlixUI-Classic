@@ -76,6 +76,7 @@ B.AddonsList = {
 	["Blizzard_ChallengesUI"] = { "ChallengesKeystoneFrame" }, -- 'ChallengesLeaderboardFrame'
 	["Blizzard_Collections"] = { "CollectionsJournal", "WardrobeFrame" },
 	["Blizzard_Communities"] = { "CommunitiesFrame" },
+	["Blizzard_CraftUI"] = { "CraftFrame" },
 	["Blizzard_EncounterJournal"] = { "EncounterJournal" },
 	["Blizzard_GarrisonUI"] = {
 		"GarrisonLandingPage", "GarrisonMissionFrame", "GarrisonCapacitiveDisplayFrame",
