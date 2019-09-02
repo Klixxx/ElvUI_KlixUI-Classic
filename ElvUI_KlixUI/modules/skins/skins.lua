@@ -998,6 +998,22 @@ local function styleAddons()
 		end
 	end
 	
+	-- ElvUI_LocationPlus
+	if T.IsAddOnLoaded("ElvUI_LocationPlus") then
+		local LPFrames = {
+			_G.LocationPlusPanel,
+			_G.RightCoordDtPanel,
+			_G.LeftCoordDtPanel,
+			_G.XCoordsPanel,
+			_G.YCoordsPanel
+		}
+		for _, frame in T.pairs(LPFrames) do
+			if frame then
+				frame:Styling()
+			end
+		end
+	end
+	
 	-- CoolGlow
 	if T.IsAddOnLoaded("CoolGlow") then
 		if CoolGlowTestFrame then
