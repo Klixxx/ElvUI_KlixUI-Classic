@@ -30,6 +30,7 @@ B.Frames = {
 	"PetitionFrame",
 	"PVPReadyDialog",
 	"QuestFrame",
+	"QuestLogFrame",
 	"QuestLogPopupDetailFrame",
 	"RaidBrowserFrame",
 	"RaidInfoFrame",
