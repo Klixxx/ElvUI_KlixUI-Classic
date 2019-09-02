@@ -407,8 +407,4 @@ function SMB:Initialize()
 	SMB:ScheduleTimer('HandleBlizzardButtons', 7)
 end
 
-local function InitializeCallback()
-	SMB:Initialize()
-end
-
-KUI:RegisterModule(SMB:GetName(), InitializeCallback)
+KUI:RegisterModule(SMB:GetName())
