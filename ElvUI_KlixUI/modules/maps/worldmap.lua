@@ -199,11 +199,30 @@ function KWM:Update()
 	end
 end
 
+function KWM:MapZoom()
+	if not KWM.db.zoom then return end
+	
+	WorldMapFrame.ScrollContainer:HookScript("OnMouseWheel", function(self, delta)
+		local x, y = self:GetNormalizedCursorPosition()
+		local nextZoomOutScale, nextZoomInScale = self:GetCurrentZoomRange()
+		if delta == 1 then
+			if nextZoomInScale > self:GetCanvasScale() then
+				self:InstantPanAndZoom(nextZoomInScale, x, y)
+			end
+		else
+			if nextZoomOutScale < self:GetCanvasScale() then
+				self:InstantPanAndZoom(nextZoomOutScale, x, y)
+			end
+		end
+	end)
+end
+
 function KWM:Initialize()
 	KWM.db = E.db.KlixUI.maps.worldmap
 
 	self:WorldMapScale()
 	self:MapFader()
+	self:MapZoom()
 	
 	if KWM.db.reveal.enable then
 		for pin in _G.WorldMapFrame:EnumeratePinsByTemplate("MapExplorationPinTemplate") do

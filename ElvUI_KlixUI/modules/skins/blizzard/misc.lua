@@ -145,6 +145,10 @@ local function styleMisc()
 		_G.ElvUITutorialWindow:Styling()
 	end
 	
+	if _G.ElvUIBindPopupWindow then
+		_G.ElvUIBindPopupWindow:Styling()
+	end
+	
 	if _G.ColorPickerFrame then
 		_G.ColorPickerFrame:Styling()
 	end

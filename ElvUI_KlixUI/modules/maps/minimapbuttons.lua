@@ -1,6 +1,5 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local SMB = KUI:NewModule("KuiSquareMinimapButtons", "AceEvent-3.0", "AceHook-3.0", "AceTimer-3.0")
-local COMP = KUI:GetModule("KuiCompatibility")
 
 SMB.Buttons = {}
 
@@ -363,7 +362,7 @@ end
 
 function SMB:Initialize()
 	if not E.private.general.minimap.enable or not E.db.KlixUI.maps.minimap.buttons.enable then return end
-	if ((COMP.PA and _G.ProjectAzilroka.db["SquareMinimapButtons"]['Enable']) or (COMP.SLE and E.private.sle.minimap.mapicons.enable)) then return end
+	if T.IsAddOnLoaded("ProjectAzilroka") then return end
 
 	SMB.db = E.db.KlixUI.maps.minimap.buttons
 

@@ -1,7 +1,7 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local MM = KUI:GetModule("KuiMinimap")
 local KWM = KUI:GetModule('KuiWorldMap')
---local SMB = KUI:GetModule("KuiSquareMinimapButtons")
+local SMB = KUI:GetModule("KuiSquareMinimapButtons")
 
 local function Maps()
 	E.Options.args.KlixUI.args.modules.args.maps = {
@@ -101,14 +101,14 @@ local function Maps()
 							},
 						},
 					},
-					--[[buttons = {
+					buttons = {
 						order = 2,
 						type = "group",
 						name = L["Minimap Buttons"],
 						get = function(info) return E.db.KlixUI.maps.minimap.buttons[ info[#info] ] end,
 						set = function(info, value) E.db.KlixUI.maps.minimap.buttons[ info[#info] ] = value; SMB:Update(); end,
-						disabled = function() return ((COMP.PA and _G.ProjectAzilroka.db["SquareMinimapButtons"]['Enable']) or (COMP.SLE and E.private.sle.minimap.mapicons.enable)) end,
-						hidden = function() return ((COMP.PA and _G.ProjectAzilroka.db["SquareMinimapButtons"]['Enable']) or (COMP.SLE and E.private.sle.minimap.mapicons.enable)) end,
+						disabled = function() return T.IsAddOnLoaded("ProjectAzilroka") end,
+						hidden = function() return T.IsAddOnLoaded("ProjectAzilroka") end,
 						args = {
 							enable = {
 								order = 1,
@@ -211,7 +211,7 @@ local function Maps()
 								},
 							},
 						},
-					},]]
+					},
 					ping = {
 						order = 3,
 						type = "group",
@@ -536,6 +536,12 @@ local function Maps()
 								type = "toggle",
 								name = L["World Map Frame Fade"],
 								set = function(info, value) E.db.KlixUI.maps.worldmap.fade = value; KWM:MapFader() end,
+							},
+							zoom = {
+								order = 3,
+								type = "toggle",
+								name = L["World Map Frame Zoom"],
+								desc = L["Mouse scroll on the world map to zoom."],
 							},
 						},
 					},
