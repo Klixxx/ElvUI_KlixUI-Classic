@@ -17,7 +17,7 @@ local function styleSpellBook()
 	for i = 1, SPELLS_PER_PAGE do
 		local button = _G['SpellButton'..i]
 		button:CreateIconShadow()
-		if E.db.KlixUI.general.iconShadow then
+		if E.db.KlixUI.general.iconShadow and not T.IsAddOnLoaded("Masque") then
 			button.ishadow:SetInside(button, 0, 0)
 		end
 	end
