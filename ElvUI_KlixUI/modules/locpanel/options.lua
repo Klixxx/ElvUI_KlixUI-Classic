@@ -326,7 +326,7 @@ local function LocPanelTable()
 						disabled = function() return not E.db.KlixUI.locPanel.tooltip.enable end,			
 					},
 					status = {
-						order = 1,
+						order = 4,
 						name = STATUS,
 						desc = L["Enable/Disable status on Tooltip."],
 						type = 'toggle',
