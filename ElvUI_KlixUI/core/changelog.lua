@@ -6,9 +6,8 @@ local CLOSE = CLOSE
 
 local ChangeLogData = {
 	"Changes:",
-		"• AFK screen back.",
-		"• Datatext module is back once again.",
-		"• Some cleanup.",
+		"• Reenabled all the skins, every frame should be skinned! (maybe i missed some)",
+		"• Fixed various issues.",
 		" ", -- Section space!
 		-- "• ",
 		

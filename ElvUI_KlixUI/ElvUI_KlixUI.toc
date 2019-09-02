@@ -1,6 +1,6 @@
 ## Interface: 11302
 ## Author: Klix
-## Version: 0.03
+## Version: 0.04
 ## Title: |cfffe7b2cElvUI|r |cff1784d1Classic|r |cfff960d9KlixUI|r
 ## Notes: A decorative edit for |cfffe7b2cElvUI|r with many awesome features!
 ## RequiredDeps: ElvUI
