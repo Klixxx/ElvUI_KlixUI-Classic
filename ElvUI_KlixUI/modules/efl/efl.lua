@@ -1,5 +1,5 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
-local EFL = KUI:NewModule("EnhancedFriendsList")
+local EFL = KUI:NewModule("EnhancedFriendsList", "AceHook-3.0")
 local LSM = E.LSM or E.Libs.LSM
 
 local MediaPath = "Interface\\AddOns\\ElvUI_KlixUI\\media\\textures\\"
@@ -230,7 +230,7 @@ function EFL:Initialize()
 	
 	KUI:RegisterDB(self, "efl")
 	
-	hooksecurefunc("FriendsFrame_UpdateFriendButton", function(button) EFL:BasicUpdateFriends(button) end)
+	EFL:SecureHook("FriendsFrame_UpdateFriendButton", 'BasicUpdateFriends')
 end
 
 local function InitializeCallback()
