@@ -375,7 +375,7 @@ end
 end]]
 
 function KA:Initialize()
-	if not E.db.KlixUI.armory.enable or not E.private.skins.blizzard.character or IsAddOnLoaded('ElvUI_SLE') then return end
+	if not E.db.KlixUI.armory.enable or not E.private.skins.blizzard.character then return end
 
 	KA.db = E.db.KlixUI.armory
 
