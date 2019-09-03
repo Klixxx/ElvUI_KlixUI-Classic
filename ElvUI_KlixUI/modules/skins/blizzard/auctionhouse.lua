@@ -57,7 +57,7 @@ local function styleAuctionhouse()
 		end
 	end)
 
-	local abuttons = {"BrowseBidButton", "BrowseBuyoutButton", "BrowseCloseButton", "BrowseSearchButton", "BrowseResetButton", "BidBidButton", "BidBuyoutButton", "BidCloseButton", "AuctionsCloseButton", "AuctionsCancelAuctionButton", "AuctionsCreateAuctionButton", "AuctionsNumStacksMaxButton", "AuctionsStackSizeMaxButton"}
+	local abuttons = {"BrowseBidButton", "BrowseBuyoutButton", "BrowseCloseButton", "BrowseSearchButton", "BidBidButton", "BidBuyoutButton", "BidCloseButton", "AuctionsCloseButton", "AuctionsCancelAuctionButton", "AuctionsCreateAuctionButton", "AuctionsNumStacksMaxButton", "AuctionsStackSizeMaxButton"}
 	for i = 1, #abuttons do
 		KS:Reskin(_G[abuttons[i]])
 	end
@@ -150,33 +150,6 @@ local function styleAuctionhouse()
 	local a1, p, a2, x, y = BrowseDropDownButton:GetPoint()
 	BrowseDropDownButton:SetPoint(a1, p, a2, x, y-4)
 	BrowseDropDownButton:SetSize(16, 16)
-
-	-- [[ WoW token ]]
-	local BrowseWowTokenResults = _G.BrowseWowTokenResults
-
-	KS:Reskin(BrowseWowTokenResults.Buyout)
-
-	-- Tutorial
-	local WowTokenGameTimeTutorial = _G.WowTokenGameTimeTutorial
-	WowTokenGameTimeTutorial:Styling()
-
-	KS:Reskin(StoreButton)
-	WowTokenGameTimeTutorial.LeftDisplay.Tutorial1:SetTextColor(1, .8, 0)
-	WowTokenGameTimeTutorial.RightDisplay.Tutorial1:SetTextColor(1, .8, 0)
-
-	-- Token
-	do
-		local Token = BrowseWowTokenResults.Token
-		local icon = Token.Icon
-		local iconBorder = Token.IconBorder
-
-		Token.ItemBorder:Hide()
-		iconBorder:SetTexture(E.media.normTex)
-		iconBorder:SetDrawLayer("BACKGROUND")
-		iconBorder:SetPoint("TOPLEFT", icon, -1, 1)
-		iconBorder:SetPoint("BOTTOMRIGHT", icon, 1, -1)
-		icon:SetTexCoord(T.unpack(E.TexCoords))
-	end
 	
 	hooksecurefunc("AuctionFrameBrowse_Update", function()
 		local offset = T.FauxScrollFrame_GetOffset(BrowseScrollFrame)
@@ -266,7 +239,6 @@ local function styleAuctionhouse()
 	end)
 	hooksecurefunc("AuctionFrameAuctions_Update", function()
 		local offset = T.FauxScrollFrame_GetOffset(AuctionsScrollFrame)
-		local tokenCount = T.C_WowTokenPublic_GetNumListedAuctionableTokens()
 		local itemButton
 		for i = 1, NUM_AUCTIONS_TO_DISPLAY do
 			itemButton = _G["AuctionsButton"..i.."Item"]
@@ -290,7 +262,7 @@ local function styleAuctionhouse()
 					itemButton.slot:SetText("")
 				end
 				
-				local itemLink = T.GetAuctionItemLink("owner", offset-tokenCount+i)
+				local itemLink = T.GetAuctionItemLink("owner", offset+i)
 				if itemLink then
 					local _, _, quality, itemlevel, _, _, _, _, _, _, _, itemClassID = T.GetItemInfo(itemLink)
 					if (itemlevel and itemlevel > 1) and (quality and quality > 1) and (itemClassID == LE_ITEM_CLASS_WEAPON or itemClassID == LE_ITEM_CLASS_ARMOR) then
