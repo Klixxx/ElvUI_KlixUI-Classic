@@ -374,35 +374,6 @@ end
 	end
 end]]
 
-function KA:ResizeCharacterFrame()
-	if _G["PaperDollFrame"]:IsShown() then
-		_G["CharacterFrame"]:SetWidth(415)
-		_G["CharacterFrame"]:SetHeight(530)
-
-		_G.CharacterHandsSlot:ClearAllPoints()
-		_G.CharacterHandsSlot:SetPoint("TOPRIGHT", _G.CharacterFrame.backdrop, "TOPRIGHT", -10, -62)
-		
-		_G.CharacterMainHandSlot:ClearAllPoints()
-		_G.CharacterMainHandSlot:SetPoint("BOTTOMLEFT", _G.CharacterFrame.backdrop, "BOTTOMLEFT", 125, 10)
-		
-		_G.CharacterModelFrame:SetSize(250, 250)
-		_G.CharacterModelFrame:ClearAllPoints()
-		_G.CharacterModelFrame:SetPoint("CENTER", _G.CharacterFrame.backdrop, "CENTER", 0, 30)
-		
-		_G.CharacterModelFrameRotateLeftButton:ClearAllPoints()
-		_G.CharacterModelFrameRotateLeftButton:SetPoint("TOPLEFT", _G.CharacterHeadSlot, "TOPRIGHT", 10, 0)
-		
-		_G.CharacterAttributesFrame:ClearAllPoints()
-		_G.CharacterAttributesFrame:SetPoint("CENTER", _G.CharacterFrame.backdrop, "CENTER", 0, -120)
-		
-		_G.CharacterNameFrame:ClearAllPoints()
-		_G.CharacterNameFrame:SetPoint("TOP", _G.CharacterFrame.backdrop, "TOP", 0, -10)
-		
-		_G.MagicResFrame1:ClearAllPoints()
-		_G.MagicResFrame1:SetPoint("TOPRIGHT", _G.CharacterHandsSlot, "TOPLEFT", -10, 0)
-	end
-end
-
 function KA:Initialize()
 	if not E.db.KlixUI.armory.enable or not E.private.skins.blizzard.character or IsAddOnLoaded('ElvUI_SLE') then return end
 
@@ -420,8 +391,6 @@ function KA:Initialize()
 	KA:RegisterEvent("PLAYER_EQUIPMENT_CHANGED", "UpdatePaperDoll", false)
 	KA:RegisterEvent("COMBAT_RATING_UPDATE", "UpdatePaperDoll", false)
 	KA:RegisterEvent("PLAYER_ENTERING_WORLD", "InitialUpdatePaperDoll")
-	
-	self:ResizeCharacterFrame()
 	
 	if not E.db.general.itemLevel.displayCharacterInfo then
 		KA:UpdateIlvlFont()
