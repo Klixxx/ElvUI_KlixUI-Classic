@@ -77,6 +77,15 @@ function KAB:TransparentBackdrops()
 					button.backdrop:SetTemplate('Default', true)
 				end
 			end
+			button:CreateIconShadow()
+		end
+	end
+	
+	-- Stance Buttons
+	for i = 1, NUM_STANCE_SLOTS do
+		local stanceButtons = {_G["ElvUI_StanceBarButton"..i]}
+		for _, button in T.pairs(stanceButtons) do
+			button:CreateIconShadow()
 		end
 	end
 end
