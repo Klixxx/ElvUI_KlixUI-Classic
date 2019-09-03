@@ -32,7 +32,6 @@ local function ArmoryTable()
 				order = 3,
 				name = L["Enable"],
 				desc = L["Enable/Disable the |cfff960d9KlixUI|r Armory Mode."],
-				disabled = function() return T.IsAddOnLoaded("ElvUI_SLE") end,
 			},
 			gotoarmory = {
 				order = 4,
@@ -49,7 +48,7 @@ local function ArmoryTable()
 				order = 10,
 				type = "group",
 				name = L["Durability"],
-				disabled = function() return not E.db.KlixUI.armory.enable or T.IsAddOnLoaded("ElvUI_SLE") end,
+				disabled = function() return not E.db.KlixUI.armory.enable end,
 				get = function(info) return E.db.KlixUI.armory.durability[ info[#info] ] end,
 				set = function(info, value) E.db.KlixUI.armory.durability[ info[#info] ] = value; KA:UpdatePaperDoll() end,
 				args = {
@@ -106,7 +105,7 @@ local function ArmoryTable()
 				order = 11,
 				type = "group",
 				name = L["Itemlevel"],
-				--disabled = function() return not E.db.KlixUI.armory.enable or E.db.general.itemLevel.displayCharacterInfo or T.IsAddOnLoaded("ElvUI_SLE") end,
+				--disabled = function() return not E.db.KlixUI.armory.enable or E.db.general.itemLevel.displayCharacterInfo end,
 				disabled = true,
 				get = function(info) return E.db.KlixUI.armory.ilvl[ info[#info] ] end,
 				set = function(info, value) E.db.KlixUI.armory.ilvl[ info[#info] ] = value; KA:UpdatePaperDoll() end,
@@ -190,7 +189,7 @@ local function ArmoryTable()
 				order = 14,
 				type = "group",
 				name = L["Indicators"],
-				disabled = function() return not E.db.KlixUI.armory.enable or T.IsAddOnLoaded("ElvUI_SLE") end,
+				disabled = function() return not E.db.KlixUI.armory.enable end,
 				args = {
 					enchant = {
 						order = 1,
@@ -259,7 +258,7 @@ local function ArmoryTable()
 				order = 15,
 				type = 'group',
 				name = L["Gradient"],
-				disabled = function() return not E.db.KlixUI.armory.enable or T.IsAddOnLoaded("ElvUI_SLE") end,
+				disabled = function() return not E.db.KlixUI.armory.enable end,
 				get = function(info) return E.db.KlixUI.armory.gradient[ info[#info] ] end,
 				set = function(info, value) E.db.KlixUI.armory.gradient[ info[#info] ] = value; KA:UpdatePaperDoll() end,
 				args = {
