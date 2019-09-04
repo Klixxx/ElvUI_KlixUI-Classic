@@ -20,6 +20,9 @@ local function styleQuest()
 			local icon = _G[frame..i..'IconTexture']
 			if item then
 				item:CreateIconShadow()
+				if E.db.KlixUI.general.iconShadow and not T.IsAddOnLoaded("Masque") then
+					item.ishadow:SetInside(item, 0, 0)
+				end
 			end
 		end
 	end
