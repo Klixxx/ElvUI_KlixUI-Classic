@@ -122,51 +122,6 @@ local function UnitFramesTable()
 							},
 						},
 					},
-					--[[focusKey = {
-						order = 20,
-						type = "group",
-						guiInline = true,
-						name = L["Focus Key"],
-						get = function(info) return E.db.KlixUI.unitframes.focusKey[ info[#info] ] end,
-						set = function(info, value) E.db.KlixUI.unitframes.focusKey[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL") end,
-						args = {
-							intro = {
-								order = 1,
-								type = "description",
-								name = L["FK_DESC"],
-							},
-							enable = {
-								order = 2,
-								type = "toggle",
-								name = L["Enable"],
-								width = 'full',
-								desc = L["Show the focus frame when pressing the specific key combination chosen below."],
-							},
-							focusButton1 = {
-								order = 3,
-								type = "select",
-								name = L["FocusButton"]..'1',
-								disabled = function() return not E.db.KlixUI.unitframes.focusKey.enable end,
-								values = {
-									['shift'] = 'Shift',
-									['ctrl'] = 'Ctrl',
-									['alt'] = 'Alt',
-								},
-							},
-							focusButton2 = {
-								order = 4,
-								type = "select",
-								name = L["FocusButton"]..'2',
-								disabled = function() return not E.db.KlixUI.unitframes.focusKey.enable end,
-								values = {
-									['1'] = L["MouseButton"]..'1',
-									['2'] = L["MouseButton"]..'2',
-									['3'] = L["MouseButton"]..'3',
-									['4'] = L["MouseButton"]..'4',
-								},
-							},
-						},
-					},]]
 				},
 			},
 			auras = {

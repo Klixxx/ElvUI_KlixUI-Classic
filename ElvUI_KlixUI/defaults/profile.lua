@@ -1156,11 +1156,6 @@ P['KlixUI'] = {
 	["unitframes"] = {
 		["powerBar"] = true,
 		["healerMana"] = false,
-		--[[["focusKey"] = {
-			["enable"] = true,
-			["focusButton1"] = 'ctrl',
-			["focusButton2"] = '2',
-		},]]
 		["AuraIconSpacing"] = {
 			["spacing"] = 1,
 			["units"] = {
