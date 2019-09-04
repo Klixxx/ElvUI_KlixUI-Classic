@@ -88,18 +88,6 @@ function KUF:ChangePartyPowerBarTexture()
 end
 hooksecurefunc(UF, 'Update_PartyFrames', KUF.ChangePartyPowerBarTexture)
 
--- Arena
-function KUF:ChangeArenaPowerBarTexture()
-	local bar = LSM:Fetch("statusbar", E.db.KlixUI.unitframes.textures.power)
-	for i = 1, 5 do
-		local unitbutton = _G["ElvUF_Arena"..i]
-		if unitbutton.Power and not unitbutton.Power.isTransparent then
-			unitbutton.Power:SetStatusBarTexture(bar)
-		end
-	end
-end
-hooksecurefunc(UF, 'Update_ArenaFrames', KUF.ChangeArenaPowerBarTexture)
-
 -- Boss
 function KUF:ChangeBossPowerBarTexture()
 	local bar = LSM:Fetch("statusbar", E.db.KlixUI.unitframes.textures.power)
@@ -118,7 +106,6 @@ function KUF:ChangePowerBarTexture()
 	KUF:ChangeRaidPowerBarTexture()
 	KUF:ChangeRaid40PowerBarTexture()
 	KUF:ChangePartyPowerBarTexture()
-	KUF:ChangeArenaPowerBarTexture()
 	KUF:ChangeBossPowerBarTexture()
 end
 hooksecurefunc(UF, 'Update_StatusBars', KUF.ChangePowerBarTexture)
