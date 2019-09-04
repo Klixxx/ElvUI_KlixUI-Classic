@@ -364,16 +364,6 @@ function KA:BuildInformation()
 	end
 end
 
---[[function KA:UpdateIlvlFont()
-	_G["CharacterStatsPane"].ItemLevelFrame.Value:FontTemplate(LSM:Fetch('font', KA.db.stats.ItemLevel.font), KA.db.stats.ItemLevel.size or 12, KA.db.stats.ItemLevel.outline)
-	_G["CharacterStatsPane"].ItemLevelFrame:SetHeight((KA.db.stats.ItemLevel.size or 12) + 4)
-	_G["CharacterStatsPane"].ItemLevelFrame.Background:SetHeight((KA.db.stats.ItemLevel.size or 12) + 4)
-	if _G["CharacterStatsPane"].ItemLevelFrame.leftGrad then
-		_G["CharacterStatsPane"].ItemLevelFrame.leftGrad:SetHeight((KA.db.stats.ItemLevel.size or 12) + 4)
-		_G["CharacterStatsPane"].ItemLevelFrame.rightGrad:SetHeight((KA.db.stats.ItemLevel.size or 12) + 4)
-	end
-end]]
-
 function KA:Initialize()
 	if not E.db.KlixUI.armory.enable or not E.private.skins.blizzard.character then return end
 
@@ -391,10 +381,6 @@ function KA:Initialize()
 	KA:RegisterEvent("PLAYER_EQUIPMENT_CHANGED", "UpdatePaperDoll", false)
 	KA:RegisterEvent("COMBAT_RATING_UPDATE", "UpdatePaperDoll", false)
 	KA:RegisterEvent("PLAYER_ENTERING_WORLD", "InitialUpdatePaperDoll")
-	
-	if not E.db.general.itemLevel.displayCharacterInfo then
-		KA:UpdateIlvlFont()
-	end
 end
 
 KUI:RegisterModule(KA:GetName())
