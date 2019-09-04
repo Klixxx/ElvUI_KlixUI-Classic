@@ -519,14 +519,8 @@ local function Maps()
 								min = 0.1, max = 1, step = 0.1,
 								set = function(info, value) E.db.KlixUI.maps.worldmap.scale = value; KWM:WorldMapScale() end,
 							},
-							fade = {
-								order = 2,
-								type = "toggle",
-								name = L["World Map Frame Fade"],
-								set = function(info, value) E.db.KlixUI.maps.worldmap.fade = value; KWM:MapFader() end,
-							},
 							zoom = {
-								order = 3,
+								order = 2,
 								type = "toggle",
 								name = L["World Map Frame Zoom"],
 								desc = L["Mouse scroll on the world map to zoom."],

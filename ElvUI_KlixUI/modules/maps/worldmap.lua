@@ -33,14 +33,6 @@ function KWM:WorldMapScale()
 	WorldMapFrame.BlackoutFrame:Hide()
 end
 
-function KWM:MapFader()
-	if KWM.db.fade then
-		PlayerMovementFrameFader.AddDeferredFrame(WorldMapFrame, .5, 1, 1)
-	else
-		PlayerMovementFrameFader.RemoveFrame(WorldMapFrame)
-	end
-end
-
 -- Map data
 local LeaMapsData = {
 	[1194] = {["128:110:464:33"] = "271427", ["160:120:413:476"] = "2212659", ["160:190:474:384"] = "271426", ["190:180:462:286"] = "271440", ["190:200:327:60"] = "271439", ["200:240:549:427"] = "271437", ["210:160:427:78"] = "271428", ["215:215:355:320"] = "271443", ["220:230:432:170"] = "271421", ["230:230:301:189"] = "271422", ["445:160:244:0"] = "271435, 271442",},
@@ -221,7 +213,6 @@ function KWM:Initialize()
 	KWM.db = E.db.KlixUI.maps.worldmap
 
 	self:WorldMapScale()
-	self:MapFader()
 	self:MapZoom()
 	
 	if KWM.db.reveal.enable then

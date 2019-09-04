@@ -778,7 +778,6 @@ P['KlixUI'] = {
 		},
 		["worldmap"] = {
 			["scale"] = .7,
-			["fade"] = true,
 			["zoom"] = true,
 			["reveal"] = {
 				["enable"] = true,
