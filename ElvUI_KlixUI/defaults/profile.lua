@@ -1186,22 +1186,6 @@ P['KlixUI'] = {
 			['health'] = E.db.unitframe.statusbar,
 			['ignoreTransparency'] = false,
 			['power'] = E.db.unitframe.statusbar,
-			['castbar'] = E.db.unitframe.statusbar,
-		},
-		['castbar'] = {
-			['text'] = {
-				['ShowInfoText'] = true,
-				['castText'] = true,
-				['forceTargetText'] = false,
-				['player'] = {
-					['yOffset'] = 0,
-					['textColor'] = {r = 1, g = 1, b = 1, a = 1},
-				},
-				['target'] = {
-					['yOffset'] = 0,
-					['textColor'] = {r = 1, g = 1, b = 1, a = 1},
-				},
-			},
 		},
 		["eliteicon"] = {
 			["enable"] = true,
