@@ -13,7 +13,6 @@ V['KlixUI'] = {
 	
 	-- Bags
 	["bags"] = {
-		["transparentSlots"] = true,
 		["bagFilter"] = true,
 		["autoOpen"] = false,
 	},

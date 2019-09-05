@@ -108,6 +108,7 @@ function KB:HookBags(isBank)
 		for _, bagID in pairs(bagFrame.BagIDs) do
 			for slotID = 1, T.GetContainerNumSlots(bagID) do
 				if bagFrame.Bags[bagID] then
+					slot = bagFrame.Bags[bagID][slotID]
 					slot:CreateIconShadow()
 				end
 			end

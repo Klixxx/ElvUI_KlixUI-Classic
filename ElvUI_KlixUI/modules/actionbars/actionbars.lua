@@ -22,10 +22,13 @@ end
 
 function KAB:IconShadow()
 	-- Buttons
-	for k = 1, 12 do
-		local buttonBars = {_G["ElvUI_Bar"..i.."Button"..k]}
-		for _, button in T.pairs(buttonBars) do
-			button:CreateIconShadow()
+	local db = E.db.KlixUI.actionbars
+	for i = 1, availableActionbars do
+		for k = 1, 12 do
+			local buttonBars = {_G["ElvUI_Bar"..i.."Button"..k]}
+			for _, button in T.pairs(buttonBars) do
+				button:CreateIconShadow()
+			end
 		end
 	end
 
