@@ -75,86 +75,87 @@ local MISS_EVENT_STRINGS = {
     ["RESIST"] = "Resisted",
 };
 
-local FRAME_LEVEL_OVERLAY = 3;
-local FRAME_LEVEL_ABOVE = 2;
-local FRAME_LEVEL_BELOW = 1;
+local FRAME_LEVEL_OVERLAY = 3
+local FRAME_LEVEL_ABOVE = 2
+local FRAME_LEVEL_BELOW = 1
 
 -- Fontstring
 local function getFontPath(fontName)
-    local fontPath = LSM:Fetch("font", fontName);
+    local fontPath = LSM:Fetch("font", fontName)
 
     if (fontPath == nil) then
-        fontPath = "Interface\\AddOns\\ElvUI_KlixUI\\media\\fonts\\Expressway.ttf";
+        fontPath = "Interface\\AddOns\\ElvUI_KlixUI\\media\\fonts\\Expressway.ttf"
     end
 
-    return fontPath;
+    return fontPath
 end
 
-local fontStringCache = {};
+local fontStringCache = {}
 local function getFontString()
     local fontString;
 
     if (T.next(fontStringCache)) then
-        fontString = T.table_remove(fontStringCache);
+        fontString = T.table_remove(fontStringCache)
     else
-        fontString = SCT.frame:CreateFontString();
+        fontString = SCT.frame:CreateFontString()
     end
 
     fontString:SetParent(SCT.frame);
-    fontString:SetFont(getFontPath(SCT.db.font), 15, SCT.db.fontFlag);
+    fontString:SetFont(getFontPath(SCT.db.font), 15, SCT.db.fontFlag)
     if SCT.db.fontShadow then fontString:SetShadowOffset(1,-1) end
-    fontString:SetAlpha(1);
-    fontString:SetDrawLayer("OVERLAY");
-    fontString:SetText("");
-    fontString:Show();
+    fontString:SetAlpha(1)
+    fontString:SetDrawLayer("OVERLAY")
+    fontString:SetText("")
+    fontString:Show()
 
-    return fontString;
+    return fontString
 end
 
 local function recycleFontString(fontString)
-    fontString:SetAlpha(0);
-    fontString:Hide();
+    fontString:SetAlpha(0)
+    fontString:Hide()
 
-    animating[fontString] = nil;
+    animating[fontString] = nil
 
-    fontString.distance = nil;
-    fontString.arcTop = nil;
-    fontString.arcBottom = nil;
-    fontString.arcXDist = nil;
-    fontString.deflection = nil;
-    fontString.numShakes = nil;
-    fontString.animation = nil;
-    fontString.animatingDuration = nil;
-    fontString.animatingStartTime = nil;
-    fontString.anchorFrame = nil;
+    fontString.distance = nil
+    fontString.arcTop = nil
+    fontString.arcBottom = nil
+    fontString.arcXDist = nil
+    fontString.deflection = nil
+    fontString.numShakes = nil
+    fontString.animation = nil
+    fontString.animatingDuration = nil
+    fontString.animatingStartTime = nil
+    fontString.anchorFrame = nil
 
-    fontString.unit = nil;
-    fontString.guid = nil;
+    fontString.unit = nil
+    fontString.guid = nil
 
-    fontString.pow = nil;
-    fontString.startHeight = nil;
-    fontString.SCTFontSize = nil;
-    fontString:SetFont(getFontPath(SCT.db.font), 15, SCT.db.fontFlag);
+    fontString.pow = nil
+    fontString.startHeight = nil
+    fontString.SCTFontSize = nil
+    fontString:SetFont(getFontPath(SCT.db.font), 15, SCT.db.fontFlag)
     if SCT.db.fontShadow then fontString:SetShadowOffset(1,-1) end
-    fontString:SetParent(SCT.frame);
+    fontString:SetParent(SCT.frame)
+	fontString:ClearAllPoints()
 
     T.table_insert(fontStringCache, fontString);
 end
 
 local function setNameplateFrameLevels()
     for _, frame in T.pairs(targetFrames) do
-        frame:SetFrameStrata("LOW");
+        frame:SetFrameStrata("LOW")
     end
-    targetFrames[FRAME_LEVEL_OVERLAY]:SetFrameLevel(1001);
-    targetFrames[FRAME_LEVEL_ABOVE]:SetFrameLevel(1000);
-    targetFrames[FRAME_LEVEL_BELOW]:SetFrameLevel(999);
+    targetFrames[FRAME_LEVEL_OVERLAY]:SetFrameLevel(1001)
+    targetFrames[FRAME_LEVEL_ABOVE]:SetFrameLevel(1000)
+    targetFrames[FRAME_LEVEL_BELOW]:SetFrameLevel(999)
 
     for _, frame in T.pairs(offTargetFrames) do
-        frame:SetFrameStrata("LOW");
+        frame:SetFrameStrata("LOW")
     end
-    offTargetFrames[FRAME_LEVEL_OVERLAY]:SetFrameLevel(901);
-    offTargetFrames[FRAME_LEVEL_ABOVE]:SetFrameLevel(900);
-    offTargetFrames[FRAME_LEVEL_BELOW]:SetFrameLevel(899);
+    offTargetFrames[FRAME_LEVEL_OVERLAY]:SetFrameLevel(901)
+    offTargetFrames[FRAME_LEVEL_ABOVE]:SetFrameLevel(900)
+    offTargetFrames[FRAME_LEVEL_BELOW]:SetFrameLevel(899)
 end
 
 -- Animation
@@ -285,10 +286,8 @@ local function AnimationOnUpdate()
 
                 if (not UnitIsDead(fontString.unit) and fontString.anchorFrame and fontString.anchorFrame:IsShown()) then
                     if fontString.unit == "player" then -- player frame
-						fontString:ClearAllPoints()
 						fontString:SetPoint("CENTER", fontString.anchorFrame, "CENTER", SCT.db.xOffsetPersonal + xOffset, SCT.db.yOffsetPersonal + yOffset); -- Only allows for adjusting vertical offset
                     else -- nameplate frames
-						fontString:ClearAllPoints()
 						fontString:SetPoint("CENTER", fontString.anchorFrame, "CENTER", SCT.db.xOffset + xOffset, SCT.db.yOffset + yOffset);
                     end
                     -- remember the last position of the nameplate
@@ -344,22 +343,22 @@ end
 
 -- Events
 function SCT:NAME_PLATE_UNIT_ADDED(event, unitID)
-    local guid = T.UnitGUID(unitID);
+    local guid = T.UnitGUID(unitID)
 
-    unitToGuid[unitID] = guid;
-    guidToUnit[guid] = unitID;
+    unitToGuid[unitID] = guid
+    guidToUnit[guid] = unitID
 end
 
 function SCT:NAME_PLATE_UNIT_REMOVED(event, unitID)
-    local guid = unitToGuid[unitID];
+    local guid = unitToGuid[unitID]
 
-    unitToGuid[unitID] = nil;
-    guidToUnit[guid] = nil;
+    unitToGuid[unitID] = nil
+    guidToUnit[guid] = nil
 
     -- clear any fontStrings attachedk to this unit
    for fontString, _ in T.pairs(animating) do
 		if fontString.unit == unitID then
-			recycleFontString(fontString);
+			recycleFontString(fontString)
 		end
 	end
 end
@@ -390,7 +389,7 @@ function SCT:CombatFilter(_, clue, _, sourceGUID, _, sourceFlags, _, destGUID, _
 				else
 					spellID, spellName, spellSchool, missType, isOffHand, amountMissed = ...;
 				end
-				self:MissEvent(destGUID, spellID, missType);
+				self:MissEvent(destGUID, nil, missType);
 			end
 		end
 	elseif (T.bit_band(sourceFlags, COMBATLOG_OBJECT_TYPE_GUARDIAN) > 0 or T.bit_band(sourceFlags, COMBATLOG_OBJECT_TYPE_PET) > 0)	and T.bit_band(sourceFlags, COMBATLOG_OBJECT_AFFILIATION_MINE) > 0 then -- Pet/Guardian events
@@ -405,7 +404,7 @@ function SCT:CombatFilter(_, clue, _, sourceGUID, _, sourceFlags, _, destGUID, _
 				else
 					spellID, spellName, spellSchool, amount, overkill, school, resisted, blocked, absorbed, critical, glancing, crushing, isOffHand = ...;
 				end
-				self:DamageEvent(destGUID, spellID, amount, "pet", critical, spellName);
+				self:DamageEvent(destGUID, nil, amount, "pet", critical, spellName);
 			-- elseif(T.string_find(clue, "_MISSED")) then -- Don't show pet MISS events for now.
 				-- local spellID, spellName, spellSchool, missType, isOffHand, amountMissed;
 
@@ -460,7 +459,7 @@ function SCT:DamageEvent(guid, spellID, amount, school, crit, spellName)
         animation = guid ~= playerGUID and SCT.db.animations.ability or SCT.db.animationsPersonal.normal;
         pow = false;
 	else
-		KUI:Print("woops");
+		KUI:Print("woops")
     end
 	
     -- skip if this damage event is disabled
@@ -506,37 +505,50 @@ function SCT:DamageEvent(guid, spellID, amount, school, crit, spellName)
         end
 
         -- color text
-        if SCT.db.damageColor and school and DAMAGE_TYPE_COLORS[school] then
-            text = "|Cff"..DAMAGE_TYPE_COLORS[school]..text.."|r";
-        elseif SCT.db.damageColor and spellName == "melee" and DAMAGE_TYPE_COLORS[spellName] then
-            text = "|Cff"..DAMAGE_TYPE_COLORS[spellName]..text.."|r";
+		if guid ~= playerGUID then
+			if SCT.db.damageColor and school and DAMAGE_TYPE_COLORS[school] then
+				text = "|Cff"..DAMAGE_TYPE_COLORS[school]..text.."|r";
+			elseif SCT.db.damageColor and spellName == "melee" and DAMAGE_TYPE_COLORS[spellName] then
+				text = "|Cff"..DAMAGE_TYPE_COLORS[spellName]..text.."|r";
+			else
+				text = "|Cff"..SCT.db.defaultColor..text.."|r";
+			end
 		else
-            text = "|Cff"..SCT.db.defaultColor..text.."|r";
-        end
-
-        -- add icons
+			if SCT.db.damageColorPersonal and school and DAMAGE_TYPE_COLORS[school] then
+				text = "|Cff"..DAMAGE_TYPE_COLORS[school]..text.."|r";
+			elseif SCT.db.damageColorPersonal and spellName == "melee" and DAMAGE_TYPE_COLORS[spellName] then
+				text = "|Cff"..DAMAGE_TYPE_COLORS[spellName]..text.."|r";
+			else
+				text = "|Cff"..SCT.db.defaultColorPersonal..text.."|r";
+			end
+		end
+	
+		-- add icons
         textWithoutIcons = text;
-        if (icon ~= "none" and spellID and T.GetSpellTexture(spellID)) then
-            local iconText = "|T"..T.GetSpellTexture(spellID)..":14:14:0:0:64:64:4:60:4:60|t";
+        if (icon ~= "none" and spellName) then
+			local _, _, iconTexture = GetSpellInfo(spellName)
+			if iconTexture then
+				local iconText = "|T"..iconTexture..":14:14:0:0:64:64:4:60:4:60|t"
 
-            if (icon == "both") then
-                text = iconText..text..iconText;
-            elseif (icon == "left") then
-                text = iconText..text;
-            elseif (icon == "right") then
-                text = text..iconText;
-            end
+				if (icon == "both") then
+					text = iconText..text..iconText
+				elseif (icon == "left") then
+					text = iconText..text
+				elseif (icon == "right") then
+					text = text..iconText
+				end
+			end
         end
     else
         -- showing only icons
         if (not spellID) then
-            return;
+            return
         end
 
-        text = "|T"..T.GetSpellTexture(spellID)..":14:14:0:0:64:64:4:60:4:60|t";
+        text = "|T"..GetSpellTexture(spellID)..":14:14:0:0:64:64:4:60:4:60|t"
         textWithoutIcons = text; -- since the icon is by itself, the fontString won't have the strange scaling bug
     end
-
+	
     -- shrink small hits
     if (SCT.db.sizing.smallHits or SCT.db.sizing.smallHitsHide) and playerGUID ~= guid then
         if (not lastDamageEventTime or (lastDamageEventTime + SMALL_HIT_EXPIRY_WINDOW < T.GetTime())) then
@@ -578,18 +590,18 @@ function SCT:DamageEvent(guid, spellID, amount, school, crit, spellName)
 end
 
 function SCT:MissEvent(guid, spellID, missType)
-    local text, animation, pow, size, icon, alpha;
-    local unit = guidToUnit[guid];
-    local isTarget = unit and T.UnitIsUnit(unit, "target");
+    local text, animation, pow, size, icon, alpha
+    local unit = guidToUnit[guid]
+    local isTarget = unit and T.UnitIsUnit(unit, "target")
 
     if (SCT.db.useOffTarget and not isTarget and playerGUID ~= guid) then
-        size = SCT.db.offTargetFormatting.size;
-        icon = SCT.db.offTargetFormatting.icon;
-        alpha = SCT.db.offTargetFormatting.alpha;
+        size = SCT.db.offTargetFormatting.size
+        icon = SCT.db.offTargetFormatting.icon
+        alpha = SCT.db.offTargetFormatting.alpha
     else
-        size = SCT.db.formatting.size;
-        icon = SCT.db.formatting.icon;
-        alpha = SCT.db.formatting.alpha;
+        size = SCT.db.formatting.size
+        icon = SCT.db.formatting.icon
+        alpha = SCT.db.formatting.alpha
     end
 
     -- embiggen miss size
@@ -601,24 +613,34 @@ function SCT:MissEvent(guid, spellID, missType)
         return;
     end
 
-    animation = playerGUID ~= guid and SCT.db.animations.miss or SCT.db.animationsPersonal.miss;
-    pow = true;
+    if playerGUID ~= guid then
+		animation = SCT.db.animations.miss
+		color = SCT.db.defaultColor
+	else
+		animation = SCT.db.animationsPersonal.miss
+		color = SCT.db.defaultColorPersonal
+	end
+	
+    pow = true
 
-    text = MISS_EVENT_STRINGS[missType] or "Missed";
-    text = "|Cff"..SCT.db.defaultColor..text.."|r";
+    text = MISS_EVENT_STRINGS[missType] or "Missed"
+    text = "|Cff"..SCT.db.defaultColor..text.."|r"
 
     -- add icons
-    local textWithoutIcons = text;
-    if (icon ~= "none" and spellID) then
-        local iconText = "|T"..T.GetSpellTexture(spellID)..":14:14:0:0:64:64:4:60:4:60|t";
+    local textWithoutIcons = text
+    if (icon ~= "none" and spellName) then
+		local _, _, iconTexture = GetSpellInfo(spellName)
+		if iconTexture then
+			local iconText = "|T"..iconTexture..":14:14:0:0:64:64:4:60:4:60|t"
 
-        if (icon == "both") then
-            text = iconText..text..iconText;
-        elseif (icon == "left") then
-            text = iconText..text;
-        elseif (icon == "right") then
-            text = text..iconText;
-        end
+			if (icon == "both") then
+				text = iconText..text..iconText
+			elseif (icon == "left") then
+				text = iconText..text
+			elseif (icon == "right") then
+				text = text..iconText
+			end
+		end
     end
 
     self:DisplayText(guid, text, textWithoutIcons, size, animation, FRAME_LEVEL_ABOVE, pow)

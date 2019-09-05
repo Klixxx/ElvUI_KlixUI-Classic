@@ -59,12 +59,12 @@ local function CombatTextTable()
 				type = "toggle",
 				name = L["Disable Blizzard FCT"],
 				desc = "",
-				get = function(info) return GetCVar("floatingCombatTextCombatDamage") == "0" end,
+				get = function(_, newValue) return T.GetCVar("floatingCombatTextCombatDamage") == "1" end,
 				set = function(info, value)
 					if (value) then
-						SetCVar("floatingCombatTextCombatDamage", "0");
+						T.SetCVar("floatingCombatTextCombatDamage", 0)
 					else
-						SetCVar("floatingCombatTextCombatDamage", "1");
+						T.SetCVar("floatingCombatTextCombatDamage", 1)
 					end
 				end,
 			},
@@ -183,6 +183,7 @@ local function CombatTextTable()
 						type = "color",
 						name = L["Default Color"],
 						hasAlpha = false,
+						disabled = function() return E.db.KlixUI.combattext.damageColor end,
 						get = function(info) return hexToRGB(E.db.KlixUI.combattext.defaultColor); end,
 						set = function(_, r, g, b) E.db.KlixUI.combattext.defaultColor = rgbToHex(r, g, b); end,
 					},
@@ -212,23 +213,41 @@ local function CombatTextTable()
 						type = "description",
 						name = "",
 					},
-					xOffsetPersonal = {
+					damageColorPersonal = {
 						order = 13,
+						type = "toggle",
+						name = L["Use Damage Type Color"],
+					},
+
+					defaultColorPersonal = {
+						order = 14,
+						type = "color",
+						name = L["Default Color"],
+						hasAlpha = false,
+						disabled = function() return E.db.KlixUI.combattext.damageColorPersonal end,
+						set = function(_, r, g, b) E.db.KlixUI.combattext.defaultColorPersonal = rgbToHex(r, g, b) end,
+						get = function() return hexToRGB(E.db.KlixUI.combattext.defaultColorPersonal) end,
+					},
+					space3 = {
+						order = 15,
+						type = "description",
+						name = "",
+					},
+					xOffsetPersonal = {
+						order = 16,
 						type = "range",
 						width = 1.5,
 						name = L["X-Offset Personal SCT"],
 						desc = L["Only used if Personal Nameplate is Disabled."],
 						softMin = -400, softMax = 400, step = 1,
-						hidden = function() return not E.db.KlixUI.combattext.personal; end,
 					},
 					yOffsetPersonal = {
-						order = 14,
+						order = 17,
 						type = "range",
 						width = 1.5,
 						name = L["Y-Offset Personal SCT"],
 						desc = L["Only used if Personal Nameplate is Disabled."],
 						softMin = -400, softMax = 400, step = 1,
-						hidden = function() return not E.db.KlixUI.combattext.personal; end,
 					},
 				},
 			},
