@@ -173,13 +173,18 @@ local function CombatTextTable()
 						type = "toggle",
 						name = L["Font Shadow"],
 					},
-					damageColor = {
+					space1 = {
 						order = 4,
+						type = "description",
+						name = "",
+					},
+					damageColor = {
+						order = 5,
 						type = "toggle",
 						name = L["Use Damage Type Color"],
 					},
 					defaultColor = {
-						order = 5,
+						order = 6,
 						type = "color",
 						name = L["Default Color"],
 						hasAlpha = false,
@@ -187,8 +192,8 @@ local function CombatTextTable()
 						get = function(info) return hexToRGB(E.db.KlixUI.combattext.defaultColor); end,
 						set = function(_, r, g, b) E.db.KlixUI.combattext.defaultColor = rgbToHex(r, g, b); end,
 					},
-					space1 = {
-						order = 6,
+					space2 = {
+						order = 7,
 						type = "description",
 						name = "",
 					},
@@ -208,7 +213,7 @@ local function CombatTextTable()
 						desc = L["Has soft min/max, you can type whatever you'd like into the editbox tho."],
 						softMin = -75, softMax = 75, step = 1,
 					},
-					space2 = {
+					space3 = {
 						order = 12,
 						type = "description",
 						name = "",
@@ -228,7 +233,7 @@ local function CombatTextTable()
 						set = function(_, r, g, b) E.db.KlixUI.combattext.defaultColorPersonal = rgbToHex(r, g, b) end,
 						get = function() return hexToRGB(E.db.KlixUI.combattext.defaultColorPersonal) end,
 					},
-					space3 = {
+					space4 = {
 						order = 15,
 						type = "description",
 						name = "",
