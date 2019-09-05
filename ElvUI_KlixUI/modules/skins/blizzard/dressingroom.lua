@@ -6,6 +6,13 @@ local function styleDressingroom()
 	
 	local DressUpFrame = _G.DressUpFrame
 	DressUpFrame.backdrop:Styling()
+	DressUpFrameBackgroundTopLeft:Hide()
+	DressUpFrameBackgroundTopRight:Hide()
+	DressUpFrameBackgroundBot:Hide()
+	
+	if DressUpModelFrame.backdrop then
+		DressUpModelFrame.backdrop:Hide()
+	end
 end
 
 S:AddCallback("KuiDressingRoom", styleDressingroom)
