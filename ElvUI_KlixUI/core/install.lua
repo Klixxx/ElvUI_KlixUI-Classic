@@ -382,6 +382,7 @@ function KUI:SetupLayout(layout)
 	E.db["bags"]["countFontSize"] = 12
 	E.db["bags"]["countFontOutline"] = "OUTLINE"
 	E.db["bags"]["itemLevelThreshold"] = 100
+	E.db["bags"]["transparent"] = true
 	if KUI:IsDeveloper() then 
 		E.db["bags"]["split"]["player"] = false
 		E.db["bags"]["split"]["bank"] = false
@@ -400,7 +401,7 @@ function KUI:SetupLayout(layout)
 	E.db["bags"]["split"]["bag9"] = true
 	E.db["bags"]["split"]["bag10"] = true
 	E.db["bags"]["split"]["bag11"] = true
-	E.db["bags"]["vendorGrays"]["details"] = true 
+	E.db["bags"]["vendorGrays"]["details"] = true
 		
 	-- Cooldown Settings
 	E.db["bags"]["cooldown"]["override"] = false
@@ -1771,6 +1772,7 @@ function KUI:SetupActionbars(layout)
 	E.db["actionbar"]["lockActionBars"] = true
 	E.db["actionbar"]["globalFadeAlpha"] = 0
 	E.db["actionbar"]["desaturateOnCooldown"] = true
+	E.db["actionbar"]["transparent"] = true
 
 	-- Cooldown options
 	E.db["actionbar"]["cooldown"]["override"] = false

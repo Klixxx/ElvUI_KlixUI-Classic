@@ -21,22 +21,15 @@ local function BagTable()
 				get = function(info) return E.private.KlixUI.bags[ info[#info] ] end,
 				set = function(info, value)	E.private.KlixUI.bags[ info[#info] ] = value; E:StaticPopup_Show('PRIVATE_RL') end,
 				args = {
-					transparentSlots = {
-						order = 1,
-						type = "toggle",
-						name = L["Transparent Slots"],
-						desc = L["Apply transparent template on bag and bank slots."],
-						disabled = function() return not E.private.bags.enable end,
-					},
 					bagFilter = {
-						order = 2,
+						order = 1,
 						type = "toggle",
 						name = L["Bag Filter"],
 						desc = L["Enable/disable the bagfilter button."],
 						disabled = function() return not E.private.bags.enable end,
 					},
 					autoOpen = {
-						order = 3,
+						order = 2,
 						type = "toggle",
 						name = L["Auto Open Containers"],
 						desc = L["Enable/disable the auto opening of container, treasure etc."],

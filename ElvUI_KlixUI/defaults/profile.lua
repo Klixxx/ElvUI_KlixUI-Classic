@@ -24,11 +24,6 @@ P['KlixUI'] = {
 		},
     },
 	
-	-- ActionBars
-	['actionbars'] = {
-		['transparent'] = true,
-	},
-	
 	-- AddonPanel
 	["addonpanel"] = {
 		["Enable"] = true,

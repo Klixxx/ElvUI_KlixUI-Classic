@@ -99,27 +99,25 @@ end
 function KB:HookBags(isBank)
 	local slot
 	for _, bagFrame in T.pairs(B.BagFrames) do
-		--Hooking slots for deconstruct. Bank is not allowed
+		-- Hooking slots for deconstruct. Bank is not allowed
 		if not bagFrame.KUI_DeconstructHooked and not isBank then
 			hooksecurefunc(B, "UpdateSlot", KB.UpdateSlots)
 			bagFrame.KUI_UpdateHooked = true
 		end
-		--Applying transparent template for all current slots
+		-- Applying shadow for all current slots
 		for _, bagID in pairs(bagFrame.BagIDs) do
 			for slotID = 1, T.GetContainerNumSlots(bagID) do
 				if bagFrame.Bags[bagID] then
-					slot = bagFrame.Bags[bagID][slotID]
-					if E.private.KlixUI.bags.transparentSlots and slot.template ~= "Transparent" then slot:SetTemplate('Transparent') end
 					slot:CreateIconShadow()
 				end
 			end
 		end
 	end
-	--Applying transparent template for reagent bank
-	if E.private.KlixUI.bags.transparentSlots and _G["ElvUIReagentBankFrameItem1"] and _G["ElvUIReagentBankFrameItem1"].template ~= "Transparent" then
+	-- Applying shadow for reagent bank
+	if _G["ElvUIReagentBankFrameItem1"] then
 		for slotID = 1, 98 do
-			local slot = _G["ElvUIReagentBankFrameItem"..slotID];
-			if slot.template ~= "Transparent" then slot:SetTemplate('Transparent') end
+			local slot = _G["ElvUIReagentBankFrameItem"..slotID]
+			slot:CreateIconShadow()
 		end
 	end
 end

@@ -1,9 +1,6 @@
 local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local KAB = KUI:GetModule('KUIActionbars')
 local MB = KUI:GetModule("MicroBar")
---local ABS = KUI:GetModule("AutoButtons")
---local SEB = KUI:GetModule("SpecEquipBar")
---local EVB = KUI:GetModule("EnhancedVehicleBar")
 
 local function abTable()
 	E.Options.args.KlixUI.args.modules.args.actionbars = {
@@ -17,29 +14,8 @@ local function abTable()
 				type = 'header',
 				name = KUI:cOption(L['ActionBars']),
 			},
-			general = {
-				order = 2,
-				type = "group",
-				name = L["General"],
-				args = {
-					transparent = {
-						order = 1,
-						type = 'toggle',
-						name = L['Transparent Backdrops'],
-						desc = L['Applies transparency in all actionbar backdrops and actionbar buttons.'],
-						disabled = function() return not E.private.actionbar.enable end,
-						get = function(info) return E.db.KlixUI.actionbars[ info[#info] ] end,
-						set = function(info, value) E.db.KlixUI.actionbars[ info[#info] ] = value; KAB:TransparentBackdrops() end,	
-					},
-					space1 = {
-						order = 4,
-						type = "description",
-						name = "",
-					},
-				},
-			},
 			microBar = {
-				order = 5,
+				order = 2,
 				type = "group",
 				name = L["Micro Bar"],
 				get = function(info) return E.db.KlixUI.microBar[ info[#info] ] end,

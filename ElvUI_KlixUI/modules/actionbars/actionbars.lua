@@ -20,49 +20,12 @@ local function CheckExtraAB()
 	end
 end
 
-local r, g, b = 0, 0, 0
-
--- from ElvUI_TrasparentBackdrops plugin
-function KAB:TransparentBackdrops()
-	-- Actionbar backdrops
-	local db = E.db.KlixUI.actionbars
-	for i = 1, availableActionbars do
-		local transBars = {_G['ElvUI_Bar'..i]}
-		for _, frame in T.pairs(transBars) do
-			if frame.backdrop then
-				if db.transparent then
-					frame.backdrop:SetTemplate('Transparent')
-				else
-					frame.backdrop:SetTemplate('Default')
-				end
-			end
-		end
-
-		-- Buttons
-		for k = 1, 12 do
-			local buttonBars = {_G["ElvUI_Bar"..i.."Button"..k]}
-			for _, button in T.pairs(buttonBars) do
-				if button.backdrop then
-					button.backdrop:Styling()
-					if db.transparent then
-						button.backdrop:SetTemplate("Transparent")
-					else
-						button.backdrop:SetTemplate("Default", true)
-					end
-				end
-				button:CreateIconShadow()
-			end
-		end
-	end
-
-	-- Other bar backdrops
-	for _, frame in T.pairs(styleOtherBacks) do
-		if frame.backdrop then
-			if db.transparent then
-				frame.backdrop:SetTemplate('Transparent')
-			else
-				frame.backdrop:SetTemplate('Default')
-			end
+function KAB:IconShadow()
+	-- Buttons
+	for k = 1, 12 do
+		local buttonBars = {_G["ElvUI_Bar"..i.."Button"..k]}
+		for _, button in T.pairs(buttonBars) do
+			button:CreateIconShadow()
 		end
 	end
 
@@ -70,13 +33,6 @@ function KAB:TransparentBackdrops()
 	for i = 1, NUM_PET_ACTION_SLOTS do
 		local petButtons = {_G['PetActionButton'..i]}
 		for _, button in T.pairs(petButtons) do
-			if button.backdrop then
-				if db.transparent then
-					button.backdrop:SetTemplate('Transparent')
-				else
-					button.backdrop:SetTemplate('Default', true)
-				end
-			end
 			button:CreateIconShadow()
 		end
 	end
@@ -121,12 +77,8 @@ end
 
 function KAB:Initialize()
 	CheckExtraAB()
+	T.C_Timer_After(1, KAB.IconShadow)
 	T.C_Timer_After(1, KAB.StyleBackdrops)
-	T.C_Timer_After(1, KAB.TransparentBackdrops)
 end
 
-local function InitializeCallback()
-	KAB:Initialize()
-end
-
-KUI:RegisterModule(KAB:GetName(), InitializeCallback)
+KUI:RegisterModule(KAB:GetName())
