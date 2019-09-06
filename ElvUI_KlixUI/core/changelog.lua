@@ -6,8 +6,10 @@ local CLOSE = CLOSE
 
 local ChangeLogData = {
 	"Changes:",
-		"• Reenabled all the skins, every frame should be skinned! (maybe i missed some)",
+		"• Reenabled blizzard, armory, combat text and databars",
+		"• Added more skins and icon styling.",
 		"• Fixed various issues.",
+		"• Removed some stuff, they are now in core ElvUI.",
 		" ", -- Section space!
 		-- "• ",
 		
