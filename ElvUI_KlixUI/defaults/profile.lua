@@ -532,24 +532,13 @@ P['KlixUI'] = {
 			--["textFormat"] = "Paragon",
 			["autotrack"] = true,
 		},
-		["honorBar"] = {
-			["progress"] = true,
-			["color"] = {r = 240/255, g = 114/255, b = 65/255},
-		},
-		["azeriteBar"] = {
-			["progress"] = true,
-			["color"] = {r = 0.901, g = 0.8, b = 0.601},
-		},
 		["questXP"] = {
 			["enable"] = true,
 			["IncludeIncomplete"] = false,
 			["CurrentZoneOnly"] = false,
+			["CurrentZoneOnly"] = true,
+			["tooltip"] = true,
 			["Color"] = {r = 217/255, g = 217/255, b = 0},
-		},
-		["paragon"] = {
-			["enable"] = true,
-			["text"] = "PARAGON",
-			["color"] = {r = 0, g = 0.5, b = 0.9},
 		},
 	},
 	

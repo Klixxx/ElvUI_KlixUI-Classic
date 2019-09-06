@@ -26,51 +26,35 @@ local BACKUP = FACTION_BAR_COLORS[1]
 -- helper function ------------------------------------------------------------
 local function CheckRep(standingID, factionID, friendID, nextFriendThreshold)
     local isCapped = false
-    local isParagon = T.C_Reputation_IsFactionParagon(factionID)
 
     if standingID == MAX_REPUTATION_REACTION then
         isCapped = true
-    elseif isParagon then
-        isCapped = false
     elseif nextFriendThreshold then
         isCapped = false
     elseif not nextFriendThreshold and friendID then
         isCapped = true
     end
 
-    return isCapped, isParagon
+    return isCapped
 end
 
 -- local functions called via hooking -----------------------------------------
 local function ReputationBar_OnEnter()
     local name, standingID, minimum, maximum, value, factionID = T.GetWatchedFactionInfo()
-    local friendID, friendRep, friendMaxRep, friendName, friendText, friendTexture, friendTextLevel, friendThreshold, nextFriendThreshold = T.GetFriendshipReputation(factionID)
     local isCapped, isParagon = CheckRep(standingID, factionID, friendID, nextFriendThreshold)
 
 
     if name and E.db.KlixUI.databars.reputationBar.capped then
-        if isCapped and not isParagon then
+        if isCapped then
             GameTooltip:ClearLines()
 
             if friendID then
                 GameTooltip:AddLine(friendName)
-            elseif not isParagon then
                 GameTooltip:AddLine(name)
             end
 
             GameTooltip:AddLine(" ")
             GameTooltip:AddDoubleLine(REPUTATION .. ":", L["Capped"])
-            GameTooltip:Show()
-        elseif isParagon then
-            local replacement = L[E.db.KlixUI.databars.reputationBar.textFormat == "P" and "P" or "Paragon"]
-
-            for line = 1, GameTooltip:NumLines() do
-                local lineTextRight = _G["GameTooltipTextRight" .. line]
-                local lineTextRightText = lineTextRight:GetText()
-                if lineTextRightText then
-                    lineTextRight:SetText(T.string_gsub(lineTextRightText, FACTION_STANDING_LABEL8, replacement))
-                end
-            end
             GameTooltip:Show()
         end
     end
@@ -79,10 +63,9 @@ end
 local function UpdateReputation(self)
     local bar = self.repBar
     local name, standingID, minimum, maximum, value, factionID = T.GetWatchedFactionInfo()
-    local friendID, friendRep, friendMaxRep, friendName, friendText, friendTexture, friendTextLevel, friendThreshold, nextFriendThreshold = T.GetFriendshipReputation(factionID)
     local isCapped, isParagon = CheckRep(standingID, factionID, friendID, nextFriendThreshold)
 
-    if isCapped and not isParagon then
+    if isCapped then
         -- don't want a blank bar at non-Paragon Exalted
         bar.statusBar:SetMinMaxValues(0, 1)
         bar.statusBar:SetValue(1)
@@ -90,32 +73,13 @@ local function UpdateReputation(self)
 
     if name then -- only do stuff if name has value
         if E.db.KlixUI.databars.reputationBar.capped then
-            if isCapped and not isParagon then
-                if friendID then
-                    bar.text:SetText(friendName .. ": " .. L["Capped"])
-                elseif not isParagon then
-                    bar.text:SetText(name .. ": " .. L["Capped"])
-                end
-            --[[elseif isParagon then
-                local replacement
-				if E.db.KlixUI.databars.reputationBar.textFormat == "P" then
-					replacement = L["P"]
-				else
-					replacement = L["Paragon"]
-				end
-                replacement = "[" .. replacement .. "]"
-                local barText = bar.text:GetText()
-                barText = T.string_gsub(barText, "%[(.+)%]", replacement)
-                bar.text:SetText(barText)]]
+            if isCapped then
+				bar.text:SetText(name .. ": " .. L["Capped"])
             end
         end
 
         -- color the rep bar
         if E.db.KlixUI.databars.reputationBar.color == "ascii" then
-            if isParagon then
-                standingID = standingID + 1
-            end
-
             local color = KDB_REP_BAR_COLORS[standingID] or BACKUP
             bar.statusBar:SetStatusBarColor(color.r, color.g, color.b)
         else

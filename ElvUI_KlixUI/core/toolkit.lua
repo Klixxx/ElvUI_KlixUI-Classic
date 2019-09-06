@@ -38,6 +38,7 @@ T.C_FriendList_GetNumFriends = C_FriendList.GetNumFriends
 T.C_Map_GetBestMapForUnit = C_Map.GetBestMapForUnit
 T.C_Map_GetMapArtID = C_Map.GetMapArtID
 T.C_Map_GetMapArtLayers = C_Map.GetMapArtLayers
+T.C_Map_GetMapInfo = C_Map.GetMapInfo
 T.C_Map_GetPlayerMapPosition = C_Map.GetPlayerMapPosition
 T.C_MapExplorationInfo_GetExploredMapTextures = C_MapExplorationInfo.GetExploredMapTextures
 T.C_NamePlate_GetNamePlateForUnit = C_NamePlate.GetNamePlateForUnit

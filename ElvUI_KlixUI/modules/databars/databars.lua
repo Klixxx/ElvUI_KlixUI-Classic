@@ -7,28 +7,10 @@ function KDB:StyleBackdrops()
 	
 	if E.db.KlixUI.general.style then
 		if db.style then
-			-- Artifact
-			local artifact = _G["ElvUI_ArtifactBar"]
-			if artifact then
-				artifact.statusBar:Styling()
-			end
-			
-			--Azerite
-			local azerite = _G["ElvUI_AzeriteBar"]
-			if azerite then
-				azerite.statusBar:Styling()
-			end
-			
 			-- Experience
 			local experience = _G["ElvUI_ExperienceBar"]
 			if experience then
 				experience.statusBar:Styling()
-			end
-			
-			-- Honor
-			local honor = _G["ElvUI_HonorBar"]
-			if honor then
-				honor.statusBar:Styling()
 			end
 			
 			-- Reputation
@@ -46,8 +28,6 @@ function KDB:EnableDisable()
     KDB:HookXPTooltip()
     KDB:HookRepText()
     KDB:HookRepTooltip()
-    KDB:HookHonorBar()
-    KDB:HookAzeriteBar()
 
     if not E.db.KlixUI.databars.enable or T.IsAddOnLoaded("ElvUI_ProgressiveDataBarsColors") then
         KDB:UnhookAll() -- make sure no hooks are left behind

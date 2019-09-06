@@ -166,6 +166,13 @@ local function DataBarTable()
 								get = function() return E.db.KlixUI.databars.questXP.CurrentZoneOnly end,
 								set = function(info, value) E.db.KlixUI.databars.questXP.CurrentZoneOnly = value; QXP:Refresh() end,
 							},
+							tooltip = {
+								order = 8,
+								type = "toggle",
+								name = L["Add Quest XP To Tooltip"],
+								get = function(info) return E.db.KlixUI.databars.questXP.tooltip end,
+								set = function(info, value) E.db.KlixUI.databars.questXP.tooltip = value; QXP:HookXPBar(value) end
+							},
 						},
 					},
                 },
@@ -249,57 +256,6 @@ local function DataBarTable()
                             EDB:UpdateReputation()
                         end,
                     },
-					paragon = {
-						order = 15,
-						type = "group",
-						name = L["Paragon"],
-						guiInline = true,
-						disabled = function() return not E.db.KlixUI.databars.enable or T.IsAddOnLoaded("ParagonReputation") end,
-						get = function(info) return E.db.KlixUI.databars.paragon[ info[#info] ] end,
-						set = function(info, value) E.db.KlixUI.databars.paragon[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL"); end,
-						args = {
-							intro = {
-								order = 1,
-								type = "description",
-								name = L["PREP_DESC"],
-							},
-							enable = {
-								type = "toggle",
-								order = 2,
-								name = L["Enable"],
-							},
-							text = {
-								order = 3,
-								type = "select",
-								name = L["Text Display"],
-								values = {
-									["PARAGON"] = L["Paragon"],
-									["EXALTED"] = L["Exalted"],
-									["CURRENT"] = L["Current"],
-									["VALUE"] = L["Value"],
-									["DEFICIT"] = L["Deficit"],
-								},
-								disabled = function() return not E.db.KlixUI.databars.paragon.enable end,
-								set = function(info, value) E.db.KlixUI.databars.paragon.text = value end,
-							},
-							color = {
-								order = 4,
-								type = "color",
-								name = L["Color"],
-								hasAlpha = false,
-								disabled = function() return not E.db.KlixUI.databars.paragon.enable end,
-								get = function(info)
-									local t = E.db.KlixUI.databars.paragon.color
-									return t.r, t.g, t.b
-								end,
-								set = function(info, r, g, b)
-									E.db.KlixUI.databars.paragon.color = {}
-									local t = E.db.KlixUI.databars.paragon.color
-									t.r, t.g, t.b = r, g, b
-								end,
-							},
-						},
-					},
 					repColors = {
 						order = 20,
 						type = "group",
@@ -307,80 +263,6 @@ local function DataBarTable()
 						guiInline = true,
 						args = {},
 					},
-                },
-            },
-            honorBar = {
-                order = 12,
-                name = L["Honor Bar"],
-                type = "group",
-				disabled = function() return not E.db.KlixUI.databars.enable or T.IsAddOnLoaded("ElvUI_ProgressiveDataBarsColors") end,
-                args = {
-                    progress = {
-                        order = 1,
-                        name = L["Blend Progress"],
-                        desc = L["Progressively blend the bar as you gain honor."],
-                        type = "toggle",
-                        get = function()
-                            return E.db.KlixUI.databars.honorBar.progress
-                        end,
-                        set = function(info, value)
-                            E.db.KlixUI.databars.honorBar.progress = value
-                            EDB:UpdateHonor()
-                        end,
-                    },
-                    color = {
-                        order = 2,
-                        name = L["Honor Color"],
-                        desc = L["Change the honor bar color."],
-                        type = "color",
-                        hasAlpha = false,
-                        get = function()
-                            local c = E.db.KlixUI.databars.honorBar.color
-                            return c.r, c.g, c.b
-                        end,
-                        set = function(info, r, g, b)
-                            local c = E.db.KlixUI.databars.honorBar.color
-                            c.r, c.g, c.b = r, g, b
-                            EDB:UpdateHonor()
-                        end,
-                    },
-                },
-            },
-            azeriteBar = {
-                order = 13,
-                name = L["Azerite Bar"],
-                type = "group",
-				disabled = function() return not E.db.KlixUI.databars.enable or T.IsAddOnLoaded("ElvUI_ProgressiveDataBarsColors") end,
-                args = {
-                    progress = {
-                        order = 1,
-                        name = L["Blend Progress"],
-                        desc = L["Progressively blend the bar as you gain Azerite Power"],
-                        type = "toggle",
-                        get = function()
-                            return E.db.KlixUI.databars.azeriteBar.progress
-                        end,
-                        set = function(info, value)
-                            E.db.KlixUI.databars.azeriteBar.progress = value
-                            EDB:UpdateAzerite()
-                        end,
-                    },
-                    color = {
-                        order = 2,
-                        name = L["Azerite Color"],
-                        desc = L["Change the Azerite bar color"],
-                        type = "color",
-                        hasAlpha = false,
-                        get = function()
-                            local c = E.db.KlixUI.databars.azeriteBar.color
-                            return c.r, c.g, c.b
-                        end,
-                        set = function(info, r, g, b)
-                            local c = E.db.KlixUI.databars.azeriteBar.color
-                            c.r, c.g, c.b = r, g, b
-                            EDB:UpdateAzerite()
-                        end,
-                    },
                 },
             },
         },

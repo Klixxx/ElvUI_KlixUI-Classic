@@ -86,7 +86,7 @@ function MI:MaxStack()
 
     -- Add a hint to the tooltip.
     local function IsMerchantButtonOver()
-        return T.GetMouseFocus():GetName() and T.GetMouseFocus():GetName():find("MerchantItem%d")
+        return GetMouseFocus():GetName() and GetMouseFocus():GetName():find("MerchantItem%d")
     end
 
     _G.GameTooltip:HookScript("OnTooltipSetItem", function(self)

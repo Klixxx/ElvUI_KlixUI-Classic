@@ -12,7 +12,7 @@
 	<Include file="locpanel\load_locpanel.xml"/>
 	<Include file="tooltip\load_tooltip.xml"/>
 	<Include file="unitframes\load_unitframes.xml"/>
-	<!--Include file="databars\load_databars.xml"/-->
+	<Include file="databars\load_databars.xml"/>
 	<Include file="datatexts\load_datatexts.xml"/>
 	<Include file="quest\load_quest.xml"/>
 	<Include file="efl\load_efl.xml"/>
