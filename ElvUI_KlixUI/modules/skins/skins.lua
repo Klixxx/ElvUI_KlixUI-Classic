@@ -1066,14 +1066,21 @@ local function styleAddons()
 		end
 		
 		if _G.WeaponSwingTimerPlayerFrame then
-			_G.WeaponSwingTimerPlayerFrame.main_left_text:ClearAllPoints()
-			_G.WeaponSwingTimerPlayerFrame.main_left_text:SetPoint("LEFT", _G.WeaponSwingTimerPlayerFrame.main_bar, "LEFT", 2, 0)
-			_G.WeaponSwingTimerPlayerFrame.off_left_text:ClearAllPoints()
-			_G.WeaponSwingTimerPlayerFrame.off_left_text:SetPoint("LEFT", _G.WeaponSwingTimerPlayerFrame.off_bar, "LEFT", 2, 0)
-			_G.WeaponSwingTimerPlayerFrame.main_right_text:ClearAllPoints()
-			_G.WeaponSwingTimerPlayerFrame.main_right_text:SetPoint("RIGHT", _G.WeaponSwingTimerPlayerFrame.main_bar, "RIGHT", -2, 0)
-			_G.WeaponSwingTimerPlayerFrame.off_right_text:ClearAllPoints()
-			_G.WeaponSwingTimerPlayerFrame.off_right_text:SetPoint("RIGHT", _G.WeaponSwingTimerPlayerFrame.off_bar, "RIGHT", -2, 0)
+			if _G.WeaponSwingTimerPlayerFrame.main_bar:IsShown() then
+				_G.WeaponSwingTimerPlayerFrame.main_left_text:ClearAllPoints()
+				_G.WeaponSwingTimerPlayerFrame.main_left_text:SetPoint("TOPLEFT", _G.WeaponSwingTimerPlayerFrame, "TOPLEFT", 2, 0)
+				_G.WeaponSwingTimerPlayerFrame.main_right_text:ClearAllPoints()
+				_G.WeaponSwingTimerPlayerFrame.main_right_text:SetPoint("TOPRIGHT", _G.WeaponSwingTimerPlayerFrame, "TOPRIGHT", -2, 0)
+				_G.WeaponSwingTimerPlayerFrame.off_left_text:ClearAllPoints()
+				_G.WeaponSwingTimerPlayerFrame.off_left_text:SetPoint("BOTTOMLEFT", _G.WeaponSwingTimerPlayerFrame, "BOTTOMLEFT", 2, 0)
+				_G.WeaponSwingTimerPlayerFrame.off_right_text:ClearAllPoints()
+				_G.WeaponSwingTimerPlayerFrame.off_right_text:SetPoint("BOTTOMRIGHT", _G.WeaponSwingTimerPlayerFrame, "BOTTOMRIGHT", -2, 0)
+			else
+				_G.WeaponSwingTimerPlayerFrame.main_left_text:ClearAllPoints()
+				_G.WeaponSwingTimerPlayerFrame.main_left_text:SetPoint("LEFT", _G.WeaponSwingTimerPlayerFrame, "LEFT", 2, 0)
+				_G.WeaponSwingTimerPlayerFrame.main_right_text:ClearAllPoints()
+				_G.WeaponSwingTimerPlayerFrame.main_right_text:SetPoint("RIGHT", _G.WeaponSwingTimerPlayerFrame, "RIGHT", -2, 0)
+			end
 			
 			_G.WeaponSwingTimerPlayerFrame.main_left_text:SetFont(E.media.normFont, 11, "OUTLINE")
 			_G.WeaponSwingTimerPlayerFrame.off_left_text:SetFont(E.media.normFont, 11, "OUTLINE")
@@ -1091,14 +1098,21 @@ local function styleAddons()
 		end
 		
 		if _G.WeaponSwingTimerTargetFrame then
-			_G.WeaponSwingTimerTargetFrame.main_left_text:ClearAllPoints()
-			_G.WeaponSwingTimerTargetFrame.main_left_text:SetPoint("LEFT", _G.WeaponSwingTimerTargetFrame.main_bar, "LEFT", 2, 0)
-			_G.WeaponSwingTimerTargetFrame.off_left_text:ClearAllPoints()
-			_G.WeaponSwingTimerTargetFrame.off_left_text:SetPoint("LEFT", _G.WeaponSwingTimerTargetFrame.off_bar, "LEFT", 2, 0)
-			_G.WeaponSwingTimerTargetFrame.main_right_text:ClearAllPoints()
-			_G.WeaponSwingTimerTargetFrame.main_right_text:SetPoint("RIGHT", _G.WeaponSwingTimerTargetFrame.main_bar, "RIGHT", -2, 0)
-			_G.WeaponSwingTimerTargetFrame.off_right_text:ClearAllPoints()
-			_G.WeaponSwingTimerTargetFrame.off_right_text:SetPoint("RIGHT", _G.WeaponSwingTimerTargetFrame.off_bar, "RIGHT", -2, 0)
+			if _G.WeaponSwingTimerTargetFrame.main_bar:IsShown() then
+				_G.WeaponSwingTimerTargetFrame.main_left_text:ClearAllPoints()
+				_G.WeaponSwingTimerTargetFrame.main_left_text:SetPoint("TOPLEFT", _G.WeaponSwingTimerTargetFrame, "TOPLEFT", 2, 0)
+				_G.WeaponSwingTimerTargetFrame.main_right_text:ClearAllPoints()
+				_G.WeaponSwingTimerTargetFrame.main_right_text:SetPoint("TOPRIGHT", _G.WeaponSwingTimerTargetFrame, "TOPRIGHT", -2, 0)
+				_G.WeaponSwingTimerTargetFrame.off_left_text:ClearAllPoints()
+				_G.WeaponSwingTimerTargetFrame.off_left_text:SetPoint("BOTTOMLEFT", _G.WeaponSwingTimerTargetFrame, "BOTTOMLEFT", 2, 0)
+				_G.WeaponSwingTimerTargetFrame.off_right_text:ClearAllPoints()
+				_G.WeaponSwingTimerTargetFrame.off_right_text:SetPoint("BOTTOMRIGHT", _G.WeaponSwingTimerTargetFrame, "BOTTOMRIGHT", -2, 0)
+			else
+				_G.WeaponSwingTimerTargetFrame.main_left_text:ClearAllPoints()
+				_G.WeaponSwingTimerTargetFrame.main_left_text:SetPoint("LEFT", _G.WeaponSwingTimerTargetFrame, "LEFT", 2, 0)
+				_G.WeaponSwingTimerTargetFrame.main_right_text:ClearAllPoints()
+				_G.WeaponSwingTimerTargetFrame.main_right_text:SetPoint("RIGHT", _G.WeaponSwingTimerTargetFrame, "RIGHT", -2, 0)
+			end
 			
 			_G.WeaponSwingTimerTargetFrame.main_left_text:SetFont(E.media.normFont, 11, "OUTLINE")
 			_G.WeaponSwingTimerTargetFrame.off_left_text:SetFont(E.media.normFont, 11, "OUTLINE")
