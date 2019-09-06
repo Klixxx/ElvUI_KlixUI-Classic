@@ -20,13 +20,16 @@ local function CheckExtraAB()
 	end
 end
 
-function KAB:IconShadow()
+function KAB:ABStyling()
 	-- Buttons
 	local db = E.db.KlixUI.actionbars
 	for i = 1, availableActionbars do
 		for k = 1, 12 do
 			local buttonBars = {_G["ElvUI_Bar"..i.."Button"..k]}
 			for _, button in T.pairs(buttonBars) do
+				if button.backdrop then
+					button.backdrop:Styling()
+				end
 				button:CreateIconShadow()
 			end
 		end
@@ -80,7 +83,7 @@ end
 
 function KAB:Initialize()
 	CheckExtraAB()
-	T.C_Timer_After(1, KAB.IconShadow)
+	T.C_Timer_After(1, KAB.ABStyling)
 	T.C_Timer_After(1, KAB.StyleBackdrops)
 end
 
