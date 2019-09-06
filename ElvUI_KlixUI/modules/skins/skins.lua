@@ -1054,6 +1054,50 @@ local function styleAddons()
 			end
 		end
 	end
+	
+	if T.IsAddOnLoaded("WeaponSwingTimer") then
+		if _G.WeaponSwingTimerPlayerBackdropFrame then
+			_G.WeaponSwingTimerPlayerBackdropFrame:StripTextures()
+			_G.WeaponSwingTimerPlayerBackdropFrame:CreateBackdrop("Transparent")
+			_G.WeaponSwingTimerPlayerBackdropFrame.backdrop:Point('TOPLEFT', 10, -10)
+			_G.WeaponSwingTimerPlayerBackdropFrame.backdrop:Point('BOTTOMRIGHT', -10, 10)
+			_G.WeaponSwingTimerPlayerBackdropFrame.backdrop:Styling()
+		end
+		
+		if _G.WeaponSwingTimerPlayerFrame then
+			_G.WeaponSwingTimerPlayerFrame.main_left_text:SetFont(E.media.normFont, 12, "OUTLINE")
+			_G.WeaponSwingTimerPlayerFrame.off_left_text:SetFont(E.media.normFont, 12, "OUTLINE")
+			_G.WeaponSwingTimerPlayerFrame.main_right_text:SetFont(E.media.normFont, 12, "OUTLINE")
+			_G.WeaponSwingTimerPlayerFrame.off_right_text:SetFont(E.media.normFont, 12, "OUTLINE")
+		end
+		
+		if _G.WeaponSwingTimerTargetBackdropFrame then
+			_G.WeaponSwingTimerTargetBackdropFrame:StripTextures()
+			_G.WeaponSwingTimerTargetBackdropFrame:CreateBackdrop("Transparent")
+			_G.WeaponSwingTimerTargetBackdropFrame.backdrop:Point('TOPLEFT', 10, -10)
+			_G.WeaponSwingTimerTargetBackdropFrame.backdrop:Point('BOTTOMRIGHT', -10, 10)
+			_G.WeaponSwingTimerTargetBackdropFrame.backdrop:Styling()
+		end
+		
+		if _G.WeaponSwingTimerTargetFrame then
+			_G.WeaponSwingTimerTargetFrame.main_left_text:SetFont(E.media.normFont, 12, "OUTLINE")
+			_G.WeaponSwingTimerTargetFrame.off_left_text:SetFont(E.media.normFont, 12, "OUTLINE")
+			_G.WeaponSwingTimerTargetFrame.main_right_text:SetFont(E.media.normFont, 12, "OUTLINE")
+			_G.WeaponSwingTimerTargetFrame.off_right_text:SetFont(E.media.normFont, 12, "OUTLINE")
+		end
+		
+		if _G.WeaponSwingTimerHunterBackdropFrame then
+			_G.WeaponSwingTimerHunterBackdropFrame:StripTextures()
+			_G.WeaponSwingTimerHunterBackdropFrame:CreateBackdrop("Transparent")
+			_G.WeaponSwingTimerHunterBackdropFrame.backdrop:Point('TOPLEFT', 10, -10)
+			_G.WeaponSwingTimerHunterBackdropFrame.backdrop:Point('BOTTOMRIGHT', -10, 10)
+			_G.WeaponSwingTimerHunterBackdropFrame.backdrop:Styling()
+		end
+		
+		if _G.WeaponSwingTimerHunterFrame then
+			_G.WeaponSwingTimerHunterFrame.spell_text_center:SetFont(E.media.normFont, 12, "OUTLINE")
+		end
+	end
 end
 
 local function StyleDBM_Options()
