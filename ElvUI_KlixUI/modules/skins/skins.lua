@@ -1056,6 +1056,7 @@ local function styleAddons()
 	end
 	
 	if T.IsAddOnLoaded("WeaponSwingTimer") then
+		-- Player
 		if _G.WeaponSwingTimerPlayerBackdropFrame then
 			_G.WeaponSwingTimerPlayerBackdropFrame:StripTextures()
 			_G.WeaponSwingTimerPlayerBackdropFrame:CreateBackdrop("Transparent")
@@ -1065,12 +1066,22 @@ local function styleAddons()
 		end
 		
 		if _G.WeaponSwingTimerPlayerFrame then
-			_G.WeaponSwingTimerPlayerFrame.main_left_text:SetFont(E.media.normFont, 12, "OUTLINE")
-			_G.WeaponSwingTimerPlayerFrame.off_left_text:SetFont(E.media.normFont, 12, "OUTLINE")
-			_G.WeaponSwingTimerPlayerFrame.main_right_text:SetFont(E.media.normFont, 12, "OUTLINE")
-			_G.WeaponSwingTimerPlayerFrame.off_right_text:SetFont(E.media.normFont, 12, "OUTLINE")
+			_G.WeaponSwingTimerPlayerFrame.main_left_text:ClearAllPoints()
+			_G.WeaponSwingTimerPlayerFrame.main_left_text:SetPoint("LEFT", _G.WeaponSwingTimerPlayerFrame.main_bar, "LEFT", 2, 0)
+			_G.WeaponSwingTimerPlayerFrame.off_left_text:ClearAllPoints()
+			_G.WeaponSwingTimerPlayerFrame.off_left_text:SetPoint("LEFT", _G.WeaponSwingTimerPlayerFrame.off_bar, "LEFT", 2, 0)
+			_G.WeaponSwingTimerPlayerFrame.main_right_text:ClearAllPoints()
+			_G.WeaponSwingTimerPlayerFrame.main_right_text:SetPoint("RIGHT", _G.WeaponSwingTimerPlayerFrame.main_bar, "RIGHT", -2, 0)
+			_G.WeaponSwingTimerPlayerFrame.off_right_text:ClearAllPoints()
+			_G.WeaponSwingTimerPlayerFrame.off_right_text:SetPoint("RIGHT", _G.WeaponSwingTimerPlayerFrame.off_bar, "RIGHT", -2, 0)
+			
+			_G.WeaponSwingTimerPlayerFrame.main_left_text:SetFont(E.media.normFont, 11, "OUTLINE")
+			_G.WeaponSwingTimerPlayerFrame.off_left_text:SetFont(E.media.normFont, 11, "OUTLINE")
+			_G.WeaponSwingTimerPlayerFrame.main_right_text:SetFont(E.media.normFont, 11, "OUTLINE")
+			_G.WeaponSwingTimerPlayerFrame.off_right_text:SetFont(E.media.normFont, 11, "OUTLINE")
 		end
 		
+		-- Target
 		if _G.WeaponSwingTimerTargetBackdropFrame then
 			_G.WeaponSwingTimerTargetBackdropFrame:StripTextures()
 			_G.WeaponSwingTimerTargetBackdropFrame:CreateBackdrop("Transparent")
@@ -1080,12 +1091,22 @@ local function styleAddons()
 		end
 		
 		if _G.WeaponSwingTimerTargetFrame then
-			_G.WeaponSwingTimerTargetFrame.main_left_text:SetFont(E.media.normFont, 12, "OUTLINE")
-			_G.WeaponSwingTimerTargetFrame.off_left_text:SetFont(E.media.normFont, 12, "OUTLINE")
-			_G.WeaponSwingTimerTargetFrame.main_right_text:SetFont(E.media.normFont, 12, "OUTLINE")
-			_G.WeaponSwingTimerTargetFrame.off_right_text:SetFont(E.media.normFont, 12, "OUTLINE")
+			_G.WeaponSwingTimerTargetFrame.main_left_text:ClearAllPoints()
+			_G.WeaponSwingTimerTargetFrame.main_left_text:SetPoint("LEFT", _G.WeaponSwingTimerTargetFrame.main_bar, "LEFT", 2, 0)
+			_G.WeaponSwingTimerTargetFrame.off_left_text:ClearAllPoints()
+			_G.WeaponSwingTimerTargetFrame.off_left_text:SetPoint("LEFT", _G.WeaponSwingTimerTargetFrame.off_bar, "LEFT", 2, 0)
+			_G.WeaponSwingTimerTargetFrame.main_right_text:ClearAllPoints()
+			_G.WeaponSwingTimerTargetFrame.main_right_text:SetPoint("RIGHT", _G.WeaponSwingTimerTargetFrame.main_bar, "RIGHT", -2, 0)
+			_G.WeaponSwingTimerTargetFrame.off_right_text:ClearAllPoints()
+			_G.WeaponSwingTimerTargetFrame.off_right_text:SetPoint("RIGHT", _G.WeaponSwingTimerTargetFrame.off_bar, "RIGHT", -2, 0)
+			
+			_G.WeaponSwingTimerTargetFrame.main_left_text:SetFont(E.media.normFont, 11, "OUTLINE")
+			_G.WeaponSwingTimerTargetFrame.off_left_text:SetFont(E.media.normFont, 11, "OUTLINE")
+			_G.WeaponSwingTimerTargetFrame.main_right_text:SetFont(E.media.normFont, 11, "OUTLINE")
+			_G.WeaponSwingTimerTargetFrame.off_right_text:SetFont(E.media.normFont, 11, "OUTLINE")
 		end
 		
+		-- Hunter
 		if _G.WeaponSwingTimerHunterBackdropFrame then
 			_G.WeaponSwingTimerHunterBackdropFrame:StripTextures()
 			_G.WeaponSwingTimerHunterBackdropFrame:CreateBackdrop("Transparent")
@@ -1095,7 +1116,10 @@ local function styleAddons()
 		end
 		
 		if _G.WeaponSwingTimerHunterFrame then
-			_G.WeaponSwingTimerHunterFrame.spell_text_center:SetFont(E.media.normFont, 12, "OUTLINE")
+			_G.WeaponSwingTimerHunterFrame.spell_text_center:ClearAllPoints()
+			_G.WeaponSwingTimerHunterFrame.spell_text_center:SetPoint("CENTER", _G.WeaponSwingTimerHunterFrame.shot_bar, "CENTER", 0, 0)
+			
+			_G.WeaponSwingTimerHunterFrame.spell_text_center:SetFont(E.media.normFont, 11, "OUTLINE")
 		end
 	end
 end
