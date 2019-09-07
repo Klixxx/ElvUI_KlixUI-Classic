@@ -99,6 +99,7 @@ V['KlixUI'] = {
 			["tabard"] = true,
 			["talent"] = true,
 			["taxi"] = true,
+			["timemanager"] = true,
 			["trade"] = true,
 			["tradeskill"] = true,
 			["trainer"] = true,

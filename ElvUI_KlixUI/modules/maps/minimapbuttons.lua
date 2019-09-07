@@ -16,6 +16,8 @@ local ignoreButtons = {
 	'MiniMapTracking',
 	'TukuiMinimapZone',
 	'TukuiMinimapCoord',
+	'TukuiMinimapCoord',
+	'Questie',
 }
 
 local GenericIgnores = {

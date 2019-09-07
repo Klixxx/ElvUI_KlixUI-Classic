@@ -322,9 +322,14 @@ local function SkinsTable()
 				name = FLIGHT_MAP,
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.taxi end,
 			},
+			timemanager = {
+				type = "toggle",
+				name = TIMEMANAGER_TITLE,
+				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.timemanager end,
+			},
 			trade = {
 				type = "toggle",
-				name = TRADESKILLS,
+				name = L["Trade"],
 				disabled = function() return not E.private.skins.blizzard.enable or not E.private.skins.blizzard.trade end,
 			},
 			tradeskill = {
