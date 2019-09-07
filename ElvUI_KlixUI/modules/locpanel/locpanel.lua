@@ -74,11 +74,9 @@ local function GetDirection()
 end
 
 local function CreateCoords()
-	local x, y = 0, 0
-	local playerPosition = T.C_Map_GetPlayerMapPosition( T.C_Map_GetBestMapForUnit("player"), "player" )
-	if playerPosition then x, y = playerPosition:GetXY() end
-	x = T.string_format(LP.db.format, x * 100)
-	y = T.string_format(LP.db.format, y * 100)
+	local x, y = E.MapInfo.x or 0, E.MapInfo.y or 0
+	if x then x = T.string_format(LP.db.format, x * 100) else x = "0" or " " end
+	if y then y = T.string_format(LP.db.format, y * 100) else y = "0" or " " end
 
 	return x, y
 end
