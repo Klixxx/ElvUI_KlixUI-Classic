@@ -18,6 +18,7 @@ local ignoreButtons = {
 	'TukuiMinimapCoord',
 	'TukuiMinimapCoord',
 	'Questie',
+	'Guidelime',
 }
 
 local GenericIgnores = {
