@@ -37,27 +37,6 @@ function PvP:Duels(event, name)
 	end
 end
 
-function PvP:OpponentsTable()
-	T.table_wipe(BG_Opponents)
-	for index = 1, T.GetNumBattlefieldScores() do
-		local name, _, _, _, _, faction, _, _, classToken = T.GetBattlefieldScore(index)
-		if (KUI.myfaction == "Horde" and faction == 1) or (KUI.myfaction == "Alliance" and faction == 0) then
-			BG_Opponents[name] = classToken
-		end
-	end
-end
-
-function PvP:LogParse()
-	local _, subevent, _, _, Caster, _, _, _, TargetName, TargetFlags = T.CombatLogGetCurrentEventInfo()
-	if subevent == "PARTY_KILL" then
-		local mask = T.bit_band(TargetFlags, COMBATLOG_OBJECT_TYPE_PLAYER)
-		if Caster == E.myname and (BG_Opponents[TargetName] or mask > 0) then
-			if mask > 0 and BG_Opponents[TargetName] then TargetName = "|c"..RAID_CLASS_COLORS[BG_Opponents[TargetName]].colorStr..TargetName.."|r" end
-			T.TopBannerManager_Show(_G.BossBanner, { name = TargetName, mode = "PVPKILL" });
-		end
-	end
-end
-
 function PvP:Initialize()
 	if T.IsAddOnLoaded("ElvUI_SLE") then return end
 	
@@ -73,25 +52,6 @@ function PvP:Initialize()
 
 	function PvP:ForUpdateAll()
 		PvP.db = E.db.KlixUI.pvp
-	end
-
-	if E.private.KlixUI.pvp.KBbanner.enable then
-		hooksecurefunc(_G.BossBanner, "PlayBanner", function(self, data)
-			if ( data ) then
-				if ( data.mode == "PVPKILL" ) then
-					self.Title:SetText(data.name);
-					self.Title:Show();
-					self.SubTitle:Hide();
-					self:Show();
-					T.BossBanner_BeginAnims(self);
-					if E.private.KlixUI.pvp.KBbanner.sound then
-						T.PlaySound(SOUNDKIT.UI_RAID_BOSS_DEFEATED)
-					end
-				end
-			end
-		end)
-		self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED", "LogParse")
-		self:RegisterEvent("UPDATE_BATTLEFIELD_SCORE", "OpponentsTable")
 	end
 end
 

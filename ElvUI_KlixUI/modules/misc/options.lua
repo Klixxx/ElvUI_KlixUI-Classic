@@ -605,57 +605,9 @@ local function Misc()
 							},
 						},
 					},
-					BossBanner = {
-						order = 4,
-						type = "group",
-						name = KILLING_BLOWS,
-						guiInline = true,
-						disabled = function() return T.IsAddOnLoaded("ElvUI_SLE") end,
-						hidden = function() return T.IsAddOnLoaded("ElvUI_SLE") end,
-						get = function(info) return E.private.KlixUI.pvp.KBbanner[ info[#info] ] end,
-						set = function(info, value) E.private.KlixUI.pvp.KBbanner[ info[#info] ] = value end,
-						args = {
-							enable = {
-								order = 1,
-								type = "toggle",
-								name = L["Enable"],
-								desc = L["Show your PvP killing blows as a popup."],
-								set = function(info, value) E.private.KlixUI.pvp.KBbanner[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL") end,
-							},
-							sound = {
-								order = 2,
-								type = "toggle",
-								name = L["KB Sound"],
-								desc = L["Play sound when killing blows popup is shown."],
-								disabled = function() return not E.private.KlixUI.pvp.KBbanner.enable end,
-							},
-						},
-					},
 				},
 			},
 		},
 	}
 end
 T.table_insert(KUI.Config, Misc)
-
---[[local function injectElvUIDataTextsOptions()
-	E.Options.args.general.args.general.args.spacer1 = {
-		order = 28,
-		type = 'description',
-		name = '',
-	}
-
-	E.Options.args.general.args.general.args.spacer2 = {
-		order = 29,
-		type = 'header',
-		name = '',
-	}
-	
-	E.Options.args.general.args.general.args.gotoklixui = {
-		order = 30,
-		type = "execute",
-		name = KUI:cOption(L["KlixUI Panels"]),
-		func = function() LibStub("AceConfigDialog-3.0-ElvUI"):SelectGroup("ElvUI", "KlixUI", "modules", "misc", "panels") end,
-	}
-end
-T.table_insert(KUI.Config, injectElvUIDataTextsOptions)]]
