@@ -6,6 +6,7 @@ local function styleDressingroom()
 	
 	local DressUpFrame = _G.DressUpFrame
 	DressUpFrame.backdrop:Styling()
+	
 	DressUpFrameBackgroundTopLeft:Hide()
 	DressUpFrameBackgroundTopRight:Hide()
 	DressUpFrameBackgroundBot:Hide()

@@ -1,6 +1,5 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<Script file="auraIconSpacing.lua"/>
-	<Script file="healerMana.lua"/>
 	<Script file="health.lua"/>
 	<Script file="powerbar.lua"/>
 	<Script file="power.lua"/>

@@ -50,16 +50,6 @@ local function UnitFramesTable()
 						get = function(info) return E.db.KlixUI.unitframes.powerBar end,
 						set = function(info, value) E.db.KlixUI.unitframes.powerBar = value; E:StaticPopup_Show("PRIVATE_RL") end,
 					},
-					healerMana = {
-						type = 'toggle',
-						order = 2,
-						name = L['Healer Mana'],
-						desc = L['Only show the mana of the healer when in a party group.'],
-						hidden = function() return T.IsAddOnLoaded("ElvUI_HealerMana") end,
-						disabled = function() return T.IsAddOnLoaded("ElvUI_HealerMana") or not E.db.unitframe.units.party.power.enable end,
-						get = function(info) return E.db.KlixUI.unitframes.healerMana end,
-						set = function(info, value) E.db.KlixUI.unitframes.healerMana = value; E:StaticPopup_Show("PRIVATE_RL") end,
-					},
 					space1 = {
 						order = 9,
 						type = "description",
