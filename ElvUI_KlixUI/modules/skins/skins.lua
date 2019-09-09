@@ -1055,6 +1055,12 @@ local function styleAddons()
 		end
 	end
 	
+	if T.IsAddOnLoaded("Classic Quest Log") then
+		ClassicQuestLog:Styling()
+		ClassicQuestLogScrollFrame.BG:Hide()
+		ClassicQuestLogDetailScrollFrame.DetailBG:Hide()
+	end
+	
 	if T.IsAddOnLoaded("WeaponSwingTimer") then
 		-- Player
 		if _G.WeaponSwingTimerPlayerBackdropFrame then
