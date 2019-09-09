@@ -1061,6 +1061,39 @@ local function styleAddons()
 		ClassicQuestLogDetailScrollFrame.DetailBG:Hide()
 	end
 	
+	if T.IsAddOnLoaded("XToLevel") then
+		if XToLevel_AverageFrame_Blocky_PlayerFrameCounterKills then
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterKillsBackground:StripTextures()
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterKillsBackground:CreateBackdrop("Transparent")
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterKillsBackground.backdrop:Styling()
+		end
+		if XToLevel_AverageFrame_Blocky_PlayerFrameCounterQuests then
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterQuestsBackground:StripTextures()
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterQuestsBackground:CreateBackdrop("Transparent")
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterQuestsBackground.backdrop:Styling()
+		end
+		if XToLevel_AverageFrame_Blocky_PlayerFrameCounterDungeons then
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterDungeonsBackground:StripTextures()
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterDungeonsBackground:CreateBackdrop("Transparent")
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterDungeonsBackground.backdrop:Styling()
+		end
+		if XToLevel_AverageFrame_Blocky_PlayerFrameCounterBattles then
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterBattlesBackground:StripTextures()
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterBattlesBackground:CreateBackdrop("Transparent")
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterBattlesBackground.backdrop:Styling()
+		end
+		if XToLevel_AverageFrame_Blocky_PlayerFrameCounterProgress then
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterProgressBackground:StripTextures()
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterProgressBackground:CreateBackdrop("Transparent")
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterProgressBackground.backdrop:Styling()
+		end
+		if XToLevel_AverageFrame_Blocky_PlayerFrameCounterTimer then
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterTimerBackground:StripTextures()
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterTimerBackground:CreateBackdrop("Transparent")
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterTimerBackground.backdrop:Styling()
+		end
+	end
+	
 	if T.IsAddOnLoaded("WeaponSwingTimer") then
 		-- Player
 		if _G.WeaponSwingTimerPlayerBackdropFrame then
