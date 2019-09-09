@@ -1099,6 +1099,12 @@ local function styleAddons()
 			XToLevel_AverageFrame_Blocky_PlayerFrameCounterTimerBackground:CreateBackdrop("Transparent")
 			XToLevel_AverageFrame_Blocky_PlayerFrameCounterTimerBackground.backdrop:Styling()
 		end
+		
+		if XToLevel_AverageFrame_Classic then
+			XToLevel_AverageFrame_Classic:StripTextures()
+			XToLevel_AverageFrame_Classic:CreateBackdrop("Transparent")
+			XToLevel_AverageFrame_Classic.backdrop:Styling()
+		end
 	end
 	
 	--  WeaponSwingTimer
