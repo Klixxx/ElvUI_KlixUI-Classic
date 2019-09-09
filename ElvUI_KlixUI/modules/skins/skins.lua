@@ -1055,12 +1055,14 @@ local function styleAddons()
 		end
 	end
 	
+	-- Classic Quest Log
 	if T.IsAddOnLoaded("Classic Quest Log") then
 		ClassicQuestLog:Styling()
 		ClassicQuestLogScrollFrame.BG:Hide()
 		ClassicQuestLogDetailScrollFrame.DetailBG:Hide()
 	end
 	
+	-- XToLevel
 	if T.IsAddOnLoaded("XToLevel") then
 		if XToLevel_AverageFrame_Blocky_PlayerFrameCounterKills then
 			XToLevel_AverageFrame_Blocky_PlayerFrameCounterKillsBackground:StripTextures()
@@ -1094,6 +1096,7 @@ local function styleAddons()
 		end
 	end
 	
+	--  WeaponSwingTimer
 	if T.IsAddOnLoaded("WeaponSwingTimer") then
 		-- Player
 		if _G.WeaponSwingTimerPlayerBackdropFrame then
