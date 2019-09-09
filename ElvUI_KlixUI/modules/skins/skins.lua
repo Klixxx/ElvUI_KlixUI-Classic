@@ -1084,6 +1084,11 @@ local function styleAddons()
 			XToLevel_AverageFrame_Blocky_PlayerFrameCounterBattlesBackground:CreateBackdrop("Transparent")
 			XToLevel_AverageFrame_Blocky_PlayerFrameCounterBattlesBackground.backdrop:Styling()
 		end
+		if XToLevel_AverageFrame_Blocky_PlayerFrameCounterObjectives then
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterObjectivesBackground:StripTextures()
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterObjectivesBackground:CreateBackdrop("Transparent")
+			XToLevel_AverageFrame_Blocky_PlayerFrameCounterObjectivesBackground.backdrop:Styling()
+		end
 		if XToLevel_AverageFrame_Blocky_PlayerFrameCounterProgress then
 			XToLevel_AverageFrame_Blocky_PlayerFrameCounterProgressBackground:StripTextures()
 			XToLevel_AverageFrame_Blocky_PlayerFrameCounterProgressBackground:CreateBackdrop("Transparent")
