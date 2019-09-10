@@ -10,20 +10,20 @@ local function hexToRGB(hex)
 end
 
 local iconValues = {
-    ["none"] = "No Icons",
-    ["left"] = "Left Side",
-    ["right"] = "Right Side",
-    ["both"] = "Both Sides",
-    ["only"] = "Icons Only (No Text)",
+    ["none"] = L["No Icons"],
+    ["left"] = L["Left Side"],
+    ["right"] = L["Right Side"],
+    ["both"] = L["Both Sides"],
+    ["only"] = L["Icons Only (No Text)"],
 };
 
 local animationValues = {
     -- ["shake"] = "Shake",
-    ["verticalUp"] = "Vertical Up",
-    ["verticalDown"] = "Vertical Down",
-    ["fountain"] = "Fountain",
-    ["rainfall"] = "Rainfall",
-	["disabled"] = "Disabled",
+    ["verticalUp"] = L["Vertical Up"],
+    ["verticalDown"] = L["Vertical Down"],
+    ["fountain"] = L["Fountain"],
+    ["rainfall"] = L["Rainfall"],
+	["disabled"] = L["Disabled"],
 };
 
 local fontFlags = {
@@ -104,15 +104,15 @@ local function CombatTextTable()
 					},
 					autoattack = {
 						type = 'select',
-						name = "Auto Attacks",
+						name = L["Auto Attacks"],
 						desc = "",
 						values = animationValues,
 						order = 4,
 					},
 					autoattackcrit = {
 						type = 'select',
-						name = "Critical",
-						desc = "Auto attacks that are critical hits",
+						name = L["Critical"],
+						desc = L["Auto attacks that are critical hits"],
 						values = animationValues,
 						order = 5,
 					},
@@ -362,8 +362,8 @@ local function CombatTextTable()
 					},
 					autoattackcritsizing = {
 						type = 'toggle',
-						name = "Embiggen Auto Attack Crits",
-						desc = "Embiggen critical auto attacks",
+						name = L["Embiggen Auto Attack Crits"],
+						desc = L["Embiggen critical auto attacks"],
 						order = 2,
 					},
 					critsScale = {
@@ -391,7 +391,7 @@ local function CombatTextTable()
 						order = 20,
 						type = "toggle",
 						name = L["Scale Down Small Hits"],
-						desc = "Scale down hits that are below a running average of your recent damage output",
+						desc = L["Scale down hits that are below a running average of your recent damage output"],
 					},
 					smallHitsScale = {
 						order = 21,
@@ -403,8 +403,8 @@ local function CombatTextTable()
 					},
 					smallHitsHide = {
 						type = 'toggle',
-						name = "Hide Small Hits",
-						desc = "Hide hits that are below a running average of your recent damage output",
+						name = L["Hide Small Hits"],
+						desc = L["Hide hits that are below a running average of your recent damage output"],
 						order = 22,
 					},
 				},

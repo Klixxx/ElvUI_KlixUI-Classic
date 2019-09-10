@@ -63,16 +63,16 @@ local DAMAGE_TYPE_COLORS = {
 };
 
 local MISS_EVENT_STRINGS = {
-    ["ABSORB"] = "Absorbed",
-    ["BLOCK"] = "Blocked",
-    ["DEFLECT"] = "Deflected",
-    ["DODGE"] = "Dodged",
-    ["EVADE"] = "Evaded",
-    ["IMMUNE"] = "Immune",
-    ["MISS"] = "Missed",
-    ["PARRY"] = "Parried",
-    ["REFLECT"] = "Reflected",
-    ["RESIST"] = "Resisted",
+    ["ABSORB"] = L["Absorbed"],
+    ["BLOCK"] = L["Blocked"],
+    ["DEFLECT"] = L["Deflected"],
+    ["DODGE"] = L["Dodged"],
+    ["EVADE"] = L["Evaded"],
+    ["IMMUNE"] = L["Immune"],
+    ["MISS"] = L["Missed"],
+    ["PARRY"] = L["Parried"],
+    ["REFLECT"] = L["Reflected"],
+    ["RESIST"] = L["Resisted"],
 };
 
 local FRAME_LEVEL_OVERLAY = 3
