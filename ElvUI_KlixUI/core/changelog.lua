@@ -6,10 +6,9 @@ local CLOSE = CLOSE
 
 local ChangeLogData = {
 	"Changes:",
-		"• Reenabled blizzard, armory, combat text and databars",
-		"• Added more skins and icon styling.",
+		"• Added skin support for WeaponSwingTimer, XToLoot and classic quest log addon.",
 		"• Fixed various issues.",
-		"• Removed some stuff, they are now in core ElvUI.",
+		"• ",
 		" ", -- Section space!
 		-- "• ",
 		
