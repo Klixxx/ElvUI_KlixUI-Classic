@@ -15,7 +15,7 @@ local function styleBattlenet()
 	
 	local ReportCheatingDialog = _G.ReportCheatingDialog
 	if ReportCheatingDialog.backdrop then
-		eportCheatingDialog.backdrop:Styling()
+		ReportCheatingDialog.backdrop:Styling()
 	end
 	
 	local BattleTagInviteFrame = _G.BattleTagInviteFrame
