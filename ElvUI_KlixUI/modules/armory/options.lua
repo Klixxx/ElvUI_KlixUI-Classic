@@ -306,24 +306,3 @@ local function ArmoryTable()
 	}
 end
 T.table_insert(KUI.Config, ArmoryTable)
-
-local function injectElvUIArmoryOptions()
-	E.Options.args.general.args.blizzUIImprovements.args.itemLevelInfo.args.displayCharacterInfo = {
-		order = 1,
-		type = "toggle",
-		name = L["Display Character Info"],
-		desc = L["Shows item level of each item, enchants, and gems on the character page."],
-		set = function(info, value)
-			E.db.general.itemLevel.displayCharacterInfo = value;
-			E:GetModule('Misc'):ToggleItemLevelInfo(); E:StaticPopup_Show("PRIVATE_RL")
-		end
-	}
-	
-	E.Options.args.general.args.blizzUIImprovements.args.itemLevelInfo.args.gotoklixui = {
-		order = 2,
-		type = "execute",
-		name = KUI:cOption(L["KlixUI Armory"]),
-		func = function() LibStub("AceConfigDialog-3.0-ElvUI"):SelectGroup("ElvUI", "KlixUI", "modules", "armory") end,
-	}
-end
-T.table_insert(KUI.Config, injectElvUIArmoryOptions)
