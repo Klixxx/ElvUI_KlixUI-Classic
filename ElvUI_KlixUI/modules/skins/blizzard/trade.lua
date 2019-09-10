@@ -6,7 +6,9 @@ local function styleTradeFrame()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.trade ~= true or E.private.KlixUI.skins.blizzard.trade ~= true then return end
 
 	local TradeFrame = _G.TradeFrame
-	TradeFrame.backdrop:Styling()
+	if TradeFrame.backdrop then
+		TradeFrame.backdrop:Styling()
+	end
 
 	local function reskinButton(bu)
 		bu:SetNormalTexture("")

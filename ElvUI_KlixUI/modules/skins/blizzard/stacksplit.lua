@@ -5,7 +5,9 @@ local function styleStackSplitFrame()
 	if E.private.skins.blizzard.enable ~= true then return end
 
 	local StackSplitFrame = _G.StackSplitFrame
-	StackSplitFrame.backdrop:Styling()
+	if StackSplitFrame.backdrop then
+		StackSplitFrame.backdrop:Styling()
+	end
 end
 
 S:AddCallback("KuiStackSplitFrame", styleStackSplitFrame)

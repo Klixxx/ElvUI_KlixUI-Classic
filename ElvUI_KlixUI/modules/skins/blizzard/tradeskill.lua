@@ -6,7 +6,10 @@ local function styleTradeSkill()
 
 	-- MainFrame
 	local TradeSkillFrame = _G.TradeSkillFrame
-	TradeSkillFrame.backdrop:Styling()
+	if TradeSkillFrame.backdrop then
+		TradeSkillFrame.backdrop:Styling()
+	end
+	
 	if TradeSkillFrame.bg1 then
 		TradeSkillFrame.bg1:Hide()
 	end

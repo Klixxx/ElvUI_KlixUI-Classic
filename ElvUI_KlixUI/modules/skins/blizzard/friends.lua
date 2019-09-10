@@ -8,7 +8,9 @@ local function styleFriends()
 	
 	--Friends
 	local FriendsFrame = _G.FriendsFrame
-	FriendsFrame.backdrop:Styling()
+	if FriendsFrame.backdrop then
+		FriendsFrame.backdrop:Styling()
+	end
 	
 	--Guild
 	

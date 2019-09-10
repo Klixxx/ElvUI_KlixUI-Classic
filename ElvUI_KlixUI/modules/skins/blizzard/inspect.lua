@@ -6,7 +6,9 @@ local function styleInspect()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.inspect ~= true or E.private.KlixUI.skins.blizzard.inspect ~= true then return end
 	
 	local InspectFrame = _G.InspectFrame
-	InspectFrame.backdrop:Styling()
+	if InspectFrame.backdrop then
+		InspectFrame.backdrop:Styling()
+	end
 	
 	_G.InspectModelFrame:DisableDrawLayer("OVERLAY")
 

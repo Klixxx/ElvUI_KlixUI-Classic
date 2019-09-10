@@ -8,7 +8,10 @@ local function styleCommunities()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.Communities ~= true or E.private.KlixUI.skins.blizzard.communities ~= true then return end
 	
 	local CommunitiesFrame = _G.CommunitiesFrame
-	CommunitiesFrame.backdrop:Styling()
+	if CommunitiesFrame.backdrop then
+		CommunitiesFrame.backdrop:Styling()
+	end
+	
 
 	-- Active Communities
 	hooksecurefunc(_G.CommunitiesListEntryMixin, "SetClubInfo", function(self, clubInfo, isInvitation, isTicket)

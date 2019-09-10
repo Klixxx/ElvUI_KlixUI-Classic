@@ -7,7 +7,9 @@ local function styleBags()
 	for i = 1, NUM_CONTAINER_FRAMES, 1 do
 		containerFrame = _G['ContainerFrame'..i]
 		
-		containerFrame.backdrop:Styling()
+		if containerFrame.backdrop then
+			containerFrame.backdrop:Styling()
+		end
 
 		for k = 1, MAX_CONTAINER_ITEMS, 1 do
 			itemButton = _G['ContainerFrame'..i..'Item'..k]

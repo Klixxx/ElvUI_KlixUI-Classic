@@ -5,7 +5,9 @@ local function styleTalents()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.talent ~= true or E.private.KlixUI.skins.blizzard.talent ~= true then return end
 	
 	local TalentFrame = TalentFrame
-	TalentFrame.backdrop:Styling()
+	if TalentFrame.backdrop then
+		TalentFrame.backdrop:Styling()
+	end
 	
 	-- Hide ElvUI Backdrop
 	if TalentFrameScrollFrame.backdrop then

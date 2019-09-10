@@ -8,7 +8,9 @@ local function styleSpellBook()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.spellbook ~= true or E.private.KlixUI.skins.blizzard.spellbook ~= true then return end
 
 	local SpellBookFrame = _G.SpellBookFrame
-	SpellBookFrame.backdrop:Styling()
+	if SpellBookFrame.backdrop then
+		SpellBookFrame.backdrop:Styling()
+	end
 	
 	if SpellBookFrame.pagebackdrop then
 		SpellBookFrame.pagebackdrop:Hide()

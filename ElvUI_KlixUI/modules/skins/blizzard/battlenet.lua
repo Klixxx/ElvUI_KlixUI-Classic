@@ -8,13 +8,20 @@ local function styleBattlenet()
 	BNToastFrame:Styling()
 	
 	local ReportFrame = _G.PlayerReportFrame
-	ReportFrame.backdrop:Styling()
+	
+	if ReportFrame.backdrop then
+		ReportFrame.backdrop:Styling()
+	end
 	
 	local ReportCheatingDialog = _G.ReportCheatingDialog
-	ReportCheatingDialog.backdrop:Styling()
+	if ReportCheatingDialog.backdrop then
+		eportCheatingDialog.backdrop:Styling()
+	end
 	
 	local BattleTagInviteFrame = _G.BattleTagInviteFrame
-	BattleTagInviteFrame.backdrop:Styling()
+	if BattleTagInviteFrame.backdrop then
+		BattleTagInviteFrame.backdrop:Styling()
+	end
 end
 
 S:AddCallback("KuiBattlenet", styleBattlenet)

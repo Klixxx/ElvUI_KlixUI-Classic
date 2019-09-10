@@ -6,7 +6,9 @@ local function styleMacro()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.macro ~= true or E.private.KlixUI.skins.blizzard.macro ~= true then return end
 	
 	local MacroFrame = _G.MacroFrame
-	MacroFrame.backdrop:Styling()
+	if MacroFrame.backdrop then
+		MacroFrame.backdrop:Styling()
+	end
 
 	for i = 1, _G.MAX_ACCOUNT_MACROS do
 		local b = _G['MacroButton'..i]

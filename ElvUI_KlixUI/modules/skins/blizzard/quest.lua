@@ -6,7 +6,9 @@ local function styleQuest()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.quest ~= true or E.private.KlixUI.skins.blizzard.quest ~= true then return end
 	
 	local QuestLogFrame = _G.QuestLogFrame
-	QuestLogFrame.backdrop:Styling()
+	if QuestLogFrame.backdrop then
+		QuestLogFrame.backdrop:Styling()
+	end
 	
 	-- Hide ElvUI backdrop
 	_G.QuestLogListScrollFrame.backdrop:Hide()

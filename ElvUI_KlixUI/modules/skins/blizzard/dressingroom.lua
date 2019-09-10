@@ -5,7 +5,9 @@ local function styleDressingroom()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.dressingroom ~= true or E.private.KlixUI.skins.blizzard.dressingroom ~= true then return end
 	
 	local DressUpFrame = _G.DressUpFrame
-	DressUpFrame.backdrop:Styling()
+	if DressUpFrame.backdrop then
+		DressUpFrame.backdrop:Styling()
+	end
 	
 	DressUpFrameBackgroundTopLeft:Hide()
 	DressUpFrameBackgroundTopRight:Hide()

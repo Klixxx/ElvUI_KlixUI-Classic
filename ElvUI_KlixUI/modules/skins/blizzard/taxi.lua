@@ -5,7 +5,9 @@ local function styleTaxi()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.taxi ~= true or E.private.KlixUI.skins.blizzard.taxi ~= true then return end
 	
 	local TaxiFrame = _G.TaxiFrame
-	TaxiFrame.backdrop:Styling()
+	if TaxiFrame.backdrop then
+		TaxiFrame.backdrop:Styling()
+	end
 end
 
 S:AddCallback("KuiTaxi", styleTaxi)

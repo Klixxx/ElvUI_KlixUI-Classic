@@ -9,11 +9,15 @@ local function styleGossip()
 	
 	-- ItemTextFrame
 	local ItemTextFrame = _G.ItemTextFrame
-	ItemTextFrame.backdrop:Styling()
+	if ItemTextFrame.backdrop then
+		ItemTextFrame.backdrop:Styling()
+	end
 	
 	-- GossipFrame
 	local GossipFrame = _G.GossipFrame
-	GossipFrame.backdrop:Styling()
+	if GossipFrame.backdrop then
+		GossipFrame.backdrop:Styling()
+	end
 
 	_G.GossipGreetingScrollFrame:StripTextures()
 

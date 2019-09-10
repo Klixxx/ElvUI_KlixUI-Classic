@@ -8,7 +8,9 @@ local function styleTrainer()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.trainer ~= true or E.private.KlixUI.skins.blizzard.trainer ~= true then return end
 
 	local ClassTrainerFrame = _G.ClassTrainerFrame
-	ClassTrainerFrame.backdrop:Styling()
+	if ClassTrainerFrame.backdrop then
+		ClassTrainerFrame.backdrop:Styling()
+	end
 	
 	hooksecurefunc('ClassTrainer_SetSelection', function()
 		if ClassTrainerSkillIcon then
