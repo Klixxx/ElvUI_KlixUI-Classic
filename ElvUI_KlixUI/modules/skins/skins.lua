@@ -1109,6 +1109,14 @@ local function styleAddons()
 		end
 	end
 	
+	-- Questie
+	if T.IsAddOnLoaded("Questie") then
+		local button = _G.Questie_Toggle
+		if button then
+			S:HandleButton(button)
+		end
+	end
+	
 	-- WeaponSwingTimer
 	if T.IsAddOnLoaded("WeaponSwingTimer") then
 		-- Player
