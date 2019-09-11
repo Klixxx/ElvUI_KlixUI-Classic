@@ -257,7 +257,7 @@ function KC:Initialize()
 	_G["BN_INLINE_TOAST_FRIEND_ONLINE"] = "[%s]"..L[" has come |cff298F00online|r."]
 	_G["BN_INLINE_TOAST_FRIEND_OFFLINE"] = "[%s]"..L[" has gone |cffff0000offline|r."]
 	
-	_G["GUILD_MOTD_TEMPLATE"] = "|cfff960d9GMOTD:|r %s"
+	_G["GUILD_MOTD_TEMPLATE"] = L["|cfff960d9GMOTD:|r %s"]
 	
 	self:LoadChatEmote()
 end
