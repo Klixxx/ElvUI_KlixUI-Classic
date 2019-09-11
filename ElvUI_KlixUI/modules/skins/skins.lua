@@ -1094,7 +1094,22 @@ local function styleAddons()
 		end
 	end
 	
-	--  WeaponSwingTimer
+	-- ClassicThreatMeter
+	if T.IsAddOnLoaded("ClassicThreatMeter") then
+		local frame = _G.ClassicThreatMeterBarFrame
+		if frame then
+			frame:StripTextures()
+			frame:CreateBackdrop("Transparent")
+			frame.backdrop:Styling()
+			
+			-- header
+			if frame.header then
+				frame.header.backdrop:Styling()
+			end
+		end
+	end
+	
+	-- WeaponSwingTimer
 	if T.IsAddOnLoaded("WeaponSwingTimer") then
 		-- Player
 		if _G.WeaponSwingTimerPlayerBackdropFrame then

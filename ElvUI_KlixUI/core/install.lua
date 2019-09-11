@@ -672,8 +672,12 @@ function KUI:SetupLayout(layout)
 	E.db["tooltip"]["healthBar"]["font"] = "Expressway"
 	E.db["tooltip"]["healthBar"]["fontSize"] = 11
 	E.db["tooltip"]["visibility"]["combat"] = true
-		
-	KUI:SetMoverPosition("TooltipMover", "BOTTOMRIGHT", E.UIParent, "BOTTOMRIGHT", -9, 156)
+	
+	if T.IsAddOnLoaded("ClassicThreatMeter") then
+		KUI:SetMoverPosition("TooltipMover", "BOTTOMRIGHT", E.UIParent, "BOTTOMRIGHT", -9, 213)
+	else
+		KUI:SetMoverPosition("TooltipMover", "BOTTOMRIGHT", E.UIParent, "BOTTOMRIGHT", -9, 156)
+	end
 	
 	--[[----------------------------------
 	--	Skins - Layout
@@ -2108,6 +2112,12 @@ local function SetupAddons()
 	if T.IsAddOnLoaded('BigWigs') then
 		KUI:LoadBigWigsProfile()
 		T.table_insert(addonNames, 'BigWigs')
+	end
+	
+	-- ClassicThreatMeter
+	if T.IsAddOnLoaded('ClassicThreatMeter') then
+		KUI:LoadClassicThreatMeterProfile()
+		T.table_insert(addonNames, 'Classic Threat Meter')
 	end
 	
 	-- DBM

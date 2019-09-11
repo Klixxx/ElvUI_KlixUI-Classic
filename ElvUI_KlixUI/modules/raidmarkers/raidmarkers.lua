@@ -238,7 +238,11 @@ function RMA:Initialize()
 	self.frame:SetFrameStrata('LOW')
 	self.frame:CreateBackdrop('Transparent')
 	self.frame:ClearAllPoints()
-	self.frame:Point("BOTTOMRIGHT", E.UIParent, "BOTTOMRIGHT", -10, 194)
+	if T.IsAddOnLoaded("ClassicThreatMeter") then
+		self.frame:Point("BOTTOMRIGHT", E.UIParent, "BOTTOMRIGHT", -10, 252)
+	else
+		self.frame:Point("BOTTOMRIGHT", E.UIParent, "BOTTOMRIGHT", -10, 194)
+	end
 	self.frame.buttons = {}
 	
 	self:HookScript(self.frame, 'OnEnter', 'Bar_OnEnter');

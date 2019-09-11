@@ -4,6 +4,7 @@ local KS = KUI:GetModule("KuiSkins")
 local SupportedProfiles = {
 	{'AddOnSkins', 'AddOnSkins'},
 	{'BigWigs', 'BigWigs'},
+	{'ClassicThreatMeter', 'Classic Threat Meter'},
 	{'DBM-Core', 'Deadly Boss Mods'},
 	{'Details', 'Details'},
 	{'ElvUI_SLE', 'Shadow & Light'},
@@ -378,6 +379,9 @@ local function SkinsTable()
 					E:StaticPopup_Show('PRIVATE_RL')
 				elseif addon == 'BigWigs' then
 					KUI:LoadBigWigsProfile()
+					E:StaticPopup_Show('PRIVATE_RL')
+				elseif addon == 'ClassicThreatMeter' then
+					KUI:LoadClassicThreatMeterProfile()
 					E:StaticPopup_Show('PRIVATE_RL')
 				elseif addon == 'Details' then
 					KUI:LoadDetailsProfile()
