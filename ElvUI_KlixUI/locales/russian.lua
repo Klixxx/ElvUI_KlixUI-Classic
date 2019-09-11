@@ -511,6 +511,11 @@ L["Query Detail"] = true
 L["Guild Invite"] = "Пригласить в гильдию"
 L["Add Friend"] = "Добавить в друзья"
 L["Report MyStats"] = "Отправить мои статы"
+L["has come |cff298F00online|r."] = true
+L["has gone |cffff0000offline|r."] = true
+L[" has come |cff298F00online|r."] = true
+L[" has gone |cffff0000offline|r."] = true
+L["|cfff960d9GMOTD:|r %s"] = true
 
 -- CombatText
 L["Combat Text"] = "Текст боя"
