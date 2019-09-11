@@ -34,6 +34,7 @@ T.BossBanner_BeginAnims = BossBanner_BeginAnims
 T.BreakUpLargeNumbers = BreakUpLargeNumbers
 T.BuyMerchantItem = BuyMerchantItem
 T.BuyTrainerService = BuyTrainerService
+T.C_FriendList_GetFriendInfo = C_FriendList.GetFriendInfo
 T.C_FriendList_GetNumFriends = C_FriendList.GetNumFriends
 T.C_Map_GetBestMapForUnit = C_Map.GetBestMapForUnit
 T.C_Map_GetMapArtID = C_Map.GetMapArtID

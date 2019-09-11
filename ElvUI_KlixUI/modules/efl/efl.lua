@@ -124,7 +124,7 @@ end
 function EFL:BasicUpdateFriends(button)
 	local nameText, nameColor, infoText, broadcastText, _, Cooperate
 	if button.buttonType == FRIENDS_BUTTON_TYPE_WOW then
-		local name, level, class, area, connected, status = T.GetFriendInfo(button.id)
+		local name, level, class, area, connected, status = T.C_FriendList_GetFriendInfo(button.id)
 		broadcastText = nil
 		if connected then
 			button.status:SetTexture(EFL.StatusIcons[EFL.db["StatusIconPack"]][(status == CHAT_FLAG_DND and 'DND' or status == CHAT_FLAG_AFK and "AFK" or "Online")])
