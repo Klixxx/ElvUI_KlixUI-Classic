@@ -515,6 +515,8 @@ L["Add Friend"] = "添加好友"
 L["Report MyStats"] = "报告装等"
 L["has come |cff298F00online|r."] = "已经|cff298F00上线|r。"
 L["has gone |cffff0000offline|r."] = "已经|cffff0000离线|r。"
+L[" has come |cff298F00online|r."] = "已经上线。"
+L[" has gone |cffff0000offline|r."] = "已经离线。"
 
 
 -- CombatText
