@@ -76,17 +76,7 @@ local function styleAuctionhouse()
 	BidBidButton:SetPoint("RIGHT", BidBuyoutButton, "LEFT", -1, 0)
 	AuctionsCancelAuctionButton:ClearAllPoints()
 	AuctionsCancelAuctionButton:SetPoint("RIGHT", AuctionsCloseButton, "LEFT", -1, 0)
-
-	-- Blizz needs to be more consistent
-	BrowseBidPriceSilver:SetPoint("LEFT", BrowseBidPriceGold, "RIGHT", 1, 0)
-	BrowseBidPriceCopper:SetPoint("LEFT", BrowseBidPriceSilver, "RIGHT", 1, 0)
-	BidBidPriceSilver:SetPoint("LEFT", BidBidPriceGold, "RIGHT", 1, 0)
-	BidBidPriceCopper:SetPoint("LEFT", BidBidPriceSilver, "RIGHT", 1, 0)
-	StartPriceSilver:SetPoint("LEFT", StartPriceGold, "RIGHT", 1, 0)
-	StartPriceCopper:SetPoint("LEFT", StartPriceSilver, "RIGHT", 1, 0)
-	BuyoutPriceSilver:SetPoint("LEFT", BuyoutPriceGold, "RIGHT", 1, 0)
-	BuyoutPriceCopper:SetPoint("LEFT", BuyoutPriceSilver, "RIGHT", 1, 0)
-
+	
 	local function reskinAuctionButtons(button, i)
 		local bu = _G[button..i]
 		local it = _G[button..i.."Item"]
