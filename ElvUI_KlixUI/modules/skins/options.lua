@@ -59,6 +59,7 @@ local function SkinsTable()
 							["ALL"] = L["All"],
 							["SQUARES"] = L["Only Squares"],
 							["SHADOW"] = L["Only Shadow"],
+							["NONE"] = NONE,
 						},
 					},
 					iconShadow = {

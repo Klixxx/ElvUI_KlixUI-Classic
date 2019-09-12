@@ -1253,7 +1253,7 @@ local function Styling(f, useSquares, useGradient, useShadow, shadowOverlayWidth
 	T.assert(f, "doesn't exist!")
 	local frameName = f.GetName and f:GetName()
 	if E.db.KlixUI.general == nil then E.db.KlixUI.general = {} end
-	if f.styling then return end
+	if f.styling or E.db.KlixUI.general.style == "NONE" then return end
 
 	local style = T.CreateFrame("Frame", frameName or nil, f)
 
