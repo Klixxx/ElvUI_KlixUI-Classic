@@ -50,11 +50,16 @@ local function SkinsTable()
 				args = {
 					style = {
 						order = 1,
-						type = "toggle",
+						type = "select",
 						name = L["|cfff960d9KlixUI|r Style |cffff8000(Beta)|r"],
 						desc = L["Creates decorative squares, a gradient and a shadow overlay on some frames.\n|cffff8000Note: This is still in beta state, not every blizzard frames are skinned yet!|r"],
 						get = function(info) return E.db.KlixUI.general[ info[#info] ] end,
 						set = function(info, value) E.db.KlixUI.general[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL") end,
+						values = {
+							["ALL"] = L["All"],
+							["SQUARES"] = L["Only Squares"],
+							["SHADOW"] = L["Only Shadow"],
+						},
 					},
 					iconShadow = {
 						order = 2,

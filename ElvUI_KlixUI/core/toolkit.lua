@@ -1253,11 +1253,11 @@ local function Styling(f, useSquares, useGradient, useShadow, shadowOverlayWidth
 	T.assert(f, "doesn't exist!")
 	local frameName = f.GetName and f:GetName()
 	if E.db.KlixUI.general == nil then E.db.KlixUI.general = {} end
-	if f.styling or E.db.KlixUI.general.style ~= true then return end
+	if f.styling then return end
 
 	local style = T.CreateFrame("Frame", frameName or nil, f)
 
-	if not(useSquares) then
+	if not(useSquares) and E.db.KlixUI.general.style == "ALL" or E.db.KlixUI.general.style == "SQUARES" then
 		local squares = f:CreateTexture(f:GetName() and f:GetName().."Overlay" or nil, "BORDER", f)
 		squares:ClearAllPoints()
 		squares:SetPoint("TOPLEFT", 1, -1)
@@ -1281,7 +1281,7 @@ local function Styling(f, useSquares, useGradient, useShadow, shadowOverlayWidth
 		f.gradient = gradient
 	end
 
-	if not(useShadow) then
+	if not(useShadow) and E.db.KlixUI.general.style == "ALL" or E.db.KlixUI.general.style == "SHADOW" then
 		local mshadow = f:CreateTexture(f:GetName() and f:GetName().."Overlay" or nil, "BORDER", f)
 		mshadow:SetInside(f, 0, 0)
 		mshadow:SetWidth(shadowOverlayWidth or 33)
