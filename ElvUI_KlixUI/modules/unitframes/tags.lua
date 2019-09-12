@@ -85,7 +85,7 @@ _G["ElvUF"].Tags.Methods['health:current-kui'] = function(unit)
 	if (status) then
 		return status
 	else
-		local CurrentHealth = T.UnitHealth(unit)
+		local CurrentHealth = E:UnitHealthValues(unit)
 		return shortenNumber(CurrentHealth)
 	end
 end
@@ -115,7 +115,7 @@ _G["ElvUF"].Tags.Methods['health:current-percent-kui'] = function(unit)
 	if (status) then
 		return status
 	else
-		local CurrentHealth = T.UnitHealth(unit)
+		local CurrentHealth = E:UnitHealthValues(unit)
 		local CurrentPercent = (T.UnitHealth(unit)/T.UnitHealthMax(unit))*100
 		if CurrentPercent > 99.9 then
 			return shortenNumber(CurrentHealth) .. " | " .. T.string_format("%.0f%%", CurrentPercent)
@@ -133,7 +133,7 @@ _G["ElvUF"].Tags.Methods['health:current-percent1-kui'] = function(unit)
 	if (status) then
 		return status
 	else
-		local CurrentHealth = T.UnitHealth(unit)
+		local CurrentHealth = E:UnitHealthValues(unit)
 		local CurrentPercent = (T.UnitHealth(unit)/T.UnitHealthMax(unit))*100
 		if CurrentPercent > 99.9 then
 			return T.string_format("%.0f%%", CurrentPercent) .. " | " .. shortenNumber(CurrentHealth)
