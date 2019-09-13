@@ -218,14 +218,20 @@ function B:Addons(event, addon)
 	if B.addonCount == #B.AddonsList then B:UnregisterEvent(event) end
 end
 
-function B:ErrorFrameSize()
-	_G["UIErrorsFrame"]:SetSize(B.db.errorframe.width, B.db.errorframe.height) --512 x 60
-end
-
 local ToDelete = {
 	["CalendarViewEventFrame"] = true,
 	["CalendarViewHolidayFrame"] = true,
 }
+
+
+function B:ErrorFrameSize()
+	_G["UIErrorsFrame"]:SetSize(B.db.errorframe.width, B.db.errorframe.height) --512 x 60
+end
+
+function B:RUReset()
+	local a = E.db.KlixUI.misc.rumouseover and 0 or 1
+	_G.RaidUtility_ShowButton:SetAlpha(a)
+end
 
 function B:Initialize()
 	if T.IsAddOnLoaded("ElvUI_SLE") then return end
@@ -280,6 +286,52 @@ function B:Initialize()
 	_G.UIErrorsFrame:ClearAllPoints()
 	_G.UIErrorsFrame:SetPoint("TOP", 0, -130)
 	E:CreateMover(_G.UIErrorsFrame, "UIErrorsFrameMover", L["Error Frame"], nil, nil, nil, "ALL,GENERAL,KLIXUI")
+	
+	--Raid Utility
+	if _G.RaidUtility_ShowButton then
+		E:CreateMover(_G.RaidUtility_ShowButton, "RaidUtility_Mover", L["Raid Utility"], nil, nil, nil, "ALL,RAID,KLIXUI")
+		local mover = _G.RaidUtility_Mover
+		local frame = _G.RaidUtility_ShowButton
+		if E.db.movers == nil then E.db.movers = {} end
+
+		mover:HookScript("OnDragStart", function(self) 
+			frame:ClearAllPoints()
+			frame:SetPoint("CENTER", self)
+		end)
+
+		local function Enter(self)
+			if not E.db.KlixUI.misc.rumouseover then return end
+			self:SetAlpha(1)
+		end
+
+		local function Leave(self)
+			if not E.db.KlixUI.misc.rumouseover then return end
+			self:SetAlpha(0)
+		end
+
+		local function dropfix()
+			local point, anchor, point2, x, y = mover:GetPoint()
+			frame:ClearAllPoints()
+			if T.string_find(point, "BOTTOM") then
+				frame:SetPoint(point, anchor, point2, x, y)
+			else
+				frame:SetPoint(point, anchor, point2, x, y)
+			end
+		end
+
+		mover:HookScript("OnDragStop", dropfix)
+
+		if E.db.movers.RaidUtility_Mover == nil then
+			frame:ClearAllPoints()
+			frame:SetPoint("TOP", E.UIParent, "TOP", -400, E.Border)
+		else
+			dropfix()
+		end
+		frame:RegisterForDrag("")
+		frame:HookScript("OnEnter", Enter)
+		frame:HookScript("OnLeave", Leave)
+		Leave(frame)
+	end
 end
 
 KUI:RegisterModule(B:GetName())
