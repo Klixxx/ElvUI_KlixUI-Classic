@@ -84,14 +84,9 @@ function MI:MaxStack()
         end
     end)
 
-    -- Add a hint to the tooltip.
-    --[[local function IsMerchantButtonOver()
-        return GetMouseFocus():GetName() and GetMouseFocus():GetName():find("MerchantItem%d")
-    end]]
-
     _G.GameTooltip:HookScript("OnTooltipSetItem", function(self)
         if not E.db.KlixUI.misc.buyall then return end
-        if _G.MerchantFrame:IsShown() and IsMerchantButtonOver() then
+        if _G.MerchantFrame:IsShown() then
             for i = 2, _G.GameTooltip:NumLines() do
                 local line = _G["GameTooltipTextLeft"..i]:GetText() or ""
                 if line:find("<[sS]hift") then
