@@ -85,9 +85,9 @@ function MI:MaxStack()
     end)
 
     -- Add a hint to the tooltip.
-    local function IsMerchantButtonOver()
+    --[[local function IsMerchantButtonOver()
         return GetMouseFocus():GetName() and GetMouseFocus():GetName():find("MerchantItem%d")
-    end
+    end]]
 
     _G.GameTooltip:HookScript("OnTooltipSetItem", function(self)
         if not E.db.KlixUI.misc.buyall then return end
