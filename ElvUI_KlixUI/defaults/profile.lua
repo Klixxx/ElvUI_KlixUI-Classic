@@ -1058,11 +1058,6 @@ P['KlixUI'] = {
 			["markingButton1"] = 'alt',
 			["markingButton2"] = 'LeftButton',
 		},
-		["automark"] = {
-			["enable"] = false,
-			["tankMark"] = 2,
-			["healerMark"] = 5,
-		},
 	},
 	
 	-- Reminders

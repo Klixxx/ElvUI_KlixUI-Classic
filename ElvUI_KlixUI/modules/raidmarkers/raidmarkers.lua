@@ -181,40 +181,6 @@ function RMA:Backdrop()
 	end
 end
 
-function RMA:AutoMark()
-	if T.IsAddOnLoaded("DejaAutoMark") or not E.db.KlixUI.raidmarkers.automark.enable then return end
-	if T.IsInRaid() then 
-		return
-	elseif T.IsInGroup() then
-		local ROLEMARKS = {["TANK"] = RMA.db.automark.tankMark, ["HEALER"] = RMA.db.automark.healerMark}
-		for i = 1, 5 do 
-			local role = T.UnitGroupRolesAssigned("party"..i)
-			if ROLEMARKS[role]then 
-				T.SetRaidTarget("party"..i, ROLEMARKS[role])
-				--KUI:Print(i, role)
-			end 
-		end
-		local currentSpecID, currentSpecName = T.GetSpecializationInfo(T.GetSpecialization())
-		--KUI:Print("Your current spec:", currentSpecName)
-		--KUI:Print("Your current spec ID:", currentSpecID)
-		local roleToken = T.GetSpecializationRoleByID(currentSpecID)
-		--KUI:Print(roleToken)
-		if ROLEMARKS[roleToken]then 
-			T.SetRaidTarget("player", ROLEMARKS[roleToken])
-		end
-	else
-		T.SetRaidTarget("player", 0)
-	end
-end
-
-function RMA:GROUP_ROSTER_UPDATE()
-	RMA:AutoMark()
-end
-
-function RMA:INSPECT_READY()
-	RMA:AutoMark()
-end
-
 function RMA:Initialize()
 	RMA.db = E.db.KlixUI.raidmarkers
 
@@ -228,9 +194,6 @@ function RMA:Initialize()
 	RMA:Make("Kui_RaidFlare8", "/clearworldmarker 8\n/worldmarker 8", "Skull Flare")
 
 	RMA:Make("Kui_ClearRaidFlares", "/clearworldmarker 0", "Clear All Flares")
-
-	RMA:RegisterEvent("GROUP_ROSTER_UPDATE")
-    RMA:RegisterEvent("INSPECT_READY")
 	
 	self.frame = T.CreateFrame("Frame", KUI.Title.."RaidMarkerBar", E.UIParent, "SecureHandlerStateTemplate")
 	self.frame:SetResizable(false)
@@ -261,7 +224,6 @@ function RMA:Initialize()
 		self:UpdateBar()
 		self:UpdateWorldMarkersAndTooltips()
 		self:UpdateMouseover()
-		self:AutoMark()
 	end
 
 	self:ForUpdateAll()
