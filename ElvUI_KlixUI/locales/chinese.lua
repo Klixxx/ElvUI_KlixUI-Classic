@@ -123,8 +123,8 @@ L["My masque skin to match the UI."] = true
 L["ElvUI InfoBar"] = true
 L["Adds an utility info bar bottom or top of your screen."] = true
 L["Credits"] = true
-L["ELVUI_KUI_CREDITS"] = "I would like to point out the following people for helping me create this addon with coding, testing and other stuff."
-L["Submodules & Coding:"] = true
+L["ELVUI_KUI_CREDITS"] = "以下人员在本插件编写时提供了许多帮助,特此感谢."
+L["Submodules & Coding:"] = "子模块&代码编写"
 L["ELVUI_KUI_CODERS"] = [[Merathilis
 Benik
 Azilroka
@@ -141,14 +141,14 @@ Arwic
 Hizuro
 Lifeismystery
 Lightspark]]
-L["ELVUI_KUI_DONORS_TITLE"] = "Thanks to these awesome people for supporting my work via donations:"
+L["ELVUI_KUI_DONORS_TITLE"] = "感谢以下人员的捐赠支持我的工作:"
 L["ELVUI_KUI_DONORS"] = [[Akiao
 Enii
 He Min
 Bradx
 Rey
 Vauxine]]
-L["Testing & Inspiration:"] = true
+L["Testing & Inspiration:"] = "测试&启发"
 L["ELVUI_KUI_TESTING"] = [[Kringel
 Akiao
 Obscurrium
@@ -156,11 +156,11 @@ Benik
 Merathilis
 Darth Predator
 Skullflower
-TukUI/ElvUI community]]
-L["Other Support:"] = true
-L["ELVUI_KUI_SPECIAL"] = [[Kringel - for updating the german locales and always provide helpful and good support in my Discord!
-Wilzor - for suggestion alot of new features and helping out with some coding (AutoOpen Bags ID)
-And not to forget the rest of the TukUI/ElvUI community :)]]
+TukUI/ElvUI社区]]
+L["Other Support:"] = "其它支持"
+L["ELVUI_KUI_SPECIAL"] = [[Kringel - 完成德语地区的插件本地化工作，一直在我的Discord中提供帮助和支持!
+Wilzor - 提供许多新特性的建议，并帮助编写一些代码 (AutoOpen Bags ID)
+以及TukUI/ElvUI社区的众多成员 :)]]
 
 -- Actionbars
 L["Credits"] = "创建"
@@ -206,13 +206,13 @@ L["X-Offset"] = "X偏移"
 L["Y-Offset"] = "Y偏移"
 L["Specialization & Equipment Bar"] = "专业&装备"
 L["Enable"] = "启用"
-L['Show/Hide the |cfff960d9KlixUI|r Spec & EquipBar.'] = true
+L['Show/Hide the |cfff960d9KlixUI|r Spec & EquipBar.'] = "显示/隐藏|cfff960d9KlixUI|r专业&装备动作条"
 L["Border Glow"] = true
 L["Shows an animated border glow for the currently active specialization and loot specialization."] = true
 L["Mouseover"] = "鼠标滑过显示"
-L["Change the alpha level of the frame."] = true
+L["Change the alpha level of the frame."] = "更改框架透明度"
 L["Hide In Combat"] = "战斗中隐藏"
-L['Show/Hide the |cfff960d9KlixUI|r Spec & EquipBar in combat.'] = true
+L['Show/Hide the |cfff960d9KlixUI|r Spec & EquipBar in combat.'] = "在战斗中显示/隐藏|cfff960d9KlixUI|r专业&装备动作条"
 L["Hide In Orderhall"] = "在职业大厅中隐藏"
 L['Show/Hide the |cfff960d9KlixUI|r Spec & Equip Bar in the class hall.'] = "在职业大厅显示/隐藏|cfff960d9KlixUI|r专业&装备动作条"
 L["Enable"] = "启用"
@@ -229,6 +229,9 @@ L["Text"] = "按钮文本"
 L["Position"] = "位置"
 L["Top"] = "上"
 L["Bottom"] = "下"
+L["Config"] =  "设置"
+L["Map & Quest Log"] = "任务面板"
+L["Bug Report"] = "错误报告"
 L['Show/Hide the friend text on |cfff960d9KlixUI|r MicroBar.'] = "在|cfff960d9KlixUI|r微型动作条中显示/隐藏好友信息"
 L['Show/Hide the guild text on |cfff960d9KlixUI|r MicroBar.'] = "在|cfff960d9KlixUI|r微型动作条中显示/隐藏公会信息"
 L["AutoButtons"] = "自动按钮"
@@ -277,41 +280,41 @@ L['Texture'] = "按钮材质"
 L['Class Color Check Texture'] = "按钮职业色"
 
 -- Announcement
-L["Announcement"] = true
+L["Announcement"] = "通告"
 L["Utility spells"] = true
 L["Combat spells"] = true
-L["Taunt spells"] = true
+L["Taunt spells"] = "嘲讽"
 L["Say thanks"] = "感谢"
 L["Your name"] = "你的名字"
 L["Name of the player"] = "玩家名"
 L["Target name"] = "目标名"
 L["Pet name"] = "宠物名"
-L["The spell link"] = true
-L["Your spell link"] = true
-L["Interrupted spell link"] = true
-L["Interrupt"] = true
-L["Success"] = true
-L["Failed"] =true
-L["Only instance / arena"] = true
-L["Player"] = true
-L["Pet"] = true
-L["Player(Only you)"] = true
-L["Other players"] = true
-L["Other players\' pet"] = true
+L["The spell link"] = "技能链接"
+L["Your spell link"] = "你的技能链接"
+L["Interrupted spell link"] = "打断施法"
+L["Interrupt"] = "打断"
+L["Success"] = "成功"
+L["Failed"] = "失败"
+L["Only instance / arena"] = "仅场景战役/竞技场"
+L["Player"] = "玩家"
+L["Pet"] = "宠物"
+L["Player(Only you)"] = "玩家(仅自己)"
+L["Other players"] = "其他玩家"
+L["Other players\' pet"] = "其他玩家宠物"
 L["Text"] = true
 L["Use default text"] = true
 L["Text for the interrupt casted by you"] = true
 L["Text for the interrupt casted by others"] = true
 L["Example"] = true
-L["Only I casted"] = true
-L["Target is me"] = true
-L["Only target is not tank"] = true
+L["Only I casted"] = "仅自己施放"
+L["Target is me"] = "目标为我"
+L["Only target is not tank"] = "仅目标为非坦克"
 L["Feasts"] = true
 L["Bots"] = true
-L["Toys"] = true
+L["Toys"] = "玩具"
 L["Portals"] = true
-L["Niuzao"] = true
-L["Totem"] = true
+L["Niuzao"] = "玄牛砮皂"
+L["Totem"] = "图腾"
 L["Provoke all(Monk)"] = true
 L["Sylvanas"] = true
 L["Channel"] = true
@@ -855,7 +858,7 @@ Example: [solo] Set1; [party:4, spec:3] Set2; [instance:raid, difficulty:heroic]
 
 -- Location Panel
 L["Location Panel"] = "区域面板"
-L["Link Position"] = "链接位置"
+L["Link Position"] = "发送位置"
 L["Allow pasting of your coordinates in chat editbox via holding shift and clicking on the location name."] = "允许通过按住shift和点击位置名称粘贴你的坐标到聊天框"
 L["Template"] = "模板"
 L["Transparent"] = "透明度"
@@ -1288,34 +1291,34 @@ L["KUI_PROF_RELURE_ERROR"] = [[Can't use lure due to threshlod. Time left: %.1f 
 
 --Quest
 L["Quest"] = "任务"
-L["Objective Progress"] = true
-L["Adds quest/mythic+ dungeon progress to the tooltip."] = true
-L["Auto Pilot"] = true
-L["AP_DESC"] = [[This section enables auto accepting and auto finishing various quests.
+L["Objective Progress"] = "任务进度"
+L["Adds quest/mythic+ dungeon progress to the tooltip."] = "在鼠标提示中添加任务/地下城进度"
+L["Auto Pilot"] = "自动完成"
+L["AP_DESC"] = [[此项用以设置自动完成任务.
 
-|cffff8000Note: To disable the auto pilot feature temporarily without disabling the whole module, please hold down the "CTRL-Key" before talking with an NPC.
-This key can be changed in the "Disable Key" option down below.|r
+|cffff8000注意: 若要暂时禁用自动交接任务功能而非禁用整个模块,请在与NPC对话前按下“CTRL-Key”.
+该热键可在"暂停自动交接热键"中更改.|r
 ]] -- that extra section is meant to be there!
-L["Disable Key"] = true
-L["When the specific key is down the quest automatization is disabled."] = true
-L["Auto Accept Quests"] = true
-L["Enable/Disable auto quest accepting"] = true
-L["Auto Complete Quests"] = true
-L["Enable/Disable auto quest complete"] = true
-L["Dailies Only"] = true
-L["Enable/Disable auto accepting for daily quests only"] = true
-L["Accept PVP Quests"] = true
-L["Enable/Disable auto accepting for PvP flagging quests"] = true
-L["Auto Accept Escorts"] = true
-L["Enable/Disable auto escort accepting"] = true
-L["Enable in Raid"] = true
-L["Enable/Disable auto accepting quests in raid"] = true
-L["Skip Greetings"] = true
-L["Enable/Disable NPC's greetings skip for one or more quests"] = true
-L["Auto Select Quest Reward"] = true
-L["Automatically select the quest reward with the highest vendor sell value."] = true
-L["Quest Announce"] = true
-L["This section enables the quest announcement module which will alert you when a quest is completed."] = true
+L["Disable Key"] = "暂停自动交接热键"
+L["When the specific key is down the quest automatization is disabled."] = "当按下指定快捷键时,暂停自动交接任务功能"
+L["Auto Accept Quests"] = "自动接受任务"
+L["Enable/Disable auto quest accepting"] = "启用/禁用自动接受任务"
+L["Auto Complete Quests"] = "自动完成任务"
+L["Enable/Disable auto quest complete"] = "启用/禁用自动完成任务"
+L["Dailies Only"] = "仅日常任务"
+L["Enable/Disable auto accepting for daily quests only"] = "启用/禁用仅在日常任务中生效"
+L["Accept PVP Quests"] = "接受PvP任务"
+L["Enable/Disable auto accepting for PvP flagging quests"] = "启用/禁用自动接受PvP任务"
+L["Auto Accept Escorts"] = "自动接受护送任务"
+L["Enable/Disable auto escort accepting"] = "启用/禁用自动接受护送任务"
+L["Enable in Raid"] = "团队副本中生效"
+L["Enable/Disable auto accepting quests in raid"] = "启用/禁用在团队副本中生效"
+L["Skip Greetings"] = "跳过问候语"
+L["Enable/Disable NPC's greetings skip for one or more quests"] = "启用/禁用任务中的NPC问候语"
+L["Auto Select Quest Reward"] = "自动选择任务奖励"
+L["Automatically select the quest reward with the highest vendor sell value."] = "自动选择最高任务奖励"
+L["Quest Announce"] = "任务通报"
+L["This section enables the quest announcement module which will alert you when a quest is completed."] = "当你完成任务时通报完成进度"
 L["No Detail"] = true
 L["Instance"] = true
 L["Raid"] = "团队"
@@ -1334,10 +1337,10 @@ L["Print all quests to chat"] = true
 L["Print tracked quests to chat"] = true
 L["Untrack all quests"] = true
 L["Force update of tracked quests"] = true
-L["Quest Tracker Visibility"] = true
+L["Quest Tracker Visibility"] = "任务追踪"
 L["Adjust the settings for the visibility of the questtracker (questlog) to your personal preference."] = true
-L["Rested"] = true
-L["Class Hall"] = true
+L["Rested"] = "充分休息"
+L["Class Hall"] = "职业大厅"
 
 -- Raidmarkers
 L["Raid Markers"] = "团队标记"
@@ -1352,7 +1355,7 @@ L["Horizontal"] = "水平位置"
 L["Vertical"] = "垂直位置"
 L["Reverse"] = "反向"
 L["Modifier Key"] = true
-L["No tooltips"] = true
+L["No tooltips"] = "无提示"
 L["Raid Marker Icons"] = "标记图标"
 L["Choose what Raid Marker Icon Set the bar will display."] = "选择要显示的标记"
 L["Visibility"] = "可见性"
@@ -1390,15 +1393,15 @@ L["Raid"] = "团队"
 L["Shows a frame with flask/food/rune."] = "显示合剂/食物/符文框架"
 L["Toggles the display of the raidbuffs backdrop."] = "切换团队buff背景显示"
 L["Size"] = "尺寸"
-L["Changes the size of the icons."] = true
-L["Change the alpha level of the icons."] = true
-L["Class Specific Buffs"] = true
-L["Shows all the class specific raidbuffs."] = true
-L["Shows the pixel glow on missing raidbuffs."] = true
-L["Raid Buff Reminder"] = true
+L["Changes the size of the icons."] = "设置图标尺寸"
+L["Change the alpha level of the icons."] = "设置图标透明度"
+L["Class Specific Buffs"] = "职业特定Buff"
+L["Shows all the class specific raidbuffs."] = "显示所有特定职业团队副本Buff"
+L["Shows the pixel glow on missing raidbuffs."] = "高亮显示缺失buff"
+L["Raid Buff Reminder"] = "团队Buff提示"
 
 -- Skins
-L["ActonBarProfiles"] = true
+L["ActonBarProfiles"] = "动作条配置"
 L["Baggins"] = true
 L["BigWigs"] = true
 L["BugSack"] = true
@@ -1410,70 +1413,79 @@ L["ProjectAzilroka"] = true
 L["WeakAuras"] = true
 L["XIV_Databar"] = true
 L['KlixUI successfully created and applied profile(s) for:'] = true 
-L["|cfff960d9KlixUI|r Style |cffff8000(Beta)|r"] = true
-L["Creates decorative squares, a gradient and a shadow overlay on some frames.\n|cffff8000Note: This is still in beta state, not every blizzard frames are skinned yet!|r"] = true
-L["|cfff960d9KlixUI|r Icon Shadow"] = true
-L["Creates a shadow overlay around various icons.\n|cffff8000Note: There is still some icons that miss the shadow overlay, i'm working on them!|r"] = true
-L["KlixUI Vehicle"] = true
-L["Redesign the standard vehicle button with a custom one."] = true
-L["Shadow Overlay"] = true
-L["Creates a shadow overlay around the whole screen for a more darker finish."] = true
-L["Shadow Level"] = true
-L["Change the dark finish of the shadow overlay."] = true
-L["Addon Skins"] = true
-L["KUI_ADDONSKINS_DESC"] = [[This section is designed to modify some external addons appearance.
+L["|cfff960d9KlixUI|r Style |cffff8000(Beta)|r"] = "|cfff960d9KlixUI|r样式|cffff8000(Beta)|r"
+L["Creates decorative squares, a gradient and a shadow overlay on some frames.\n|cffff8000Note: This is still in beta state, not every blizzard frames are skinned yet!|r"] = "在一些框架中添加修饰性的阴影遮罩效果.\n|cffff8000注意: 并非作用于所有暴雪原生框架!|r"
+L["|cfff960d9KlixUI|r Icon Shadow"] = "|cfff960d9KlixUI|r阴影图标"
+L["Creates a shadow overlay around various icons.\n|cffff8000Note: There is still some icons that miss the shadow overlay, i'm working on them!|r"] = "在各种图标创建一个阴影效果.\n|cffff8000注意: 仍有某些部分未能全部生效,我正在积极跟进解决!|r"
+L["KlixUI Vehicle"] = "KlixUI 载具"
+L["Redesign the standard vehicle button with a custom one."] = "自定义载具按钮"
+L["Shadow Overlay"] = "阴影覆盖"
+L["Creates a shadow overlay around the whole screen for a more darker finish."] = "在游戏画面创建一个阴影覆盖效果,以获得更暗画面"
+L["Shadow Level"] = "等级"
+L["Change the dark finish of the shadow overlay."] = "改变阴影覆盖层的等级"
+L["Addon Skins"] = "插件皮肤"
+L["KUI_ADDONSKINS_DESC"] = [[本项可以修改一些外部插件的皮肤外观.
 
-Please note that some of these options will be |cff636363disabled|r if the addon is not loaded in the addon control panel.]]
-L["Blizzard Skins"] = true
-L["KUI_SKINS_DESC"] = [[This section is designed to modify already existing ElvUI skins.
+请注意:如果插件控制面板中没有加载该插件,则其中一些选项将被|cff636363禁用|r]]
+L["Blizzard Skins"] = "暴雪皮肤"
+L["KUI_SKINS_DESC"] = [[本项可以修改现有ElvUI的皮肤外观.
 
-Please note that some of these options will not be available if corresponding skin is |cff636363disabled|r in the main ElvUI skins section.]]
-L["ElvUI Skins"] = true
-L["Character Frame"] = true
-L["Gossip Frame"] = true
-L["Quest Frames"] = true
-L["Quest Choice"] = true
-L["Orderhall"] = true
-L["Archaeology Frame"] = true
-L["Barber Shop"] = true
-L["Contribution"] = true
-L["Calendar Frame"] = true
-L["Merchant Frame"] = true
-L["PvP Frames"] = true
-L["Item Upgrade"] = true
+请注意，如果在ElvUI皮肤部分禁用了相应的皮肤,则其中一些选项将被|cff636363禁用|r.]]
+L["ElvUI Skins"] = "ElvUI皮肤"
+L["Battlefield"] = "战场"
+L["Battlefield Map"] = "战场地图"
+L["Battlefield Score"] = "战场记分板"
+L["Character Frame"] = "聊天框"
+L["Gossip Frame"] = "宏框架"
+L["Quest Frames"] = "任务框架"
+L["Quest Frame"] = "任务框架"
+L["Quest Choice"] = "任务选择"
+L["Trade"] = "交易"
+L["Orderhall"] = "任务大厅"
+L["Archaeology Frame"] = "考古框架"
+L["Barber Shop"] = "理发店"
+L["Contribution"] = "捐献"
+L["Calendar Frame"] = "日历框架"
+L["Merchant Frame"] = "购物框架"
+L["PvP Frames"] = "PvP框架"
+L["Item Upgrade"] = "物品升级"
 L["LF Guild Frame"] = true
-L["TalkingHead"] = true
-L["AddOn Manager"] = true
-L["Mail Frame"] = true
-L["Raid Frame"] = true
-L["Guild Control Frame"] = true
-L["Help Frame"] = true
-L["Loot Frames"] = true
-L["Warboard"] = true
-L["Azerite"] = true
+L["TalkingHead"] = "特写"
+L["AddOn Manager"] = "插件管理器"
+L["Mail Frame"] = "邮件"
+L["Raid Frame"] = "团队框架"
+L["Guild Control Frame"] = "公会控制"
+L["Help Frame"] = "帮助"
+L["Loot Frames"] = "物品拾取"
+L["Warboard"] = "战场信息板"
+L["Azerite"] = "艾泽里特"
 L["BFAMission"] = true
-L["Island Party Pose"] = true
-L["Minimap"] = true
+L["Island Party Pose"] = "海岛探险"
+L["Minimap"] = "小地图"
+L["Stable Frame"] = "坐骑"
+L["Tabard Frame"] = "战袍"
+L["Craft Frame"] = "专业"
+L["Communities"] = "社区"
 L["Trainer Frame"] = true
-L["Debug Tools"] = true
-L["Inspect Frame"] = true
-L["Socket Frame"] = true
-L["Addon Profiles"] = true
-L["KUI_PROFILE_DESC"] = [[This section creates Profiles for some AddOns.
+L["Debug Tools"] = "错误收集器"
+L["Inspect Frame"] = "装备显示"
+L["Socket Frame"] = "插槽"
+L["Addon Profiles"] = "插件配置"
+L["KUI_PROFILE_DESC"] = [[本项可创建一部分插件配置文件.
 
-|cffff0000WARNING:|r It will overwrite/delete existing Profiles. If you don't want to apply these Profiles please don't press the Button(s) below.]]
-L['This will create and apply profile for '] = true
-L["KlixUI Skins"] = true
+|cffff0000注意:|r这将覆盖/删除已有配置信息.如果你不想这么做,请不要点击下面的按钮.]]
+L['This will create and apply profile for '] = "创建一个新的配置文件"
+L["KlixUI Skins"] = "KlixUI皮肤"
 
 -- Talents
-L["Talents"] = true
-L["Toggle Talent Frame"] = true
-L["Enable/disable the |cfff960d9KlixUI|r Better Talents Frame."] = true
-L["Shows an animated border glow for the currently selected talents."] = true
+L["Talents"] = "天赋"
+L["Toggle Talent Frame"] = "天赋切换"
+L["Enable/disable the |cfff960d9KlixUI|r Better Talents Frame."] = "启用/禁用|cfff960d9KlixUI|r天赋框架"
+L["Shows an animated border glow for the currently selected talents."] = "在当前选定的天赋的边框添加高亮效果"
 L["Default to Talents Tab"] = true
 L["Defaults to the talents tab of the talent frame on login. By default WoW shows you the specialization tab."] = true
-L["Auto Hide PvP Talents"] = true
-L["Closes the PvP talents flyout on login. PvP talents and warmode flag are still accessible by manually opening the PvP talents flyout."] = true
+L["Auto Hide PvP Talents"] = "自动隐藏PvP天赋"
+L["Closes the PvP talents flyout on login. PvP talents and warmode flag are still accessible by manually opening the PvP talents flyout."] = "登录时关闭PvP天赋.PvP天赋及战争模式仍可通过手动打开PvP天赋栏设置"
 
 -- Toasts
 L["Toasts"] = true
@@ -1481,24 +1493,24 @@ L["TOAST_DESC"] = [[Here can you control which toasts that should be displayed.
 
 |cffff8000Note: You can either type "/testtoasts" or "/tt" without the quotes, to show a test toast.|r
 ]] -- that extra section is meant to be there!
-L["Growth Direction"] = true
-L["Up"] = true
-L["Down"] = true
-L["Left"] = true
-L["Right"] = true
+L["Growth Direction"] = "延伸方向"
+L["Up"] = "上"
+L["Down"] = "下"
+L["Left"] = "左"
+L["Right"] = "右"
 L["Number of Toasts"] = true
-L["Sound Effects"] = true
-L["Fade Out Delay"] = true
-L["Colored Names"] = true
-L["Scale"] = true
-L["Colored Names"] = true
+L["Sound Effects"] = "音效"
+L["Fade Out Delay"] = "淡出延迟"
+L["Colored Names"] = "姓名着色"
+L["Scale"] = "比例"
+L["Colored Names"] = "姓名着色"
 L["Toast Types"] = true
-L["Achievement"] = true
-L["Archaeology"] = true
+L["Achievement"] = "成就"
+L["Archaeology"] = "考古"
 L["Garrison"] = true
-L["Class Hall"] = true
+L["Class Hall"] = "职业大厅"
 L["War Effort"] = true
-L["Dungeon"] = true
+L["Dungeon"] = "地下城"
 L["Loot (Special)"] = true
 L["Loot (Common)"] = true
 L["Loot Threshold"] = true
@@ -1507,7 +1519,7 @@ L["Loot (Gold)"] = true
 L["Copper Threshold"] = true
 L["Minimum amount of copper to create a toast for."] = true
 L["Recipe"] = true
-L["World Quest"] = true
+L["World Quest"] = "世界任务"
 L["Transmogrification"] = true
 L["DND"] = true
 
@@ -1516,26 +1528,26 @@ L["Tooltip"] = "鼠标提示"
 L["Change the visual appearance of the Tooltip.\nCredit: |cffff7d0aMerathilisUI|r"] = "更改鼠标提示外观.\n创建者: |cffff7d0aMerathilisUI|r"
 L["Title Color"] = "标题颜色"
 L["Change the color of the title to something more cool!"] = "将标题改为更酷的颜色"
-L["LFG Member Info"] = true
-L["Adds member info for the LFG group list tooltip."] = true
-L["Adds information to the tooltip, on which character you earned an achievement.\nCredit: |cffff7d0aMerathilisUI|r"] = true
-L["Keystone"] = true
-L["Adds descriptions for mythic keystone properties to their tooltips."] = true
-L["Enable/disable the azerite tooltip."] = true
-L["Remove Blizzard"] = true
-L["Replaces the blizzard azerite tooltip text."] = true
-L["Specialization"] = true
-L["Only show the traits for your current specialization."] = true
-L["Compact"] = true
-L["Only show icons in the azerite tooltip."] = true
-L["Raid Progression"] = true
-L["Shows raid progress of a character in the tooltip.\n|cffff8000Note: The visibility of the raid progress can be changed in the display option.|r"] = true
-L["Display"] = true
-L["Change how the raid progress should display in the tooltip."] = true
-L["Name Style"] = true
-L["Full"] = true
-L["Short"] = true
-L["Difficulty Style"] = true
+L["LFG Member Info"] = "集合石成员信息"
+L["Adds member info for the LFG group list tooltip."] = "在集合石列表中添加成员信息"
+L["Adds information to the tooltip, on which character you earned an achievement.\nCredit: |cffff7d0aMerathilisUI|r"] = "显示你在哪个角色中获得了该成就"
+L["Keystone"] = "钥石"
+L["Adds descriptions for mythic keystone properties to their tooltips."] = "在鼠标提示中添加钥石信息"
+L["Enable/disable the azerite tooltip."] = "启用/禁用艾泽里特鼠标提示"
+L["Remove Blizzard"] = "移除原生效果"
+L["Replaces the blizzard azerite tooltip text."] = "替换暴雪原生艾泽里特提示"
+L["Specialization"] = "专精"
+L["Only show the traits for your current specialization."] = "只显示当前专精"
+L["Compact"] = "紧凑"
+L["Only show icons in the azerite tooltip."] = "只在艾泽里特鼠标提示中显示图标"
+L["Raid Progression"] = "团队副本进度"
+L["Shows raid progress of a character in the tooltip.\n|cffff8000Note: The visibility of the raid progress can be changed in the display option.|r"] = "在鼠标提示中显示团队副本进度..\n|cffff8000注意:可在显示设置中选择是否显示团队副本进度.|r"
+L["Display"] = "显示"
+L["Change how the raid progress should display in the tooltip."] = "设置是否在鼠标提示中显示团队副本进度"
+L["Name Style"] = "名称样式"
+L["Full"] = "完整"
+L["Short"] = "简短"
+L["Difficulty Style"] = "难度样式"
 L["RAID_BOD"] = "BoD"
 L["RAID_COS"] = "CoS"
 L["RAID_EP"] = "EP"
