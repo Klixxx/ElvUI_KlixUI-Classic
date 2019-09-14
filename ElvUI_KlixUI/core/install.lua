@@ -680,15 +680,6 @@ function KUI:SetupLayout(layout)
 	end
 	
 	--[[----------------------------------
-	--	Skins - Layout
-	--]]----------------------------------
-	if T.IsAddOnLoaded("ls_Toasts") or E.db.KlixUI.toasts.enable then
-		E.private["skins"]["blizzard"]["alertframes"] = false
-	else
-		E.private["skins"]["blizzard"]["alertframes"] = true
-	end
-	
-	--[[----------------------------------
 	--	Movers - Layout
 	--]]----------------------------------
 	if T.IsAddOnLoaded('XIV_Databar') then
