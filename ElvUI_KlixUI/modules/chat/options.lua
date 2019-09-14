@@ -154,71 +154,7 @@ local function ChatTable()
 					},
 				},
 			},
-			rightclickmenu = {
-				order = 3,
-				type = "group",
-				name = L["Right-Click Menu"],
-				guiInline = true,
-				get = function(info) return E.db.KlixUI.chat.rightclickmenu[ info[#info] ] end,
-				set = function(info, value) E.db.KlixUI.chat.rightclickmenu[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL") end,
-				args = {
-					enable = {
-						order = 1,
-						type = "toggle",
-						name = L["Enable"],
-						desc = L["Enhances the chat character right-click menu with new features."],
-					},
-					--[[friend = {
-						name = L["Friend Menu"],
-						order = 2,
-						args = {}
-					},
-					chat_roster = {
-						name = L["Chat Roster Menu"],
-						order = 2,
-						args = {}
-					},
-					[guild] = {
-						name = L["Guild Menu"],
-						order = 3,
-						args = {}
-					},
-					func = function()
-						local RCM = KUI:GetModule('RightClickMenu')
-						for k, v in pairs(RCM.friend_features) do
-							E.Options.args.KlixUI.args.modules.args.chat.args.rightclickmenu.args.friend.args[v] = {
-								order = k + 1,
-								name = UnitPopupButtons[v].text,
-								get = function(info) return E.db.KlixUI.chat.rightclickmenu.friend[v] end,
-								set = function(info, value) E.db.KlixUI.chat.rightclickmenu.friend[v] = value; E:StaticPopup_Show("PRIVATE_RL") end,
-							}
-						end
-						for k, v in pairs(RCM.cr_features) do
-							E.db.KlixUI.chat.rightclickmenu.chat_roster.args[v] = {
-								order = k + 1,
-								name = RCM.UnitPopupButtonsExtra[v],
-								get = function(info) return E.db.KlixUI.chat.rightclickmenu.chat_roster[v] end,
-								set = function(info, value) E.db.KlixUI.chat.rightclickmenu.chat_roster[v] = value; E:StaticPopup_Show("PRIVATE_RL") end,
-							}
-						end
-						for k, v in pairs(RCM.guild_features) do
-							E.db.KlixUI.chat.rightclickmenu.guild.args[v] = {
-								order = k + 1,
-								name = RCM.UnitPopupButtonsExtra[v],
-								get = function(info) return E.db.KlixUI.chat.rightclickmenu.guild[v] end,
-								set = function(info, value) E.db.KlixUI.chat.rightclickmenu.guild[v] = value; E:StaticPopup_Show("PRIVATE_RL") end,
-							}
-						end
-						E.db.KlixUI.chat.rightclickmenu.friend.args.Fix_Report = {
-							order = -1,
-							name = L["Fix REPORT"],
-							get = function(info) return E.db.KlixUI.chat.rightclickmenu.friend.Fix_Report end,
-							set = function(info, value) E.db.KlixUI.chat.rightclickmenu.friend.Fix_Report = value; E:StaticPopup_Show("PRIVATE_RL") end,
-						}
-					end,]]
-				},
-			},
 		},
 	}
 end
-tinsert(KUI.Config, ChatTable)
+T.table_insert(KUI.Config, ChatTable)
