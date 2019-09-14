@@ -297,6 +297,12 @@ local function Misc()
 						name = L["Auto Auction"],
 						desc = L["Shift + Right-Click to auto buy auctions at the auctionhouse."],
 					},
+					gossip = {
+						order = 2,
+						type = "toggle",
+						name = L["Auto Gossip"],
+						desc = L["This setting will auto gossip some NPC's.\n|cffff8000Note: Holding down any modifier key before visiting/talking to the respective NPC's will briefly disable the automatization.|r"],
+					},
 					space1 = {
 						order = 9,
 						type = "description",

@@ -882,6 +882,7 @@ P['KlixUI'] = {
 		},
 		["auto"] = {
 			["auction"] = true,
+			["gossip"] = true,
 			["invite"] = {
                 ["enable"] = true,
                 ["ainvkeyword"] = "321",
