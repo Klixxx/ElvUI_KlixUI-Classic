@@ -18,7 +18,7 @@ local function styleWeakAuras()
 
         if ftype == "aurabar" then
             if not frame.bar.shadow then
-				if E.private.KlixUI.skins.addonSkins.wa then
+				if E.private.KlixUI.skins.addonSkins.wa and not (E.myname == "Listepikken" and E.myrealm == "Golemagg") then
 					frame.bar:Styling()
 				end
                 frame.icon:SetTexCoord(T.unpack(E.TexCoords))
