@@ -1117,6 +1117,23 @@ local function styleAddons()
 		end
 	end
 	
+	-- Questie
+	if T.IsAddOnLoaded("LFGShout") then
+		local frame = _G.LFGShoutFrame
+		if frame then
+			frame:StripTextures()
+			frame:CreateBackdrop("Transparent")
+			frame.backdrop:Styling()
+			
+			-- Options Frame
+			if frame.OptionsFrame then
+				frame.OptionsFrame:StripTextures()
+				frame.OptionsFrame:CreateBackdrop("Transparent")
+				frame.OptionsFrame.backdrop:Styling()
+			end
+		end
+	end
+	
 	-- WeaponSwingTimer
 	if T.IsAddOnLoaded("WeaponSwingTimer") then
 		-- Player
