@@ -1130,6 +1130,17 @@ local function styleAddons()
 				frame.OptionsFrame:StripTextures()
 				frame.OptionsFrame:CreateBackdrop("Transparent")
 				frame.OptionsFrame.backdrop:Styling()
+				
+				if frame.OptionsFrame.StartText then
+					frame.OptionsFrame.StartText:StripTextures()
+					frame.OptionsFrame.StartText:CreateBackdrop()
+					frame.OptionsFrame.StartText:SetSize(139, 16)
+				end
+				if frame.OptionsFrame.EndText then
+					frame.OptionsFrame.EndText:StripTextures()
+					frame.OptionsFrame.EndText:CreateBackdrop()
+					frame.OptionsFrame.EndText:SetSize(139, 16)
+				end
 			end
 		end
 	end
