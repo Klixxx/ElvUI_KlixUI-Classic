@@ -6,7 +6,8 @@ local CLOSE = CLOSE
 
 local ChangeLogData = {
 	"Changes:",
-		"• Added skin support for WeaponSwingTimer, XToLoot and classic quest log addon.",
+		"• Added Chinese locales, thanks Cagemaker!",
+		"• Added skin support for LFGShout addon.",
 		"• Fixed various issues.",
 		"• ",
 		" ", -- Section space!
