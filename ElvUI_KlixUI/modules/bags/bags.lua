@@ -43,15 +43,6 @@ function KB:SkinBlizzBags()
 	end
 end
 
-function KB:GUILDBANKFRAME_OPENED()
-	T.OpenAllBags()
-end
-
-function KB:GUILDBANKFRAME_CLOSED()
-	ContainerFrame1.backpackWasOpen = nil
-	T.CloseAllBags()
-end
-
 function KB:AUCTION_HOUSE_SHOW()
 	T.OpenAllBags()
 end
@@ -70,40 +61,9 @@ function KB:TRADE_CLOSED()
 	T.CloseAllBags()
 end
 
-function KB:OBLITERUM_FORGE_SHOW()
-	T.OpenAllBags()
-end
-
-function KB:OBLITERUM_FORGE_CLOSE()
-	ContainerFrame1.backpackWasOpen = nil
-	T.CloseAllBags()
-end
-
---Updating slot for deconstruct glow hide when item disappears
-function KB:UpdateSlots(self, bagID, slotID)
-	if (self.Bags[bagID] and self.Bags[bagID].numSlots ~= T.GetContainerNumSlots(bagID)) or not self.Bags[bagID] or not self.Bags[bagID][slotID] then
-		return
-	end
-
-	local slot = self.Bags[bagID][slotID];
-	if not Pr then Pr = KUI:GetModule("Professions") end
-	if not Pr.DeconstructionReal then return end
-	if Pr.DeconstructionReal:IsShown() and Pr.DeconstructionReal.Bag == bagID and Pr.DeconstructionReal.Slot == slotID then
-		if not slot.hasItem then
-			T.GameTooltip_Hide()
-			Pr.DeconstructionReal:OnLeave()
-		end
-	end
-end
-
 function KB:HookBags(isBank)
 	local slot
 	for _, bagFrame in T.pairs(B.BagFrames) do
-		-- Hooking slots for deconstruct. Bank is not allowed
-		if not bagFrame.KUI_DeconstructHooked and not isBank then
-			hooksecurefunc(B, "UpdateSlot", KB.UpdateSlots)
-			bagFrame.KUI_UpdateHooked = true
-		end
 		-- Applying shadow for all current slots
 		for _, bagID in pairs(bagFrame.BagIDs) do
 			for slotID = 1, T.GetContainerNumSlots(bagID) do
@@ -136,22 +96,10 @@ function KB:Initialize()
 	self:SkinBlizzBags()
 	self:SkinBank()
 	
-	KB:RegisterEvent("GUILDBANKFRAME_OPENED")
-	KB:RegisterEvent("GUILDBANKFRAME_CLOSED")
 	KB:RegisterEvent("AUCTION_HOUSE_SHOW")
 	KB:RegisterEvent("AUCTION_HOUSE_CLOSED")
 	KB:RegisterEvent("TRADE_SHOW")
 	KB:RegisterEvent("TRADE_CLOSED")
-	KB:RegisterEvent("OBLITERUM_FORGE_SHOW")
-	KB:RegisterEvent("OBLITERUM_FORGE_CLOSE")
-	
-	KB:RegisterEvent("BANKFRAME_OPENED")
-	KB:RegisterEvent("BANKFRAME_CLOSED")
-	KB:RegisterEvent("MAIL_SHOW")
-	KB:RegisterEvent("MAIL_CLOSED")
-	KB:RegisterEvent("MERCHANT_SHOW")
-	KB:RegisterEvent("MERCHANT_CLOSED")
-	KB:RegisterEvent("BAG_UPDATE_DELAYED")
 	
 	--Applying stuff to already existing bags
 	self:HookBags();

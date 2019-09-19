@@ -28,12 +28,6 @@ local function BagTable()
 						desc = L["Enable/disable the bagfilter button."],
 						disabled = function() return not E.private.bags.enable end,
 					},
-					autoOpen = {
-						order = 2,
-						type = "toggle",
-						name = L["Auto Open Containers"],
-						desc = L["Enable/disable the auto opening of container, treasure etc."],
-					},
 				},
 			},
 			itemSelect = {

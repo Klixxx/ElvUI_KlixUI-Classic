@@ -116,10 +116,10 @@ local function AddMenuButton(isBank)
     f.filterButton:SetSize(16 + E.Border, 16 + E.Border)
     f.filterButton:SetTemplate()
     f.filterButton:SetPoint("RIGHT", f.sortButton, "LEFT", -5, 0)
-    f.filterButton:SetNormalTexture("Interface\\ICONS\\ACHIEVEMENT_GUILDPERK_BOUNTIFULBAGS")
+    f.filterButton:SetNormalTexture("Interface\\ICONS\\Inv_misc_bag_11")
     f.filterButton:GetNormalTexture():SetTexCoord(T.unpack(E.TexCoords))
     f.filterButton:GetNormalTexture():SetInside()
-    f.filterButton:SetPushedTexture("Interface\\ICONS\\ACHIEVEMENT_GUILDPERK_BOUNTIFULBAGS")
+    f.filterButton:SetPushedTexture("Interface\\ICONS\\Inv_misc_bag_11")
     f.filterButton:GetPushedTexture():SetTexCoord(T.unpack(E.TexCoords))
     f.filterButton:GetPushedTexture():SetInside()
     f.filterButton:StyleButton(nil, true)
@@ -186,11 +186,6 @@ do
               return type == LE_ITEM_CLASS_TRADEGOODS or 
                 type == LE_ITEM_CLASS_RECIPE or type == LE_ITEM_CLASS_GEM or 
                 type == LE_ITEM_CLASS_ITEM_ENHANCEMENT or type == LE_ITEM_CLASS_GLYPH
-          end
-        },
-        { ARTIFACT_POWER, 'Interface/Icons/INV_Artifact_XP01',
-          function(link, type, subType)
-              return type == LE_ITEM_CLASS_CONSUMABLE and link:find(":8388608:")
           end
         },
         { AUCTION_CATEGORY_MISCELLANEOUS, 'Interface/Icons/INV_Misc_Rune_01',
