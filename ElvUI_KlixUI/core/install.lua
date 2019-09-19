@@ -254,9 +254,6 @@ function KUI:SetupLayout(layout)
 	E.db["general"]["minimap"]["icons"]["mail"]["scale"] = 1
 	E.db["general"]["minimap"]["icons"]["mail"]["xOffset"] = -8
 	E.db["general"]["minimap"]["icons"]["mail"]["yOffset"] = -4
-	E.db["general"]["minimap"]["icons"]["vehicleLeave"]["scale"] = 0.75
-	E.db["general"]["minimap"]["icons"]["vehicleLeave"]["xOffset"] = 1
-	E.db["general"]["minimap"]["icons"]["vehicleLeave"]["yOffset"] = 1
 	E.db["general"]["minimap"]["resetZoom"]["enable"] = true
 	E.db["general"]["minimap"]["resetZoom"]["time"] = 5
 	E.db["general"]["minimap"]["size"] = 150
