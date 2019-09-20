@@ -1117,13 +1117,48 @@ local function styleAddons()
 		end
 	end
 	
-	-- Questie
+	-- LFGShout
 	if T.IsAddOnLoaded("LFGShout") then
 		local frame = _G.LFGShoutFrame
 		if frame then
 			frame:StripTextures()
 			frame:CreateBackdrop("Transparent")
 			frame.backdrop:Styling()
+			
+			local DungeonCheckBox = {
+				_G.LFGShoutFrame.DungeonCheckButton1,
+				_G.LFGShoutFrame.DungeonCheckButton2,
+				_G.LFGShoutFrame.DungeonCheckButton3,
+				_G.LFGShoutFrame.DungeonCheckButton4,
+				_G.LFGShoutFrame.DungeonCheckButton5,
+				_G.LFGShoutFrame.DungeonCheckButton6,
+				_G.LFGShoutFrame.DungeonCheckButton7,
+				_G.LFGShoutFrame.DungeonCheckButton8,
+				_G.LFGShoutFrame.DungeonCheckButton9,
+				_G.LFGShoutFrame.DungeonCheckButton10,
+				_G.LFGShoutFrame.DungeonCheckButton11,
+				_G.LFGShoutFrame.DungeonCheckButton12,
+				_G.LFGShoutFrame.DungeonCheckButton13,
+				_G.LFGShoutFrame.DungeonCheckButton14,
+				_G.LFGShoutFrame.DungeonCheckButton15,
+				_G.LFGShoutFrame.DungeonCheckButton16,
+				_G.LFGShoutFrame.DungeonCheckButton17,
+				_G.LFGShoutFrame.DungeonCheckButton18,
+				_G.LFGShoutFrame.DungeonCheckButton19,
+				_G.LFGShoutFrame.DungeonCheckButton20,
+				_G.LFGShoutFrame.DungeonCheckButton21,
+				_G.LFGShoutFrame.DungeonCheckButton22,
+				_G.LFGShoutFrame.DungeonCheckButton23,
+				_G.LFGShoutFrame.DungeonCheckButton24,
+				_G.LFGShoutFrame.DungeonCheckButton25,
+			}
+
+			for _, box in T.pairs(DungeonCheckBox) do
+				if box then
+					S:HandleCheckBox(box)
+					box:SetSize(20, 20)
+				end
+			end
 			
 			-- Options Frame
 			if frame.OptionsFrame then
@@ -1140,6 +1175,25 @@ local function styleAddons()
 					frame.OptionsFrame.EndText:StripTextures()
 					frame.OptionsFrame.EndText:CreateBackdrop()
 					frame.OptionsFrame.EndText:SetSize(139, 16)
+				end
+				
+				S:HandleCheckBox(frame.OptionsFrame.ChannelGeneral)
+				
+				local ChannelCheckBox = {
+					_G.LFGShoutFrame.OptionsFrame.ChannelGeneral,
+					_G.LFGShoutFrame.OptionsFrame.ChannelTrade,
+					_G.LFGShoutFrame.OptionsFrame.ChannelLFG,
+					_G.LFGShoutFrame.OptionsFrame.ChannelWorld,
+					_G.LFGShoutFrame.OptionsFrame.ChannelGuild,
+					_G.LFGShoutFrame.OptionsFrame.ChannelSay,
+					_G.LFGShoutFrame.OptionsFrame.ChannelYell,
+				}
+
+				for _, box in T.pairs(ChannelCheckBox) do
+					if box then
+						S:HandleCheckBox(box)
+						box:SetSize(20, 20)
+					end
 				end
 			end
 		end
