@@ -105,30 +105,6 @@ function KB:Initialize()
 	hooksecurefunc(B, "Layout", function(self, isBank)
 		KB:HookBags(isBank)
 	end)
-	
-	--This table is for initial update of a frame, cause applying transparent trmplate breaks color borders
-	KB.InitialUpdates = {
-		Bank = false,
-		ReagentBank = false,
-		ReagentBankButton = false,
-	}
-
-	--Fix borders for bag frames
-	hooksecurefunc(B, "OpenBank", function()
-		if not KB.InitialUpdates.Bank then --For bank, just update on first show
-			B:Layout(true)
-			KB.InitialUpdates.Bank = true
-		end
-		if not KB.InitialUpdates.ReagentBankButton then --For reagent bank, hook to toggle button and update layout when first clicked
-			_G["ElvUI_BankContainerFrame"].reagentToggle:HookScript("OnClick", function()
-				if not KB.InitialUpdates.ReagentBank then
-					B:Layout(true)
-					KB.InitialUpdates.ReagentBank = true
-				end
-			end)
-			KB.InitialUpdates.ReagentBankButton = true
-		end
-	end)
 end
 
 KUI:RegisterModule(KB:GetName())
