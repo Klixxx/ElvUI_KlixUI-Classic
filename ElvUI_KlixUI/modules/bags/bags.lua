@@ -100,12 +100,11 @@ function KB:Initialize()
 	KB:RegisterEvent("AUCTION_HOUSE_CLOSED")
 	KB:RegisterEvent("TRADE_SHOW")
 	KB:RegisterEvent("TRADE_CLOSED")
-	
-	--Applying stuff to already existing bags
-	self:HookBags();
+
+	self:HookBags()
 	hooksecurefunc(B, "Layout", function(self, isBank)
 		KB:HookBags(isBank)
-	end);
+	end)
 	
 	--This table is for initial update of a frame, cause applying transparent trmplate breaks color borders
 	KB.InitialUpdates = {
