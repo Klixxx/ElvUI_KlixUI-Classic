@@ -1199,6 +1199,23 @@ local function styleAddons()
 		end
 	end
 	
+	-- Extended Character Stats
+	if T.IsAddOnLoaded("ExtendedCharacterStats") then
+		local frame = _G.ECS_StatsFrame
+		if frame then
+			frame:StripTextures()
+			frame:CreateBackdrop("Transparent")
+			frame.backdrop:Styling()
+			
+			frame:ClearAllPoints()
+			frame:SetPoint("TOPRIGHT", _G.CharacterFrame.backdrop, "TOPRIGHT", (frame:GetWidth()+2), -1)
+			frame:SetSize(225, _G.CharacterFrame.backdrop:GetHeight()-2)
+			
+			S:HandleCloseButton(frame.CloseButton)
+			S:HandleScrollBar(_G.ECS_StatsFrameScrollBar)
+		end
+	end
+	
 	-- WeaponSwingTimer
 	if T.IsAddOnLoaded("WeaponSwingTimer") then
 		-- Player
