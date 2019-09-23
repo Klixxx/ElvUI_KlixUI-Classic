@@ -74,13 +74,6 @@ function KB:HookBags(isBank)
 			end
 		end
 	end
-	-- Applying shadow for reagent bank
-	if _G["ElvUIReagentBankFrameItem1"] then
-		for slotID = 1, 98 do
-			local slot = _G["ElvUIReagentBankFrameItem"..slotID]
-			slot:CreateIconShadow()
-		end
-	end
 end
 
 function KB:Initialize()
