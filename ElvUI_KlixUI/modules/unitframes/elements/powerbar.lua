@@ -30,8 +30,8 @@ f:SetScript("OnEvent", function(self, event)
 		PlayerFrame = ElvUF_Player --Set reference now that ElvUF_Player has been created
 		hooksecurefunc(UF, "ToggleResourceBar", Reposition) --Add hook
 		UF.ToggleResourceBar(ElvUF_Player.ClassPower) --Force update
-	elseif event == "UPDATE_SHAPESHIFT_FORM" then
-		UF.ToggleResourceBar(ElvUF_Player.ClassPower) --Force update
+	--elseif event == "UPDATE_SHAPESHIFT_FORM" then
+		--UF.ToggleResourceBar(ElvUF_Player.ClassPower) --Force update
 	elseif event == "PLAYER_LOGIN" then
 		UF.ToggleResourceBar(ElvUF_Player.ClassPower) --Force update
 	elseif event == "UNIT_MODEL_CHANGED" or "UNIT_PORTRAIT_CHANGED" then
