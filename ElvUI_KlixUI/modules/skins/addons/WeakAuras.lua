@@ -2,7 +2,7 @@ local KUI, T, E, L, V, P, G = unpack(select(2, ...))
 local S = E:GetModule("Skins")
 
 local function styleWeakAuras()
-	if not T.IsAddOnLoaded("WeakAuras") then return end
+	if not T.IsAddOnLoaded("WeakAuras") or not E.private.KlixUI.skins.addonSkins.wa then return end
 	
     local function Skin_WeakAuras(frame, ftype)
         if ftype == "icon" then
