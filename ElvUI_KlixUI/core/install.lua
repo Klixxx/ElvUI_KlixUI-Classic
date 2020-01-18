@@ -315,11 +315,32 @@ function KUI:SetupLayout(layout)
 	E.db["auras"]["debuffs"]["maxWraps"] = 2
 	
 	-- Cooldown Settings
-	E.db["auras"]["cooldown"]["override"] = false
-	E.db["auras"]["cooldown"]["fonts"]["enable"] = true
-	E.db["auras"]["cooldown"]["fonts"]["font"] = "Expressway"
-	E.db["auras"]["cooldown"]["fonts"]["fontOutline"] = "OUTLINE"
-	E.db["auras"]["cooldown"]["fonts"]["fontSize"] = 12
+	E.db["auras"]["cooldown"]["override"] = true
+	E.db["auras"]["cooldown"]["useIndicatorColor"] = true
+	E.db["auras"]["cooldown"]["hoursIndicator"]["r"] = 0.4
+	E.db["auras"]["cooldown"]["minutesIndicator"]["b"] = 0.9176470588235294
+	E.db["auras"]["cooldown"]["minutesIndicator"]["g"] = 0.7764705882352941
+	E.db["auras"]["cooldown"]["minutesIndicator"]["r"] = 0.2470588235294118
+	E.db["auras"]["cooldown"]["secondsIndicator"]["b"] = 0
+	E.db["auras"]["cooldown"]["expireIndicator"]["g"] = 0
+	E.db["auras"]["cooldown"]["expireIndicator"]["b"] = 0
+	E.db["auras"]["cooldown"]["daysIndicator"]["g"] = 0.4
+	E.db["auras"]["cooldown"]["daysIndicator"]["r"] = 0.4
+	E.db["auras"]["cooldown"]["hhmmColor"]["r"] = 0.431372549019608
+	E.db["auras"]["cooldown"]["hhmmColor"]["g"] = 0.431372549019608
+	E.db["auras"]["cooldown"]["hhmmColor"]["b"] = 0.431372549019608
+	E.db["auras"]["cooldown"]["mmssColor"]["r"] = 0.56078431372549
+	E.db["auras"]["cooldown"]["mmssColor"]["g"] = 0.56078431372549
+	E.db["auras"]["cooldown"]["mmssColor"]["b"] = 0.56078431372549
+	E.db["auras"]["cooldown"]["secondsColor"]["r"] = 1
+	E.db["auras"]["cooldown"]["secondsColor"]["g"] = 1
+	E.db["auras"]["cooldown"]["secondsColor"]["b"] = 1
+	E.db["auras"]["cooldown"]["minutesColor"]["r"] = 1
+	E.db["auras"]["cooldown"]["minutesColor"]["g"] = 1
+	E.db["auras"]["cooldown"]["hoursColor"]["b"] = 1
+	E.db["auras"]["cooldown"]["hoursColor"]["r"] = 1
+	E.db["auras"]["cooldown"]["hoursColor"]["g"] = 1
+	E.db["auras"]["cooldown"]["hoursColor"]["b"] = 1
 	
 	if T.IsAddOnLoaded('ElvUI_VisualAuraTimers') then
 	E.db["auras"]["timeXOffset"] = 0
@@ -401,11 +422,22 @@ function KUI:SetupLayout(layout)
 	E.db["bags"]["vendorGrays"]["details"] = true
 		
 	-- Cooldown Settings
-	E.db["bags"]["cooldown"]["override"] = false
-	E.db["bags"]["cooldown"]["fonts"]["enable"] = true
-	E.db["bags"]["cooldown"]["fonts"]["font"] = "Expressway"
-	E.db["bags"]["cooldown"]["fonts"]["fontOutline"] = "OUTLINE"
-	E.db["bags"]["cooldown"]["fonts"]["fontSize"] = 14
+	E.db["bags"]["cooldown"]["override"] = true
+	E.db["bags"]["cooldown"]["fonts"] = {
+		["enable"] = true,
+		["font"] = "Expressway",
+		["fontSize"] = 20,
+	}
+	E.db["bags"]["cooldown"]["hhmmColor"]["r"] = 0.431372549019608
+	E.db["bags"]["cooldown"]["hhmmColor"]["g"] = 0.431372549019608
+	E.db["bags"]["cooldown"]["hhmmColor"]["b"] = 0.431372549019608
+	E.db["bags"]["cooldown"]["mmssColor"]["r"] = 0.56078431372549
+	E.db["bags"]["cooldown"]["mmssColor"]["g"] = 0.56078431372549
+	E.db["bags"]["cooldown"]["mmssColor"]["b"] = 0.56078431372549
+	E.db["bags"]["cooldown"]["secondsColor"]["b"] = 0
+	E.db["bags"]["cooldown"]["daysColor"]["r"] = 0.4
+	E.db["bags"]["cooldown"]["daysColor"]["g"] = 0.4
+	E.db["bags"]["cooldown"]["hoursColor"]["r"] = 0.4
 	
 	KUI:SetMoverPosition("ElvUIBagMover", "BOTTOMRIGHT", E.UIParent, "BOTTOMRIGHT", -10, 30)
 	KUI:SetMoverPosition("ElvUIBankMover", "BOTTOMLEFT", E.UIParent, "BOTTOMLEFT", 10, 30)
@@ -457,7 +489,22 @@ function KUI:SetupLayout(layout)
 	E.db["nameplates"]["stackFontSize"] = 9
 	E.db["nameplates"]["statusbar"] = "Klix"
 	E.db["nameplates"]["smoothbars"] = true
-
+	
+	-- Cooldowns
+	E.db["nameplates"]["cooldown"]["override"] = true
+	E.db["nameplates"]["cooldown"]["hhmmColor"]["r"] = 0.431372549019608
+	E.db["nameplates"]["cooldown"]["hhmmColor"]["g"] = 0.431372549019608
+	E.db["nameplates"]["cooldown"]["hhmmColor"]["b"] = 0.431372549019608
+	E.db["nameplates"]["cooldown"]["mmssColor"]["r"] = 0.56078431372549
+	E.db["nameplates"]["cooldown"]["mmssColor"]["g"] = 0.56078431372549
+	E.db["nameplates"]["cooldown"]["mmssColor"]["b"] = 0.56078431372549
+	E.db["nameplates"]["cooldown"]["secondsColor"]["b"] = 0
+	E.db["nameplates"]["cooldown"]["fonts"]["enable"] = true
+	E.db["nameplates"]["cooldown"]["fonts"]["font"] = "Expressway"
+	E.db["nameplates"]["cooldown"]["daysColor"]["g"] = 0.4
+	E.db["nameplates"]["cooldown"]["daysColor"]["r"] = 0.4
+	E.db["nameplates"]["cooldown"]["hoursColor"]["r"] = 0.4
+	
 	-- Player
 	E.db["nameplates"]["units"]["PLAYER"]["enable"] = false
 	E.db["nameplates"]["units"]["PLAYER"]["health"]["text"]["font"] = "Expressway"
@@ -764,11 +811,21 @@ function KUI:SetupUnitframes(layout)
 	E.db["unitframe"]["colors"]["frameGlow"]["mouseoverGlow"]["texture"] = "Klix1"
 
 	-- Cooldown Settings
-	E.db["unitframe"]["cooldown"]["override"] = false
+	E.db["unitframe"]["cooldown"]["override"] = true
+	E.db["unitframe"]["cooldown"]["hhmmColor"]["b"] = 0.431372549019608
+	E.db["unitframe"]["cooldown"]["hhmmColor"]["g"] = 0.431372549019608
+	E.db["unitframe"]["cooldown"]["hhmmColor"]["r"] = 0.431372549019608
+	E.db["unitframe"]["cooldown"]["mmssColor"]["b"] = 0.56078431372549
+	E.db["unitframe"]["cooldown"]["mmssColor"]["g"] = 0.56078431372549
+	E.db["unitframe"]["cooldown"]["mmssColor"]["r"] = 0.56078431372549
+	E.db["unitframe"]["cooldown"]["secondsColor"]["b"] = 0
 	E.db["unitframe"]["cooldown"]["fonts"]["enable"] = true
 	E.db["unitframe"]["cooldown"]["fonts"]["font"] = "Expressway"
-	E.db["unitframe"]["cooldown"]["fonts"]["fontOutline"] = "OUTLINE"
-	E.db["unitframe"]["cooldown"]["fonts"]["fontSize"] = 10
+	E.db["unitframe"]["cooldown"]["fonts"]["fontSize"] = 16
+	E.db["unitframe"]["cooldown"]["hoursColor"]["r"] = 0.4
+	E.db["unitframe"]["cooldown"]["daysColor"]["g"] = 0.4
+	E.db["unitframe"]["cooldown"]["daysColor"]["r"] = 0.4
+	
 	
 	-- Player
 	E.db["unitframe"]["units"]["player"]["width"] = 250
@@ -1766,13 +1823,21 @@ function KUI:SetupActionbars(layout)
 	E.db["actionbar"]["desaturateOnCooldown"] = true
 	E.db["actionbar"]["transparent"] = true
 
-	-- Cooldown options
-	E.db["actionbar"]["cooldown"]["override"] = false
-	E.db["actionbar"]["cooldown"]["mmssThreshold"] = 141
+	-- Cooldowns
+	E.db["actionbar"]["cooldown"]["override"] = true
+	E.db["actionbar"]["cooldown"]["hhmmColor"]["r"] = 0.431372549019608
+	E.db["actionbar"]["cooldown"]["hhmmColor"]["g"] = 0.431372549019608
+	E.db["actionbar"]["cooldown"]["hhmmColor"]["b"] = 0.431372549019608
+	E.db["actionbar"]["cooldown"]["mmssColor"]["r"] = 0.56078431372549
+	E.db["actionbar"]["cooldown"]["mmssColor"]["g"] = 0.56078431372549
+	E.db["actionbar"]["cooldown"]["mmssColor"]["b"] = 0.56078431372549
+	E.db["actionbar"]["cooldown"]["secondsColor"]["b"] = 0
+	E.db["actionbar"]["cooldown"]["daysColor"]["r"] = 0.4
+	E.db["actionbar"]["cooldown"]["daysColor"]["g"] = 0.4
 	E.db["actionbar"]["cooldown"]["fonts"]["enable"] = true
 	E.db["actionbar"]["cooldown"]["fonts"]["font"] = "Expressway"
-	E.db["actionbar"]["cooldown"]["fonts"]["fontOutline"] = "OUTLINE"
-	E.db["actionbar"]["cooldown"]["fonts"]["fontSize"] = 18
+	E.db["actionbar"]["cooldown"]["fonts"]["fontSize"] = 20
+	E.db["actionbar"]["cooldown"]["hoursColor"]["r"] = 0.4
 
 	if T.IsAddOnLoaded("Masque") then
 		E.private["actionbar"]["masque"]["stanceBar"] = true
