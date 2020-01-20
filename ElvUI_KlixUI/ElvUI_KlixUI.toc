@@ -1,4 +1,4 @@
-## Interface: 11302
+## Interface: 11303
 ## Author: Klix
 ## Version: 0.08
 ## Title: |cfffe7b2cElvUI|r |cff1784d1Classic|r |cfff960d9KlixUI|r
