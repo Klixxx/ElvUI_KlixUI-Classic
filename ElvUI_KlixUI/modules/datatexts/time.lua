@@ -93,37 +93,16 @@ local function OnEnter(self)
 		T.RequestRaidInfo()
 	end
 
-	local addedHeader = false
-
-	local lockedInstances = {raids = {}, dungeons = {}}
-
-	for i = 1, T.GetNumSavedInstances() do
-		local name, _, _, difficulty, locked, extended, _, isRaid = T.GetSavedInstanceInfo(i)
-		if (locked or extended) and name then
-			local isLFR, isHeroicOrMythicDungeon = (difficulty == 7 or difficulty == 17), (difficulty == 2 or difficulty == 23)
-			local _, _, isHeroic, _, displayHeroic, displayMythic = T.GetDifficultyInfo(difficulty)
-			local sortName = name .. (displayMythic and 4 or (isHeroic or displayHeroic) and 3 or isLFR and 1 or 2)
-			local difficultyLetter = (displayMythic and difficultyTag[4] or (isHeroic or displayHeroic) and difficultyTag[3] or isLFR and difficultyTag[1] or difficultyTag[2])
-			local buttonImg = instanceIconByName[name] and T.string_format("|T%s:16:16:0:0:96:96:0:64:0:64|t ", instanceIconByName[name]) or ""
-
-			if isRaid then
-				T.table_insert(lockedInstances.raids, {sortName, difficultyLetter, buttonImg, {T.GetSavedInstanceInfo(i)}})
-			elseif isHeroicOrMythicDungeon then
-				T.table_insert(lockedInstances.dungeons, {sortName, difficultyLetter, buttonImg, {T.GetSavedInstanceInfo(i)}})
-			end
-		end
-	end
-
 	local Hr, Min, AmPm = CalculateTimeValues(true)
 	if DT.tooltip:NumLines() > 0 then
 		DT.tooltip:AddLine(" ")
 	end
 	if AmPm == -1 then
 		DT.tooltip:AddDoubleLine(E.db.datatexts.localtime and TIMEMANAGER_TOOLTIP_REALMTIME or TIMEMANAGER_TOOLTIP_LOCALTIME,
-			T.string_format(europeDisplayFormat_nocolor, Hr, Min), 1, .8, .1, 1, 1, 1)
+			T.string_format(europeDisplayFormat_nocolor, Hr, Min), 1, 1, 1, lockoutColorNormal.r, lockoutColorNormal.g, lockoutColorNormal.b)
 	else
 		DT.tooltip:AddDoubleLine(E.db.datatexts.localtime and TIMEMANAGER_TOOLTIP_REALMTIME or TIMEMANAGER_TOOLTIP_LOCALTIME,
-			T.string_format(ukDisplayFormat_nocolor, Hr, Min, APM[AmPm]), 1, .8, .1, 1, 1, 1)
+			T.string_format(ukDisplayFormat_nocolor, Hr, Min, APM[AmPm]), 1, 1, 1, lockoutColorNormal.r, lockoutColorNormal.g, lockoutColorNormal.b)
 	end
 
 	local monthAbr = {
