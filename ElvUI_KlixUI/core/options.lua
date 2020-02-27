@@ -5,7 +5,7 @@ if E.db.KlixUI == nil then E.db.KlixUI = {} end
 --This function holds the options table which will be inserted into the ElvUI config
 local function Core()
 	local name = "|cfffe7b2cElvUI|r"..T.string_format(": |cff99ff33%s|r",E.version).." + |cfff960d9KlixUI|r"..T.string_format(": |cff99ff33%s|r", KUI.Version)
-	E.Options.args.ElvUI_Header.name = name;
+	E.Options.name = name
 	local ACD = LibStub("AceConfigDialog-3.0-ElvUI")
 	
 	local function CreateButton(number, text, ...)
@@ -38,6 +38,7 @@ local function Core()
 		order = 216,
 		type = 'group',
 		name = KUI.Title,
+		childGroups = "tab",
 		desc = L["A plugin for |cfffe7b2cElvUI|r by Klix (EU-Twisting Nether)"],
 		args = {
 			name = {
@@ -111,8 +112,7 @@ local function Core()
 			general = {
 				order = 15,
 				type = 'group',
-				name = KUI:cOption(L['General']),
-				guiInline = true,
+				name = L['General'],
 				get = function(info) return E.db.KlixUI.general[ info[#info] ] end,
 				set = function(info, value) E.db.KlixUI.general[ info[#info] ] = value; E:StaticPopup_Show("PRIVATE_RL") end,
 				args = {
@@ -173,8 +173,7 @@ local function Core()
 			tweaks = {
 				order = 20,
 				type = 'group',
-				name = KUI:cOption(L['Tweaks']),
-				guiInline = true,
+				name = L['Tweaks'],
 				args = {
 					speedyLoot = {
 						order = 1,
@@ -220,7 +219,7 @@ local function Core()
 			modules = {
 				order = 20,
 				type = "group",
-				childGroups = "select",
+				childGroups = "tree",
 				name = L["Modules"],
 				args = {
 					info = {

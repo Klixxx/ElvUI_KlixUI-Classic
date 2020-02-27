@@ -378,7 +378,6 @@ local function SkinsTable()
 			type = 'execute',
 			name = addonName,
 			desc = L['This will create and apply profile for ']..addonName,
-			buttonElvUI = true,
 			func = function()
 				if addon == 'DBM-Core' then
 					KUI:LoadDBMProfile()

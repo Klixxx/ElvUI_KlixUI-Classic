@@ -346,7 +346,6 @@ local function Misc()
 								order = 5,
 								type = "execute",
 								name = L["Refresh Rank"],
-								buttonElvUI = true,
 								disabled = function(info) return not T.IsInGuild() or not E.db.KlixUI.misc.auto.invite.enable
 								end,
 								func = function() E.Options.args.KlixUI.args.modules.args.misc.args.auto.args.invite.args.inviteRank.values = MI:GetGuildRanks() end,
@@ -355,7 +354,6 @@ local function Misc()
 								order = 6,
 								type = "execute",
 								name = L["Start Invite"],
-								buttonElvUI = true,
 								disabled = function(info) return not T.IsInGuild() or not E.db.KlixUI.misc.auto.invite.enable end,
 								func = function()
 									for k, v in T.pairs(E.db.KlixUI.misc.auto.invite.inviteRank) do
