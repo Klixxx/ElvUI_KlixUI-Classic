@@ -1987,10 +1987,6 @@ function KUI:SetupActionbars(layout)
 	E.db["actionbar"]["microbar"]["buttonsPerRow"] = 12
 	E.db["actionbar"]["microbar"]["alpha"] = 1
 	
-	E.db["actionbar"]["extraActionButton"]["alpha"] = 1
-	E.db["actionbar"]["extraActionButton"]["scale"] = 0.75
-	E.db["actionbar"]["extraActionButton"]["inheritGlobalFade"] = false
-	
 	KUI:SetMoverPosition("ShiftAB", "TOPLEFT", E.UIParent, "BOTTOMLEFT", 959, 172)
 	KUI:SetMoverPosition("MicrobarMover", "TOPLEFT", E.UIParent, "TOPLEFT", 10, -10)
 	
@@ -2005,8 +2001,6 @@ function KUI:SetupActionbars(layout)
 		KUI:SetMoverPosition("ElvAB_5", "BOTTOMRIGHT", E.UIParent, "BOTTOMRIGHT", -411, 8)
 		KUI:SetMoverPosition("ElvAB_6", "BOTTOM", E.UIParent, "BOTTOM", 0, 30)		
 		KUI:SetMoverPosition("PetAB", "BOTTOM", E.UIParent, "BOTTOM", 0, 165)
-		KUI:SetMoverPosition("BossButton", "BOTTOM", E.UIParent, "BOTTOM", 0, 90)
-		KUI:SetMoverPosition("ZoneAbility", "BOTTOM", E.UIParent, "BOTTOM", 0, 90)
 		KUI:SetMoverPosition("KuiMiddleDTPanel", "BOTTOM", E.UIParent, "BOTTOM", 0, 8)
 		
 		--[[----------------------------------
