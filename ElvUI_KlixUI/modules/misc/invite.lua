@@ -45,7 +45,7 @@ function MI:InviteRanks()
     end
 end
 
-function MI:LoadInviteGroup()
-    self:RegisterEvent("CHAT_MSG_WHISPER", AutoInvite)
-    self:RegisterEvent("CHAT_MSG_BN_WHISPER", AutoInvite)
-end
+
+MI:RegisterEvent("CHAT_MSG_WHISPER", AutoInvite)
+MI:RegisterEvent("CHAT_MSG_BN_WHISPER", AutoInvite)
+
