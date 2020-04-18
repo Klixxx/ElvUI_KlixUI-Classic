@@ -26,6 +26,7 @@ KUI.ReminderList = {
 		["Intellect"] = {
 			["spellGroup"] = {
 				[23028] = true,
+				[10157] = true,
 				["defaultIcon"] = 23028, -- Arcane Brilliance
 			},
 			["enable"] = true,
